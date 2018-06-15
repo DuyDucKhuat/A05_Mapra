@@ -48,6 +48,9 @@ int main()
         fin >> wert;
         G(i,j) = wert;
     }
+    DistanceGraph::NeighborT a = G.getNeighbors(0);
+    for (int i = 0; i < 2; i++) std::cout << a[i].first << std::endl;
+    
     return 0;
     
 }
