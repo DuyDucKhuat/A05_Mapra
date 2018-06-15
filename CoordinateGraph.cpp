@@ -14,7 +14,7 @@ CostT& CoordinateGraph::operator () (size_t i, size_t j){
  //   return Adjazenz[i* (*this).numVertices()+j];
 //}
 
-NeighborT& CoordinateGraph::getNeighbors ( VertexT v){
+NeighborT & CoordinateGraph::getNeighbors ( VertexT v){
     NeighborT *  res = new NeighborT();
     
     
