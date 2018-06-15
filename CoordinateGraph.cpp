@@ -107,6 +107,7 @@ int main()
     std::cout <<G.estimatedCost(0,2) << std::endl;
 
     DisplayAdjazenz(G);
+    std::cout << PruefeHeuristik(G) << std::endl;
     return 0;
     
 }
