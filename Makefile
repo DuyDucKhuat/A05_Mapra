@@ -1,0 +1,2 @@
+FLG = -stdc++11
+FLG2 = -D_GLIBCXX_USE_CXX11_ABI=0
