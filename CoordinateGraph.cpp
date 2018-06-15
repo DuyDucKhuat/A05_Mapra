@@ -109,7 +109,7 @@ int main()
     fin >> edges;
     
     aktualsiereAdjazenz(fin, G, edges);
-
+    std::cout <<G.estimatedCost(0,2) << std::endl;
 
     DisplayAdjazenz(G);
     return 0;
