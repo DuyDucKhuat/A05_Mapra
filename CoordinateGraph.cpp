@@ -96,7 +96,7 @@ void aktualsiereAdjazenz( std::ifstream& in , CoordinateGraph& G, size_t edges){
 int main()
 {
     std::ifstream fin;
-    fin.open("daten/Graph5.dat");
+    fin.open("daten/Graph4.dat");
     size_t n = 0; //Anzahl der Knoten
     fin >> n;
     CoordinateGraph G(n);
