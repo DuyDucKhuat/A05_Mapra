@@ -15,11 +15,11 @@ public:
 //                              Hilfsfunktionen
 //#########################################################################################################
 
-bool allTrue( vector <int> S){
+bool allTrue( std::vector <int> S){
     for( int i = 0; i < S.size() ; i++) if (S[i] ==0) return false;
     return true;
 }
-int minIndex( vector< CostT> D){
+int minIndex( std::vector< CostT> D){
     int res = 0;
     CostT min = infty;
     for ( int i = 0; i < D.size(); i++) if (D[i]< min && D[i]!=0 ) res = i;
@@ -31,8 +31,8 @@ void Dijkstra(const DistanceGraph& g, GraphVisualizer& v, VertexT start, std::ve
     // ...
     size_t n =g.numVertices();
 
-    vector< size_t > S(n,0) ;
-    vector< double > D(n,infty);
+    std::vector< size_t > S(n,0) ;
+    std::vector< double > D(n,infty);
     D[start] = 0;
     S[start] = 1;
     //erste Schleife
