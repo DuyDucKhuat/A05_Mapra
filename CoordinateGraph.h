@@ -23,7 +23,7 @@ class CoordinateGraph : public DistanceGraph
     std::vector< std::pair<double,double>> Koordinaten; //enthält die Koordinaten der Knoten.
     
 
-    CoordinateGraph (size_t num_verts = 0 ) : DistanceGraph(num_verts) {Adjazenz.resize(num_verts*num_verts, infty); Koordinaten.resize(num_verts, std::vector(2,0) );}
+    CoordinateGraph (size_t num_verts = 0 ) : DistanceGraph(num_verts) {Adjazenz.resize(num_verts*num_verts, infty); Koordinaten.resize(num_verts, std::pair(0,0));}
     CostT& operator () (size_t i, size_t j);
     CostT operator () (size_t i, size_t j) const ;
     NeighborT & getNeighbors ( VertexT v) const;
