@@ -29,12 +29,8 @@ DistanceGraph::NeighborT & CoordinateGraph::getNeighbors ( VertexT v){
 }
 
 
-istream& operator >> (istream& in, CoordinateGraph& G)
-{
-    
-    
-}
-
+CostT CoordinateGraph::estimatedCost( VertexT from, VertexT to){}
+CostT CoordinateGraph::cost( VertexT from, VertexT to){}
 int main()
 {
     std::ifstream fin;

@@ -25,6 +25,8 @@ class CoordinateGraph : public DistanceGraph
     CostT& operator () (size_t i, size_t j);
    // CostT operator () (size_t i, size_t j) ;
     NeighborT & getNeighbors ( VertexT v);
+    CostT estimatedCost( VertexT from, VertexT to);
+    CostT cost( VertexT from, VertexT to);
     
     
 
