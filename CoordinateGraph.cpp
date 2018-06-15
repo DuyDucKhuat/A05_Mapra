@@ -6,7 +6,9 @@
 //
 
 #include "CoordinateGraph.h"
-
+//###################################################################################################################
+//                                              Zugriffsoperatoren
+//###################################################################################################################
 CostT& CoordinateGraph::operator () (size_t i, size_t j){
     return Adjazenz[i* (*this).numVertices()+j];
 }
@@ -14,6 +16,12 @@ CostT& CoordinateGraph::operator () (size_t i, size_t j){
 CostT CoordinateGraph::operator () (size_t i, size_t j) const{
     return Adjazenz[i* (*this).numVertices()+j];
 }
+
+//###################################################################################################################
+//                                  Funktionen aus DistanceGraph
+//###################################################################################################################
+
+
 
 DistanceGraph::NeighborT & CoordinateGraph::getNeighbors  ( VertexT v) const {
     DistanceGraph::NeighborT *  res = new DistanceGraph::NeighborT();
@@ -30,8 +38,28 @@ DistanceGraph::NeighborT & CoordinateGraph::getNeighbors  ( VertexT v) const {
 }
 
 
+
 CostT CoordinateGraph::estimatedCost ( VertexT from, VertexT to) const {}
 CostT CoordinateGraph::cost  ( VertexT from, VertexT to) const {}
+
+
+
+
+//###################################################################################################################
+//                                  Testfunktionen
+//###################################################################################################################
+
+void DisplayAdjazenz ( CoordinateGraph& G){
+    for (int i = 0; i < G.numVertices() ; i++){
+        for(int j = 0; j < G.numVertices(); j++) {
+            if( G(i,j) != infty) std::cout << G(i,j)<< "  ";
+            else std::cout << _ << "  "
+            
+        }
+        std::cout<< "\n" ;
+    }
+
+}
 
 
 int main()
@@ -58,10 +86,7 @@ int main()
     DistanceGraph::NeighborT a4 = G.getNeighbors(3);
     std::cout << a4[0].first << " "<< a4[0].second << std::endl;
     
-	for (int i = 0 ; i < 4 ; i++){
-		for(int j = 0; j < 4 ; j++) std::cout << G(i,j)<< "   ";	
-		std::cout<< "\n" ;
-	}
+    DisplayAdjazenz(G);
     return 0;
     
 }
