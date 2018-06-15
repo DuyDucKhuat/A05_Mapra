@@ -7,10 +7,10 @@
 
 #include "CoordinateGraph.h"
 
-CostT& CoordinateGraph::operator () (size_t i, size_t j){
+CostT& operator () (size_t i, size_t j){
     return Adjazenz[i* (*this).numVertices()+j];
 }
-CostT CoordinateGraph::operator () (size_t i, size_t j){
+CostT operator () (size_t i, size_t j){
     return Adjazenz[i* (*this).numVertices()+j];
 }
 
