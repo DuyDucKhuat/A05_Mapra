@@ -35,7 +35,7 @@ class CoordinateGraph : public DistanceGraph
     CostT operator () (size_t i, size_t j) const ;
     NeighborT & getNeighbors ( VertexT v) const;
     CostT estimatedCost ( VertexT from, VertexT to) const;
-    CostT cost ( VertexT from, VertexT to) const;
+    CostT cost ( VertexT from, VertexT to) const{return (*this)(from,to);}
     
     
     

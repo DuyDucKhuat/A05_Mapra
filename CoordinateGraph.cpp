@@ -40,18 +40,13 @@ DistanceGraph::NeighborT & CoordinateGraph::getNeighbors  ( VertexT v) const {
 
 
 // Heuristik: Schaetzt die Kosten, um vom Knoten "from" zum Knoten "to" zu gelangen.
+//Euklidische Norm. "Luftlinie"
 CostT CoordinateGraph::estimatedCost ( VertexT from, VertexT to) const {
-    CostT res = Koordinaten[from].first - Koordinaten[to].first;
-    res = res*res;
+    CostT res = (Koordinaten[from].first - Koordinaten[to].first)*(Koordinaten[from].first - Koordinaten[to].first);
     res =+ (Koordinaten[from].second-Koordinaten[to].second)*(Koordinaten[from].second-Koordinaten[to].second);
     return sqrt(res);
 }
 
-
-
-// Gibt die wahren Kosten c an, um vom Knoten "from" zum Knoten "to" zu gelangen.
-// Existiert zwischen den beiden Knoten keine Kante, werden die Kosten mit infty bewertet.
-CostT CoordinateGraph::cost  ( VertexT from, VertexT to) const {}
 
 
 
