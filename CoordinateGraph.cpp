@@ -14,8 +14,8 @@ CostT& CoordinateGraph::operator () (size_t i, size_t j){
  //   return Adjazenz[i* (*this).numVertices()+j];
 //}
 
-NeighborT CoordinateGraph::getNeighbors ( VertexT v){
-    std::vector<LocalEdgeT> res;
+NeighborT& CoordinateGraph::getNeighbors ( VertexT v){
+    NeighborT *  res = new NeighborT();
     
     
     for ( int i = 0; i < (*this).numVertices(); i++){
@@ -24,7 +24,7 @@ NeighborT CoordinateGraph::getNeighbors ( VertexT v){
             LocalEdgeT Edge(i, (*this)(v,i));
             res.push_back(Edge);
     }
-    return res;
+    return &res;
 }
     
 
