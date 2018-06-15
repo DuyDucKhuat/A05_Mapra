@@ -53,7 +53,7 @@ void DisplayAdjazenz ( CoordinateGraph& G){
      std:: cout <<"    ";
     for (int i = 0; i < G.numVertices() ; i++) std:: cout << i << "  ";
     std::cout << "\n";
-    for (int i = 0; i < G.numVertices() ; i++) std:: cout << "___";
+    for (int i = 0; i < G.numVertices() ; i++) std:: cout << "____";
     std::cout << "\n";
     
     for (int i = 0; i < G.numVertices() ; i++){
@@ -67,6 +67,17 @@ void DisplayAdjazenz ( CoordinateGraph& G){
     }
 
 }
+void aktualsiereAdjazenz( istream& in , CoordinateGraph& G, size_t edges){
+    size_t i, j ;
+    CostT wert = infty;
+    for (int l = 0; l < edges; l++)
+    {
+        in >> i;
+        in >> j;
+        in >> wert;
+        G(i,j) = wert;
+    }
+}
 
 
 int main()
@@ -78,14 +89,15 @@ int main()
     CoordinateGraph G(n);
     size_t edges = 0;
     fin >> edges;
-    for ( int l = 0 ; l < edges ; l++){
+    aktualsiereAdjazenz(fin, G, edges);
+    /*for ( int l = 0 ; l < edges ; l++){
         size_t i,j;
         CostT wert = infty;
         fin >> i;
         fin >> j;
         fin >> wert;
         G(i,j) = wert;
-    }
+    }*/
 
     DisplayAdjazenz(G);
     return 0;
