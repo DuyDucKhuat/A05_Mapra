@@ -15,7 +15,7 @@ public:
 //                              Hilfsfunktionen
 //#########################################################################################################
 
-bool allTrue( std::vector <int> S){
+bool allTrue( std::vector < size_t > S){
     for( int i = 0; i < S.size() ; i++) if (S[i] ==0) return false;
     return true;
 }
@@ -23,7 +23,7 @@ int minIndex( std::vector< CostT> D){
     int res = 0;
     CostT min = infty;
     for ( int i = 0; i < D.size(); i++) if (D[i]< min && D[i]!=0 ) res = i;
-    return i;
+    return res;
 }
 //#########################################################################################################
 
@@ -45,11 +45,11 @@ void Dijkstra(const DistanceGraph& g, GraphVisualizer& v, VertexT start, std::ve
         S[v1] = 1; //fuege v1 zu S hinzu.
         for ( int i = 0; i < n ; i ++)  if ( S[i] == 0)
                                         if( (D[v1]+g(v1,i)) < D[i])
-                                            D[i] := D[v1]+g(v1,i);
+                                            D[i] = D[v1]+g(v1,i);
     }
     
     
-    
+    //TODO : Wechsle von g(i,j) auf die Verwendung von getNeighborT
 }
 
 bool A_star(const DistanceGraph& g, GraphVisualizer& v, VertexT start, VertexT ziel, std::list<VertexT>& weg) {
