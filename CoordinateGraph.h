@@ -9,6 +9,7 @@
 #include "unit.h"
 #include <vector>
 #include <iostream>
+#include <fstream>
 
 #define CoordinateGraph_h
 
@@ -24,6 +25,7 @@ class CoordinateGraph : public DistanceGraph
     CostT& operator () (size_t i, size_t j);
    // CostT operator () (size_t i, size_t j) ;
     NeighborT & getNeighbors ( VertexT v);
+    
     
 
 };

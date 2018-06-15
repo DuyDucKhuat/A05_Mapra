@@ -27,6 +27,33 @@ DistanceGraph::NeighborT & CoordinateGraph::getNeighbors ( VertexT v){
 	}
     return *res;
 }
-int main(){return 0;}
+
+
+istream& operator >> (istream& in, CoordinateGraph& G)
+{
+    
+    
+}
+
+int main()
+{
+    std::ifstream fin;
+    fin.open("daten/Graph1.dat");
+    size_t n = 0; //Anzahl der Knoten
+    fin >> n;
+    CoordinateGraph G(n);
+    size_t edges = 0;
+    fin >> edges;
+    for ( int l = 0 ; l < edges ; l++){
+        size_t i,j;
+        CostT wert = infty;
+        fin >> i;
+        fin >> j;
+        fin >> wert;
+        G(i,j) = wert;
+    }
+    return 0;
+    
+}
  
 
