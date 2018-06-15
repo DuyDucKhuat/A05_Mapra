@@ -72,7 +72,7 @@ void DisplayAdjazenz ( CoordinateGraph& G){
 int main()
 {
     std::ifstream fin;
-    fin.open("daten/Graph1.dat");
+    fin.open("daten/Graph2.dat");
     size_t n = 0; //Anzahl der Knoten
     fin >> n;
     CoordinateGraph G(n);
@@ -86,13 +86,7 @@ int main()
         fin >> wert;
         G(i,j) = wert;
     }
-    DistanceGraph::NeighborT a = G.getNeighbors(0);
-    for (int i = 0; i < 2; i++) std::cout << a[i].first << " "<< a[i].second <<std::endl;
-    DistanceGraph::NeighborT a2 = G.getNeighbors(1);
-    for (int i = 0; i < 2; i++) std::cout << a2[i].first <<" "<< a2[i].second << std::endl;
-    DistanceGraph::NeighborT a4 = G.getNeighbors(3);
-    std::cout << a4[0].first << " "<< a4[0].second << std::endl;
-    
+
     DisplayAdjazenz(G);
     return 0;
     
