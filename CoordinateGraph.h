@@ -26,7 +26,8 @@ class CoordinateGraph : public DistanceGraph
     CoordinateGraph (size_t num_verts = 0 ) : DistanceGraph(num_verts)
     {
         Adjazenz.resize(num_verts*num_verts, infty);
-        Koordinaten.resize(num_verts, std::pair def(0,0));
+        std::pair a(0,0);
+        Koordinaten.resize(num_verts, a);
     }
     CostT& operator () (size_t i, size_t j);
     CostT operator () (size_t i, size_t j) const ;
