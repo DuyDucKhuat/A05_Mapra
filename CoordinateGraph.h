@@ -27,6 +27,7 @@ class CoordinateGraph : public DistanceGraph
     NeighborT & getNeighbors ( VertexT v) const;
     CostT estimatedCost ( VertexT from, VertexT to) const;
     CostT cost ( VertexT from, VertexT to) const;
+    void 
     
     
 

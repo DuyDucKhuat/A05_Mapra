@@ -53,6 +53,10 @@ int main()
     }
     DistanceGraph::NeighborT a = G.getNeighbors(0);
     for (int i = 0; i < 2; i++) std::cout << a[i].first << std::endl;
+    DistanceGraph::NeighborT a2 = G.getNeighbors(1);
+    for (int i = 0; i < 2; i++) std::cout << a[i].first << std::endl;
+    DistanceGraph::NeighborT a4 = G.getNeighbors(3);
+    std::cout << a[0].first << std::endl;
     
 	for (int i = 0 ; i < 4 ; i++){
 		for(int j = 0; j < 4 ; j++) std::cout << G(i,j)<< "   ";	
