@@ -14,17 +14,19 @@ CostT& CoordinateGraph::operator () (size_t i, size_t j){
  //   return Adjazenz[i* (*this).numVertices()+j];
 //}
 
-NeighborT & CoordinateGraph::getNeighbors ( VertexT v){
-    NeighborT *  res = new NeighborT();
+DistanceGraph::NeighborT & CoordinateGraph::getNeighbors ( VertexT v){
+    DistanceGraph::NeighborT *  res = new DistanceGraph::NeighborT();
     
     
     for ( int i = 0; i < (*this).numVertices(); i++){
         
         if( (*this)(v,i) != infty){
-            LocalEdgeT Edge(i, (*this)(v,i));
-            res.push_back(Edge);
-    }
-    return &res;
+            DistanceGraph::LocalEdgeT Edge(i, (*this)(v,i));
+            res->push_back(Edge);
+   	 }
+	}
+    return *res;
 }
-    
+int main(){return 0;}
+ 
 
