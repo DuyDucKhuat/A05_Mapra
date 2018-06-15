@@ -50,7 +50,12 @@ CostT CoordinateGraph::cost  ( VertexT from, VertexT to) const {}
 //###################################################################################################################
 
 void DisplayAdjazenz ( CoordinateGraph& G){
+    for (int i = 0; i < G.numVertices() ; i++) std:: cout << i << "   ";
+    for (int i = 0; i < G.numVertices() ; i++) std:: cout << "_____";
+    std::cout << "\n";
+    
     for (int i = 0; i < G.numVertices() ; i++){
+        std:: cout << i << " | ";
         for(int j = 0; j < G.numVertices(); j++) {
             if( G(i,j) != infty) std::cout << G(i,j)<< "  ";
             else std::cout << "_" << "  ";
