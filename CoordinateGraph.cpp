@@ -67,7 +67,7 @@ void DisplayAdjazenz ( CoordinateGraph& G){
     }
 
 }
-void aktualsiereAdjazenz( istream& in , CoordinateGraph& G, size_t edges){
+void aktualsiereAdjazenz( ifstream& in , CoordinateGraph& G, size_t edges){
     size_t i, j ;
     CostT wert = infty;
     for (int l = 0; l < edges; l++)
