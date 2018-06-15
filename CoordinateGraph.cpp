@@ -53,7 +53,7 @@ void DisplayAdjazenz ( CoordinateGraph& G){
     for (int i = 0; i < G.numVertices() ; i++){
         for(int j = 0; j < G.numVertices(); j++) {
             if( G(i,j) != infty) std::cout << G(i,j)<< "  ";
-            else std::cout << _ << "  "
+            else std::cout << "_" << "  ";
             
         }
         std::cout<< "\n" ;
