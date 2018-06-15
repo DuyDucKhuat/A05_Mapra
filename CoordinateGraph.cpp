@@ -10,11 +10,12 @@
 CostT& CoordinateGraph::operator () (size_t i, size_t j){
     return Adjazenz[i* (*this).numVertices()+j];
 }
-//CostT CoordinateGraph::operator () (size_t i, size_t j){
- //   return Adjazenz[i* (*this).numVertices()+j];
-//}
 
-DistanceGraph::NeighborT & CoordinateGraph::getNeighbors ( VertexT v){
+CostT CoordinateGraph::operator () (size_t i, size_t j) const{
+    return Adjazenz[i* (*this).numVertices()+j];
+}
+
+DistanceGraph::NeighborT & CoordinateGraph::getNeighbors  ( VertexT v) const {
     DistanceGraph::NeighborT *  res = new DistanceGraph::NeighborT();
     
     
@@ -29,8 +30,10 @@ DistanceGraph::NeighborT & CoordinateGraph::getNeighbors ( VertexT v){
 }
 
 
-CostT CoordinateGraph::estimatedCost( VertexT from, VertexT to){}
-CostT CoordinateGraph::cost( VertexT from, VertexT to){}
+CostT CoordinateGraph::estimatedCost ( VertexT from, VertexT to) const {}
+CostT CoordinateGraph::cost  ( VertexT from, VertexT to) const {}
+
+
 int main()
 {
     std::ifstream fin;
@@ -48,6 +51,10 @@ int main()
         fin >> wert;
         G(i,j) = wert;
     }
+	for (int i = 0 ; i < 4 ; i++){
+		for(int j = 0; j < 4 ; j++) std::cout << G(i,j)<< "   ";	
+		std::cout<< "\n" ;
+	}
     return 0;
     
 }
