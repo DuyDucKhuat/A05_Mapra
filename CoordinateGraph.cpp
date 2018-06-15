@@ -88,10 +88,12 @@ void aktualsiereAdjazenz( std::ifstream& in , CoordinateGraph& G, size_t edges){
         G(i,j) = wert;
     }
     for (int i = 0; i < G.numVertices() ; i++){
+        std::cout << G.Koordinaten[i].first << std::endl;
         in >> G.Koordinaten[i].first;
+        std::cout << G.Koordinaten[i].first << std::endl;
+
         in >> G.Koordinaten[i].second;
     }
-    std::cout << G.Koordinaten[0].second << std::endl;
 }
 
 
