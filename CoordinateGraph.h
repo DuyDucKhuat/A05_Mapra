@@ -10,6 +10,7 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
+#include <math.h>
 
 #define CoordinateGraph_h
 
@@ -20,7 +21,7 @@ class CoordinateGraph : public DistanceGraph
 {
     public:
     std::vector<CostT> Adjazenz;                        // Adjazenzmatrix des Graphen mit Kosten.
-    std::vector< std::pair<double,double> > Koordinaten; //enthält die Koordinaten der Knoten.
+    std::vector< std::pair<double,double> > Koordinaten; //enthält die Koordinaten der Knoten, als Tupel (x,y).
     
 
     CoordinateGraph (size_t num_verts = 0 ) : DistanceGraph(num_verts)

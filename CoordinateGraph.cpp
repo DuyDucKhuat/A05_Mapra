@@ -41,7 +41,10 @@ DistanceGraph::NeighborT & CoordinateGraph::getNeighbors  ( VertexT v) const {
 
 // Heuristik: Schaetzt die Kosten, um vom Knoten "from" zum Knoten "to" zu gelangen.
 CostT CoordinateGraph::estimatedCost ( VertexT from, VertexT to) const {
-    
+    CostT res = Koordinaten[from].first - Koordinaten[to].first;
+    res = res*res;
+    res =+ (Koordinaten[from].second-Koordinaten[to].second)*(Koordinaten[from].second-Koordinaten[to].second);
+    return sqrt(res);
 }
 
 
@@ -87,13 +90,10 @@ void aktualsiereAdjazenz( std::ifstream& in , CoordinateGraph& G, size_t edges){
         in >> wert;
         G(i,j) = wert;
     }
+    //Lese die Koordinaten der Knoten ein. Pro Knoten ein Tupel (x,y).
     for (int i = 0; i < G.numVertices() ; i++){
         in >> G.Koordinaten[i].first;
-        std::cout << G.Koordinaten[i].first << std::endl;
-
         in >> G.Koordinaten[i].second;
-        std::cout << G.Koordinaten[i].second << std::endl;
-
     }
 }
 
