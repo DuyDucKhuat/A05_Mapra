@@ -22,6 +22,7 @@ CostT CoordinateGraph::operator () (size_t i, size_t j) const{
 //###################################################################################################################
 
 
+// Gibt die Nachbarknoten eines gegebenen Knotens v zurueck.
 
 DistanceGraph::NeighborT & CoordinateGraph::getNeighbors  ( VertexT v) const {
     DistanceGraph::NeighborT *  res = new DistanceGraph::NeighborT();
@@ -38,8 +39,15 @@ DistanceGraph::NeighborT & CoordinateGraph::getNeighbors  ( VertexT v) const {
 }
 
 
+// Heuristik: Schaetzt die Kosten, um vom Knoten "from" zum Knoten "to" zu gelangen.
+CostT CoordinateGraph::estimatedCost ( VertexT from, VertexT to) const {
+    
+}
 
-CostT CoordinateGraph::estimatedCost ( VertexT from, VertexT to) const {}
+
+
+// Gibt die wahren Kosten c an, um vom Knoten "from" zum Knoten "to" zu gelangen.
+// Existiert zwischen den beiden Knoten keine Kante, werden die Kosten mit infty bewertet.
 CostT CoordinateGraph::cost  ( VertexT from, VertexT to) const {}
 
 
@@ -67,6 +75,8 @@ void DisplayAdjazenz ( CoordinateGraph& G){
     }
 
 }
+
+//Lese die Kanten mit Kantengewichten ab.
 void aktualsiereAdjazenz( std::ifstream& in , CoordinateGraph& G, size_t edges){
     size_t i, j ;
     CostT wert = infty;
@@ -77,6 +87,11 @@ void aktualsiereAdjazenz( std::ifstream& in , CoordinateGraph& G, size_t edges){
         in >> wert;
         G(i,j) = wert;
     }
+    for (int i = 0; i < G.numVertices() ; i++){
+        in >> G.Koordinaten[i].first;
+        in >> G.Koordinaten[i].second;
+    }
+    std::cout << G.Koordinaten[0].second << std::endl;
 }
 
 
@@ -87,17 +102,11 @@ int main()
     size_t n = 0; //Anzahl der Knoten
     fin >> n;
     CoordinateGraph G(n);
-    size_t edges = 0;
+    size_t edges = 0;   //Anzahl der Kanten
     fin >> edges;
+    
     aktualsiereAdjazenz(fin, G, edges);
-    /*for ( int l = 0 ; l < edges ; l++){
-        size_t i,j;
-        CostT wert = infty;
-        fin >> i;
-        fin >> j;
-        fin >> wert;
-        G(i,j) = wert;
-    }*/
+
 
     DisplayAdjazenz(G);
     return 0;

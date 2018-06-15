@@ -39,7 +39,6 @@ class DistanceGraph
   public:
     DistanceGraph( int num_verts= 0)
       : vertexCount(num_verts) {}
-      
     virtual ~DistanceGraph() {}
 
     // Gibt die Anzahl der Knoten im Graphen zurueck.
