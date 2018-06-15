@@ -19,7 +19,7 @@ class CoordinateGraph : public DistanceGraph
     
     CoordinateGraph (size_t num_verts = 0 ) : DistanceGraph(num_verts) {Adjazenz.resize(num_verts*num_verts, infty);}
     CostT& operator () (size_t i, size_t j);
-    CostT operator () (size_t i, size_t j) const;
+    CostT operator () (size_t i, size_t j) ;
     NeighborT& getNeighbors ( VertexT v);
 
 };
