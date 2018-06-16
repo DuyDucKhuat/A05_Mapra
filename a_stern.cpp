@@ -36,16 +36,15 @@ void Dijkstra(const DistanceGraph& g, GraphVisualizer& v, VertexT start, std::ve
     D[start] = 0;
     S[start] = 1;
     //erste Schleife
-    for ( int i = 0; i < n ; i++)
-        if( i != start)
-            D[i] = g(start,i);
+    for ( auto v : g.getNeighbors(start))
+        D[v.first] = v.second;
     while( !(allTrue(S)))
     {
         size_t v1 = minIndex(D);
         S[v1] = 1; //fuege v1 zu S hinzu.
-        for ( int i = 0; i < n ; i ++)  if ( S[i] == 0)
-                                        if( (D[v1]+g(v1,i)) < D[i])
-                                            D[i] = D[v1]+g(v1,i);
+        for ( auto v : g.getNeighbors(v1))
+            if ( D[v.first] > (D[v1] + v.second)) D[v.first] = D[v1] + v.second;
+
     }
     
     
