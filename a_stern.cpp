@@ -66,7 +66,7 @@ int main()
     CoordinateGraph G(n);
     size_t edges = 0;   //Anzahl der Kanten
     fin >> edges;
-    G.CoordinateGraph::aktualsiereAdjazenz(fin, edges);
+    G.aktualsiereAdjazenz(fin, edges);
     std::vector<CostT> D(n,infty);
     Dijkstra(G,0, D);
     PruefeDijkstra( 4, 0, D);
@@ -77,5 +77,7 @@ int main()
     // PruefeDijkstra / PruefeWeg
     
     return 0;
+    // TODO: 16.Juni. Der beschissene Scheiß funktioniert nicht. Ich kann die funktionen aus meiner CoordinateGraph Klasse nicht hier benutzen. Das heißt rüberkopieren und schauen ob es hier geht.
+    // hart unnötig :D
 }
  
