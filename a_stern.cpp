@@ -66,7 +66,7 @@ int main()
     CoordinateGraph G(n);
     size_t edges = 0;   //Anzahl der Kanten
     fin >> edges;
-    aktualsiereAdjazenz(fin, G, edges);
+    G.aktualsiereAdjazenz(fin, edges);
     std::vector<CostT> D(n,infty);
     Dijkstra(G,0, D);
     PruefeDijkstra( 4, 0, D);

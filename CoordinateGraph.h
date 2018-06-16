@@ -36,7 +36,7 @@ class CoordinateGraph : public DistanceGraph
     NeighborT & getNeighbors ( VertexT v) const;
     CostT estimatedCost ( VertexT from, VertexT to) const;
     CostT cost ( VertexT from, VertexT to) const{return (*this)(from,to);}
-    
+    void aktualsiereAdjazenz( std::ifstream& in , CoordinateGraph& G, size_t edges);
     
     
 

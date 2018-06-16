@@ -75,7 +75,7 @@ void DisplayAdjazenz ( CoordinateGraph& G){
 }
 
 //Lese die Kanten mit Kantengewichten ab.
-void aktualsiereAdjazenz( std::ifstream& in , CoordinateGraph& G, size_t edges){
+void CoordinateGraph::aktualsiereAdjazenz( std::ifstream& in , size_t edges){
     size_t i, j ;
     CostT wert = infty;
     for (int l = 0; l < edges; l++)
@@ -83,12 +83,12 @@ void aktualsiereAdjazenz( std::ifstream& in , CoordinateGraph& G, size_t edges){
         in >> i;
         in >> j;
         in >> wert;
-        G(i,j) = wert;
+        (*this)(i,j) = wert;
     }
     //Lese die Koordinaten der Knoten ein. Pro Knoten ein Tupel (x,y).
     for (int i = 0; i < G.numVertices() ; i++){
-        in >> G.Koordinaten[i].first;
-        in >> G.Koordinaten[i].second;
+        in >> (*this).Koordinaten[i].first;
+        in >> (*this).Koordinaten[i].second;
     }
 }
 
