@@ -93,7 +93,7 @@ void aktualsiereAdjazenz( std::ifstream& in , CoordinateGraph& G, size_t edges){
 }
 
 
-int main()
+/*int main()
 {
     std::ifstream fin;
     fin.open("daten/Graph4.dat");
@@ -111,5 +111,4 @@ int main()
     return 0;
     
 }
- 
-
+*/
