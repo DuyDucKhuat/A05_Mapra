@@ -4,14 +4,14 @@
 #include "CoordinateGraph.h"
 
 // Ein Graph, der Koordinaten von Knoten speichert.
-class CoordinateGraph : public DistanceGraph {
+/*class CoordinateGraph : public DistanceGraph {
 public:
     const NeighborT& getNeighbors( VertexT v) const override;
     
     CostT estimatedCost( VertexT from, VertexT to) const override;
     
     CostT cost( VertexT from, VertexT to) const override;
-};
+};*/
 //#########################################################################################################
 //                              Hilfsfunktionen
 //#########################################################################################################
@@ -68,6 +68,8 @@ int main()
     fin >> edges;
     aktualsiereAdjazenz(fin, G, edges);
     std::vector<CostT D(n,infty);
+    GraphVisualizer A;
+    Dijkstra(G,A,0, D);
     PruefeDijkstra( 4, 0, D);
     // Lade die zugehoerige Textdatei in einen Graphen
     // PruefeHeuristik
