@@ -28,7 +28,7 @@ int minIndex( std::vector< CostT> D){
 }
 //#########################################################################################################
 
-void Dijkstra(const DistanceGraph& g, GraphVisualizer& v, VertexT start, std::vector<CostT>& kostenZumStart) {
+void Dijkstra(const DistanceGraph& g, VertexT start, std::vector<CostT>& kostenZumStart) {
     // ...
     size_t n = g.numVertices();
 
