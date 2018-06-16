@@ -51,7 +51,7 @@ void Dijkstra(const DistanceGraph& g, GraphVisualizer& v, VertexT start, std::ve
     
 }
 
-bool A_star(const DistanceGraph& g, GraphVisualizer& v, VertexT start, VertexT ziel, std::list<VertexT>& weg) {
+bool A_star(const DistanceGraph& g, VertexT start, VertexT ziel, std::list<VertexT>& weg) {
     // ...
     return false; // Kein Weg gefunden.
 }
@@ -67,9 +67,8 @@ int main()
     size_t edges = 0;   //Anzahl der Kanten
     fin >> edges;
     aktualsiereAdjazenz(fin, G, edges);
-    std::vector<CostT D(n,infty);
-    GraphVisualizer A;
-    Dijkstra(G,A,0, D);
+    std::vector<CostT> D(n,infty);
+    Dijkstra(G,0, D);
     PruefeDijkstra( 4, 0, D);
     // Lade die zugehoerige Textdatei in einen Graphen
     // PruefeHeuristik
