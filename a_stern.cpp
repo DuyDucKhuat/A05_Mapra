@@ -45,7 +45,7 @@ void Dijkstra(const DistanceGraph& g, VertexT start, std::vector<CostT>& kostenZ
         S[v1] = 1; //fuege v1 zu S hinzu.
         for ( auto v : g.getNeighbors(v1)) //aktualsiere eventuell von v1 erreichbare Knoten
             if ( D[v.first] > (D[v1] + v.second)) D[v.first] = D[v1] + v.second;
-
+        std::cout <<  allTrue(S) << std::endl;
     }
     
     
@@ -87,7 +87,6 @@ int main()
     fin >> edges;
     aktualsiereAdjazenz(fin, edges, G);
     std::vector<CostT> D(n,infty);
-    std::cout << "hi " << std::endl;
     Dijkstra(G,0, D);
     PruefeDijkstra( 4, 0, D);
     // Lade die zugehoerige Textdatei in einen Graphen
