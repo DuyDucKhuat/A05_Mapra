@@ -76,6 +76,7 @@ bool A_star(const DistanceGraph& g, VertexT start, VertexT ziel, std::list<Verte
 void aktualsiereAdjazenz( std::ifstream& in , size_t edges, CoordinateGraph G){
     size_t i, j ;
     CostT wert = infty;
+    std::cout << "hi " << std::endl;
     for (int l = 0; l < edges; l++)
     {
         in >> i;
