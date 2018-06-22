@@ -20,10 +20,16 @@ bool allTrue( std::vector < size_t > S){
     for( int i = 0; i < S.size() ; i++) if (S[i] ==0) return false;
     return true;
 }
-int minIndex( std::vector< CostT> D){
+int minIndex( std::vector< CostT> D, std::vector <size_t> S){
     int res = 0;
     CostT min = infty;
-    for ( int i = 0; i < D.size(); i++) if (D[i]< min && D[i]!=0 ) res = i;
+    for ( int i = 0; i < D.size(); i++)
+    {
+        if (D[i]< min && D[i]!=0  && S[i] == 0){
+            min = D[i];
+            res = i;
+        }
+    }
     return res;
 }
 //#########################################################################################################
@@ -41,11 +47,10 @@ void Dijkstra(const DistanceGraph& g, VertexT start, std::vector<CostT>& kostenZ
         D[v.first] = v.second;
     while( !(allTrue(S)))
     {
-        size_t v1 = minIndex(D);
+        size_t v1 = minIndex(D,S);
         S[v1] = 1; //fuege v1 zu S hinzu.
         for ( auto v : g.getNeighbors(v1)) //aktualsiere eventuell von v1 erreichbare Knoten
             if ( D[v.first] > (D[v1] + v.second)) D[v.first] = D[v1] + v.second;
-        std::cout <<  allTrue(S) << std::endl;
     }
     
     
