@@ -45,12 +45,15 @@ void Dijkstra(const DistanceGraph& g, VertexT start, std::vector<CostT>& kostenZ
     //erste Schleife
     for ( auto v : g.getNeighbors(start))
         D[v.first] = v.second;
+    for ( auto element : D) std::cout << element << " ";
+    std::cout << "\n" << std::endl;
+
     while( !(allTrue(S)))
     {
-        for ( auto element : S) std::cout << element << " ";
-        std::cout << "\n" << std::endl;
-        for ( auto element : D) std::cout << element << " ";
-        std::cout << "\n" << std::endl;
+        //for ( auto element : S) std::cout << element << " ";
+        //std::cout << "\n" << std::endl;
+        //for ( auto element : D) std::cout << element << " ";
+        //std::cout << "\n" << std::endl;
 
 
         std::cout << minIndex(D,S) << std::endl;
