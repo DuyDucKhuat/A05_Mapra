@@ -56,7 +56,6 @@ void Dijkstra(const DistanceGraph& g, VertexT start, std::vector<CostT>& kostenZ
         //std::cout << "\n" << std::endl;
 
 
-        std::cout << minIndex(D,S) << std::endl;
         size_t v1 = minIndex(D,S);
         S[v1] = 1; //fuege v1 zu S hinzu.
         for ( auto v : g.getNeighbors(v1)) //aktualsiere eventuell von v1 erreichbare Knoten
