@@ -87,6 +87,7 @@ int main()
     fin >> edges;
     aktualsiereAdjazenz(fin, edges, G);
     std::vector<CostT> D(n,infty);
+    std::cout << "hi " << std::endl;
     Dijkstra(G,0, D);
     PruefeDijkstra( 4, 0, D);
     // Lade die zugehoerige Textdatei in einen Graphen
