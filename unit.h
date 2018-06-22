@@ -107,7 +107,7 @@ std::vector<CellType> ErzeugeLabyrinth( int breite, int hoehe, unsigned int seed
 // Sollte Ihnen dieser Code kryptisch vorkommen, informieren Sie sich (online oder bei
 // den HiWis) ueber den "range-based for loop" in C++11.
 //-------------------------------------------------------------------------------------------------
-std::vector<std::pair<VertexT,VertexT>> StartZielPaare( int Bsp );
+std::vector<std::pair<VertexT,VertexT> > StartZielPaare( int Bsp );
 
 
 //-------------------------------------------------------------------------------------------------
