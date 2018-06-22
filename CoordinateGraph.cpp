@@ -55,7 +55,7 @@ CostT CoordinateGraph::estimatedCost ( VertexT from, VertexT to) const {
 //                                  Testfunktionen
 //###################################################################################################################
 
-void DisplayAdjazenz ( CoordinateGraph& G){
+/*void DisplayAdjazenz ( CoordinateGraph& G){
      std:: cout <<"    ";
     for (int i = 0; i < G.numVertices() ; i++) std:: cout << i << "  ";
     std::cout << "\n";
@@ -72,7 +72,7 @@ void DisplayAdjazenz ( CoordinateGraph& G){
         std::cout<< "\n" ;
     }
 
-}
+}*/
 
 //Lese die Kanten mit Kantengewichten ab.
 /*void CoordinateGraph::aktualsiereAdjazenz( std::ifstream& in , size_t edges){

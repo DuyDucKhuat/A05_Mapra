@@ -90,7 +90,7 @@ void aktualsiereAdjazenz( std::ifstream& in , size_t edges, CoordinateGraph G){
     }
 }
 
-/*void DisplayAdjazenz ( CoordinateGraph& G){
+void DisplayAdjazenz ( CoordinateGraph& G){
     std:: cout <<"    ";
     for (int i = 0; i < G.numVertices() ; i++) std:: cout << i << "  ";
     std::cout << "\n";
@@ -107,7 +107,7 @@ void aktualsiereAdjazenz( std::ifstream& in , size_t edges, CoordinateGraph G){
         std::cout<< "\n" ;
     }
     
-}*/
+}
 
 
 int main()
