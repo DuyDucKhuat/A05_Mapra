@@ -34,12 +34,11 @@ int minIndex( std::vector< CostT> D, std::vector <size_t> S){
 }
 //#########################################################################################################
 
-void Dijkstra(const DistanceGraph& g, VertexT start, std::vector<CostT>& kostenZumStart) {
+void Dijkstra(const DistanceGraph& g, VertexT start, std::vector<CostT>& D) {
     // ...
     size_t n = g.numVertices();
 
     std::vector< size_t > S(n,0) ;
-    std::vector< double > D(n,infty);
     D[start] = 0;
     S[start] = 1;
     //erste Schleife
@@ -73,16 +72,16 @@ bool A_star(const DistanceGraph& g, VertexT start, VertexT ziel, std::list<Verte
 }
 
 
-void aktualsiereAdjazenz( std::ifstream& in , size_t edges, CoordinateGraph G){
+void aktualsiereAdjazenz( std::ifstream& in , size_t edges, CoordinateGraph& G){
     size_t i, j ;
     CostT wert = infty;
-    std::cout << "hi " << std::endl;
     for (int l = 0; l < edges; l++)
     {
         in >> i;
         in >> j;
         in >> wert;
         G(i,j) = wert;
+	
     }
     //Lese die Koordinaten der Knoten ein. Pro Knoten ein Tupel (x,y).
     for (int i = 0; i < G.numVertices() ; i++){
@@ -115,7 +114,7 @@ int main()
 {
     // Frage Beispielnummer vom User ab
     std::ifstream fin;
-    fin.open("daten/Graph4.dat");
+    fin.open("daten/Graph1.dat");
     size_t n = 0; //Anzahl der Knoten
     fin >> n;
     CoordinateGraph G(n);
@@ -123,11 +122,10 @@ int main()
     fin >> edges;
     aktualsiereAdjazenz(fin, edges, G);
     std::vector<CostT> D(n,infty);
-    DisplayAdjazenz(G);
-    //Dijkstra(G,0, D);
-    //PruefeDijkstra( 4, 0, D);
+    Dijkstra(G,0, D);
+    PruefeDijkstra( 1, 0, D);
     // Lade die zugehoerige Textdatei in einen Graphen
-    // PruefeHeuristik
+    // ParuefeHeuristik
     
     // Loese die in der Aufgabenstellung beschriebenen Probleme fuer die jeweilige Datei
     // PruefeDijkstra / PruefeWeg
