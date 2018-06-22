@@ -42,22 +42,12 @@ void Dijkstra(const DistanceGraph& g, VertexT start, std::vector<CostT>& D) {
     D[start] = 0;
     S[start] = 1;
     //erste Schleife
-    NeighborT T = g.getNeighbors(start);
-     std::cout << T[0].first << " ";
-    //for ( auto element : T ) std::cout << element.first << " ";
-
     for ( auto v : g.getNeighbors(start))
         D[v.first] = v.second;
-
-    while( !(allTrue(S)))
+    while( !(allTrue(S)) )
     {
-        //for ( auto element : S) std::cout << element << " ";
-        //std::cout << "\n" << std::endl;
-        //for ( auto element : D) std::cout << element << " ";
-        //std::cout << "\n" << std::endl;
-
-
         size_t v1 = minIndex(D,S);
+	if( g.getNeighbors(v1).empty()) break;
         S[v1] = 1; //fuege v1 zu S hinzu.
         for ( auto v : g.getNeighbors(v1)) //aktualsiere eventuell von v1 erreichbare Knoten
             if ( D[v.first] > (D[v1] + v.second)) D[v.first] = D[v1] + v.second;
@@ -122,6 +112,7 @@ int main()
     fin >> edges;
     aktualsiereAdjazenz(fin, edges, G);
     std::vector<CostT> D(n,infty);
+    DisplayAdjazenz(G);
     Dijkstra(G,0, D);
     PruefeDijkstra( 1, 0, D);
     // Lade die zugehoerige Textdatei in einen Graphen
