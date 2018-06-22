@@ -47,7 +47,7 @@ void Dijkstra(const DistanceGraph& g, VertexT start, std::vector<CostT>& kostenZ
         D[v.first] = v.second;
     while( !(allTrue(S)))
     {
-        for ( auto element : S) std:.cout << element << " ";
+        for ( auto element : S) std::cout << element << " ";
         std::cout << "\n" << std::endl;
         std::cout << minIndex(D,S) << std::endl;
         size_t v1 = minIndex(D,S);
