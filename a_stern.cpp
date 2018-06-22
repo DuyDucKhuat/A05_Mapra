@@ -90,6 +90,25 @@ void aktualsiereAdjazenz( std::ifstream& in , size_t edges, CoordinateGraph G){
     }
 }
 
+void DisplayAdjazenz ( CoordinateGraph& G){
+    std:: cout <<"    ";
+    for (int i = 0; i < G.numVertices() ; i++) std:: cout << i << "  ";
+    std::cout << "\n";
+    for (int i = 0; i < G.numVertices() ; i++) std:: cout << "____";
+    std::cout << "\n";
+    
+    for (int i = 0; i < G.numVertices() ; i++){
+        std:: cout << i << " | ";
+        for(int j = 0; j < G.numVertices(); j++) {
+            if( G(i,j) != infty) std::cout << G(i,j)<< "  ";
+            else std::cout << "_" << "  ";
+            
+        }
+        std::cout<< "\n" ;
+    }
+    
+}
+
 
 int main()
 {
@@ -103,8 +122,9 @@ int main()
     fin >> edges;
     aktualsiereAdjazenz(fin, edges, G);
     std::vector<CostT> D(n,infty);
-    Dijkstra(G,0, D);
-    PruefeDijkstra( 4, 0, D);
+    DisplayAdjazenz(G);
+    //Dijkstra(G,0, D);
+    //PruefeDijkstra( 4, 0, D);
     // Lade die zugehoerige Textdatei in einen Graphen
     // PruefeHeuristik
     
