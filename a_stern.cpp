@@ -43,10 +43,10 @@ void Dijkstra(const DistanceGraph& g, VertexT start, std::vector<CostT>& kostenZ
     D[start] = 0;
     S[start] = 1;
     //erste Schleife
+    for ( auto element : g.getNeighbors(start)) std::cout << element << " ";
+
     for ( auto v : g.getNeighbors(start))
         D[v.first] = v.second;
-    for ( auto element : D) std::cout << element << " ";
-    std::cout << "\n" << std::endl;
 
     while( !(allTrue(S)))
     {
