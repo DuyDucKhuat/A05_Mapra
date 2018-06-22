@@ -56,6 +56,25 @@ bool A_star(const DistanceGraph& g, VertexT start, VertexT ziel, std::list<Verte
     return false; // Kein Weg gefunden.
 }
 
+
+void aktualsiereAdjazenz( std::ifstream& in , size_t edges, CoordinateGraph G){
+    size_t i, j ;
+    CostT wert = infty;
+    for (int l = 0; l < edges; l++)
+    {
+        in >> i;
+        in >> j;
+        in >> wert;
+        G(i,j) = wert;
+    }
+    //Lese die Koordinaten der Knoten ein. Pro Knoten ein Tupel (x,y).
+    for (int i = 0; i < G.numVertices() ; i++){
+        in >> G.Koordinaten[i].first;
+        in >> G.Koordinaten[i].second;
+    }
+}
+
+
 int main()
 {
     // Frage Beispielnummer vom User ab
@@ -66,7 +85,7 @@ int main()
     CoordinateGraph G(n);
     size_t edges = 0;   //Anzahl der Kanten
     fin >> edges;
-    G.aktualsiereAdjazenz(fin, edges);
+    aktualsiereAdjazenz(fin, edges, G);
     std::vector<CostT> D(n,infty);
     Dijkstra(G,0, D);
     PruefeDijkstra( 4, 0, D);

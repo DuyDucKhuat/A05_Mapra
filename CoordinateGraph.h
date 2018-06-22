@@ -14,9 +14,9 @@
 
 #define CoordinateGraph_h
 
-  //  	typedef std::pair<VertexT, CostT> LocalEdgeT;
+    typedef std::pair<VertexT, CostT> LocalEdgeT;
 
-//	typedef std::vector<LocalEdgeT> NeighborT;
+	typedef std::vector<LocalEdgeT> NeighborT;
 class CoordinateGraph : public DistanceGraph
 {
     public:
@@ -36,7 +36,7 @@ class CoordinateGraph : public DistanceGraph
     NeighborT & getNeighbors ( VertexT v) const;
     CostT estimatedCost ( VertexT from, VertexT to) const;
     CostT cost ( VertexT from, VertexT to) const{return (*this)(from,to);}
-    void aktualsiereAdjazenz( std::ifstream& in , size_t edges);
+    //void aktualsiereAdjazenz( std::ifstream& in , size_t edges);
     
     
 

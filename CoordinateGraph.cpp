@@ -75,7 +75,7 @@ void DisplayAdjazenz ( CoordinateGraph& G){
 }
 
 //Lese die Kanten mit Kantengewichten ab.
-void CoordinateGraph::aktualsiereAdjazenz( std::ifstream& in , size_t edges){
+/*void CoordinateGraph::aktualsiereAdjazenz( std::ifstream& in , size_t edges){
     size_t i, j ;
     CostT wert = infty;
     for (int l = 0; l < edges; l++)
@@ -91,7 +91,7 @@ void CoordinateGraph::aktualsiereAdjazenz( std::ifstream& in , size_t edges){
         in >> (*this).Koordinaten[i].second;
     }
 }
-
+*/
 
 /*int main()
 {
