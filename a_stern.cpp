@@ -44,7 +44,8 @@ void Dijkstra(const DistanceGraph& g, VertexT start, std::vector<CostT>& kostenZ
     S[start] = 1;
     //erste Schleife
     NeighborT T = g.getNeighbors(start);
-    for ( auto element : T ) std::cout << element.first << " ";
+     std::cout << T[0].first << " ";
+    //for ( auto element : T ) std::cout << element.first << " ";
 
     for ( auto v : g.getNeighbors(start))
         D[v.first] = v.second;
