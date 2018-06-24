@@ -138,14 +138,23 @@ int main()
     DisplayAdjazenz(G);
     Dijkstra(G,0, D);
     PruefeDijkstra( 1, 0, D);
+    fin.close();
     // Lade die zugehoerige Textdatei in einen Graphen
-    // ParuefeHeuristik
+    // PruefeHeuristik
+    
+    std::ifstream fin2;
+    fin2.open("daten/Maze1.dat");
+    size_t breite = 0;
+    size_t hoehe = 0;
+    fin2 >> breite;
+    fin2 >> hoehe;
+    maze G2(breite, hoehe);
+    readMaze(fin2, rows, cols, G);
+    PruefeHeurstik(G);
     
     // Loese die in der Aufgabenstellung beschriebenen Probleme fuer die jeweilige Datei
     // PruefeDijkstra / PruefeWeg
     
     return 0;
-    // TODO: 16.Juni. Der beschissene Scheiß funktioniert nicht. Ich kann die funktionen aus meiner CoordinateGraph Klasse nicht hier benutzen. Das heißt rüberkopieren und schauen ob es hier geht.
-    // hart unnötig :D
 }
  
