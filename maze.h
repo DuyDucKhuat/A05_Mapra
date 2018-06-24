@@ -21,7 +21,7 @@ class maze : public DistanceGraph
     std::vector< CellType > Knoten;
     size_t rows;
     size_t cols;
-    
+    ~maze() {}
 
     maze (size_t breite = 0, size_t hoehe = 0) : DistanceGraph(breite*hoehe), rows(hoehe), cols(breite){
         
