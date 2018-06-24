@@ -148,7 +148,7 @@ int main()
     size_t hoehe = 0;
     fin2 >> breite;
     fin2 >> hoehe;
-    maze G2(breite, hoehe);
+    maze::maze G2(breite, hoehe);
     readMaze(fin2, breite, hoehe, G2);
     PruefeHeuristik(G2);
     
