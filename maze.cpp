@@ -16,8 +16,8 @@ DistanceGraph::NeighborT& maze::getNeighbors (VertexT v) const {
     DistanceGraph::NeighborT * res = new DistanceGraph:: NeighborT(); //erstelle Obejekt, * entnehme Referenz.
     std::pair <size_t, size_t > a; // Tupelkoordinaten
     a = RowCol(v);
-    std::pair < CellType, DistanceGraph::NeighborT> Element = *(*this)(a.first + 1, a.second);
-    if ( checkIndex(a.first +1, a.second)) res->push_back(  Element );
+    
+    if ( checkIndex(a.first +1, a.second)) res->push_back(  *((*this)(a.first + 1, a.second)) );
     if ( checkIndex(a.first -1, a.second))res->push_back( (*this)(a.first - 1, a.second) );
     if ( checkIndex(a.first, a.second -1))res->push_back((*this)(a.first, a.second -1)):
     if ( checkIndex(a.first, a.second + 1))res->push_back((*this)(a.first, a.second +1)):
