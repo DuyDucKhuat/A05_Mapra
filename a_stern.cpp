@@ -149,7 +149,7 @@ int main()
     fin2 >> breite;
     fin2 >> hoehe;
     maze G2(breite, hoehe);
-    readMaze(fin2, rows, cols, G);
+    readMaze(fin2, breite, hoehe, G);
     PruefeHeuristik(G2);
     
     // Loese die in der Aufgabenstellung beschriebenen Probleme fuer die jeweilige Datei
