@@ -115,7 +115,7 @@ void readMaze( std::ifstream& in , size_t rows, size_t cols, maze& G){
         for( int j = 0; j < cols ; j ++){
             in >> s;
             std::cout << s << std::endl;
-            if( s ='.') G(i,j)= CellType::Ground;
+            if( s =='.') G(i,j)= CellType::Ground;
         }
     }
 }
