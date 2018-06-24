@@ -34,7 +34,7 @@ class maze : public DistanceGraph
     
     
     //Hilfsfunktionen
-    std::pair <size_t, size_t> RowCol(VertexT v){ return std::pair <size_t, size_t> (v/ rows, v % rows);}
+    std::pair <size_t, size_t> RowCol(VertexT v) const { return std::pair <size_t, size_t> (v/ rows, v % rows);}
     bool checkIndex ( size_t i, size_t j);
     
     // Zugriffsoperatoren
