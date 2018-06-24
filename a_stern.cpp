@@ -111,10 +111,11 @@ void DisplayAdjazenz ( CoordinateGraph& G){
 
 void readMaze( std::ifstream& in , size_t rows, size_t cols, maze& G){
     char s;
-    for ( int i = 0; i < rows ; i++)
-        for( int j = 0; j < cols ; j ++)
+    for ( int i = 0; i < rows ; i++){
+        for( int j = 0; j < cols ; j ++){
             in >> s;
             if( s ='.') G(i,j)= CellType::Ground;
+        }
     }
 }
 
