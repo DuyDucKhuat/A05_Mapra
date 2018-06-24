@@ -18,19 +18,19 @@ DistanceGraph::NeighborT& maze::getNeighbors (VertexT v) const {
     a = RowCol(v);
     
     if ( checkIndex(a.first +1, a.second))
-        if ((*this)(a.first + 1, a.second).first != CellType::Wall)
+        if ((*this)(a.first + 1, a.second) != CellType::Wall)
             res->push_back(  DistanceGraph::LocalEdgeT ((a.first + 1)*rows + a.second, 1.));
     
     if ( checkIndex(a.first -1, a.second))
-        if ((*this)(a.first - 1, a.second).first != CellType::Wall)
+        if ((*this)(a.first - 1, a.second) != CellType::Wall)
             res->push_back( DistanceGraph::LocalEdgeT ((a.first - 1)*rows + a.second, 1. ));
     
     if ( checkIndex(a.first, a.second -1))
-        if ((*this)(a.first, a.second -1).first != CellType::Wall)
+        if ((*this)(a.first, a.second -1) != CellType::Wall)
             res->push_back(DistanceGraph::LocalEdgeT ((a.first)*rows + a.second - 1, 1.));
     
     if ( checkIndex(a.first, a.second + 1))
-        if ((*this)(a.first, a.second + 1).first != CellType::Wall)
+        if ((*this)(a.first, a.second + 1) != CellType::Wall)
             res->push_back(DistanceGraph::LocalEdgeT ((a.first)*rows + a.second + 1, 1.));
     return *res;
         
