@@ -118,8 +118,15 @@ void readMaze( std::ifstream& in , size_t rows, size_t cols, maze& G){
         }
     }
 }
-
-
+vod displayMaze (maze& G)
+{
+    for ( int i = 0 ; i < G.rows; i ++){
+        for ( int j = 0; j < G.cols ; j++){
+            if( G(i,j) == CellType::Wall) std::cout << '#' << " ";
+            else std::cout << ' ' << " ";
+        } std::cout << "\n";
+    }
+}
 //############################################################################################################
 //                          MAIN
 //############################################################################################################
@@ -151,8 +158,10 @@ int main()
     maze G2(breite,hoehe);
     readMaze(fin2, breite, hoehe, G2);
     std::vector<CostT> D2(breite*hoehe,infty);
+    displayMaze(G2);
     Dijkstra(G2,0,D2);
-    PruefeDijkstra(1, 0, D2);
+    std::cout << G2.rows*G2.cols << std::endl;
+    //PruefeDijkstra(1, 0, D2);
     
     // Loese die in der Aufgabenstellung beschriebenen Probleme fuer die jeweilige Datei
     // PruefeDijkstra / PruefeWeg
