@@ -7,6 +7,10 @@
 
 #ifndef maze_h
 #define maze_h
+#include "unit.h"
+#include <vector>
+#include <iostream>
+#include <math.h>
 
 
 class maze : public DistanceGraph
