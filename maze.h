@@ -39,8 +39,8 @@ class maze : public DistanceGraph
     bool checkIndex ( size_t i, size_t j) const;
     
     // Zugriffsoperatoren
-    std::pair < CellType, DistanceGraph::NeighborT> &operator () (size_t i, size_t j){return Knoten[i*rows+j];}
-    std::pair < CellType, DistanceGraph::NeighborT> operator () (size_t i, size_t j) const {return Knoten[i*rows +j];}
+    CellType&operator () (size_t i, size_t j){return Knoten[i*rows+j];}
+    CellType operator () (size_t i, size_t j) const {return Knoten[i*rows +j];}
     
     
 
