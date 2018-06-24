@@ -62,6 +62,68 @@ void Dijkstra(const DistanceGraph& g, VertexT start, std::vector<CostT>& D) {
 
 bool A_star(const DistanceGraph& g, VertexT start, VertexT ziel, std::list<VertexT>& weg) {
     // ...
+    typedef std::vector vector;
+    typedef DistanceGraph::LocalEdgeT LocalEdgeT;
+    typedef DistanceGraph::NeighborT NeighborT;
+
+    
+    vector < CostT > Weglaenge (G.numVertices(), infty); // Vom Startknoten aus.
+    vector < bool > bekannt (G.numVertices(),false);
+    vector < size_t > Vorgaenger(G.numVertices(), -1);
+    vector <size_t > queue ; //
+    std::make_heap ( queue.begin(), queue.end());
+
+
+    class compare { // f =  g + h;
+        public:
+        bool operator () (size_t a, size_t b){
+            return  Weglaenge[a]+ estimatedCost(a, ziel) < Weglaenge[b] + estimatedCost(b, ziel);
+    };
+        bekannt[start] = true;
+        Weglaenge[start] = 0.;
+        VertexT current = start;
+        for ( auto v : G.getNeighbors(current)) queue.push_back(v.first);
+        std::push_heap(queue.begin(), queue.end(), compare());
+
+        while( true){
+            std::pop_heap(queue.begin(),queue.end(),compare());
+            VertexT current = queue.pop_back();
+            
+            
+            NeighborT Nodes = G.getNeighbors(current);          // evtl. neu
+
+            // sind die neu?
+            
+            for ( auto v : Nodes){
+                if ( !bekannt[v.first] ){
+                    // sind wir schon am Ziel?
+                    if ( v.first == ziel)
+                    {
+                        size_t w  = ziel;
+                        while (w != start){
+                            weg.push_back(Vorgaenger[w]);
+                            w = Vorgaenger[w];
+                        }
+                        return true;
+                    }
+                    queue.push_back(v.first);
+                    std::pop_heap(queue.begin(), queue.end(), compare());
+                    bekannt[v.first] = true;
+                    Weglaenge[v.first] = Weglaenge[current] + v.second;
+                    Vorgaenger[v.first] = current;
+                        
+                        
+                //ist der neue Weg besser?
+                }else if ( Weglaenge[current] + v.second < Weglaenge[v.first] ){
+                    Weglaenge[v.first] = Weglaenge[current] + v.second;
+                    Vorgaenger[v.first] = current;
+                }
+            }
+            if( queue.empty()) return false;
+        }
+        
+    
+    }
     return false; // Kein Weg gefunden.
 }
 //############################################################################################################
