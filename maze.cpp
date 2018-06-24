@@ -6,7 +6,7 @@
 //
 
 #include "maze.h"
-bool maze::checkIndex ( size_t i, size_t j){  //gültiger Index?
+bool maze::checkIndex ( size_t i, size_t j) const {  //gültiger Index?
     size_t k = 0;
     k--;
     return (i != k) && (i < rows) && (j !=k) && (j < cols) ;
