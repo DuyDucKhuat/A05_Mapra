@@ -60,7 +60,7 @@ void Dijkstra(const DistanceGraph& g, VertexT start, std::vector<CostT>& D) {
     
 }
 
-bool A_star(const DistanceGraph& g, VertexT start, VertexT ziel, std::list<VertexT>& weg) {
+bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<VertexT>& weg) {
     // ...
     typedef DistanceGraph::LocalEdgeT LocalEdgeT;
     typedef DistanceGraph::NeighborT NeighborT;
