@@ -122,8 +122,8 @@ void displayMaze (maze& G)
 {
     for ( int i = 0 ; i < G.rows; i ++){
         for ( int j = 0; j < G.cols ; j++){
-            if( G(i,j) == CellType::Wall) std::cout << '#' << " ";
-            else std::cout << ' ' << " ";
+            if( G(i,j) == CellType::Wall) std::cout << "#' << " ";
+            else std::cout << " . "  << " ";
         } std::cout << "\n";
     }
 }
