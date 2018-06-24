@@ -159,8 +159,10 @@ int main()
     readMaze(fin2, breite, hoehe, G2);
     std::vector<CostT> D2(breite*hoehe,infty);
     displayMaze(G2);
-
+    for ( auto v : D2) std::cout << v << " ";
+    std::cout << "\n" ;
     Dijkstra(G2,9,D2);
+    
 
     //PruefeDijkstra(5, 9, D2);
     
