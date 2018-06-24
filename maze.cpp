@@ -21,7 +21,7 @@ DistanceGraph::NeighborT& maze::getNeighbors (VertexT v) const {
     if ( checkIndex(a.first -1, a.second))res->push_back( DistanceGraph::LocalEdgeT ((a.first - 1)*rows + a.second, 1. ));
     if ( checkIndex(a.first, a.second -1))res->push_back(DistanceGraph::LocalEdgeT ((a.first)*rows + a.second - 1, 1.));
     if ( checkIndex(a.first, a.second + 1))res->push_back(DistanceGraph::LocalEdgeT ((a.first)*rows + a.second + 1, 1.));
-    return res;
+    return *res;
         
 }
 
