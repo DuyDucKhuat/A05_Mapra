@@ -62,15 +62,14 @@ void Dijkstra(const DistanceGraph& g, VertexT start, std::vector<CostT>& D) {
 
 bool A_star(const DistanceGraph& g, VertexT start, VertexT ziel, std::list<VertexT>& weg) {
     // ...
-    typedef std::vector vector;
     typedef DistanceGraph::LocalEdgeT LocalEdgeT;
     typedef DistanceGraph::NeighborT NeighborT;
 
     
-    vector < CostT > Weglaenge (G.numVertices(), infty); // Vom Startknoten aus.
-    vector < bool > bekannt (G.numVertices(),false);
-    vector < size_t > Vorgaenger(G.numVertices(), -1);
-    vector <size_t > queue ; //
+    std::vector < CostT > Weglaenge (G.numVertices(), infty); // Vom Startknoten aus.
+    std::vector < bool > bekannt (G.numVertices(),false);
+    std::vector < size_t > Vorgaenger(G.numVertices(), -1);
+    std::vector <size_t > queue ; //
     std::make_heap ( queue.begin(), queue.end());
 
 
