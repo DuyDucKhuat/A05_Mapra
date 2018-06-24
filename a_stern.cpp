@@ -162,7 +162,7 @@ int main()
 
     Dijkstra(G2,9,D2);
 
-    PruefeDijkstra(5, 9, D2);
+    //PruefeDijkstra(5, 9, D2);
     
     // Loese die in der Aufgabenstellung beschriebenen Probleme fuer die jeweilige Datei
     // PruefeDijkstra / PruefeWeg
