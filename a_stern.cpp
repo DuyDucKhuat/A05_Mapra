@@ -150,7 +150,7 @@ int main()
     fin2 >> hoehe;
     maze G2(breite, hoehe);
     readMaze(fin2, rows, cols, G);
-    PruefeHeurstik(G);
+    PruefeHeuristik(G2);
     
     // Loese die in der Aufgabenstellung beschriebenen Probleme fuer die jeweilige Datei
     // PruefeDijkstra / PruefeWeg
