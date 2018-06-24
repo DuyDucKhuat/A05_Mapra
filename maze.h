@@ -23,7 +23,8 @@ class maze : public DistanceGraph
 
     maze (size_t breite = 0, size_t hoehe = 0) : DistanceGraph(breite*hoehe), rows(hoehe), cols(breite){
         DistanceGraph::NeighborT v ;
-        Knoten.resize(breite*hoehe, std::pair < CellType, DistanceGraph::NeighborT > w(CellType::Wall, v));
+        std::pair < CellType, DistanceGraph::NeighborT > w(CellType::Wall, v)
+        Knoten.resize(breite*hoehe,  w);
     }
     NeighborT& getNeighbors( VertexT v) const;
     CostT estimatedCost ( VertexT from, VertexT to) const;
