@@ -169,6 +169,7 @@ int main()
     }*/
     Dijkstra(G2,0,D2);
     std::cout << G2.rows*G2.cols << std::endl;
+    std::cout << D2.size() << std::endl;
     //PruefeDijkstra(1, 0, D2);
     
     // Loese die in der Aufgabenstellung beschriebenen Probleme fuer die jeweilige Datei
