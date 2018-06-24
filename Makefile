@@ -6,8 +6,9 @@ main : a_stern.cpp  CoordinateGraph.o unit.o
 	$(CXX) $(FLG) $(FLG2) -g -o $@ $^
 CoordinateGraph.o : CoordinateGraph.cpp unit.h
 	$(CXX) -c $(FLG)  $^
-
+maze.o: maze.cpp unit.h
+	$(CXX)- c $(FLG) $^
 
 .PHONY: clean
 clean:
-	rm -f main CoordinateGraph.o
+	rm -f main CoordinateGraph.o maze.o

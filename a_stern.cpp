@@ -2,6 +2,7 @@
 #include "text_visualizer.h"
 #include "unit.h"
 #include "CoordinateGraph.h"
+#include "maze.h"
 
 // Ein Graph, der Koordinaten von Knoten speichert.
 /*class CoordinateGraph : public DistanceGraph {
@@ -33,6 +34,9 @@ int minIndex( std::vector< CostT> D, std::vector <size_t> S){
     return res;
 }
 //#########################################################################################################
+//                          GRAPHALGORITHMEN
+//#########################################################################################################
+
 
 void Dijkstra(const DistanceGraph& g, VertexT start, std::vector<CostT>& D) {
     // ...
@@ -60,7 +64,9 @@ bool A_star(const DistanceGraph& g, VertexT start, VertexT ziel, std::list<Verte
     // ...
     return false; // Kein Weg gefunden.
 }
-
+//############################################################################################################
+//                           COORDINATEGRAPH
+//############################################################################################################
 
 void aktualsiereAdjazenz( std::ifstream& in , size_t edges, CoordinateGraph& G){
     size_t i, j ;
@@ -99,7 +105,23 @@ void DisplayAdjazenz ( CoordinateGraph& G){
     
 }
 
+//############################################################################################################
+//                           MAZE
+//############################################################################################################
 
+void readMaze( std::ifstream& in , size_t rows, size_t cols, maze& G){
+    char s;
+    for ( int i = 0; i < rows ; i++)
+        for( int j = 0; j < cols ; j ++)
+            in >> s;
+            if( s ='.') G(i,j)= CellType::Ground;
+    }
+}
+
+
+//############################################################################################################
+//                          MAIN
+//############################################################################################################
 int main()
 {
     // Frage Beispielnummer vom User ab
