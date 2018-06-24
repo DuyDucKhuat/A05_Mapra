@@ -27,6 +27,7 @@ class maze : public DistanceGraph
         
         Knoten.resize(breite*hoehe, CellType::Wall);
     }
+    ~maze();
     NeighborT& getNeighbors( VertexT v) const;
     CostT estimatedCost ( VertexT from, VertexT to) const;
     CostT cost ( VertexT from, VertexT to) const {return 1.;}
