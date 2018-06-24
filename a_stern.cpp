@@ -148,9 +148,10 @@ int main()
     size_t hoehe = 0;
     fin2 >> breite;
     fin2 >> hoehe;
-    maze::maze G2(breite, hoehe);
-    readMaze(fin2, breite, hoehe, G2);
-    PruefeHeuristik(G2);
+    maze G2;
+    
+    //readMaze(fin2, breite, hoehe, G2);
+    //PruefeHeuristik(G2);
     
     // Loese die in der Aufgabenstellung beschriebenen Probleme fuer die jeweilige Datei
     // PruefeDijkstra / PruefeWeg
