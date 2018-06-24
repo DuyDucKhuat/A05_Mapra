@@ -150,7 +150,7 @@ int main()
     // PruefeHeuristik
     
     std::ifstream fin2;
-    fin2.open("daten/Maze1.dat");
+    fin2.open("daten/Maze2.dat");
     size_t breite = 0;
     size_t hoehe = 0;
     fin2 >> breite;
