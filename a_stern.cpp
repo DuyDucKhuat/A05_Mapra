@@ -163,7 +163,9 @@ int main()
         for ( int j = 0; j < G2.cols ; j++){
             if( G(i,j) == CellType::Wall) std::cout << '#' << " ";
             else std::cout << ' ' << " ";
-        } std::cout << "\n";
+        }
+        std::cout << "\n";
+    }
     Dijkstra(G2,0,D2);
     std::cout << G2.rows*G2.cols << std::endl;
     //PruefeDijkstra(1, 0, D2);
