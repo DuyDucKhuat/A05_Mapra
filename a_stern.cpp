@@ -135,9 +135,9 @@ int main()
     fin >> edges;
     aktualsiereAdjazenz(fin, edges, G);
     std::vector<CostT> D(n,infty);
-    DisplayAdjazenz(G);
+    //DisplayAdjazenz(G);
     Dijkstra(G,0, D);
-    PruefeDijkstra( 1, 0, D);
+    //PruefeDijkstra( 1, 0, D);
     fin.close();
     // Lade die zugehoerige Textdatei in einen Graphen
     // PruefeHeuristik
@@ -150,7 +150,9 @@ int main()
     fin2 >> hoehe;
     maze G2(breite,hoehe);
     readMaze(fin2, breite, hoehe, G2);
-    PruefeHeuristik(G2);
+    std::vector<CostT> D2(breite*hoehe,infty);
+    Dijkstra(G2,0,D2);
+    PruefeDijkstra(1, 0, D2);
     
     // Loese die in der Aufgabenstellung beschriebenen Probleme fuer die jeweilige Datei
     // PruefeDijkstra / PruefeWeg
