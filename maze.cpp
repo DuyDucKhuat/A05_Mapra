@@ -17,10 +17,10 @@ DistanceGraph::NeighborT& maze::getNeighbors (VertexT v) const {
     std::pair <size_t, size_t > a; // Tupelkoordinaten
     a = RowCol(v);
     
-    if ( checkIndex(a.first +1, a.second)) res->push_back(  DistanceGraph::LocalEdgeT c(a.first + 1)*rows + a.second, 1.);
-    if ( checkIndex(a.first -1, a.second))res->push_back( DistanceGraph::LocalEdgeT c(a.first - 1)*rows + a.second, 1. );
-    if ( checkIndex(a.first, a.second -1))res->push_back(DistanceGraph::LocalEdgeT c(a.first)*rows + a.second - 1, 1.);
-    if ( checkIndex(a.first, a.second + 1))res->push_back(DistanceGraph::LocalEdgeT c(a.first)*rows + a.second + 1, 1.);
+    if ( checkIndex(a.first +1, a.second)) res->push_back(  DistanceGraph::LocalEdgeT (a.first + 1)*rows + a.second, 1.);
+    if ( checkIndex(a.first -1, a.second))res->push_back( DistanceGraph::LocalEdgeT (a.first - 1)*rows + a.second, 1. );
+    if ( checkIndex(a.first, a.second -1))res->push_back(DistanceGraph::LocalEdgeT (a.first)*rows + a.second - 1, 1.);
+    if ( checkIndex(a.first, a.second + 1))res->push_back(DistanceGraph::LocalEdgeT (a.first)*rows + a.second + 1, 1.);
     return res;
         
 }
