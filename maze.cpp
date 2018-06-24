@@ -11,12 +11,10 @@ bool maze::checkIndex ( size_t i, size_t j){  //gültiger Index?
     k--;
     return (i != k) && (i < rows) && (j !=k) && (j < cols) ;
 
-DistanceGraph::NeighborT & maze::getNeighbors( VertexT v ) const {
+DistanceGraph::NeighborT& maze::getNeighbors (VertexT v) const {
     DistanceGraph::NeighborT * res = new DistanceGraph:: NeighborT(); //erstelle Obejekt, * entnehme Referenz.
-    std::pair <size_t, size_t > a = RowCol(v);
+    std::pair <size_t, size_t > a = RowCol(v); // Tupelkoordinaten
     
-    // erst unten, dann oben, dann links, dann rechts.
-
     if ( maze::checkIndex(a.first +1, a.second)) res->push_back((*this)(a.first + 1, a.second));
     if ( maze::checkIndex(a.first -1, a.second))res->push_back((*this)(a.first - 1, a.second));
     if ( maze::checkIndex(a.first, a.second -1))res->push_back((*this)(a.first, a.second -1)):
@@ -25,7 +23,7 @@ DistanceGraph::NeighborT & maze::getNeighbors( VertexT v ) const {
         
 }
 
-CostT maze::estimatedCost( VertexT from, Vertex T to) const // 1-Norm von a-b.
+CostT maze::estimatedCost( VertexT from, VertexT to) const // 1-Norm von a-b.
 {
     std::pair <size_t, size_t > a = RowCol(from);
     std::pair <size_t, size_t > b = RowCol(to);

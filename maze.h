@@ -23,10 +23,10 @@ class maze : public DistanceGraph
 
     maze (size_t breite = 0, size_t hoehe = 0) : DistanceGraph(breite*hoehe), rows(hoehe), cols(breite){
         DistanceGraph::NeighborT v ;
-        Knoten.resize(breite*hoehe, std::pair (CellType::Wall, v));
+        Knoten.resize(breite*hoehe, std::pair < CellType, DistanceGraph::NeigborT > (CellType::Wall, v));
     }
     NeighborT& getNeighbors( VertexT v) const;
-    CostT estimatedCost ( VerexT from, VertexT to) const;
+    CostT estimatedCost ( VertexT from, VertexT to) const;
     CostT cost ( VertexT from, VertexT to) const {return 1.;}
     
     
@@ -34,7 +34,7 @@ class maze : public DistanceGraph
     
     //Hilfsfunktionen
     std::pair <size_t, size_t> RowCol(VertexT ){ return std::pair <size_t, size_t> (v/ rows, v % rows);}
-    bool maze::checkIndex ( size_t i, size_t j);
+    bool checkIndex ( size_t i, size_t j);
     
     // Zugriffsoperatoren
     std::pair < CellType, DistanceGraph::NeighborT> &operator () (size_t i, size_t j){return Knoten[i*rows+j];}
@@ -42,6 +42,6 @@ class maze : public DistanceGraph
     
     
 
-}
+};
 
 #endif /* maze_h */
