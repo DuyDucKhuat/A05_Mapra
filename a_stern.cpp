@@ -302,6 +302,7 @@ int main(int argc, char * argv[])
         std::cout << G3.RowCol(v.second).first << "  " << G3.RowCol(v.second).second << std::endl;
 
         std::cout << v.first << " " << v.second << std::endl;
+        PruefeWeg(1,weg3);
         if( A_star(G3, v.first, v.second, weg3))
         {
             std::cout << " Ja geht" << std::endl;
@@ -310,6 +311,36 @@ int main(int argc, char * argv[])
 
         }
     }
+    }
+    if ( bsp == 2){
+        
+        std::ifstream fin4;
+        fin4.open("daten/Maze2.dat");
+        size_t breite4 = 0;
+        size_t hoehe4 = 0;
+        fin3 >> breite4;
+        fin3 >> hoehe4;
+        maze G4(breite4,hoehe4);
+        readMaze(fin4, breite4, hoehe4, G4);
+        
+        std::list < VertexT > weg4;
+        displayMaze(G4);
+        std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(6);
+        std::cout << Aufgabe.size() << std::endl;
+        for ( auto v : Aufgabe){
+            std::cout << G4.RowCol(v.first).first << "  " << G4.RowCol(v.first).second << std::endl;
+            std::cout << G4.RowCol(v.second).first << "  " << G4.RowCol(v.second).second << std::endl;
+            
+            std::cout << v.first << " " << v.second << std::endl;
+            PruefeWeg(2,weg3);
+            if( A_star(G4, v.first, v.second, weg4))
+            {
+                std::cout << " Ja geht" << std::endl;
+                for ( auto i : weg4 ) std::cout << i << " ";
+                std::cout << " \n" ;
+                
+            }
+        }
     }
     
     return 0;
