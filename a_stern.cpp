@@ -162,7 +162,7 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
             }
 
             if( queue.empty()){
-                std::cout << "hier!!" << std::endl;
+                std::cout << "hier!! "  << k  << std::endl;
                 return false;
             }
             std::sort_heap(queue.begin(), queue.end(), compare());
