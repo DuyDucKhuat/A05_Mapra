@@ -162,6 +162,7 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
             }
 
             if( queue.empty()){
+                std::cout << "hier!!" << std::endl;
                 return false;
             }
             std::sort_heap(queue.begin(), queue.end(), compare());
@@ -301,7 +302,6 @@ int main()
     std::list < VertexT > weg3;
     displayMaze(G3);
     std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(8);
-    std::cout << G3.RowCol(462).first << " " << G3.RowCol(462).second << std::endl ;
     for ( auto v : Aufgabe){
         std::cout << G3.RowCol(v.first).first << "  " << G3.RowCol(v.first).second << std::endl;
         std::cout << G3.RowCol(v.second).first << "  " << G3.RowCol(v.second).second << std::endl;
