@@ -338,7 +338,7 @@ int main(int argc, char * argv[])
                 std::cout << " \n" ;
                 
             }
-            PruefeWeg(2,weg4);
+            PruefeWeg(6,weg4);
 
         }
     }
