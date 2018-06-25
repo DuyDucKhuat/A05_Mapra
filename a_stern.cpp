@@ -228,7 +228,7 @@ int main()
 {
     // Frage Beispielnummer vom User ab
     std::ifstream fin;
-    fin.open("daten/Graph2.dat");
+    fin.open("daten/Graph3.dat");
     size_t n = 0; //Anzahl der Knoten
     fin >> n;
     CoordinateGraph G(n);
@@ -239,7 +239,7 @@ int main()
 
     DisplayAdjazenz(G);
     Dijkstra(G,0, D);
-    PruefeDijkstra( 2, 0, D);
+    PruefeDijkstra( 3, 0, D);
     
     
     
