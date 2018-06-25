@@ -382,7 +382,7 @@ int main(int argc, char * argv[])
     std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(5);
     std::cout << Aufgabe.size() << std::endl;
         
-    if( A_star(G3, Aufgabe[bsp2], Aufgabe[bsp2], weg3)) PruefeWeg(5,weg3);
+    if( A_star(G3, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg3) ) PruefeWeg(5,weg3);
        
         
     }
