@@ -111,6 +111,7 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
                     if ( v.first == ziel)
                     {
                         size_t w  = ziel;
+                        weg.push_back(ziel);
                         while (w != start){
                             weg.push_back(Vorgaenger[w]);
                             w = Vorgaenger[w];
