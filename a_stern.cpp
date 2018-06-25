@@ -91,12 +91,12 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
         Weglaenge[start] = 0.;
         VertexT current = start;
         for ( auto v : G.getNeighbors(current)) {
+            Weglaenge[v.first] = v.second;
             v.second = G.estimatedCost(v.first, ziel);
             std::cout << "hier " << v.first << " " << v.second << std::endl;
             queue.push_back(v);
             std::push_heap(queue.begin(), queue.end(), compare());
 
-            Weglaenge[v.first] = v.second;
             std::cout << "hier2" << " " << Weglaenge[v.first] << std::endl;
             bekannt[v.first] = true;
             Vorgaenger[v.first] = start;
@@ -132,11 +132,11 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
                         }
                         return true;
                     }
+                    Weglaenge[v.first] = Weglaenge[current] + v.second;
                     v.second = G.estimatedCost(v.first, ziel);
                     queue.push_back(v);
                     std::pop_heap(queue.begin(), queue.end(), compare());
                     bekannt[v.first] = true;
-                    Weglaenge[v.first] = Weglaenge[current] + v.second;
                     Vorgaenger[v.first] = current;
                         
                 //okay, und wenn bekannt:
