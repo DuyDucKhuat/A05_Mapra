@@ -231,6 +231,8 @@ int main()
     fin >> edges;
     aktualsiereAdjazenz(fin, edges, G);
     std::vector<CostT> D(n,infty);
+    std::cout << " hier5" << std::endl;
+
     DisplayAdjazenz(G);
     Dijkstra(G,0, D);
     //PruefeDijkstra( 1, 0, D);
