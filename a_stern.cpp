@@ -74,7 +74,7 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
     class compare { // f =  g + h;
     public:
         bool operator () (std::pair<size_t , CostT> a, std::pair<size_t , CostT> b) const {
-            return  Weglaenge[a.first]+ a.second > Weglaenge[b.first] + b.second;
+            return  Weglaenge[a.first]+ a.second < Weglaenge[b.first] + b.second;
         }
     };
     
