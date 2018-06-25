@@ -90,15 +90,14 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
         bekannt[start] = true;
         Weglaenge[start] = 0.;
         VertexT current = start;
-        NeighborT Neighbors = G.getNeighbors(current);
 
-    if ( Neighbors.empty()) return false;
-        for ( auto v : Neighbors) {
-            Weglaenge[v.first] = v.second;
-            v.second = G.estimatedCost(v.first, ziel); // ab hier ist second nur der Heuristikwert.
-            queue.push_back(v);
-            std::push_heap(queue.begin(), queue.end(), compare());
-            bekannt[v.first] = true;
+    if ( G.getNeighbors(current).empty()) return false;
+    for ( auto v : G.getNeighbors(current)) {
+        Weglaenge[v.first] = v.second;
+        v.second = G.estimatedCost(v.first, ziel); // ab hier ist second nur der Heuristikwert.
+        queue.push_back(v);
+        std::push_heap(queue.begin(), queue.end(), compare());
+        bekannt[v.first] = true;
             Vorgaenger[v.first] = start;
         }
     int k = 0;
