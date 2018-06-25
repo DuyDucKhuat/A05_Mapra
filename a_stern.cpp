@@ -100,9 +100,8 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
             bekannt[v.first] = true;
             Vorgaenger[v.first] = start;
         }
-
+    int k = 0;
         while( true){
-            //for ( auto v : Weglaenge) std::cout << v << std::endl;
 
             std::pop_heap(queue.begin(),queue.end(),compare());
             current = queue.back().first;
@@ -149,6 +148,8 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
                 }
             }
             if( queue.empty()) return false;
+            std::cout << k << std::endl;
+            k++;
         }
     return false; // Kein Weg gefunden.
 }
