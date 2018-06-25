@@ -129,11 +129,10 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
 
             if(k > 163 ) std::cout << "blablabla2" << std::endl;
 
-            NeighborT Nodes = G.getNeighbors(current);          // evtl. neu
+            NeighborT Nodes = *(G.getNeighbors(current));          // evtl. neu
             if(k > 163 ) std::cout << "blablabla3" << std::endl;
 
             // sind die neu?
-            if(k > 163 ) for ( auto v: Nodes ) std::cout << " current nodes: "<< v.first << std::endl;
 
             for ( auto v : Nodes){
                 if ( !bekannt[v.first] ){
@@ -155,19 +154,14 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
                     v.second = G.estimatedCost(v.first, ziel);
                     queue.push_back(v);
                     std::pop_heap(queue.begin(), queue.end(), compare());
-                    if( k > 163) std::cout << "hi4" << std::endl;
 
                 }
             }
             if( queue.empty()){
-                std::cout << "hi3" << std::endl;
                 return false;
             }
             
             k++;
-            if( k > 163){
-                //for ( auto v : bekannt ) std::cout << v << " ";
-            }
         }
     return false; // Kein Weg gefunden.
 }
