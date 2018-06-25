@@ -235,8 +235,7 @@ int main(int argc, char * argv[])
     Istr2 >> bsp2;
     
 
-    
-    std::cout << bsp2 << std::endl;
+    /*
     // Frage Beispielnummer vom User ab
     std::ifstream fin;
     fin.open("daten/Graph3.dat");
@@ -253,12 +252,11 @@ int main(int argc, char * argv[])
     PruefeDijkstra( 3, 0, D);
     
     
-    
+    */
     //std::list<VertexT> weg;
     //if(A_star(G, 0, 2, weg)) std::cout << " hi" << std::endl;
     //PruefeWeg(3, weg);
     
-    fin.close();
 
     
     
@@ -354,6 +352,7 @@ int main(int argc, char * argv[])
         std::list < VertexT > weg5;
         displayMaze(G5);
         std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(6);
+        std::cout << Aufgabe[bsp2].first << " "<< Aufgabe[bsp2].second << std::endl;
         if( A_star(G5, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg5))
         {
             std::cout << " Ja geht" << std::endl;
