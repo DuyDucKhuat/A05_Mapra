@@ -71,7 +71,8 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
     public:
         bool operator () (size_t a, size_t b){
             return  Weglaenge[a]+ estimatedCost(a, ziel) < Weglaenge[b] + estimatedCost(b, ziel);
-        };
+        }
+    };
     
     std::vector < bool > bekannt (n,false);
     std::vector < size_t > Vorgaenger(n, -1);
