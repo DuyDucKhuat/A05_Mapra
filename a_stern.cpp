@@ -72,18 +72,15 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
     typedef DistanceGraph::NeighborT NeighborT;
     size_t n = G.numVertices();
 
-    //std::vector<CostT> Weglaenge(n, infty); // Vom Startknoten aus.
+    static std::vector<CostT> Weglaenge(n, infty); // Vom Startknoten aus.
 
     class compare { // f =  g + h;
     public:
-        std::vector<CostT> Weglaenge;
         bool operator () (std::pair<size_t , CostT> a, std::pair<size_t , CostT> b) const {
             //for ( auto v : Weglaenge) std::cout << v << std::endl;
             return  Weglaenge.at(a.first)+ a.second > Weglaenge.at(b.first) + b.second;
         }
     };
-    compare asdf;
-    asdf.Weglaenge = std::vector< CostT> (n,infty);
 
     std::vector < bool > bekannt (n,false);
     std::vector < VertexT > Vorgaenger(n, -1);
@@ -92,12 +89,12 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
         std::make_heap( queue.begin(), queue.end(), compare() );
 
         bekannt.at(start) = true;
-        asdf.Weglaenge.at(start) = 0.;
+        Weglaenge.at(start) = 0.;
         VertexT current = start;
 
     if ( G.getNeighbors(current).empty()) return false;
     for ( auto v : G.getNeighbors(current)) {
-        asdf.Weglaenge[v.first] = v.second;
+        Weglaenge[v.first] = v.second;
         v.second = G.estimatedCost(v.first, ziel); // ab hier ist second nur der Heuristikwert.
         queue.push_back(v);
         std::push_heap(queue.begin(), queue.end(), compare());
@@ -132,7 +129,7 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
             for ( auto v : *N ){
                 if ( !bekannt.at(v.first) ){
 
-                    asdf.Weglaenge.at(v.first) = asdf.Weglaenge.at(current) + v.second;
+                    Weglaenge.at(v.first) = Weglaenge.at(current) + v.second;
 
                     v.second = G.estimatedCost(v.first, ziel);
                     
@@ -145,8 +142,8 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
                     Vorgaenger.at(v.first) = current;
                 //okay, und wenn bekannt:
                 //ist der neue Weg besser?
-                }else if ( asdf.Weglaenge.at(current) + v.second < asdf.Weglaenge.at(v.first) ){
-                    asdf.Weglaenge.at(v.first) = asdf.Weglaenge.at(current) + v.second;
+                }else if ( Weglaenge.at(current) + v.second < Weglaenge.at(v.first) ){
+                    Weglaenge.at(v.first) = Weglaenge.at(current) + v.second;
                     Vorgaenger.at(v.first) = current;
                     v.second = G.estimatedCost(v.first, ziel);
                     queue.push_back(v);
