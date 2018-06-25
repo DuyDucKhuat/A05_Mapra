@@ -107,7 +107,7 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
             std::cout << " current: "<<current << " " << queue.back().second << std::endl;
 
             queue.pop_back();
-            if ( v.first == ziel)
+            if ( current.first == ziel)
             {
                 size_t w  = ziel;
                 weg.push_back(ziel);
