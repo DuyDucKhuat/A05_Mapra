@@ -164,7 +164,7 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
             if( queue.empty()){
                 return false;
             }
-            std::sort_heap(queue.begin(), queue.end(), compare());
+            //std::sort_heap(queue.begin(), queue.end(), compare());
 
             k++;
             std::cout << k << std::endl;
