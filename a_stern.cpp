@@ -91,7 +91,7 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
         VertexT current = start;
         for ( auto v : G.getNeighbors(current)) {
             Weglaenge[v.first] = v.second;
-            v.second = G.estimatedCost(v.first, ziel);
+            v.second = G.estimatedCost(v.first, ziel); // ab hier ist second nur der Heuristikwert.
             queue.push_back(v);
             std::push_heap(queue.begin(), queue.end(), compare());
 
@@ -104,7 +104,7 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
 
             std::pop_heap(queue.begin(),queue.end(),compare());
             VertexT current = queue.back().first;
-            std::cout << " current: "<<current << std::endl;
+            std::cout << " current: "<<current << " " << queue.back().second << std::endl;
 
             queue.pop_back();
 
