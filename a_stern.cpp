@@ -365,7 +365,7 @@ int main(int argc, char * argv[])
 
         std::list < VertexT > weg;
 
-        if( A_star(G, 3, 10, weg)) PruefeWeg(4,weg);
+        if( A_star(G, 3, 8, weg)) PruefeWeg(4,weg);
     
     }
     if ( bsp == 5){
