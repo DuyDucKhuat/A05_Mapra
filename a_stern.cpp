@@ -171,7 +171,6 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
             }
 
             k++;
-            std::cout << k << std::endl;
         }
     return false; // Kein Weg gefunden.
 }
