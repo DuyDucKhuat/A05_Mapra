@@ -13,7 +13,7 @@ bool maze::checkIndex ( size_t i, size_t j) const {  //gültiger Index?
 }
 
 DistanceGraph::NeighborT& maze::getNeighbors (VertexT v) const {
-    DistanceGraph::NeighborT  res = new DistanceGraph:: NeighborT(); //erstelle Obejekt, * entnehme Referenz.
+    DistanceGraph::NeighborT * res = new DistanceGraph:: NeighborT(); //erstelle Obejekt, * entnehme Referenz.
     std::pair <size_t, size_t > a; // Tupelkoordinaten
     a = RowCol(v);
     if ((*this)(a.first, a.second) != CellType::Wall){
