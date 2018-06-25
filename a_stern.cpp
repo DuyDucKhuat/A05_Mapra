@@ -208,7 +208,7 @@ int main()
     fin >> edges;
     aktualsiereAdjazenz(fin, edges, G);
     std::vector<CostT> D(n,infty);
-    //DisplayAdjazenz(G);
+    DisplayAdjazenz(G);
     Dijkstra(G,0, D);
     //PruefeDijkstra( 1, 0, D);
     
