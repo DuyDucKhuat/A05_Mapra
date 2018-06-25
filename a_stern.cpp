@@ -87,8 +87,8 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
 
         std::make_heap( queue.begin(), queue.end(), compare() );
 
-        bekannt[start] = true;
-        Weglaenge[start] = 0.;
+        bekannt.at(start) = true;
+        Weglaenge.at(start) = 0.;
         VertexT current = start;
 
     if ( G.getNeighbors(current).empty()) return false;
@@ -97,8 +97,8 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
         v.second = G.estimatedCost(v.first, ziel); // ab hier ist second nur der Heuristikwert.
         queue.push_back(v);
         std::push_heap(queue.begin(), queue.end(), compare());
-        bekannt[v.first] = true;
-        Vorgaenger[v.first] = start;
+        bekannt.at(v.first) = true;
+        Vorgaenger.at(v.first) = start;
         }
     int k = 0;
         while( true){
@@ -117,7 +117,7 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
                 weg.push_back(ziel);
                 while (w != start){
                     weg.push_back(Vorgaenger[w]);
-                    w = Vorgaenger[w];
+                    w = Vorgaenger.at(w);
                     
                 }
                 weg.reverse();
@@ -126,9 +126,9 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
                 // evtl. neu
             // sind die neu?
             for ( auto v : *N ){
-                if ( !bekannt[v.first] ){
+                if ( !bekannt.at(v.first) ){
 
-                    Weglaenge[v.first] = Weglaenge[current] + v.second;
+                    Weglaenge.at(v.first) = Weglaenge.at(current) + v.second;
 
                     v.second = G.estimatedCost(v.first, ziel);
                     
@@ -136,14 +136,14 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
 
                     std::push_heap(queue.begin(), queue.end(), compare());
 
-                    bekannt[v.first] = true;
+                    bekannt.at(v.first) = true;
 
-                    Vorgaenger[v.first] = current;
+                    Vorgaenger.at(v.first) = current;
                 //okay, und wenn bekannt:
                 //ist der neue Weg besser?
-                }else if ( Weglaenge[current] + v.second < Weglaenge[v.first] ){
-                    Weglaenge[v.first] = Weglaenge[current] + v.second;
-                    Vorgaenger[v.first] = current;
+                }else if ( Weglaenge.at(current) + v.second < Weglaenge.at(v.first) ){
+                    Weglaenge.at(v.first) = Weglaenge.at(current) + v.second;
+                    Vorgaenger.at(v.first) = current;
                     v.second = G.estimatedCost(v.first, ziel);
                     queue.push_back(v);
                     std::push_heap(queue.begin(), queue.end(), compare());
