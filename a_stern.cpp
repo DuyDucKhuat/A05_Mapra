@@ -226,7 +226,7 @@ void displayMaze (maze& G)
 //############################################################################################################
 int main(int argc, char[] * argv)
 {
-    std::istringstream(argv[1]) istr;
+    std::istringstream istr (argv[1]) ;
     int bsp;
     istr >> bsp;
     std::cout << bsp << std::endl;
