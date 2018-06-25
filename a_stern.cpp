@@ -106,10 +106,8 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
 
             std::pop_heap(queue.begin(),queue.end(),compare());
             current = queue.back().first;
-            if(k > 163 ) std::cout << " current: "<<current << std::endl;
 
             queue.pop_back();
-            if(k > 163 ) std::cout << "blablabla" << std::endl;
 
             // sind wir schon am Ziel?
             if ( current == ziel)
@@ -127,10 +125,8 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
                 return true;
             }
 
-            if(k > 163 ) std::cout << "blablabla2" << std::endl;
 
                  // evtl. neu
-            if(k > 163 ) std::cout << "blablabla3" << std::endl;
 
             // sind die neu?
 
@@ -143,7 +139,6 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
                     std::pop_heap(queue.begin(), queue.end(), compare());
                     bekannt[v.first] = true;
                     Vorgaenger[v.first] = current;
-                    if( k > 163) std::cout << "hi3" << std::endl;
 
                         
                 //okay, und wenn bekannt:
@@ -162,6 +157,7 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
             }
             
             k++;
+            std::cout << k <<  std::endl;
         }
     return false; // Kein Weg gefunden.
 }
