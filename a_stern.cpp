@@ -97,6 +97,7 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
             std::push_heap(queue.begin(), queue.end(), compare());
 
             Weglaenge[v.first] = v.second;
+            std::cout << "hier2" << " " << Weglaenge[v.first] << std::endl;
             bekannt[v.first] = true;
             Vorgaenger[v.first] = start;
         }
