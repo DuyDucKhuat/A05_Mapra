@@ -235,56 +235,8 @@ int main(int argc, char * argv[])
     Istr2 >> bsp2;
     
 
-    /*
-    // Frage Beispielnummer vom User ab
-    std::ifstream fin;
-    fin.open("daten/Graph3.dat");
-    size_t n = 0; //Anzahl der Knoten
-    fin >> n;
-    CoordinateGraph G(n);
-    size_t edges = 0;   //Anzahl der Kanten
-    fin >> edges;
-    aktualsiereAdjazenz(fin, edges, G);
-    std::vector<CostT> D(n,infty);
 
-    DisplayAdjazenz(G);
-    Dijkstra(G,0, D);
-    PruefeDijkstra( 3, 0, D);
-    
-    
-    */
-    //std::list<VertexT> weg;
-    //if(A_star(G, 0, 2, weg)) std::cout << " hi" << std::endl;
-    //PruefeWeg(3, weg);
-    
 
-    
-    
-  /*
-    
-    
-
-    std::ifstream fin2;
-    fin2.open("daten/Maze2.dat");
-    size_t breite = 0;
-    size_t hoehe = 0;
-    fin2 >> breite;
-    fin2 >> hoehe;
-    maze G2(breite,hoehe);
-    readMaze(fin2, breite, hoehe, G2);
-    std::vector<CostT> D2(breite*hoehe,infty);
-    displayMaze(G2);
-    Dijkstra(G2,9,D2);
-
-    
-    std::list<VertexT> weg2;
-    //if(A_star(G2,9,6*8+7,weg2)) std::cout << "hi2 " << std::endl;
-    //for( auto v : weg2) std::cout << v << " ";
-    std::cout << "\n";
-    */
-
-    
-    //############################################################################
     if ( bsp == 1){
         
         
@@ -447,6 +399,34 @@ int main(int argc, char * argv[])
             PruefeWeg(8,weg5);
         }
     }
+    if ( bsp == 9){
+        
+        std::ifstream fin5;
+        fin5.open("daten/Maze5.dat");
+        size_t breite5 = 0;
+        size_t hoehe5 = 0;
+        fin5 >> breite5;
+        fin5 >> hoehe5;
+        maze G5(breite5,hoehe5);
+        readMaze(fin5, breite5, hoehe5, G5);
+        
+        std::list < VertexT > weg5;
+        displayMaze(G5);
+        std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(9);
+        std::cout << Aufgabe[bsp2].first << " "<< Aufgabe[bsp2].second << std::endl;
+        if( A_star(G5, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg5))
+        {
+            PruefeWeg(9,weg5);
+        }
+    }
+    if ( bsp == 9){
+        maze G(256,256);
+        std::vector<Celltype> Random = ErzeugeLabyrinth (256,256, 1);
+        G.Knoten = Random;
+        std::list < VertexT > weg;
+        if( A_star(G, 257, 277 , weg)) PruefeWeg(10,weg);
+    }
+    
     
     return 0;
 }
