@@ -231,14 +231,13 @@ int main()
     fin >> edges;
     aktualsiereAdjazenz(fin, edges, G);
     std::vector<CostT> D(n,infty);
-    std::cout << " hier5" << std::endl;
 
     DisplayAdjazenz(G);
     Dijkstra(G,0, D);
     //PruefeDijkstra( 1, 0, D);
     
     std::list<VertexT> weg;
-    if(A_star(G, 0, 1, weg)) std::cout << " hi" << std::endl;
+    if(A_star(G, 0, 2, weg)) std::cout << " hi" << std::endl;
     //PruefeWeg(3, weg);
     
     fin.close();
