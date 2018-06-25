@@ -220,7 +220,7 @@ int main()
 {
     // Frage Beispielnummer vom User ab
     std::ifstream fin;
-    fin.open("daten/Maze1.dat");
+    fin.open("daten/Graph1.dat");
     size_t n = 0; //Anzahl der Knoten
     fin >> n;
     CoordinateGraph G(n);
@@ -229,17 +229,23 @@ int main()
     aktualsiereAdjazenz(fin, edges, G);
     std::vector<CostT> D(n,infty);
 
-    DisplayAdjazenz(G);
+    //DisplayAdjazenz(G);
     Dijkstra(G,0, D);
     //PruefeDijkstra( 1, 0, D);
+    
+    
     
     std::list<VertexT> weg;
     if(A_star(G, 0, 2, weg)) std::cout << " hi" << std::endl;
     //PruefeWeg(3, weg);
     
     fin.close();
-    // Lade die zugehoerige Textdatei in einen Graphen
-    // PruefeHeuristik
+
+    
+    
+    
+    
+    
     
     std::ifstream fin2;
     fin2.open("daten/Maze2.dat");
@@ -250,12 +256,17 @@ int main()
     maze G2(breite,hoehe);
     readMaze(fin2, breite, hoehe, G2);
     std::vector<CostT> D2(breite*hoehe,infty);
-    //displayMaze(G2);
+    displayMaze(G2);
     Dijkstra(G2,9,D2);
-    //for ( auto v : D2) std::cout << v << " ";
-    //std::cout << "\n" ;
+
     
-    //PruefeDijkstra(5, 9, D2);
+    PruefeDijkstra(5, 9, D2);
+    
+    
+    std::list<VertexT> weg2;
+    if(A_star(G2,0,1,weg2)) std::cout << "hi2 " << std::endl;
+    for( auto v : weg2) std::cout << v << " ";
+    std::cout << "\n";
     
     
     // Loese die in der Aufgabenstellung beschriebenen Probleme fuer die jeweilige Datei
