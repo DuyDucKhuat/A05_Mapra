@@ -71,8 +71,7 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
     typedef DistanceGraph::LocalEdgeT LocalEdgeT;
     typedef DistanceGraph::NeighborT NeighborT;
     size_t n = G.numVertices();
-    compare asdf;
-    asdf.Weglaenge = std::vector< CostT> (n,infty);
+
     //std::vector<CostT> Weglaenge(n, infty); // Vom Startknoten aus.
 
     class compare { // f =  g + h;
@@ -83,6 +82,8 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
             return  Weglaenge.at(a.first)+ a.second > Weglaenge.at(b.first) + b.second;
         }
     };
+    compare asdf;
+    asdf.Weglaenge = std::vector< CostT> (n,infty);
 
     std::vector < bool > bekannt (n,false);
     std::vector < VertexT > Vorgaenger(n, -1);
