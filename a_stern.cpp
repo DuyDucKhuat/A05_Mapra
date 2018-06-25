@@ -304,6 +304,8 @@ int main(int argc, char * argv[])
         std::list < VertexT > weg;
         std::cout << "hi" << std::endl;
         std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(1);
+        std::cout << "hi2" << std::endl;
+
         std::cout << Aufgabe[bsp2].first << " "<< Aufgabe[bsp2].second << std::endl;
         if( A_star(G, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg))
         {
