@@ -107,11 +107,21 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
             std::cout << " current: "<<current << " " << queue.back().second << std::endl;
 
             queue.pop_back();
-
+            if ( v.first == ziel)
+            {
+                size_t w  = ziel;
+                weg.push_back(ziel);
+                while (w != start){
+                    weg.push_back(Vorgaenger[w]);
+                    w = Vorgaenger[w];
+                    for( auto v : weg) std::cout << v << std::endl;
+                    
+                }
+                return true;
+            }
 
             
             NeighborT Nodes = G.getNeighbors(current);          // evtl. neu
-
             // sind die neu?
             
             for ( auto v : Nodes){
