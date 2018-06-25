@@ -90,11 +90,13 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
         VertexT current = start;
         for ( auto v : G.getNeighbors(current)) {
             queue.push_back(v);
+            std::push_heap(queue.begin(), queue.end(), compare());
+
             Weglaenge[v.first] = v.second;
             bekannt[v.first] = true;
             Vorgaenger[v.first] = start;
         }
-        std::push_heap(queue.begin(), queue.end(), compare());
+
         while( true){
             std::pop_heap(queue.begin(),queue.end(),compare());
             VertexT current = queue.back().first;
@@ -107,6 +109,7 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
             // sind die neu?
             
             for ( auto v : Nodes){
+                std::cout << v.first << std::endl;
                 if ( !bekannt[v.first] ){
                     // sind wir schon am Ziel?
                     if ( v.first == ziel)
