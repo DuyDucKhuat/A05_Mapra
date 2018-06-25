@@ -106,7 +106,7 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
 
             std::pop_heap(queue.begin(),queue.end(),compare());
             current = queue.back().first;
-            std::cout << " current: "<<current << " " << queue.back().second << std::endl;
+            //std::cout << " current: "<<current << " " << queue.back().second << std::endl;
 
             queue.pop_back();
             // sind wir schon am Ziel?
