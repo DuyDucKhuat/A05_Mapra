@@ -163,11 +163,13 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
             if( k > 376 ) std::cout << "hier5!!" << std::endl;
 
             if( queue.empty()){
+                delete[] &N;
                 return false;
             }
 
             k++;
             std::cout << k << std::endl;
+            delete[] &N;
             }
     return false; // Kein Weg gefunden.
     
