@@ -130,36 +130,32 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
 
             // sind die neu?
 
-            if ( k > 190) for ( auto v: G.getNeighbors(current)) std::cout << v.first << " ";
-             if ( k > 190)std::cout <<"\n ";
+            if ( k == 191) for ( auto v: G.getNeighbors(current)) std::cout << v.first << " ";
+             if ( k == 191)std::cout <<"\n ";
 
             for ( auto v : G.getNeighbors(current)){
-                if( v.first == 430){
-                if ( k > 190) std::cout << "waruuuum" << std::endl;
-                    if ( k > 190) std::cout << "current: " << v.first << std::endl;
-                }
+
 
                 if ( !bekannt[v.first] ){
-                    if( v.first == 430) if ( k > 190) std::cout << "hier!!" << std::endl;
+                    if( v.first == 430) if ( k == 191) std::cout << "hier!!" << std::endl;
 
                     Weglaenge[v.first] = Weglaenge[current] + v.second;
-                    if( v.first == 430) if ( k > 190) std::cout << "hier2!!" << std::endl;
+                    if( v.first == 430) if ( k == 191) std::cout << "hier2!!" << std::endl;
 
                     v.second = G.estimatedCost(v.first, ziel);
-                    if( v.first == 430) if ( k > 190) std::cout << "hier3!!" << std::endl;
-                    if( v.first == 430) if ( k > 190) for (auto l : queue ) std::cout << l.first << " ";
+                    if( v.first == 430) if ( k == 191) std::cout << "hier3!!" << std::endl;
+                    if( v.first == 430) if ( k == 191) for (auto l : queue ) std::cout << l.first << " ";
                     
                     queue.push_back(v);
-                    if( v.first == 430) if ( k > 190) std::cout << "hier4!!" << std::endl;
+                    if( v.first == 430) if ( k == 191) std::cout << "hier4!!" << std::endl;
 
                     std::push_heap(queue.begin(), queue.end(), compare());
-                    if( v.first == 430) if ( k > 190) std::cout << "hier5!!" << std::endl;
+                    if( v.first == 430) if ( k == 191) std::cout << "hier5!!" << std::endl;
 
                     bekannt[v.first] = true;
-                    if( v.first == 430) if ( k > 190) std::cout << "hier6!!" << std::endl;
+                    if( v.first == 430) if ( k == 191) std::cout << "hier6!!" << std::endl;
 
                     Vorgaenger[v.first] = current;
-                    if ( k > 190) std::cout << "hier drin " << std::endl;
 
 
                         
