@@ -426,6 +426,7 @@ int main(int argc, char * argv[])
         std::list < VertexT > weg;
         //displayMaze(G);
         if( A_star(G, 257, 277 , weg)){
+            if ( weg.empty()) std::cout << " leer" << std::endl;
             for ( auto w : weg ) std::cout << w << " ";
             PruefeWeg(10,weg);
         }
