@@ -222,7 +222,7 @@ int main()
     //PruefeDijkstra( 1, 0, D);
     
     std::list<VertexT> weg;
-    A_star(G, 0, 2, weg);
+    if(A_star(G, 0, 2, weg)) std::cout << " hi" << std::endl;
     PruefeWeg(1, weg);
     for( auto v : weg) std::cout << v << std::endl;
     
