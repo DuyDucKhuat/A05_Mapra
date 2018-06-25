@@ -242,7 +242,7 @@ int main()
     //PruefeDijkstra( 1, 0, D);
     
     std::list<VertexT> weg;
-    if(A_star(G, 0, 5, weg)) std::cout << " hi" << std::endl;
+    if(A_star(G, 0, 8, weg)) std::cout << " hi" << std::endl;
     PruefeWeg(2, weg);
     for( auto v : weg) std::cout << v << std::endl;
     
@@ -259,10 +259,10 @@ int main()
     maze G2(breite,hoehe);
     readMaze(fin2, breite, hoehe, G2);
     std::vector<CostT> D2(breite*hoehe,infty);
-    displayMaze(G2);
+    //displayMaze(G2);
     Dijkstra(G2,9,D2);
-    for ( auto v : D2) std::cout << v << " ";
-    std::cout << "\n" ;
+    //for ( auto v : D2) std::cout << v << " ";
+    //std::cout << "\n" ;
     
     //PruefeDijkstra(5, 9, D2);
     
