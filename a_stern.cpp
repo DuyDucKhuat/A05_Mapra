@@ -176,14 +176,12 @@ void aktualsiereAdjazenz( std::ifstream& in , size_t edges, CoordinateGraph& G){
 }
 
 void DisplayAdjazenz ( CoordinateGraph& G){
-    std::cout << " hier2" << std::endl;
 
     std:: cout <<"    ";
     for (int i = 0; i < G.numVertices() ; i++) std:: cout << i << "  ";
     std::cout << "\n";
     for (int i = 0; i < G.numVertices() ; i++) std:: cout << "____";
     std::cout << "\n";
-    std::cout << " hier3" << std::endl;
 
     for (int i = 0; i < G.numVertices() ; i++){
         std:: cout << i << " | ";
@@ -194,7 +192,6 @@ void DisplayAdjazenz ( CoordinateGraph& G){
         }
         std::cout<< "\n" ;
     }
-    std::cout << " hier4" << std::endl;
 
 }
 
@@ -227,7 +224,7 @@ int main()
 {
     // Frage Beispielnummer vom User ab
     std::ifstream fin;
-    fin.open("daten/Data1.dat");
+    fin.open("daten/Graph1.dat");
     size_t n = 0; //Anzahl der Knoten
     fin >> n;
     CoordinateGraph G(n);
