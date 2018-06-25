@@ -261,14 +261,13 @@ int main()
     std::vector<CostT> D2(breite*hoehe,infty);
     displayMaze(G2);
     Dijkstra(G2,9,D2);
-    if ( G2.getNeighbors(0).empty()) std::cout << "halloooo " << std::endl;
 
     
     //PruefeDijkstra(5, 9, D2);
     
     
     std::list<VertexT> weg2;
-    if(A_star(G2,0,1,weg2)) std::cout << "hi2 " << std::endl;
+    if(A_star(G2,9,14,weg2)) std::cout << "hi2 " << std::endl;
     for( auto v : weg2) std::cout << v << " ";
     std::cout << "\n";
     
