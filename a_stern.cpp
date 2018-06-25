@@ -150,7 +150,6 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
                     std::push_heap(queue.begin(), queue.end(), compare());
                 }
             }
-            if( k > 376 ) std::cout << "hier5!!" << std::endl;
 
             if( queue.empty()){
                 return false;

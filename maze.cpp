@@ -13,32 +13,31 @@ bool maze::checkIndex ( size_t i, size_t j) const {  //gültiger Index?
 }
 
 DistanceGraph::NeighborT& maze::getNeighbors (VertexT v) const {
-    //DistanceGraph::NeighborT * res = DistanceGraph:: NeighborT(); //erstelle Obejekt, * entnehme Referenz.
+    DistanceGraph::NeighborT * res = new  DistanceGraph:: NeighborT(); //erstelle Obejekt, * entnehme Referenz.
     //std::unique_ptr<NeighborT> res = std::make_unique<DistanceGraph::NeighborT>(DistanceGraph::NeighborT());
-    DistanceGraph::NeighborT res;
     std::pair <size_t, size_t > a; // Tupelkoordinaten
     a = RowCol(v);
     if ((*this)(a.first, a.second) != CellType::Wall){
         if ( checkIndex(a.first +1, a.second))
             if ((*this)(a.first + 1, a.second) != CellType::Wall)
-                res.push_back(  DistanceGraph::LocalEdgeT ((a.first + 1)*rows + a.second, 1.));
+                res->push_back(  DistanceGraph::LocalEdgeT ((a.first + 1)*rows + a.second, 1.));
     
         if ( checkIndex(a.first -1, a.second))
             if ((*this)(a.first - 1, a.second) != CellType::Wall)
-                res.push_back( DistanceGraph::LocalEdgeT ((a.first - 1)*rows + a.second, 1. ));
+                res->push_back( DistanceGraph::LocalEdgeT ((a.first - 1)*rows + a.second, 1. ));
     
         if (checkIndex(a.first, a.second -1))
             if ((*this)(a.first, a.second -1) != CellType::Wall)
-                res.push_back(DistanceGraph::LocalEdgeT ((a.first)*rows + a.second - 1, 1.));
+                res->push_back(DistanceGraph::LocalEdgeT ((a.first)*rows + a.second - 1, 1.));
     
         if ( checkIndex(a.first, a.second + 1))
             if ((*this)(a.first, a.second + 1) != CellType::Wall)
             {
                 DistanceGraph::LocalEdgeT A((a.first)*rows + a.second + 1, 1.);
-                res.push_back(A);
+                res->push_back(A);
             }
     }
-    return res;
+    return *res;
         
 }
 
