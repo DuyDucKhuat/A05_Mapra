@@ -309,7 +309,7 @@ int main(int argc, char * argv[])
             std::cout << " \n" ;
 
         }
-        PruefeWeg(0,weg3);
+        PruefeWeg(5,weg3);
 
     }
     }
