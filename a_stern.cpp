@@ -213,7 +213,9 @@ int main()
     //PruefeDijkstra( 1, 0, D);
     
     std::list<VertexT> weg;
-    if ( A_star(G, 0, 2, weg)) PruefeWeg(1, weg);
+    A_star(G, 0, 2, weg);
+    //PruefeWeg(1, weg);
+    for( auto v : weg) std::cout << v << std::endl;
     
     fin.close();
     // Lade die zugehoerige Textdatei in einen Graphen
