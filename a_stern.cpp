@@ -148,7 +148,7 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
                     std::push_heap(queue.begin(), queue.end(), compare());
 
                     bekannt[v.first] = true;
-                    if( v.first > 613) std::cout << "hier6!!" << std::endl;
+                    if( k > 613) std::cout << "hier6!!" << std::endl;
 
                     Vorgaenger[v.first] = current;
 
