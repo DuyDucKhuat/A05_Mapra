@@ -421,7 +421,7 @@ int main(int argc, char * argv[])
     }
     if ( bsp == 9){
         maze G(256,256);
-        std::vector<Celltype> Random = ErzeugeLabyrinth (256,256, 1);
+        std::vector<CellType> Random = ErzeugeLabyrinth (256,256, 1);
         G.Knoten = Random;
         std::list < VertexT > weg;
         if( A_star(G, 257, 277 , weg)) PruefeWeg(10,weg);
