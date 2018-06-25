@@ -6,7 +6,7 @@
 #include <algorithm>
 #include <iostream>
 #include <vector>
-#include <list> 
+#include <list>
 
 
 // Ein Graph, der Koordinaten von Knoten speichert.
@@ -116,6 +116,8 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
                         while (w != start){
                             weg.push_back(Vorgaenger[w]);
                             w = Vorgaenger[w];
+                            for( auto v : weg) std::cout << v << std::endl;
+
                         }
                         return true;
                     }
