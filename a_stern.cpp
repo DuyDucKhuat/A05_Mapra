@@ -272,7 +272,7 @@ int main()
     
     //############################################################################
     std::ifstream fin3;
-    fin3.open("daten/Maze3.dat");
+    fin3.open("daten/Maze4.dat");
     size_t breite2 = 0;
     size_t hoehe2 = 0;
     fin3 >> breite2;
