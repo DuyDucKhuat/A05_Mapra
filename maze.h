@@ -12,6 +12,7 @@
 #include <iostream>
 #include <fstream>
 #include <math.h>
+#include <memory>
 
 
 class maze : public DistanceGraph
