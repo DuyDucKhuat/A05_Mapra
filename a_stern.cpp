@@ -332,7 +332,7 @@ int main(int argc, char * argv[])
             std::cout << G4.RowCol(v.second).first << "  " << G4.RowCol(v.second).second << std::endl;
             
             std::cout << v.first << " " << v.second << std::endl;
-            PruefeWeg(2,weg3);
+            PruefeWeg(2,weg4);
             if( A_star(G4, v.first, v.second, weg4))
             {
                 std::cout << " Ja geht" << std::endl;
