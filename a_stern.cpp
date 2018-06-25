@@ -322,9 +322,9 @@ int main(int argc, char * argv[])
         Dijkstra(G,0, D);
         PruefeDijkstra( 2, 0, D);
         
+        std::list < VertexT > weg;
 
-        if( A_star(G, 5, 10, weg)) PruefeWeg(2,weg);
-
+        if( A_star(G, 0, 8, weg)) PruefeWeg(2,weg);
     }
     if ( bsp == 3){
         
