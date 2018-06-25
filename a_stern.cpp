@@ -89,7 +89,7 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
         VertexT current = start;
         for ( auto v : G.getNeighbors(current)) {
             queue.push_back(v);
-            Welaenge[v.first] = v.second;
+            Weglaenge[v.first] = v.second;
             bekannt[v.first] = true;
             Vorgaenger[v.first] = start;
         }
