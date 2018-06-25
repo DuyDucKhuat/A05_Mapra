@@ -100,11 +100,11 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
         }
 
         while( true){
-            for ( auto v : Weglaenge) std::cout << v << std::endl;
+            //for ( auto v : Weglaenge) std::cout << v << std::endl;
 
             std::pop_heap(queue.begin(),queue.end(),compare());
             VertexT current = queue.back().first;
-            std::cout << current << std::endl;
+            std::cout << " current: "<<current << std::endl;
 
             queue.pop_back();
 
