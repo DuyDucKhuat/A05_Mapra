@@ -7,7 +7,7 @@ main : a_stern.cpp  CoordinateGraph.o unit.o maze.o
 CoordinateGraph.o : CoordinateGraph.cpp unit.h
 	$(CXX) -c $(FLG)  $^
 maze.o: maze.cpp unit.h
-	$(CXX) -c $(FLG) $^
+	$(CXX) -c -g $(FLG) $^
 
 .PHONY: clean
 clean:
