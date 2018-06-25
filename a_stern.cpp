@@ -98,8 +98,7 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
             std::pop_heap(queue.begin(),queue.end(),compare());
             VertexT current = queue.back().first;
             queue.pop_back();
-            for( auto v : queue) std::cout << v.first << " ";
-            std::cout << "\n";
+
 
             
             NeighborT Nodes = G.getNeighbors(current);          // evtl. neu
@@ -220,7 +219,7 @@ int main()
     
     std::list<VertexT> weg;
     A_star(G, 0, 2, weg);
-    //PruefeWeg(1, weg);
+    PruefeWeg(1, weg);
     for( auto v : weg) std::cout << v << std::endl;
     
     fin.close();
