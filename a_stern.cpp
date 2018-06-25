@@ -113,6 +113,8 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
             // sind wir schon am Ziel?
             if ( current == ziel)
             {
+                if(k > 163 ) std::cout << "blablabla2" << std::endl;
+
                 size_t w  = ziel;
                 weg.push_back(ziel);
                 while (w != start){
