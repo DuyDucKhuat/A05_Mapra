@@ -106,6 +106,8 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
 
             std::pop_heap(queue.begin(),queue.end(),compare());
             current = queue.back().first;
+            if( v.first => 613) std::cout << current << std::endl;
+
             queue.pop_back();
 
             // sind wir schon am Ziel?
@@ -129,8 +131,8 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
 
             // sind die neu?
 
-            if ( k == 191) for ( auto v: G.getNeighbors(current)) std::cout << v.first << " ";
-             if ( k == 191)std::cout <<"\n ";
+            if ( k > 613) for ( auto v: G.getNeighbors(current)) std::cout << v.first << " ";
+             if ( k > 613)std::cout <<"\n ";
 
             for ( auto v : G.getNeighbors(current)){
 
@@ -149,10 +151,10 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
                     if( v.first == 430) if ( k == 191) std::cout << "hier4!!" << std::endl;
 
                     std::push_heap(queue.begin(), queue.end(), compare());
-                    if( v.first == 430) if ( k == 191) std::cout << "hier5!!" << std::endl;
+                    if( v.first => 430) if ( k == 191) std::cout << "hier5!!" << std::endl;
 
                     bekannt[v.first] = true;
-                    if( v.first == 430) if ( k == 191) std::cout << "hier6!!" << std::endl;
+                    if( v.first => 613) std::cout << "hier6!!" << std::endl;
 
                     Vorgaenger[v.first] = current;
 
