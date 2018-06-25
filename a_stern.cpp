@@ -76,7 +76,6 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
     public:
         bool operator () (std::pair<size_t , CostT> a, std::pair<size_t , CostT> b) const {
             //for ( auto v : Weglaenge) std::cout << v << std::endl;
-            std::cout << " f Werte : " << Weglaenge[a.first]+ a.second << " " <<  Weglaenge[b.first] + b.second << std::endl;
             return  Weglaenge[a.first]+ a.second > Weglaenge[b.first] + b.second;
         }
     };
@@ -93,11 +92,9 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
         for ( auto v : G.getNeighbors(current)) {
             Weglaenge[v.first] = v.second;
             v.second = G.estimatedCost(v.first, ziel);
-            std::cout << "hier " << v.first << " " << v.second << std::endl;
             queue.push_back(v);
             std::push_heap(queue.begin(), queue.end(), compare());
 
-            std::cout << "hier2" << " " << Weglaenge[v.first] << std::endl;
             bekannt[v.first] = true;
             Vorgaenger[v.first] = start;
         }
