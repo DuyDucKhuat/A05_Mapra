@@ -147,11 +147,14 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
                     std::pop_heap(queue.begin(), queue.end(), compare());
                 }
             }
-            if( queue.empty()) return false;
+            if( queue.empty()){
+                std::cout << "hi3" << std::endl;
+                return false;
+            }
             
             k++;
             if( k > 163){
-                for ( auto v : bekannt ) std::cout << v << " ";
+                //for ( auto v : bekannt ) std::cout << v << " ";
             }
         }
     return false; // Kein Weg gefunden.
