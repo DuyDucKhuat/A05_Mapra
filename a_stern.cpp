@@ -143,6 +143,9 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
                 }else if ( Weglaenge[current] + v.second < Weglaenge[v.first] ){
                     Weglaenge[v.first] = Weglaenge[current] + v.second;
                     Vorgaenger[v.first] = current;
+                    v.second = G.estimatedCost(v.first, ziel);
+                    queue.push_back(v);
+                    std::pop_heap(queue.begin(), queue.end(), compare());
                 }
             }
             if( queue.empty()) return false;
@@ -258,6 +261,7 @@ int main()
     std::vector<CostT> D2(breite*hoehe,infty);
     displayMaze(G2);
     Dijkstra(G2,9,D2);
+    if ( G2.getNeighbors(0).empty()) std::cout << "halloooo " << std::endl;
 
     
     PruefeDijkstra(5, 9, D2);
