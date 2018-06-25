@@ -232,7 +232,6 @@ int main()
     std::list<VertexT> weg;
     if(A_star(G, 0, 8, weg)) std::cout << " hi" << std::endl;
     PruefeWeg(2, weg);
-    for( auto v : weg) std::cout << v << std::endl;
     
     fin.close();
     // Lade die zugehoerige Textdatei in einen Graphen
