@@ -129,11 +129,13 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
 
             // sind die neu?
 
-            //if( k > 31*31 ) std::cout <<
+            if( k > 369 ) std::cout << "hier!!" << std::endl;
             for ( auto v : G.getNeighbors(current)){
+                if( k > 369 ) std::cout << "hier2!!" << std::endl;
 
 
                 if ( !bekannt[v.first] ){
+                    if( k > 369 ) std::cout << "hier3!!" << std::endl;
 
                     Weglaenge[v.first] = Weglaenge[current] + v.second;
 
@@ -146,6 +148,7 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
                     bekannt[v.first] = true;
 
                     Vorgaenger[v.first] = current;
+                    if( k > 369 ) std::cout << "hier4!!" << std::endl;
 
 
                         
@@ -160,6 +163,7 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
 
                 }
             }
+            if( k > 369 ) std::cout << "hier5!!" << std::endl;
 
             if( queue.empty()){
                 return false;
@@ -167,7 +171,6 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
             //std::sort_heap(queue.begin(), queue.end(), compare());
 
             k++;
-            std::cout << k << std::endl;
             }
     return false; // Kein Weg gefunden.
 }
