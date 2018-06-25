@@ -111,7 +111,6 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
             // sind die neu?
             
             for ( auto v : Nodes){
-                std::cout << v.first << std::endl;
                 if ( !bekannt[v.first] ){
                     // sind wir schon am Ziel?
                     if ( v.first == ziel)
