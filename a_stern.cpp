@@ -424,8 +424,11 @@ int main(int argc, char * argv[])
         std::vector<CellType> Random = ErzeugeLabyrinth (256,256, 1);
         G.Knoten = Random;
         std::list < VertexT > weg;
-        displayMaze(G);
-        if( A_star(G, 257, 277 , weg)) PruefeWeg(10,weg);
+        //displayMaze(G);
+        if( A_star(G, 257, 277 , weg)){
+            for ( auto w : weg ) std::cout << w << " ";
+            PruefeWeg(10,weg);
+        }
     }
     
     
