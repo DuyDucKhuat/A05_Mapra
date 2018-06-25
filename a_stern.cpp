@@ -229,7 +229,7 @@ void displayMaze (maze& G)
 //                          MAIN
 //############################################################################################################
 int main()
-{/*
+{
     // Frage Beispielnummer vom User ab
     std::ifstream fin;
     fin.open("daten/Graph1.dat");
@@ -255,9 +255,9 @@ int main()
 
     
     
-    */
+  
     
-    /*
+    
     
     std::ifstream fin2;
     fin2.open("daten/Maze2.dat");
@@ -278,7 +278,7 @@ int main()
     std::cout << "\n";
     
 
-    */
+    
     //############################################################################
     std::ifstream fin3;
     fin3.open("daten/Maze4.dat");
