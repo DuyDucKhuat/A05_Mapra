@@ -286,6 +286,87 @@ int main(int argc, char * argv[])
     
     //############################################################################
     if ( bsp == 1){
+        
+        std::ifstream fin5;
+        fin5.open("daten/Graph1.dat");
+        size_t breite5 = 0;
+        size_t hoehe5 = 0;
+        fin5 >> breite5;
+        fin5 >> hoehe5;
+        maze G5(breite5,hoehe5);
+        readMaze(fin5, breite5, hoehe5, G5);
+        
+        std::list < VertexT > weg5;
+        displayMaze(G5);
+        std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(1);
+        std::cout << Aufgabe[bsp2].first << " "<< Aufgabe[bsp2].second << std::endl;
+        if( A_star(G5, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg5))
+        {
+            PruefeWeg(1,weg5);
+        }
+    }
+    if ( bsp == 2){
+        
+        std::ifstream fin5;
+        fin5.open("daten/Graph2.dat");
+        size_t breite5 = 0;
+        size_t hoehe5 = 0;
+        fin5 >> breite5;
+        fin5 >> hoehe5;
+        maze G5(breite5,hoehe5);
+        readMaze(fin5, breite5, hoehe5, G5);
+        
+        std::list < VertexT > weg5;
+        displayMaze(G5);
+        std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(2);
+        std::cout << Aufgabe[bsp2].first << " "<< Aufgabe[bsp2].second << std::endl;
+        if( A_star(G5, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg5))
+        {
+            PruefeWeg(2,weg5);
+        }
+    }
+    if ( bsp == 3){
+        
+        std::ifstream fin5;
+        fin5.open("daten/Graph3.dat");
+        size_t breite5 = 0;
+        size_t hoehe5 = 0;
+        fin5 >> breite5;
+        fin5 >> hoehe5;
+        maze G5(breite5,hoehe5);
+        readMaze(fin5, breite5, hoehe5, G5);
+        
+        std::list < VertexT > weg5;
+        displayMaze(G5);
+        std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(3);
+        std::cout << Aufgabe[bsp2].first << " "<< Aufgabe[bsp2].second << std::endl;
+        if( A_star(G5, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg5))
+        {
+            PruefeWeg(3,weg5);
+        }
+    }
+    
+    if ( bsp == 4){
+        
+        std::ifstream fin5;
+        fin5.open("daten/Graph4.dat");
+        size_t breite5 = 0;
+        size_t hoehe5 = 0;
+        fin5 >> breite5;
+        fin5 >> hoehe5;
+        maze G5(breite5,hoehe5);
+        readMaze(fin5, breite5, hoehe5, G5);
+        
+        std::list < VertexT > weg5;
+        displayMaze(G5);
+        std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(4);
+        std::cout << Aufgabe[bsp2].first << " "<< Aufgabe[bsp2].second << std::endl;
+        if( A_star(G5, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg5))
+        {
+            PruefeWeg(4,weg5);
+        }
+    }
+    if ( bsp == 5){
 
     std::ifstream fin3;
     fin3.open("daten/Maze1.dat");
@@ -300,22 +381,12 @@ int main(int argc, char * argv[])
     displayMaze(G3);
     std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(5);
     std::cout << Aufgabe.size() << std::endl;
-    for ( auto v : Aufgabe){
-        std::cout << G3.RowCol(v.first).first << "  " << G3.RowCol(v.first).second << std::endl;
-        std::cout << G3.RowCol(v.second).first << "  " << G3.RowCol(v.second).second << std::endl;
-
-        std::cout << v.first << " " << v.second << std::endl;
-        if( A_star(G3, v.first, v.second, weg3))
-        {
-            std::cout << " Ja geht" << std::endl;
-            for ( auto i : weg3 ) std::cout << i << " ";
-            std::cout << " \n" ;
-
-        }
-        PruefeWeg(5,weg3);
-        }
+        
+    if( A_star(G3, Aufgabe[bsp2], Aufgabe[bsp2], weg3)) PruefeWeg(5,weg3);
+       
+        
     }
-    if ( bsp == 2){
+    if ( bsp == 6){
         
         std::ifstream fin4;
         fin4.open("daten/Maze2.dat");
@@ -331,14 +402,10 @@ int main(int argc, char * argv[])
         std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(6);
         if( A_star(G4, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg4))
             {
-                std::cout << " Ja geht" << std::endl;
-                for ( auto i : weg4 ) std::cout << i << " ";
-                std::cout << " \n" ;
-                
+                PruefeWeg(6,weg4);
             }
-            PruefeWeg(6,weg4);
     }
-    if ( bsp == 3){
+    if ( bsp == 7){
         
         std::ifstream fin5;
         fin5.open("daten/Maze3.dat");
@@ -358,7 +425,7 @@ int main(int argc, char * argv[])
             PruefeWeg(7,weg5);
         }
     }
-    if ( bsp == 4){
+    if ( bsp == 8){
         
         std::ifstream fin5;
         fin5.open("daten/Maze4.dat");
