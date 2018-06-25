@@ -138,23 +138,17 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
 
 
                 if ( !bekannt[v.first] ){
-                    if( v.first == 430) if ( k == 191) std::cout << "hier!!" << std::endl;
 
                     Weglaenge[v.first] = Weglaenge[current] + v.second;
-                    if( v.first == 430) if ( k == 191) std::cout << "hier2!!" << std::endl;
 
                     v.second = G.estimatedCost(v.first, ziel);
-                    if( v.first == 430) if ( k == 191) std::cout << "hier3!!" << std::endl;
-                    if( v.first == 430) if ( k == 191) for (auto l : queue ) std::cout << l.first << " ";
                     
                     queue.push_back(v);
-                    if( v.first == 430) if ( k == 191) std::cout << "hier4!!" << std::endl;
 
                     std::push_heap(queue.begin(), queue.end(), compare());
-                    if( v.first => 430) if ( k == 191) std::cout << "hier5!!" << std::endl;
 
                     bekannt[v.first] = true;
-                    if( v.first => 613) std::cout << "hier6!!" << std::endl;
+                    if( v.first > 613) std::cout << "hier6!!" << std::endl;
 
                     Vorgaenger[v.first] = current;
 
