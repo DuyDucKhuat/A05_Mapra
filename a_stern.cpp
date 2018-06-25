@@ -303,10 +303,8 @@ int main(int argc, char * argv[])
         
         std::list < VertexT > weg;
 
-        if( A_star(G,0 , 1, weg))
-        {
-            PruefeWeg(1,weg);
-        }
+        if( A_star(G,0 , 1, weg)) PruefeWeg(1,weg);
+        
     }
     if ( bsp == 2){
         
@@ -324,13 +322,9 @@ int main(int argc, char * argv[])
         Dijkstra(G,0, D);
         PruefeDijkstra( 2, 0, D);
         
-        std::list < VertexT > weg;
-        std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(2);
-        std::cout << Aufgabe[bsp2].first << " "<< Aufgabe[bsp2].second << std::endl;
-        if( A_star(G, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg))
-        {
-            PruefeWeg(2,weg);
-        }
+
+        if( A_star(G, 5, 10, weg)) PruefeWeg(2,weg);
+
     }
     if ( bsp == 3){
         
