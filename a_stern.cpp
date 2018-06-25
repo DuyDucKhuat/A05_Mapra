@@ -7,6 +7,7 @@
 #include <iostream>
 #include <vector>
 #include <list>
+#include <sstream>
 
 
 // Ein Graph, der Koordinaten von Knoten speichert.
