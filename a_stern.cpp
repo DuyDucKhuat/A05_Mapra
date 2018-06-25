@@ -147,6 +147,8 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
                     v.second = G.estimatedCost(v.first, ziel);
                     queue.push_back(v);
                     std::pop_heap(queue.begin(), queue.end(), compare());
+                    if( k > 163) std::cout << "hi4" << std::endl;
+
                 }
             }
             if( queue.empty()){
