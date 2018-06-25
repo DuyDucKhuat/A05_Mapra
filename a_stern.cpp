@@ -77,7 +77,7 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
     public:
         bool operator () (std::pair<size_t , CostT> a, std::pair<size_t , CostT> b) const {
             //for ( auto v : Weglaenge) std::cout << v << std::endl;
-            return  Weglaenge[a.first]+ a.second > Weglaenge[b.first] + b.second;
+            return  Weglaenge.at(a.first)+ a.second > Weglaenge.at(b.first) + b.second;
         }
     };
 
@@ -229,7 +229,7 @@ void displayMaze (maze& G)
 //                          MAIN
 //############################################################################################################
 int main()
-{
+{/*
     // Frage Beispielnummer vom User ab
     std::ifstream fin;
     fin.open("daten/Graph1.dat");
@@ -255,9 +255,9 @@ int main()
 
     
     
+    */
     
-    
-    
+    /*
     
     std::ifstream fin2;
     fin2.open("daten/Maze2.dat");
@@ -278,7 +278,7 @@ int main()
     std::cout << "\n";
     
 
-    
+    */
     //############################################################################
     std::ifstream fin3;
     fin3.open("daten/Maze4.dat");
