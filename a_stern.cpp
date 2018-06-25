@@ -136,8 +136,7 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
             for ( auto v : G.getNeighbors(current)){
                 if( v.first == 430){
                 if ( k > 190) std::cout << "waruuuum" << std::endl;
-                if ( k > 190) std::cout << v.first << std::endl;
-                if ( k > 190) std::cout << bekannt[v.first] << std::endl;
+                    if ( k > 190) std::cout << "current: " << v.first << std::endl;
                 }
 
                 if ( !bekannt[v.first] ){
