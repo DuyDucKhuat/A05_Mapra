@@ -129,7 +129,7 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
             // sind die neu?
 
             //if( k > 31*31 ) std::cout <<
-            //for ( auto v : G.getNeighbors(current)){
+            for ( auto v : G.getNeighbors(current)){
 
 
                 if ( !bekannt[v.first] ){
@@ -167,7 +167,7 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
 
             k++;
             std::cout << k << std::endl;
-    
+            }
     return false; // Kein Weg gefunden.
 }
 //############################################################################################################
