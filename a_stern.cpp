@@ -131,7 +131,7 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
             // sind die neu?
             if ( k > 190) std::cout << "hi1" << std::endl;
             for ( auto v : G.getNeighbors(current)){
-                if ( k > 190) for ( auto v: G.getNeighbors(current)) std::cout << v << std::endl;
+                if ( k > 190) for ( auto v: G.getNeighbors(current)) std::cout << v.first << std::endl;
                 if ( k > 190) std::cout << "waruuuum" << std::endl;
 
                 if ( !bekannt[v.first] ){
