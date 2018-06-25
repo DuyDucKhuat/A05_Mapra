@@ -126,7 +126,8 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
             
             NeighborT Nodes = G.getNeighbors(current);          // evtl. neu
             // sind die neu?
-            
+            if(k > 163 ) for ( auto v: Nodes ) std::cout << " current nodes: "<< v.first << std::endl;
+
             for ( auto v : Nodes){
                 if ( !bekannt[v.first] ){
 
