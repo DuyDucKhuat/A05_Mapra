@@ -236,7 +236,7 @@ int main(int argc, char * argv[])
     
 
     
-    std::cout << bsp << std::endl;
+    std::cout << bsp2 << std::endl;
     // Frage Beispielnummer vom User ab
     std::ifstream fin;
     fin.open("daten/Graph3.dat");
