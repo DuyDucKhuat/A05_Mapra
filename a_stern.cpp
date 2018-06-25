@@ -298,10 +298,11 @@ int main(int argc, char * argv[])
         aktualsiereAdjazenz(fin, edges, G);
         std::vector<CostT> D(n,infty);
         DisplayAdjazenz(G);
-        Dijkstra(G,0, D);
+        /*Dijkstra(G,0, D);
         PruefeDijkstra( 1, 0, D);
-        
+        */
         std::list < VertexT > weg;
+        
         std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(1);
         std::cout << Aufgabe[bsp2].first << " "<< Aufgabe[bsp2].second << std::endl;
         if( A_star(G, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg))
