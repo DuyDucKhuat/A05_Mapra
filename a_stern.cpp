@@ -160,7 +160,7 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
                     Vorgaenger[v.first] = current;
                     v.second = G.estimatedCost(v.first, ziel);
                     queue.push_back(v);
-                    std::pop_heap(queue.begin(), queue.end(), compare());
+                    std::push_heap(queue.begin(), queue.end(), compare());
 
                 }
             }
