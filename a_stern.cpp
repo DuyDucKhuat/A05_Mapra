@@ -282,7 +282,7 @@ int main()
     
     std::list < VertexT > weg3;
     displayMaze(G3);
-    std::vector Aufgabe = StartZielPaare(8);
+    std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(8);
     for ( auto v : Aufgabe){
         if( A_star(G3, v.first, v.second, weg3))
         {
