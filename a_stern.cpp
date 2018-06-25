@@ -240,7 +240,7 @@ int main()
     //PruefeDijkstra( 1, 0, D);
     
     std::list<VertexT> weg;
-    if(A_star(G, 2, 0, weg)) std::cout << " hi" << std::endl;
+    if(A_star(G, 0, 2, weg)) std::cout << " hi" << std::endl;
     PruefeWeg(1, weg);
     for( auto v : weg) std::cout << v << std::endl;
     
