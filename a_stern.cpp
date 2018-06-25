@@ -226,9 +226,10 @@ void displayMaze (maze& G)
 //############################################################################################################
 int main(int argc, char * argv[])
 {
-    std::istringstream istr(argv[1]);
+    std::istringstream Istr(argv[1]);
     int bsp;
-    istr >> bsp;
+    Istr >> bsp;
+    
     std::cout << bsp << std::endl;
     // Frage Beispielnummer vom User ab
     std::ifstream fin;
@@ -258,7 +259,7 @@ int main(int argc, char * argv[])
   /*
     
     
-    
+
     std::ifstream fin2;
     fin2.open("daten/Maze2.dat");
     size_t breite = 0;
@@ -280,8 +281,10 @@ int main(int argc, char * argv[])
 
     
     //############################################################################
+    if ( bsp == 1){
+
     std::ifstream fin3;
-    fin3.open("daten/Maze4.dat");
+    fin3.open("daten/Maze1.dat");
     size_t breite2 = 0;
     size_t hoehe2 = 0;
     fin3 >> breite2;
@@ -291,7 +294,7 @@ int main(int argc, char * argv[])
     
     std::list < VertexT > weg3;
     displayMaze(G3);
-    std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(8);
+    std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(5);
     std::cout << Aufgabe.size() << std::endl;
     for ( auto v : Aufgabe){
         std::cout << G3.RowCol(v.first).first << "  " << G3.RowCol(v.first).second << std::endl;
@@ -306,7 +309,7 @@ int main(int argc, char * argv[])
 
         }
     }
-    
+    }
     
     return 0;
 }
