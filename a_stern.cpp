@@ -101,7 +101,6 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
         bekannt.at(v.first) = true;
         Vorgaenger.at(v.first) = start;
         }
-    int k = 0;
         while( true){
             std::pop_heap(queue.begin(),queue.end(),compare());
 
@@ -152,12 +151,8 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
             }
 
             if( queue.empty()){
-                //if( N) {delete N; N = nullptr;}
                 return false;
             }
-            k++;
-            std::cout << k << std::endl;
-            //if( N) {delete N; N = nullptr;}
             }
     return false; // Kein Weg gefunden.
     
