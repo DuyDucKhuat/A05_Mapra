@@ -233,7 +233,7 @@ void displayMaze (maze& G)
 //                          MAIN
 //############################################################################################################
 int main()
-{
+{/*
     // Frage Beispielnummer vom User ab
     std::ifstream fin;
     fin.open("daten/Graph1.dat");
@@ -280,7 +280,7 @@ int main()
     //if(A_star(G2,9,6*8+7,weg2)) std::cout << "hi2 " << std::endl;
     //for( auto v : weg2) std::cout << v << " ";
     std::cout << "\n";
-    
+    */
 
     
     //############################################################################
