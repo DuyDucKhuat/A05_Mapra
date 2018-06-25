@@ -151,12 +151,12 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
             }
 
             if( queue.empty()){
-                delete &N;
+                if( &N) {delete &N; &N = nullptr;}
                 return false;
             }
             k++;
             std::cout << k << std::endl;
-            delete &N;
+            if( &N) {delete &N; &N = nullptr;}
             }
     return false; // Kein Weg gefunden.
     
