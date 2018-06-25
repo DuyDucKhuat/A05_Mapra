@@ -243,7 +243,7 @@ int main()
     
     std::list<VertexT> weg;
     if(A_star(G, 0, 5, weg)) std::cout << " hi" << std::endl;
-    PruefeWeg(1, weg);
+    PruefeWeg(2, weg);
     for( auto v : weg) std::cout << v << std::endl;
     
     fin.close();
