@@ -149,6 +149,8 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
                     v.second = G.estimatedCost(v.first, ziel);
                     if( v.first == 430) if ( k > 190) std::cout << "hier3!!" << std::endl;
                     if( v.first == 430) if ( k > 190)std::cout << v.second << std::endl;
+                    if( v.first == 430) if ( k > 190) for (auto l : queue ) std::cout << l.first << " " << "\n";
+                    
                     queue.push_back(v);
                     if( v.first == 430) if ( k > 190) std::cout << "hier4!!" << std::endl;
 
