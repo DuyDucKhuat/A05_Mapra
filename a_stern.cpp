@@ -287,83 +287,99 @@ int main(int argc, char * argv[])
     //############################################################################
     if ( bsp == 1){
         
-        std::ifstream fin5;
-        fin5.open("daten/Graph1.dat");
-        size_t breite5 = 0;
-        size_t hoehe5 = 0;
-        fin5 >> breite5;
-        fin5 >> hoehe5;
-        maze G5(breite5,hoehe5);
-        readMaze(fin5, breite5, hoehe5, G5);
         
-        std::list < VertexT > weg5;
-        displayMaze(G5);
+        std::ifstream fin;
+        fin.open("daten/Graph1.dat");
+        size_t n = 0; //Anzahl der Knoten
+        fin >> n;
+        CoordinateGraph G(n);
+        size_t edges = 0;   //Anzahl der Kanten
+        fin >> edges;
+        aktualsiereAdjazenz(fin, edges, G);
+        std::vector<CostT> D(n,infty);
+        DisplayAdjazenz(G);
+        Dijkstra(G,0, D);
+        PruefeDijkstra( 1, 0, D);
+        
+        std::list < VertexT > weg;
         std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(1);
         std::cout << Aufgabe[bsp2].first << " "<< Aufgabe[bsp2].second << std::endl;
-        if( A_star(G5, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg5))
+        if( A_star(G, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg))
         {
-            PruefeWeg(1,weg5);
+            PruefeWeg(1,weg);
         }
     }
     if ( bsp == 2){
         
-        std::ifstream fin5;
-        fin5.open("daten/Graph2.dat");
-        size_t breite5 = 0;
-        size_t hoehe5 = 0;
-        fin5 >> breite5;
-        fin5 >> hoehe5;
-        maze G5(breite5,hoehe5);
-        readMaze(fin5, breite5, hoehe5, G5);
         
-        std::list < VertexT > weg5;
-        displayMaze(G5);
+        std::ifstream fin;
+        fin.open("daten/Graph2.dat");
+        size_t n = 0; //Anzahl der Knoten
+        fin >> n;
+        CoordinateGraph G(n);
+        size_t edges = 0;   //Anzahl der Kanten
+        fin >> edges;
+        aktualsiereAdjazenz(fin, edges, G);
+        std::vector<CostT> D(n,infty);
+        DisplayAdjazenz(G);
+        Dijkstra(G,0, D);
+        PruefeDijkstra( 2, 0, D);
+        
+        std::list < VertexT > weg;
         std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(2);
         std::cout << Aufgabe[bsp2].first << " "<< Aufgabe[bsp2].second << std::endl;
-        if( A_star(G5, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg5))
+        if( A_star(G, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg))
         {
-            PruefeWeg(2,weg5);
+            PruefeWeg(2,weg);
         }
     }
     if ( bsp == 3){
         
-        std::ifstream fin5;
-        fin5.open("daten/Graph3.dat");
-        size_t breite5 = 0;
-        size_t hoehe5 = 0;
-        fin5 >> breite5;
-        fin5 >> hoehe5;
-        maze G5(breite5,hoehe5);
-        readMaze(fin5, breite5, hoehe5, G5);
         
-        std::list < VertexT > weg5;
-        displayMaze(G5);
+        std::ifstream fin;
+        fin.open("daten/Graph3.dat");
+        size_t n = 0; //Anzahl der Knoten
+        fin >> n;
+        CoordinateGraph G(n);
+        size_t edges = 0;   //Anzahl der Kanten
+        fin >> edges;
+        aktualsiereAdjazenz(fin, edges, G);
+        std::vector<CostT> D(n,infty);
+        DisplayAdjazenz(G);
+        Dijkstra(G,0, D);
+        PruefeDijkstra( 3, 0, D);
+        
+        std::list < VertexT > weg;
         std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(3);
         std::cout << Aufgabe[bsp2].first << " "<< Aufgabe[bsp2].second << std::endl;
-        if( A_star(G5, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg5))
+        if( A_star(G, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg))
         {
-            PruefeWeg(3,weg5);
+            PruefeWeg(3,weg);
         }
     }
     
     if ( bsp == 4){
         
-        std::ifstream fin5;
-        fin5.open("daten/Graph4.dat");
-        size_t breite5 = 0;
-        size_t hoehe5 = 0;
-        fin5 >> breite5;
-        fin5 >> hoehe5;
-        maze G5(breite5,hoehe5);
-        readMaze(fin5, breite5, hoehe5, G5);
-        
-        std::list < VertexT > weg5;
-        displayMaze(G5);
+
+        std::ifstream fin;
+        fin.open("daten/Graph4.dat");
+        size_t n = 0; //Anzahl der Knoten
+        fin >> n;
+        CoordinateGraph G(n);
+        size_t edges = 0;   //Anzahl der Kanten
+        fin >> edges;
+        aktualsiereAdjazenz(fin, edges, G);
+        std::vector<CostT> D(n,infty);
+        DisplayAdjazenz(G);
+        Dijkstra(G,0, D);
+        PruefeDijkstra( 4, 0, D);
+
+        std::list < VertexT > weg;
         std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(4);
         std::cout << Aufgabe[bsp2].first << " "<< Aufgabe[bsp2].second << std::endl;
-        if( A_star(G5, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg5))
+        if( A_star(G, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg))
         {
-            PruefeWeg(4,weg5);
+            PruefeWeg(4,weg);
         }
     }
     if ( bsp == 5){
