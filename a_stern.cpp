@@ -130,7 +130,7 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
             
             
             NeighborT * N = G.getNeighbors(current);
-            for ( auto v : N ){
+            for ( auto v : *N ){
 
 
                 if ( !bekannt[v.first] ){
