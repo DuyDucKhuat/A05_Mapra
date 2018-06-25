@@ -267,7 +267,7 @@ int main()
     
     
     std::list<VertexT> weg2;
-    if(A_star(G2,9,14,weg2)) std::cout << "hi2 " << std::endl;
+    if(A_star(G2,9,6*8+4,weg2)) std::cout << "hi2 " << std::endl;
     for( auto v : weg2) std::cout << v << " ";
     std::cout << "\n";
     
