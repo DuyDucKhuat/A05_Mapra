@@ -211,6 +211,10 @@ int main()
     //DisplayAdjazenz(G);
     Dijkstra(G,0, D);
     //PruefeDijkstra( 1, 0, D);
+    
+    std::list<VertexT>& weg;
+    if ( A_star(G, 0, 2, weg)) PruefeWeg(1, weg);
+    
     fin.close();
     // Lade die zugehoerige Textdatei in einen Graphen
     // PruefeHeuristik
@@ -225,13 +229,12 @@ int main()
     readMaze(fin2, breite, hoehe, G2);
     std::vector<CostT> D2(breite*hoehe,infty);
     displayMaze(G2);
-
     Dijkstra(G2,9,D2);
     for ( auto v : D2) std::cout << v << " ";
     std::cout << "\n" ;
     
-
     //PruefeDijkstra(5, 9, D2);
+    
     
     // Loese die in der Aufgabenstellung beschriebenen Probleme fuer die jeweilige Datei
     // PruefeDijkstra / PruefeWeg
