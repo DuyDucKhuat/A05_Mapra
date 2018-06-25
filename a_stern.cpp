@@ -136,6 +136,8 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
                     std::pop_heap(queue.begin(), queue.end(), compare());
                     bekannt[v.first] = true;
                     Vorgaenger[v.first] = current;
+                    if( k > 163) std::cout << "hi3" << std::endl;
+
                         
                 //okay, und wenn bekannt:
                 //ist der neue Weg besser?
