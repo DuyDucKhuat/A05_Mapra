@@ -107,6 +107,7 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
             std::cout << " current: "<<current << " " << queue.back().second << std::endl;
 
             queue.pop_back();
+            // sind wir schon am Ziel?
             if ( current == ziel)
             {
                 size_t w  = ziel;
@@ -114,7 +115,7 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
                 while (w != start){
                     weg.push_back(Vorgaenger[w]);
                     w = Vorgaenger[w];
-                    for( auto v : weg) std::cout << v << std::endl;
+                    //for( auto v : weg) std::cout << v << std::endl;
                     
                 }
                 weg.reverse();
@@ -127,20 +128,7 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
             
             for ( auto v : Nodes){
                 if ( !bekannt[v.first] ){
-                    // sind wir schon am Ziel?
-                    if ( v.first == ziel)
-                    {
-                        size_t w  = ziel;
-                        weg.push_back(ziel);
-                        while (w != start){
-                            weg.push_back(Vorgaenger[w]);
-                            w = Vorgaenger[w];
-                            for( auto v : weg) std::cout << v << std::endl;
 
-                        }
-                        weg.reverse();
-                        return true;
-                    }
                     Weglaenge[v.first] = Weglaenge[current] + v.second;
                     v.second = G.estimatedCost(v.first, ziel);
                     queue.push_back(v);
