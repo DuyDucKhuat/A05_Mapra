@@ -117,6 +117,7 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
                     for( auto v : weg) std::cout << v << std::endl;
                     
                 }
+                weg.reverse();
                 return true;
             }
 
@@ -137,6 +138,7 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
                             for( auto v : weg) std::cout << v << std::endl;
 
                         }
+                        weg.reverse();
                         return true;
                     }
                     Weglaenge[v.first] = Weglaenge[current] + v.second;
