@@ -106,7 +106,7 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
 
             std::pop_heap(queue.begin(),queue.end(),compare());
             current = queue.back().first;
-            if(k > 163 ) std::cout << " current: "<<current / G->breite << " " << current / G->hoehe << std::endl;
+            if(k > 163 ) std::cout << " current: "<<current / G.breite << " " << current / G.hoehe << std::endl;
 
             queue.pop_back();
             if(k > 163 ) std::cout << "blablabla" << std::endl;
