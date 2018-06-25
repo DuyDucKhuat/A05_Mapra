@@ -108,6 +108,8 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
             if(k > 163 ) std::cout << " current: "<<current << std::endl;
 
             queue.pop_back();
+            if(k > 163 ) std::cout << "blablabla" << std::endl;
+
             // sind wir schon am Ziel?
             if ( current == ziel)
             {
