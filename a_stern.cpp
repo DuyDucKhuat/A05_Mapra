@@ -92,6 +92,7 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
         VertexT current = start;
         for ( auto v : G.getNeighbors(current)) {
             v.second = G.estimatedCost(v.first, ziel);
+            std::cout << "hier" << v.first << " " << v.second << std::endl;
             queue.push_back(v);
             std::push_heap(queue.begin(), queue.end(), compare());
 
