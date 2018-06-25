@@ -129,12 +129,12 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
 
             if(k > 163 ) std::cout << "blablabla2" << std::endl;
 
-            NeighborT* Nodes = G.getNeighbors(current);          // evtl. neu
+                 // evtl. neu
             if(k > 163 ) std::cout << "blablabla3" << std::endl;
 
             // sind die neu?
 
-            for ( auto v : Nodes){
+            for ( auto v : G.getNeighbors(current)){
                 if ( !bekannt[v.first] ){
 
                     Weglaenge[v.first] = Weglaenge[current] + v.second;
