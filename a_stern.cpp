@@ -419,7 +419,7 @@ int main(int argc, char * argv[])
             PruefeWeg(9,weg5);
         }
     }
-    if ( bsp == 9){
+    if ( bsp == 10){
         maze G(256,256);
         std::vector<CellType> Random = ErzeugeLabyrinth (256,256, 1);
         G.Knoten = Random;
