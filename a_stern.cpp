@@ -141,6 +141,7 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
                 }
 
                 if ( !bekannt[v.first] ){
+                    if( v.first == 430) if ( k > 190) std::cout << "hier!!" << std::endl;
 
                     Weglaenge[v.first] = Weglaenge[current] + v.second;
                     v.second = G.estimatedCost(v.first, ziel);
