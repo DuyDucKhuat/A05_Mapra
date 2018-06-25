@@ -131,7 +131,7 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
             if( k > 376 )  G.getNeighbors(current);
             if( k > 376 ) std::cout << "hier2!!" << std::endl;
             const NeighborT* Neighbor = &(G.getNeighbors(current));
-            for ( auto v : *Neighbor){
+            for ( auto v : Neighbor){
                 if( k > 376 ) std::cout << "hier6!!" << std::endl;
 
 
