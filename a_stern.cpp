@@ -212,7 +212,7 @@ int main()
     Dijkstra(G,0, D);
     //PruefeDijkstra( 1, 0, D);
     
-    std::list<VertexT>* weg = new std::list< VertexT>  ;
+    std::list<VertexT> weg;
     if ( A_star(G, 0, 2, weg)) PruefeWeg(1, weg);
     
     fin.close();
