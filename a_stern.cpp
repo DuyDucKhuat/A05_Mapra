@@ -129,8 +129,8 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
             // sind die neu?
             
             
-            const NeighborT * N = G.getNeighbors(current);
-            for ( auto v : *N ){
+            NeighborT N = G.getNeighbors(current);
+            for ( auto v : N ){
 
 
                 if ( !bekannt[v.first] ){
