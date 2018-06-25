@@ -302,7 +302,7 @@ int main(int argc, char * argv[])
         PruefeDijkstra( 1, 0, D);
         */
         std::list < VertexT > weg;
-        
+        std::cout << "hi" << std::endl;
         std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(1);
         std::cout << Aufgabe[bsp2].first << " "<< Aufgabe[bsp2].second << std::endl;
         if( A_star(G, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg))
