@@ -106,7 +106,7 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
 
             std::pop_heap(queue.begin(),queue.end(),compare());
             current = queue.back().first;
-            if(k > 163 ) std::cout << " current: "<<current / G.breite << " " << current / G.hoehe << std::endl;
+            if(k > 163 ) std::cout << " current: "<<current << std::endl;
 
             queue.pop_back();
             if(k > 163 ) std::cout << "blablabla" << std::endl;
@@ -300,6 +300,7 @@ int main()
     std::list < VertexT > weg3;
     displayMaze(G3);
     std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(8);
+    std::cout << G3.RowCol(364).first << " " << G3.RowCol(364).second << std::endl ;
     for ( auto v : Aufgabe){
         std::cout << G3.RowCol(v.first).first << "  " << G3.RowCol(v.first).second << std::endl;
         std::cout << G3.RowCol(v.second).first << "  " << G3.RowCol(v.second).second << std::endl;
