@@ -122,17 +122,11 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
                 weg.reverse();
                 return true;
             }
-
-
-                 // evtl. neu
-
+                // evtl. neu
             // sind die neu?
-            
-            
+        
             NeighborT N = G.getNeighbors(current);
             for ( auto v : N ){
-
-
                 if ( !bekannt[v.first] ){
 
                     Weglaenge[v.first] = Weglaenge[current] + v.second;
@@ -146,9 +140,6 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
                     bekannt[v.first] = true;
 
                     Vorgaenger[v.first] = current;
-
-
-                        
                 //okay, und wenn bekannt:
                 //ist der neue Weg besser?
                 }else if ( Weglaenge[current] + v.second < Weglaenge[v.first] ){
@@ -157,7 +148,6 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
                     v.second = G.estimatedCost(v.first, ziel);
                     queue.push_back(v);
                     std::push_heap(queue.begin(), queue.end(), compare());
-
                 }
             }
             if( k > 376 ) std::cout << "hier5!!" << std::endl;
@@ -166,10 +156,9 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
                 delete[] &N;
                 return false;
             }
-
             k++;
             std::cout << k << std::endl;
-            delete[] &N;
+            delete &N;
             }
     return false; // Kein Weg gefunden.
     
