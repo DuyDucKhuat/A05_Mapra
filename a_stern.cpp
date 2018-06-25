@@ -224,8 +224,12 @@ void displayMaze (maze& G)
 //############################################################################################################
 //                          MAIN
 //############################################################################################################
-int main()
+int main(int argc, char[] * argv)
 {
+    std::istringstream(argv[1]) istr;
+    int bsp;
+    istr >> bsp;
+    std::cout << bsp << std::endl;
     // Frage Beispielnummer vom User ab
     std::ifstream fin;
     fin.open("daten/Graph3.dat");
