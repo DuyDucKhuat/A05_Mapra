@@ -176,6 +176,8 @@ void aktualsiereAdjazenz( std::ifstream& in , size_t edges, CoordinateGraph& G){
 }
 
 void DisplayAdjazenz ( CoordinateGraph& G){
+    std::cout << " hier2" << std::endl;
+
     std:: cout <<"    ";
     for (int i = 0; i < G.numVertices() ; i++) std:: cout << i << "  ";
     std::cout << "\n";
@@ -209,6 +211,7 @@ void readMaze( std::ifstream& in , size_t rows, size_t cols, maze& G){
 }
 void displayMaze (maze& G)
 {
+    std::cout << " hier1" << std::endl;
     for ( int i = 0 ; i < G.rows; i ++){
         for ( int j = 0; j < G.cols ; j++){
             if( G(i,j) == CellType::Wall) std::cout << "#" << " ";
