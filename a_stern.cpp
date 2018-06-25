@@ -69,14 +69,14 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
 
     class compare { // f =  g + h;
     public:
-        bool operator () (size_t a, size_t b) const {
-            return  Weglaenge[a]+ G.estimatedCost(a, ziel) < Weglaenge[b] + G.estimatedCost(b, ziel);
+        bool operator () (std::pair<size_t , CostT> a, std::pair<size_t , CostT> b) const {
+            return  Weglaenge[a]+ a.second < Weglaenge[b] + b.second;
         }
     };
     
     std::vector < bool > bekannt (n,false);
-    std::vector < size_t > Vorgaenger(n, -1);
-    std::vector <size_t > queue ; //
+    std::vector < VertexT > Vorgaenger(n, -1);
+    std::vector < std::pair < VertexT, CostT > queue ; //
 
 
 
@@ -85,12 +85,13 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
         bekannt[start] = true;
         Weglaenge[start] = 0.;
         VertexT current = start;
-        for ( auto v : G.getNeighbors(current)) queue.push_back(v.first);
+        for ( auto v : G.getNeighbors(current)) queue.push_back(v);
         std::push_heap(queue.begin(), queue.end(), compare());
 
         while( true){
             std::pop_heap(queue.begin(),queue.end(),compare());
-            VertexT current = queue.pop_back();
+            VertexT current = queue.back().first;
+            queue.pop_back();
             
             
             NeighborT Nodes = G.getNeighbors(current);          // evtl. neu
@@ -109,13 +110,14 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
                         }
                         return true;
                     }
-                    queue.push_back(v.first);
+                    v.second = G.estimatedCost(v.first, ziel);
+                    queue.push_back(v);
                     std::pop_heap(queue.begin(), queue.end(), compare());
                     bekannt[v.first] = true;
                     Weglaenge[v.first] = Weglaenge[current] + v.second;
                     Vorgaenger[v.first] = current;
                         
-                        
+                //okay, und wenn bekannt:
                 //ist der neue Weg besser?
                 }else if ( Weglaenge[current] + v.second < Weglaenge[v.first] ){
                     Weglaenge[v.first] = Weglaenge[current] + v.second;
