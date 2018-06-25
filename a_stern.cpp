@@ -341,7 +341,7 @@ int main(int argc, char * argv[])
             }
             PruefeWeg(6,weg4);
 
-        }
+        
     }
     
     return 0;
