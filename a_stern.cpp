@@ -264,7 +264,7 @@ int main()
     if ( G2.getNeighbors(0).empty()) std::cout << "halloooo " << std::endl;
 
     
-    PruefeDijkstra(5, 9, D2);
+    //PruefeDijkstra(5, 9, D2);
     
     
     std::list<VertexT> weg2;
