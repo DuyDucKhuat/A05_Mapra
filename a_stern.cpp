@@ -79,12 +79,10 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
             return  Weglaenge[a.first]+ a.second > Weglaenge[b.first] + b.second;
         }
     };
-    std::cout << " hier1" << std::endl;
 
     std::vector < bool > bekannt (n,false);
     std::vector < VertexT > Vorgaenger(n, -1);
     std::vector < std::pair < VertexT, CostT > > queue ; //
-    std::cout << " hier2" << std::endl;
 
         std::make_heap( queue.begin(), queue.end(), compare() );
 
@@ -92,7 +90,6 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
         Weglaenge[start] = 0.;
         VertexT current = start;
         NeighborT Neighbors = G.getNeighbors(current);
-    std::cout << " hier3" << std::endl;
 
     if ( Neighbors.empty()) return false;
         for ( auto v : Neighbors) {
@@ -103,7 +100,6 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
             bekannt[v.first] = true;
             Vorgaenger[v.first] = start;
         }
-    std::cout << " hier4" << std::endl;
 
         while( true){
             //for ( auto v : Weglaenge) std::cout << v << std::endl;
@@ -224,7 +220,7 @@ int main()
 {
     // Frage Beispielnummer vom User ab
     std::ifstream fin;
-    fin.open("daten/Graph1.dat");
+    fin.open("daten/Maze1.dat");
     size_t n = 0; //Anzahl der Knoten
     fin >> n;
     CoordinateGraph G(n);
