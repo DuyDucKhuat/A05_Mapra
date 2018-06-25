@@ -229,7 +229,7 @@ int main()
 {
     // Frage Beispielnummer vom User ab
     std::ifstream fin;
-    fin.open("daten/Graph1.dat");
+    fin.open("daten/Graph2.dat");
     size_t n = 0; //Anzahl der Knoten
     fin >> n;
     CoordinateGraph G(n);
@@ -242,7 +242,7 @@ int main()
     //PruefeDijkstra( 1, 0, D);
     
     std::list<VertexT> weg;
-    if(A_star(G, 0, 2, weg)) std::cout << " hi" << std::endl;
+    if(A_star(G, 0, 5, weg)) std::cout << " hi" << std::endl;
     PruefeWeg(1, weg);
     for( auto v : weg) std::cout << v << std::endl;
     
