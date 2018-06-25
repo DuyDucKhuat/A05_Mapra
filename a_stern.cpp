@@ -129,8 +129,10 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
                  // evtl. neu
 
             // sind die neu?
-
+            if ( k > 190) std::cout << "hi1" << std::endl;
             for ( auto v : G.getNeighbors(current)){
+                if ( k > 190) std::cout << "hi2" << std::endl;
+
                 if ( !bekannt[v.first] ){
 
                     Weglaenge[v.first] = Weglaenge[current] + v.second;
@@ -139,6 +141,7 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
                     std::pop_heap(queue.begin(), queue.end(), compare());
                     bekannt[v.first] = true;
                     Vorgaenger[v.first] = current;
+                    if ( k > 190) std::cout << "hi3" << std::endl;
 
                         
                 //okay, und wenn bekannt:
@@ -149,13 +152,17 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
                     v.second = G.estimatedCost(v.first, ziel);
                     queue.push_back(v);
                     std::pop_heap(queue.begin(), queue.end(), compare());
+                    if ( k > 190) std::cout << "hi4" << std::endl;
 
                 }
             }
+            if ( k > 190) std::cout << "hi5" << std::endl;
+
             if( queue.empty()){
                 return false;
             }
-            
+            if ( k > 190) std::cout << "hi6" << std::endl;
+
             k++;
         }
     return false; // Kein Weg gefunden.
