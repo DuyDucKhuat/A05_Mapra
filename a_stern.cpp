@@ -303,7 +303,7 @@ int main(int argc, char * argv[])
         */
         std::list < VertexT > weg;
         std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(1);
-        std::cout << Aufgabe[0] << std::endl;
+        std::cout << Aufgabe[0].first << std::endl;
         std::cout << Aufgabe[bsp2].first << " "<< Aufgabe[bsp2].second << std::endl;
         if( A_star(G, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg))
         {
