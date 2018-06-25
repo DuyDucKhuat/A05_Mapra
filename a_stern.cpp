@@ -358,6 +358,26 @@ int main(int argc, char * argv[])
             PruefeWeg(7,weg5);
         }
     }
+    if ( bsp == 4){
+        
+        std::ifstream fin5;
+        fin5.open("daten/Maze4.dat");
+        size_t breite5 = 0;
+        size_t hoehe5 = 0;
+        fin5 >> breite5;
+        fin5 >> hoehe5;
+        maze G5(breite5,hoehe5);
+        readMaze(fin5, breite5, hoehe5, G5);
+        
+        std::list < VertexT > weg5;
+        displayMaze(G5);
+        std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(8);
+        std::cout << Aufgabe[bsp2].first << " "<< Aufgabe[bsp2].second << std::endl;
+        if( A_star(G5, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg5))
+        {
+            PruefeWeg(8,weg5);
+        }
+    }
     
     return 0;
 }
