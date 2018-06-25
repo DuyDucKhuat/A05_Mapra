@@ -76,7 +76,7 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
     
     std::vector < bool > bekannt (n,false);
     std::vector < VertexT > Vorgaenger(n, -1);
-    std::vector < std::pair < VertexT, CostT > queue ; //
+    std::vector < std::pair < VertexT, CostT > > queue ; //
 
 
 
