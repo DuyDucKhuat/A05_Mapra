@@ -230,6 +230,11 @@ int main(int argc, char * argv[])
     std::istringstream Istr(argv[1]);
     int bsp;
     Istr >> bsp;
+    std::istringstream Istr2(argv[2]);
+    int bsp2;
+    Istr2 >> bsp2;
+    
+
     
     std::cout << bsp << std::endl;
     // Frage Beispielnummer vom User ab
@@ -327,11 +332,7 @@ int main(int argc, char * argv[])
         std::list < VertexT > weg4;
         displayMaze(G4);
         std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(6);
-        std::cout << Aufgabe.size() << std::endl;
-        for ( auto v : Aufgabe){
-
-            
-            if( A_star(G4, v.first, v.second, weg4))
+        if( A_star(G4, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg4))
             {
                 std::cout << " Ja geht" << std::endl;
                 for ( auto i : weg4 ) std::cout << i << " ";
