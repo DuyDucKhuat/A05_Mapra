@@ -1,5 +1,6 @@
 FLG = -std=c++11
-FLG2 = -D_GLIBCXX_USE_CXX11_ABI=0
+FLG2 = -D_GLIBCXX_USE_CXX11_ABI=0 -D_GLIBCXX_DEBUG
+
 #main : CoordinateGraph.cpp unit.o
 #	$(CXX) $(FLG) -g -o $@ $^
 main : a_stern.cpp  CoordinateGraph.o unit.o maze.o
