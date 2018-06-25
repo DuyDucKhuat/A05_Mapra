@@ -343,7 +343,7 @@ int main(int argc, char * argv[])
     if ( bsp == 3){
         
         std::ifstream fin5;
-        fin4.open("daten/Maze3.dat");
+        fin5.open("daten/Maze3.dat");
         size_t breite5 = 0;
         size_t hoehe5 = 0;
         fin5 >> breite5;
