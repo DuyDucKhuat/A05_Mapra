@@ -284,6 +284,7 @@ int main()
     displayMaze(G3);
     std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(8);
     for ( auto v : Aufgabe){
+        std::cout << G3.RowCol(v.first).first << "  " << G3.RowCol(v.first).second << std::endl;
         std::cout << v.first << " " << v.second << std::endl;
         if( A_star(G3, v.first, v.second, weg3))
         {
