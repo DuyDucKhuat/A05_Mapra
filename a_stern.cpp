@@ -3,6 +3,10 @@
 #include "unit.h"
 #include "CoordinateGraph.h"
 #include "maze.h"
+#include <algorithm>
+#include <iostream>
+#include <vector>
+
 
 // Ein Graph, der Koordinaten von Knoten speichert.
 /*class CoordinateGraph : public DistanceGraph {
@@ -126,9 +130,6 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
             }
             if( queue.empty()) return false;
         }
-        
-    
-    }
     return false; // Kein Weg gefunden.
 }
 //############################################################################################################
