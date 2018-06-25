@@ -106,7 +106,6 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
 
             std::pop_heap(queue.begin(),queue.end(),compare());
             current = queue.back().first;
-            if ( k > 190) std::cout << current << std::endl;
             queue.pop_back();
 
             // sind wir schon am Ziel?
@@ -170,12 +169,10 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
 
                 }
             }
-            if ( k > 190) std::cout << "hi5" << std::endl;
 
             if( queue.empty()){
                 return false;
             }
-            if ( k > 190) std::cout << "hi6" << std::endl;
 
             k++;
         }
