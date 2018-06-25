@@ -351,7 +351,7 @@ int main(int argc, char * argv[])
         
         std::list < VertexT > weg5;
         displayMaze(G5);
-        std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(6);
+        std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(7);
         std::cout << Aufgabe[bsp2].first << " "<< Aufgabe[bsp2].second << std::endl;
         if( A_star(G5, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg5))
         {
