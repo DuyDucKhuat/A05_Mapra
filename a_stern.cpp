@@ -56,8 +56,8 @@ void Dijkstra(const DistanceGraph& g, VertexT start, std::vector<CostT>& D) {
     while( !(allTrue(S)) )
     {
         size_t v1 = minIndex(D,S);
-	if( g.getNeighbors(v1).empty()) break;
         S[v1] = 1; //fuege v1 zu S hinzu.
+	if( g.getNeighbors(v1).empty()) break;
         for ( auto v : g.getNeighbors(v1)) //aktualsiere eventuell von v1 erreichbare Knoten
             if ( D[v.first] > (D[v1] + v.second)) D[v.first] = D[v1] + v.second;
     }
@@ -225,7 +225,7 @@ void displayMaze (maze& G)
 //                          MAIN
 //############################################################################################################
 int main()
-{/*
+{
     // Frage Beispielnummer vom User ab
     std::ifstream fin;
     fin.open("daten/Graph1.dat");
@@ -237,21 +237,21 @@ int main()
     aktualsiereAdjazenz(fin, edges, G);
     std::vector<CostT> D(n,infty);
 
-    //DisplayAdjazenz(G);
+    DisplayAdjazenz(G);
     Dijkstra(G,0, D);
-    //PruefeDijkstra( 1, 0, D);
+    PruefeDijkstra( 1, 0, D);
     
     
     
-    std::list<VertexT> weg;
-    if(A_star(G, 0, 2, weg)) std::cout << " hi" << std::endl;
+    //std::list<VertexT> weg;
+    //if(A_star(G, 0, 2, weg)) std::cout << " hi" << std::endl;
     //PruefeWeg(3, weg);
     
     fin.close();
 
     
     
-  
+  /*
     
     
     
