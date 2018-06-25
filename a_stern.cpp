@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <iostream>
 #include <vector>
+#include <list> 
 
 
 // Ein Graph, der Koordinaten von Knoten speichert.
