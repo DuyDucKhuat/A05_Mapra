@@ -318,8 +318,8 @@ int main(int argc, char * argv[])
         fin4.open("daten/Maze2.dat");
         size_t breite4 = 0;
         size_t hoehe4 = 0;
-        fin3 >> breite4;
-        fin3 >> hoehe4;
+        fin4 >> breite4;
+        fin4 >> hoehe4;
         maze G4(breite4,hoehe4);
         readMaze(fin4, breite4, hoehe4, G4);
         
