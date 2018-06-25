@@ -315,8 +315,7 @@ int main(int argc, char * argv[])
 
         }
         PruefeWeg(5,weg3);
-
-    }
+        }
     }
     if ( bsp == 2){
         
@@ -340,8 +339,29 @@ int main(int argc, char * argv[])
                 
             }
             PruefeWeg(6,weg4);
-
+    }
+    if ( bsp == 3){
         
+        std::ifstream fin5;
+        fin4.open("daten/Maze3.dat");
+        size_t breite5 = 0;
+        size_t hoehe5 = 0;
+        fin5 >> breite5;
+        fin5 >> hoehe5;
+        maze G5(breite5,hoehe5);
+        readMaze(fin5, breite5, hoehe5, G5);
+        
+        std::list < VertexT > weg5;
+        displayMaze(G5);
+        std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(6);
+        if( A_star(G5, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg5))
+        {
+            std::cout << " Ja geht" << std::endl;
+            for ( auto i : weg5 ) std::cout << i << " ";
+            std::cout << " \n" ;
+            
+        }
+        PruefeWeg(7,weg5);
     }
     
     return 0;
