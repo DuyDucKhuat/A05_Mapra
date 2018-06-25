@@ -273,12 +273,12 @@ int main()
     //############################################################################
     std::ifstream fin3;
     fin3.open("daten/Maze3.dat");
-    size_t breite = 0;
-    size_t hoehe = 0;
-    fin3 >> breite;
-    fin3 >> hoehe;
-    maze G3(breite,hoehe);
-    readMaze(fin3, breite, hoehe, G3);
+    size_t breite2 = 0;
+    size_t hoehe2 = 0;
+    fin3 >> breite2;
+    fin3 >> hoehe2;
+    maze G3(breite2,hoehe2);
+    readMaze(fin3, breite2, hoehe2, G3);
     
     std::list < VertexT > weg3;
     displayMaze(G3);
