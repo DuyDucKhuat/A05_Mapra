@@ -302,7 +302,6 @@ int main(int argc, char * argv[])
         std::cout << G3.RowCol(v.second).first << "  " << G3.RowCol(v.second).second << std::endl;
 
         std::cout << v.first << " " << v.second << std::endl;
-        PruefeWeg(1,weg3);
         if( A_star(G3, v.first, v.second, weg3))
         {
             std::cout << " Ja geht" << std::endl;
@@ -310,6 +309,8 @@ int main(int argc, char * argv[])
             std::cout << " \n" ;
 
         }
+        PruefeWeg(1,weg3);
+
     }
     }
     if ( bsp == 2){
@@ -328,11 +329,8 @@ int main(int argc, char * argv[])
         std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(6);
         std::cout << Aufgabe.size() << std::endl;
         for ( auto v : Aufgabe){
-            std::cout << G4.RowCol(v.first).first << "  " << G4.RowCol(v.first).second << std::endl;
-            std::cout << G4.RowCol(v.second).first << "  " << G4.RowCol(v.second).second << std::endl;
+
             
-            std::cout << v.first << " " << v.second << std::endl;
-            PruefeWeg(2,weg4);
             if( A_star(G4, v.first, v.second, weg4))
             {
                 std::cout << " Ja geht" << std::endl;
@@ -340,6 +338,8 @@ int main(int argc, char * argv[])
                 std::cout << " \n" ;
                 
             }
+            PruefeWeg(2,weg4);
+
         }
     }
     
