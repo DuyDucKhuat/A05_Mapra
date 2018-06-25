@@ -355,12 +355,8 @@ int main(int argc, char * argv[])
         std::cout << Aufgabe[bsp2].first << " "<< Aufgabe[bsp2].second << std::endl;
         if( A_star(G5, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg5))
         {
-            std::cout << " Ja geht" << std::endl;
-            for ( auto i : weg5 ) std::cout << i << " ";
-            std::cout << " \n" ;
-            
+            PruefeWeg(7,weg5);
         }
-        PruefeWeg(7,weg5);
     }
     
     return 0;
