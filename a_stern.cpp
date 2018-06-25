@@ -364,12 +364,9 @@ int main(int argc, char * argv[])
         PruefeDijkstra( 4, 0, D);
 
         std::list < VertexT > weg;
-        std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(4);
-        std::cout << Aufgabe[bsp2].first << " "<< Aufgabe[bsp2].second << std::endl;
-        if( A_star(G, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg))
-        {
-            PruefeWeg(4,weg);
-        }
+
+        if( A_star(G, 3, 10, weg)) PruefeWeg(4,weg);
+    
     }
     if ( bsp == 5){
 
