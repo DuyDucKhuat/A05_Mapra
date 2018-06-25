@@ -152,7 +152,7 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
                     queue.push_back(v);
                     if( v.first == 430) if ( k > 190) std::cout << "hier4!!" << std::endl;
 
-                    std::pop_heap(queue.begin(), queue.end(), compare());
+                    std::push_heap(queue.begin(), queue.end(), compare());
                     if( v.first == 430) if ( k > 190) std::cout << "hier5!!" << std::endl;
 
                     bekannt[v.first] = true;
