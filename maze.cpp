@@ -31,7 +31,10 @@ DistanceGraph::NeighborT& maze::getNeighbors (VertexT v) const {
     
         if ( checkIndex(a.first, a.second + 1))
             if ((*this)(a.first, a.second + 1) != CellType::Wall)
-                res->push_back(DistanceGraph::LocalEdgeT ((a.first)*rows + a.second + 1, 1.));
+            {
+                DistanceGraph::LocalEdgeT A((a.first)*rows + a.second + 1, 1.);
+                res->push_back(A);
+            }
     }
     return *res;
         
