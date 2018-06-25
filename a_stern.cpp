@@ -263,17 +263,36 @@ int main()
     Dijkstra(G2,9,D2);
 
     
-    //PruefeDijkstra(5, 9, D2);
-    
-    
     std::list<VertexT> weg2;
     if(A_star(G2,9,6*8+7,weg2)) std::cout << "hi2 " << std::endl;
     for( auto v : weg2) std::cout << v << " ";
     std::cout << "\n";
     
+
     
-    // Loese die in der Aufgabenstellung beschriebenen Probleme fuer die jeweilige Datei
-    // PruefeDijkstra / PruefeWeg
+    //############################################################################
+    std::ifstream fin3;
+    fin3.open("daten/Maze3.dat");
+    size_t breite = 0;
+    size_t hoehe = 0;
+    fin3 >> breite;
+    fin3 >> hoehe;
+    maze G3(breite,hoehe);
+    readMaze(fin3, breite, hoehe, G3);
+    
+    std::list < VertexT > weg3;
+    displayMaze(G3);
+    std::vector Aufgabe = StartZielPaare(8);
+    for ( auto v : Aufgabe){
+        if( A_star(G3, v.first, v.second, weg3))
+        {
+            std::cout << " Ja geht" << std::endl;
+            for ( auto i : weg3 ) std::cout << i << " ";
+            std::cout << " \n" ;
+
+        }
+    }
+    
     
     return 0;
 }
