@@ -70,7 +70,6 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
     std::vector < bool > bekannt (G.numVertices(),false);
     std::vector < size_t > Vorgaenger(G.numVertices(), -1);
     std::vector <size_t > queue ; //
-    std::make_heap ( queue.begin(), queue.end());
 
 
     class compare { // f =  g + h;
@@ -78,6 +77,8 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
         bool operator () (size_t a, size_t b){
             return  Weglaenge[a]+ estimatedCost(a, ziel) < Weglaenge[b] + estimatedCost(b, ziel);
     };
+        std::make_heap( queue.begin(), queue.end(), compare);
+
         bekannt[start] = true;
         Weglaenge[start] = 0.;
         VertexT current = start;
