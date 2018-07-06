@@ -74,7 +74,16 @@ int main()
             sf::Vertex(sf::Vector2f(shape.getPosition())),
             sf::Vertex(sf::Vector2f(800,600))
         };
-
+        for (int i = 0; i < 10 ; i ++){
+            sf::RectangleShape rect (sf::Vector2f(80,60));
+            rect.setFillColor(sf::Color::Blue);
+            rect.setOutlineColor(sf::Color::Red);
+            rect.setPosition(80*i, 40 );
+            window.draw( rect);
+            
+        }
+        
+        
         window.draw(line, 2, sf::Lines); //draws the line
         
         
