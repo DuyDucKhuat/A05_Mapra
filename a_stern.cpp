@@ -252,10 +252,11 @@ int main(int argc, char * argv[])
         DisplayAdjazenz(G);
         Dijkstra(G,0, D);
         PruefeDijkstra( 1, 0, D);
-        
+       
         std::list < VertexT > weg;
 
         if( A_star(G,0 , 1, weg)) PruefeWeg(1,weg);
+        
         
     }
     if ( bsp == 2){
