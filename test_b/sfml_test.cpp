@@ -77,9 +77,9 @@ int main()
         for (int i = 0; i < 10 ; i ++){
             sf::RectangleShape rect (sf::Vector2f(80,60));
             rect.setFillColor(sf::Color::Blue);
+            rect.setOutlineThickness(1);
             rect.setOutlineColor(sf::Color::Red);
             rect.setPosition(80*i, 40 );
-            window.clear();
             window.draw( rect);
             
             
