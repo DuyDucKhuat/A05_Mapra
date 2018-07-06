@@ -18,6 +18,6 @@ int main() {
     }
     test.window.clear(sf::Color::Black);
     test.window.display();
-    
+    return 0;
 
 }
