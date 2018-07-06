@@ -45,7 +45,7 @@ int main()
         }
 
         // start the current frame: clear the window with black color
-        window.clear(sf::Color::Black);
+        window.clear();
 
         // defines a circle
         sf::CircleShape shape(200);
@@ -61,11 +61,10 @@ int main()
         shape.setOrigin(shape.getRadius(), shape.getRadius()); 
 
         //sets the (absolute) position of the circle, (0,0) is the top-left corner.
-        shape.setPosition(200,0); // positioning the circle 200 units right from the top left corner
+        shape.setPosition(0,0); // positioning the circle 200 units right from the top left corner
         
         window.draw(shape); // draws the shape, a green circle with an orange outline
 
-        shape.move(0,300); // moves the position 300 units down from the previous position (-> circle is drawn at (200,300))
         
         window.draw(shape); // draws the shape, another green circle with an orange outline
         
@@ -78,13 +77,8 @@ int main()
 
         window.draw(line, 2, sf::Lines); //draws the line
         
-        // Before working on the visualizer for your A*-algorithm, try to draw your own stuff here! 
-        // For instance: 
-
-        // - Use the font given in Font/BebasNeue-Regular.ttf to create texts
-        // - Add different shapes and sprites and figure out more transforming entities
-
-        // See https://www.sfml-dev.org/tutorials/2.5/#graphics-module for a good tutorial!
+        
+        
 
 
         // end the current frame
