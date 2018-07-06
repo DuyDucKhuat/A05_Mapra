@@ -79,7 +79,9 @@ int main()
             rect.setFillColor(sf::Color::Blue);
             rect.setOutlineColor(sf::Color::Red);
             rect.setPosition(80*i, 40 );
+            window.clear();
             window.draw( rect);
+            
             
         }
         
