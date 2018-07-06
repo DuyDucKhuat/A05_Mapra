@@ -5,15 +5,13 @@
 //  Created by Duc Khuat on 22.06.18.
 //
 
-#ifndef maze_h
-#define maze_h
 #include "unit.h"
 #include <vector>
 #include <iostream>
 #include <fstream>
 #include <math.h>
 #include <memory>
-
+#include <SFML/Graphics.hpp>
 
 class maze : public DistanceGraph
 {
@@ -47,4 +45,3 @@ class maze : public DistanceGraph
 
 };
 
-#endif /* maze_h */

@@ -5,15 +5,12 @@
 //  Created by Duc Khuat on 15.06.18.
 //
 
-#ifndef CoordinateGraph_h
 #include "unit.h"
 #include <vector>
 #include <iostream>
 #include <fstream>
 #include <math.h>
-
-#define CoordinateGraph_h
-
+#include <SFML/Graphics.hpp>
     typedef std::pair<VertexT, CostT> LocalEdgeT;
 
 	typedef std::vector<LocalEdgeT> NeighborT;
@@ -41,4 +38,3 @@ class CoordinateGraph : public DistanceGraph
     
 
 };
-#endif /* CoordinateGraph_h */
