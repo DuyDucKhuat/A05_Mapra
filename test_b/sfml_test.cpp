@@ -8,6 +8,8 @@
 *****************************************************************/
 
 #include <SFML/Graphics.hpp>
+#include<vector>
+#include <iostream>
 class TestVisualizer {
 public:
     sf::RenderWindow window;
@@ -74,12 +76,13 @@ int main()
             sf::Vertex(sf::Vector2f(shape.getPosition())),
             sf::Vertex(sf::Vector2f(800,600))
         };
+        
         for (int i = 0; i < 10 ; i ++){
             sf::RectangleShape rect (sf::Vector2f(80,60));
             rect.setFillColor(sf::Color::Blue);
             rect.setOutlineThickness(1);
             rect.setOutlineColor(sf::Color::Red);
-            rect.setPosition(80*i, 40 );
+            rect.setPosition(80*i, 0 );
             window.draw( rect);
             
             
