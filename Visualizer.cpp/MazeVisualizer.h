@@ -22,7 +22,7 @@ class MazeVisualizer : public GraphVisualizer
 {
     public:
         sf::RenderWindow window;
-        std::vector < POS > vertices;
+    std::vector < sf::Vector2f > vertices;
         size_t rows;
         size_t cols;
         double widthRec;
