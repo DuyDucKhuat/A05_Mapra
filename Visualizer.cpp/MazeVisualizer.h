@@ -43,6 +43,7 @@ class MazeVisualizer : public GraphVisualizer
                 }
             }
             for (sf::Vector2f x : vertices ){
+                window.clear();
                 sf::RectangleShape rec( sf::Vector2f(widthRec,heightRec)  );
                 rec.setFillColor (BLUE);
                 rec.setOutlineThickness(1);

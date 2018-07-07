@@ -13,7 +13,8 @@ void MazeVisualizer::updateVertex(VertexT vertex,  double cost, double estimate,
 void MazeVisualizer::draw() {}
 
 int main (){
-    MazeVisualizer test(20,30);
+    MazeVisualizer test(80,60);
+    
     while(test.window.isOpen())
     {
         sf::Event event;
