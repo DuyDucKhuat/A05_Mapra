@@ -14,17 +14,17 @@ void MazeVisualizer::draw() {}
 
 int main (){
     MazeVisualizer test(80,60);
-    while (test.window.isOpen())
+    while ((test.window).isOpen())
     {
         sf::Event event;
-        while(test.window.pollEvent(event))
+        while((test.window).pollEvent(event))
         {
             if (event.type == sf::Event::Closed)
                 test.window.close();
         }
         for (sf::Vector2f x : test.vertices ){
             test.window.clear();
-            sf::RectangleShape rec( sf::Vector2f(widthRec,heightRec)  );
+            sf::RectangleShape rec( sf::Vector2f(test.widthRec,test.heightRec)  );
             rec.setFillColor (BLUE);
             rec.setOutlineThickness(1);
             rec.setOutlineColor (BLACK);

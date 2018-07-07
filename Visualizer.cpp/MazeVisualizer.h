@@ -22,7 +22,7 @@
 class MazeVisualizer : public GraphVisualizer
 {
     public:
-        sf::RenderWindow window(sf::VideoMode(800, 600), "My window");
+        sf::RenderWindow window;
         std::vector < sf::Vector2f > vertices;
         size_t rows;
         size_t cols;
@@ -30,7 +30,8 @@ class MazeVisualizer : public GraphVisualizer
         double heightRec;
     
     
-        MazeVisualizer(size_t r, size_t c) : rows(r),
+        MazeVisualizer(size_t r, size_t c) : window(sf::VideoMode(800, 600), "My window")
+                                             rows(r),
                                              cols(c)
         {
             widthRec = 800./c;
