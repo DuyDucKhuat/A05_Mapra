@@ -42,7 +42,7 @@ class MazeVisualizer : public GraphVisualizer
                     (*this)(i,j) = vertex;
                 }
             }
-            while (window.isOpen())
+            /*while (window.isOpen())
             {
                 sf::Event event;
                 while(window.pollEvent(event))
@@ -60,7 +60,7 @@ class MazeVisualizer : public GraphVisualizer
                     window.draw(rec);
                     window.display();
                 }
-            }
+            }*/
         }
     
         ~MazeVisualizer() {}
