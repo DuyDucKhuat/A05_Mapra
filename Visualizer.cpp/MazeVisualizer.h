@@ -29,12 +29,12 @@ class MazeVisualizer : public GraphVisualizer
         double heigthRec;
     
     
-        MazeVisualizer(size_t r, size_t c) : window(sf::VideoMode(BREITE, HOEHE), "My window"),
+        MazeVisualizer(size_t r, size_t c) : window(sf::VideoMode(800, 600), "My window"),
                                              rows(r),
-                                             cols(c),
+                                             cols(c)
         {
             widthRec = 800./c;
-            heightRec = 600./r;
+            heigthRec = 600./r;
             vertices.resize(r*c);
             fori(rows){
                 forj(cols){
