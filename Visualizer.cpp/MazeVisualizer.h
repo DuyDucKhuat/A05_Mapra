@@ -59,7 +59,6 @@ class MazeVisualizer : public GraphVisualizer
         void draw();
     
         sf::Vector2f& operator () (size_t i, size_t j){return vertices[i*rows+j];}
-        sf::Vector2f operator () (size_t i, size_t j){return vertices[i*rows+j];}
 
 
 };
