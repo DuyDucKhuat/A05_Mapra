@@ -53,10 +53,10 @@ class MazeVisualizer : public GraphVisualizer
         }
     
         ~MazeVisualizer() {}
-        void markVertex(VertexT vertex, VertexStatus status){}
-        void markEdge(EdgeT e, EdgeStatus status){}
-        void updateVertex(VertexT vertex,  double cost, double estimate, VertexT parent, VertexStatus status) {}
-        void draw() {}
+        void markVertex(VertexT vertex, VertexStatus status);
+        void markEdge(EdgeT e, EdgeStatus status);
+        void updateVertex(VertexT vertex,  double cost, double estimate, VertexT parent, VertexStatus status);
+        void draw();
     
         sf::Vector2f& operator () (size_t i, size_t j){return vertices[i*rows+j];}
         sf::Vector2f operator () (size_t i, size_t j){return vertices[i*rows+j];}
