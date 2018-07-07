@@ -7,8 +7,8 @@
 
 #ifndef MazeVisualizer_h
 #define MazeVisualizer_h
-#include "unit.h"
-#include < SFML/Graphics.hpp>
+#include "../unit.h"
+#include <SFML/Graphics.hpp>
 #include <vector>
 #define fori(x) for(int i = 0; i < x; i++)
 #define forj(x) for(int j = 0; j < x; j++)

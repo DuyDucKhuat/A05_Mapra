@@ -1,8 +1,8 @@
-FLG = -std=c++11 -D_GLIBCXX_USE_CXX11_ABI=0  -pedantic  -g  -Itest_b/lib/SFML-2.5.0/include
-LIBS = -Ltest_b/lib/SFML-2.5.0/lib/ -lsfml-graphics -lsfml-window -lsfml-system
+FLG = -std=c++11 -D_GLIBCXX_USE_CXX11_ABI=0  -pedantic  -g  -IVisualizer.cpp/test_b/lib/SFML-2.5.0/include
+LIBS = -LVisualizer.cpp/test_b/lib/SFML-2.5.0/lib/ -lsfml-graphics -lsfml-window -lsfml-system
 
 main : a_stern.cpp  CoordinateGraph.o unit.o maze.o
-	$(CXX) $(FLG)   -g -o $@ $^ 
+	$(CXX) $(FLG)   -g -o $@ $^ $(LIBS)
 CoordinateGraph.o : CoordinateGraph.cpp unit.h
 	$(CXX) $(FLG) -c  $^
 maze.o: maze.cpp unit.h
