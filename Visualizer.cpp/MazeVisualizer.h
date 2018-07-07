@@ -30,7 +30,7 @@ class MazeVisualizer : public GraphVisualizer
         double heightRec;
     
     
-        MazeVisualizer(size_t r, size_t c) : window(sf::VideoMode(800, 600), "My window")
+        MazeVisualizer(size_t r, size_t c) : window(sf::VideoMode(800, 600), "My window"),
                                              rows(r),
                                              cols(c)
         {
