@@ -42,14 +42,23 @@ class MazeVisualizer : public GraphVisualizer
                     (*this)(i,j) = vertex;
                 }
             }
-            for (sf::Vector2f x : vertices ){
-                window.clear();
-                sf::RectangleShape rec( sf::Vector2f(widthRec,heightRec)  );
-                rec.setFillColor (BLUE);
-                rec.setOutlineThickness(1);
-                rec.setOutlineColor (BLACK);
-                rec.setPosition(x);
-                window.draw(rec);
+            while (window.isOpen())
+            {
+                while(test.window.pollEvent(event))
+                {
+                    if (event.type == sf::Event::Closed)
+                        test.window.close();
+                }
+                for (sf::Vector2f x : vertices ){
+                    window.clear();
+                    sf::RectangleShape rec( sf::Vector2f(widthRec,heightRec)  );
+                    rec.setFillColor (BLUE);
+                    rec.setOutlineThickness(1);
+                    rec.setOutlineColor (BLACK);
+                    rec.setPosition(x);
+                    window.draw(rec);
+                    window.display();
+                }
             }
         }
     
