@@ -12,12 +12,8 @@
 #include <vector>
 #define fori(x) for(int i = 0; i < x; i++)
 #define forj(x) for(int j = 0; j < x; j++)
-#define vector std::vector
-#define POS sf::Vector2f
-#define BREITE 800
-#define HOEHE 600
-#define REC sf::RectangleShape
-#define GREY sf::Color::Grey
+
+#define BLUE sf::Color::Blue
 #define BLACK sf::Color::Black
 
 
@@ -26,7 +22,7 @@ class MazeVisualizer : public GraphVisualizer
 {
     public:
         sf::RenderWindow window;
-        vector < POS > vertices;
+        std::vector < POS > vertices;
         size_t rows;
         size_t cols;
         double widthRec;
@@ -36,19 +32,19 @@ class MazeVisualizer : public GraphVisualizer
         MazeVisualizer(size_t r, size_t c) : window(sf::VideoMode(BREITE, HOEHE), "My window"),
                                              rows(r),
                                              cols(c),
-                                             widhtRec( BREITE./c),
-                                             heightRec( HOEHE./r)
         {
+            widthRec = 800./c;
+            heightRec = 600./r;
             vertices.resize(r*c);
             fori(rows){
                 forj(cols){
-                    POS vertex(j*widthRec, i*heightRec);
+                    sf::Vector2f vertex(j*widthRec, i*heightRec);
                     (*this)(i,j) = vertex;
                 }
             }
-            for ( POS x : vertices ){
-                REC rec( POS(widthRec,heightRec)  );
-                rec.setFillColor (GREY);
+            for (sf::Vector2f x : vertices ){
+                sf::RectangleShape rec( sf::Vector2f(widthRec,heightRec)  );
+                rec.setFillColor (BLUE);
                 rec.setOutlineThickness(1);
                 rec.setOutlineColor (BLACK);
                 rec.setPosition(x);
@@ -56,7 +52,7 @@ class MazeVisualizer : public GraphVisualizer
             }
         }
     
-        ~GraphVisualizer() {}
+        ~MazeVisualizer() {}
         void markVertex(VertexT vertex, VertexStatus status){}
         void markEdge(EdgeT e, EdgeStatus status){}
         void updateVertex(VertexT vertex,  double cost, double estimate, VertexT parent, VertexStatus status) {}
