@@ -44,10 +44,10 @@ class MazeVisualizer : public GraphVisualizer
             }
             while (window.isOpen())
             {
-                while(test.window.pollEvent(event))
+                while(window.pollEvent(event))
                 {
                     if (event.type == sf::Event::Closed)
-                        test.window.close();
+                        window.close();
                 }
                 for (sf::Vector2f x : vertices ){
                     window.clear();
