@@ -26,7 +26,7 @@ class MazeVisualizer : public GraphVisualizer
         size_t rows;
         size_t cols;
         double widthRec;
-        double heigthRec;
+        double heightRec;
     
     
         MazeVisualizer(size_t r, size_t c) : window(sf::VideoMode(800, 600), "My window"),
@@ -34,7 +34,7 @@ class MazeVisualizer : public GraphVisualizer
                                              cols(c)
         {
             widthRec = 800./c;
-            heigthRec = 600./r;
+            heightRec = 600./r;
             vertices.resize(r*c);
             fori(rows){
                 forj(cols){
