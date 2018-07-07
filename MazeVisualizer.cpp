@@ -6,18 +6,16 @@
 //
 
 #include "MazeVisualizer.h"
+typedef MazeVisualizer::markVertex          markVertex;
+typedef MazeVisualizer::markEdge            markEdge;
+typedef MazeVisualizer::updateVertex        updateVertex;
+typedef MazeVisualizer::draw                draw;
 
 
-enum class VertexStatus {
-    bekannt,
-    unbekannt,
-    optimiert
-}
-
-void MazeVisualizer::markVertex(VertexT vertex, VertexStatus status){
+void markVertex(VertexT vertex, VertexStatus status){
     
     
 }
-void MazeVisualizer::markEdge(EdgeT e, EdgeStatus status){}
-void MazeVisualizer::updateVertex(VertexT vertex,  double cost, double estimate, VertexT parent, VertexStatus status) {}
-void MazeVisualizer::draw() {}
+void markEdge(EdgeT e, EdgeStatus status){}
+void updateVertex(VertexT vertex,  double cost, double estimate, VertexT parent, VertexStatus status) {}
+void draw() {}

@@ -82,7 +82,7 @@ int main()
             rect.setFillColor(sf::Color::Blue);
             rect.setOutlineThickness(1);
             rect.setOutlineColor(sf::Color::Red);
-            rect.setPosition(50*i, 0 );
+            rect.setPosition(80*i, 0 );
             window.draw( rect);
             
             
