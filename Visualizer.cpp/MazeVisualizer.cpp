@@ -14,6 +14,6 @@ void MazeVisualizer::draw() {}
 
 int main (){
     MazeVisualizer test(80,60);
-    
+    std::cout << test.widthRec << " " << test.heigthRec << std::endl;
     return 0 ;
 }
