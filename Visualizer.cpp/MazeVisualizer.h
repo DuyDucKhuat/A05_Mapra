@@ -34,9 +34,9 @@ class MazeVisualizer : public GraphVisualizer
                                              rows(r),
                                              cols(c)
         {
-            widthRec = 800./c;
-            heightRec = 600./r;
-            vertices.resize(r*c);
+            this->widthRec = 800./c;
+            this->heightRec = 600./r;
+            (this->vertices).resize(r*c);
             fori(rows){
                 forj(cols){
                     sf::Vector2f vertex(j*widthRec, i*heightRec);
