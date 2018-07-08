@@ -13,7 +13,7 @@ void MazeVisualizer::updateVertex(VertexT vertex,  double cost, double estimate,
 void MazeVisualizer::draw() {}
 
 int main (){
-    /*MazeVisualizer test(80,60);
+    MazeVisualizer test(80,60);
     while ((test.window).isOpen())
     {
         sf::Event event;
@@ -32,8 +32,8 @@ int main (){
             test.window.draw(rec);
             test.window.display();
         }
-    }*/
-    sf::RenderWindow window(sf::VideoMode(800, 600), "My window");
+    }
+    /*sf::RenderWindow window(sf::VideoMode(800, 600), "My window");
     
     // run the program as long as the window is open
     while (window.isOpen())
@@ -53,7 +53,7 @@ int main (){
         shape.setPosition(0,0); // positioning the circle 200 units right from the top left corner
         window.draw(shape); // draws the shape, a green circle with an orange outline
         window.display();
-    }
+    }*/(
 
     return 0 ;
 }
