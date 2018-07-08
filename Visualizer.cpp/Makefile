@@ -9,4 +9,4 @@ MazeVisualizer.o: MazeVisualizer.cpp ../unit.h
 clean:
 	rm -f main MazeVisualizer.o
 run: main
-	export LD_LIBRARY_PATH=./test_b/lib/SFML-2.5.0/lib && kdbg ./main
+	export LD_LIBRARY_PATH=./test_b/lib/SFML-2.5.0/lib && ./main
