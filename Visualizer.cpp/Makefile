@@ -10,3 +10,5 @@ clean:
 	rm -f main MazeVisualizer.o
 run: main
 	export LD_LIBRARY_PATH=./test_b/lib/SFML-2.5.0/lib && ./main
+gdb: main
+	gdb -ex "set enviornment LD_LIBRARY_PATH=./test_b/SFML-2.5.0/lib" main

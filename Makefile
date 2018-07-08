@@ -12,6 +12,6 @@ maze.o: maze.cpp unit.h
 clean:
 	rm -f main CoordinateGraph.o maze.o
 run: main
-	export LD_LIBRARY_PATH=./test_b/lib/SFML-2.5.0/lib && kdbg ./sfml_test
+	export LD_LIBRARY_PATH=./test_b/lib/SFML-2.5.0/lib &&./main
 gdb: main
-	gdb -ex "set enviroment LD_LIBRARY_PATH=./test_b/lib/SFML-2.5.0/lib" sfml_test
+	gdb -ex "set enviroment LD_LIBRARY_PATH=./test_b/lib/SFML-2.5.0/lib" main
