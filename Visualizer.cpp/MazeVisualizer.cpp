@@ -22,7 +22,7 @@ int main (){
             if (event.type == sf::Event::Closed)
                 test.window.close();
         }
-        for (sf::Vector2f x : test.vertices ){
+        /*for (sf::Vector2f x : test.vertices ){
             test.window.clear();
             sf::RectangleShape rec( sf::Vector2f(test.widthRec,test.heightRec)  );
             rec.setFillColor (BLUE);
@@ -31,7 +31,10 @@ int main (){
             rec.setPosition(x);
             test.window.draw(rec);
             test.window.display();
-        }
+        }*/
+        test.window.clear();
+        test.window.display();
+
     }
     /*sf::RenderWindow window(sf::VideoMode(800, 600), "My window");
     
