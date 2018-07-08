@@ -23,54 +23,34 @@ class MazeVisualizer : public GraphVisualizer
 {
     public:
         sf::RenderWindow window;
-        std::vector < sf::Vector2f > vertices;
         size_t rows;
         size_t cols;
+        Maze maze;
+        std::vector<VertexStatus> status;
         double widthRec;
         double heightRec;
     
     
-        MazeVisualizer(size_t r, size_t c) : window(sf::VideoMode(800, 600), "My window"),
+    MazeVisualizer(size_t r, size_t c, sf::RenderWindow window, Maze& maze ) : window(sf::VideoMode(800, 600), "My window"),
                                              rows(r),
-                                             cols(c)
+                                             cols(c),
+                                             window(window),
+                                             maze(maze)
+    
         {
-            /*this->widthRec = 800./c;
+            this->widthRec = 800./c;
             this->heightRec = 600./r;
-            (this->vertices).resize(r*c);
-            fori(rows){
-                forj(cols){
-                    sf::Vector2f vertex(j*widthRec, i*heightRec);
-                    (*this)(i,j) = vertex;
-                }
-            }*/
-            /*while (window.isOpen())
-            {
-                sf::Event event;
-                while(window.pollEvent(event))
-                {
-                    if (event.type == sf::Event::Closed)
-                        window.close();
-                }
-                for (sf::Vector2f x : vertices ){
-                    window.clear();
-                    sf::RectangleShape rec( sf::Vector2f(widthRec,heightRec)  );
-                    rec.setFillColor (BLUE);
-                    rec.setOutlineThickness(1);
-                    rec.setOutlineColor (BLACK);
-                    rec.setPosition(x);
-                    window.draw(rec);
-                    window.display();
-                }
-            }*/
-        }
+            status.resize(maze.numVertices(), VertexStatus::UnknownVertex);
     
         ~MazeVisualizer() {}
-        void markVertex(VertexT vertex, VertexStatus status);
-        void markEdge(EdgeT e, EdgeStatus status);
-        void updateVertex(VertexT vertex,  double cost, double estimate, VertexT parent, VertexStatus status);
-        void draw();
+        void markVertex(VertexT vertex, VertexStatus status) override;
+        void markEdge(EdgeT e, EdgeStatus status) override;
+        void updateVertex(VertexT vertex,  double cost, double estimate, VertexT parent, VertexStatus status)override;
+        void draw() override;
     
-        sf::Vector2f& operator () (size_t i, size_t j){return vertices[i*rows+j];}
+            
+        //Hilfsoperator
+        sf::Vector2f& operator () (size_t i, size_t j){return status[i*rows+j];}
 
 
 };
