@@ -11,7 +11,7 @@
 #include <fstream>
 #include <math.h>
 #include <memory>
-#include <SFML/Graphics.hpp>
+//#include <SFML/Graphics.hpp>
 
 class maze : public DistanceGraph
 {

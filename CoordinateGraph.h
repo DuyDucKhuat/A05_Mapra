@@ -10,7 +10,7 @@
 #include <iostream>
 #include <fstream>
 #include <math.h>
-#include <SFML/Graphics.hpp>
+//#include <SFML/Graphics.hpp>
     typedef std::pair<VertexT, CostT> LocalEdgeT;
 
 	typedef std::vector<LocalEdgeT> NeighborT;
