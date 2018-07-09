@@ -32,6 +32,8 @@ void MazeVisualizer::draw() {
     rect.setFillColor(sf::Color::Black);
     rect.setOutlineThickness(1);
     rect.setOutlineColor(sf::Color::White);
+    std::cout << " rows: " << this->m.rows << std::endl;
+    std::cout << " cols: " << this->m.cols << std::endl;
 
     for(int i = 0 ; i <this->m.rows; i++){ //aktualsiere Feld;
         for(int j = 0; j < this->m.cols; j++){
