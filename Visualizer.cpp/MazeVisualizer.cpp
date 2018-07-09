@@ -46,13 +46,6 @@ void MazeVisualizer::draw() override {
     this->window->display();
 }
 
-int main (){
-    MazeVisualizer test(80,60);
-    
-
-    return 0 ;
-}
-
 
 
 
