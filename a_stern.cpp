@@ -415,7 +415,7 @@ int main(int argc, char * argv[])
         displayMaze(G5);
         std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(8);
         std::cout << Aufgabe[bsp2].first << " "<< Aufgabe[bsp2].second << std::endl;
-        MazeVisualizer V(&window, G5, %event);
+        MazeVisualizer V(&window, G5, &event);
         if( A_star(G5, V, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg5))
         {
             PruefeWeg(8,weg5);
