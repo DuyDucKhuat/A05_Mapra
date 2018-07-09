@@ -249,7 +249,7 @@ int main(int argc, char * argv[])
     Istr2 >> bsp2;
     sf::RenderWindow window(sf::VideoMode(800,600), "MyWindow");
     sf::Event event;
-
+    while (window.isOpen()){
 
 
 
@@ -461,7 +461,7 @@ int main(int argc, char * argv[])
             PruefeWeg(10,weg);
         }
     }
-    
+    }
     
     return 0;
 }
