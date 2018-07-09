@@ -26,7 +26,10 @@ class c_graph_visualizer : public GraphVisualizer
     int n;
     
     
-    c_graph_visualizer(sf::RenderWindow* w, CoordinateGraph& Graph) : window(w), G(Graph), n(Graph.numVertices()){
+    c_graph_visualizer(sf::RenderWindow* w, CoordinateGraph& Graph) {
+        this->window = w;
+        this->G = Graph;
+        this->n = Graph.numVertices();
         vertex_status.resize( n, VertexStatus::UnknownVertex);
         edge_status.resize( n*n, EdgeStatus::UnknownEdge);
     }
