@@ -104,12 +104,14 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
         V.markEdge(EdgeT (start,v.first),EdgeStatus::Active);      //########NEU
     }
     while( true){
+
         std::pop_heap(queue.begin(),queue.end(),compare());
         current = queue.back().first;
         currentEdge.second = current;                               //########NEU
         V.markVertex( current ,VertexStatus::Active);               //########NEU
         V.markEdge( EdgeT (currentEdge.first,currentEdge.second),EdgeStatus::Visited); //########NEU
-            
+        V.draw();
+
 
         //std::pop_heap(queue.begin(),queue.end(),compare());
         queue.pop_back();
@@ -124,6 +126,7 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
             while (w != start){
                 weg.push_back(Vorgaenger[w]);
                 V.markEdge( EdgeT (Vorgaenger[w] , w),EdgeStatus::Optimal);//########NEU
+                V.draw();
                 w = Vorgaenger[w];
             }
             weg.reverse();
@@ -142,6 +145,8 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
                 V.markVertex(N[v].first, VertexStatus::InQueue);
                 Vorgaenger[N[v].first] = current;
                 V.markEdge( EdgeT (currentEdge.second, N[v].first),EdgeStatus::Active);    //########NEU
+                V.draw();
+
                 //okay, und wenn bekannt:
                 //ist der neue Weg besser?
             }else if ( Weglaenge[current] + N[v].second < Weglaenge[N[v].first] ){
@@ -159,6 +164,7 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
         
         if(N.empty()) {V.markVertex(current, VertexStatus::Done);}//########NEU keine Möglichkeiten für diesen Knoten
         currentEdge.first = currentEdge.second; //aktualisiere Anfang.
+        V.draw();
 
         if( queue.empty()) return false;
     }
