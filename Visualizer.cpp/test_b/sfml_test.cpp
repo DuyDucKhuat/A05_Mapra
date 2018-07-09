@@ -34,7 +34,7 @@ int main()
         
         // The coordinates, which can be used to set the position of a circle are by default the top left corner of the
         // smallest square containing the circle. Using setOrigin, we can move these coordinates to the center of the circle.
-        shape.setPostion(400,300);
+        shape.setPosition(400,300);
         shape.setOrigin(shape.getRadius(), shape.getRadius());
         
         //sets the (absolute) position of the circle, (0,0) is the top-left corner.
