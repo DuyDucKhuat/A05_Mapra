@@ -132,9 +132,9 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
                 V.draw();
                 w = Vorgaenger[w];
             }
-            //while (true){
+            while (true){
             V.draw();
-            //}
+            }
             weg.reverse();
             return true;
         }
