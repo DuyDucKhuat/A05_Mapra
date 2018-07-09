@@ -8,7 +8,7 @@
 #include <vector>
 #include <list>
 #include <sstream>
-#include <MazeVisualizer.h>
+#include "Visualizer.cpp/MazeVisualizer.h"
 
 // Ein Graph, der Koordinaten von Knoten speichert.
 /*class CoordinateGraph : public DistanceGraph {
