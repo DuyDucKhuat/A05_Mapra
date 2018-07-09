@@ -31,9 +31,9 @@ class MazeVisualizer : public GraphVisualizer
     
     
     
-    MazeVisualizer(sf::RenderWindow window, Maze& maze ) : window(sf::VideoMode(800, 600), "My window"),
+    MazeVisualizer(sf::RenderWindow window, maze& maze ) : window(sf::VideoMode(800, 600), "My window"),
                                              window(window),
-                                             maze(maze)
+                                             maze(*maze)
         {
             this->widthRec = 800./(maze->cols);
             this->heightRec = 600./(maze->rows);
