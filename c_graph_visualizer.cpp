@@ -19,7 +19,7 @@ void c_graph_visualizer::draw(){
     shape.setOutlineColor(sf::Color::Black);
     
     for ( int i  = 0 ; i < n ; i ++){
-        if(this->vertex_status[i] == VertexStatus::UnknownVesrtex) shape.setFillColor(sf::Color::Green);
+        if(this->vertex_status[i] == VertexStatus::UnknownVertex) shape.setFillColor(sf::Color::Green);
         else if(this->vertex_status[i] == VertexStatus::InQueue) shape.setFillColor(sf::Color::Yellow);
         else if(this->vertex_status[i] == VertexStatus::Done) shape.setFillColor(sf::Color::Cyan);
         else if(this->vertex_status[i] == VertexStatus::Active) shape.setFillColor(sf::Color::Red);
