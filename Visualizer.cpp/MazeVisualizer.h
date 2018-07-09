@@ -36,9 +36,9 @@ class MazeVisualizer : public GraphVisualizer
                                              window(window),
                                              maze(*maze)
         {
-            this->widthRec = 800./(maze->cols);
-            this->heightRec = 600./(maze->rows);
-            vertex_status.resize(maze.numVertices(), VertexStatus::UnknownVertex);
+            this->widthRec = 800./(this->maze.cols);
+            this->heightRec = 600./(this->maze.rows);
+            vertex_status.resize( this->maze.numVertices(), VertexStatus::UnknownVertex);
         }
         ~MazeVisualizer() {}
         void markVertex(VertexT vertex, VertexStatus status) override;e
