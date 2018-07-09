@@ -30,4 +30,5 @@ void c_graph_visualizer::draw(){
             window->draw(line, 2 , sf::Lines);
         }
     }
+    window->display();
 }
