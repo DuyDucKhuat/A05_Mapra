@@ -71,6 +71,7 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
     typedef DistanceGraph::NeighborT NeighborT;
     size_t n = G.numVertices();
     
+    
 
     static std::vector<CostT> Weglaenge(n, infty); // Vom Startknoten aus.
 
@@ -124,11 +125,15 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
             size_t w  = ziel; // backtrace für WEG
             weg.push_back(ziel);
             while (w != start){
+                
                 weg.push_back(Vorgaenger[w]);
                 V.markVertex(Vorgaenger[w], VertexStatus::Destination);
                 V.markEdge( EdgeT (Vorgaenger[w] , w),EdgeStatus::Optimal);//########NEU
                 V.draw();
                 w = Vorgaenger[w];
+            }
+            while (true){
+            V.draw();
             }
             weg.reverse();
             return true;
