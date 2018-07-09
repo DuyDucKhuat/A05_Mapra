@@ -23,7 +23,7 @@ class MazeVisualizer : public GraphVisualizer
 {
     public:
         sf::RenderWindow window;
-        Maze maze;
+        maze maze;
         std::vector<VertexStatus> vertex_status;
         double widthRec;
         double heightRec;
