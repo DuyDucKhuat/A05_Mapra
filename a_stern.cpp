@@ -99,15 +99,15 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
         std::push_heap(queue.begin(), queue.end(), compare());
         //aktualisiere
         bekannt[v.first] = true;
-        V.markVertex(v.first, VertexStatus::InQueue);   //########NEU
+        V.markVertex(v.first, VertexStatus::InQueue);              //########NEU
         Vorgaenger[v.first] = start;
         V.markEdge(EdgeT (start,v.first),EdgeStatus::Active);      //########NEU
     }
     while( true){
         std::pop_heap(queue.begin(),queue.end(),compare());
         current = queue.back().first;
-        currentEdge.second = current;               //########NEU
-        V.markVertex( current ,VertexStatus::Active);           //########NEU
+        currentEdge.second = current;                               //########NEU
+        V.markVertex( current ,VertexStatus::Active);               //########NEU
         V.markEdge( EdgeT (currentEdge.first,currentEdge.second),EdgeStatus::Visited); //########NEU
             
 
