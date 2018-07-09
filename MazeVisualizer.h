@@ -39,9 +39,9 @@ class MazeVisualizer : public GraphVisualizer
             vertex_status.resize( this->m.numVertices(), VertexStatus::UnknownVertex);
         }
         ~MazeVisualizer() {}
-        void markVertex(VertexT vertex, VertexStatus status) override;
-        void markEdge(EdgeT e, EdgeStatus status) override;
-        void updateVertex(VertexT vertex,  double cost, double estimate, VertexT parent, VertexStatus status)override;
+        void markVertex(VertexT vertex, VertexStatus status) override {this->vertex_status[vertex] = status;}
+        void markEdge(EdgeT e, EdgeStatus status) override {}
+        void updateVertex(VertexT vertex,  double cost, double estimate, VertexT parent, VertexStatus status)override {}
         void draw() override;
     
             

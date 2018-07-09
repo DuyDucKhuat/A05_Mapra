@@ -8,14 +8,6 @@
 #include "MazeVisualizer.h"
 
 
-void MazeVisualizer::markVertex(VertexT vertex, VertexStatus status){this->vertex_status[vertex] = status;}
-//##############################################################################################################
-
-void MazeVisualizer::markEdge(EdgeT e, EdgeStatus status) {}
-//##############################################################################################################
-
-void MazeVisualizer::updateVertex (VertexT vertex,  double cost, double estimate, VertexT parent, VertexStatus status){}
-
 //##############################################################################################################
 void MazeVisualizer::draw() {
     

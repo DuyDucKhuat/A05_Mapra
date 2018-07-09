@@ -22,7 +22,9 @@ class c_graph_visualizer : public GraphVisualizer
     CoordinateGraph G;
     std::vector<VertexStatus> vertex_status;
     
-    c_graph_visualizer(sf::RenderWindow* w, CoordinateGraph& Graph) : window(w), G(Graph){}
+    c_graph_visualizer(sf::RenderWindow* w, CoordinateGraph& Graph) : window(w), G(Graph){
+        vertex_status.resize( this->G.numVertices(), VertexStatus::UnknownVertex);
+    }
     ~c_graph_visualizer(){}
     void markVertex(VertexT vertex, VertexStatus status) override;
     void markEdge(EdgeT e, EdgeStatus status) override;
