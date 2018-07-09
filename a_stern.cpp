@@ -112,7 +112,7 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
 
         //std::pop_heap(queue.begin(),queue.end(),compare());
         queue.pop_back();
-        const NeighborT N = G.getNeighbors(current);
+        NeighborT N = G.getNeighbors(current);
 
         // sind wir schon am Ziel?
         if ( current == ziel)
