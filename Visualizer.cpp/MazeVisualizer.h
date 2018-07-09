@@ -34,14 +34,14 @@ class MazeVisualizer : public GraphVisualizer
     
     MazeVisualizer(sf::RenderWindow window, maze& maze ) : window(sf::VideoMode(800, 600), "My window"),
                                              window(window),
-                                             maze(*maze)
+                                             maze(maze)
         {
             this->widthRec = 800./(this->maze.cols);
             this->heightRec = 600./(this->maze.rows);
             vertex_status.resize( this->maze.numVertices(), VertexStatus::UnknownVertex);
         }
         ~MazeVisualizer() {}
-        void markVertex(VertexT vertex, VertexStatus status) override;e
+        void markVertex(VertexT vertex, VertexStatus status) override;
         void markEdge(EdgeT e, EdgeStatus status) override;
         void updateVertex(VertexT vertex,  double cost, double estimate, VertexT parent, VertexStatus status)override;
         void draw() override;
