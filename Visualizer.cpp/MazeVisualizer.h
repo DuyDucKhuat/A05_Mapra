@@ -32,7 +32,7 @@ class MazeVisualizer : public GraphVisualizer
     
     
     
-    MazeVisualizer(sf::RenderWindow window, maze& maze ) : window(sf::VideoMode(800, 600), "My window"),
+    MazeVisualizer(sf::RenderWindow window, maze maze ) : window(sf::VideoMode(800, 600), "My window"),
                                              window(window),
                                              maze(maze)
         {
