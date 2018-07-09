@@ -71,6 +71,7 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
     typedef DistanceGraph::LocalEdgeT LocalEdgeT;
     typedef DistanceGraph::NeighborT NeighborT;
     size_t n = G.numVertices();
+    
 
     static std::vector<CostT> Weglaenge(n, infty); // Vom Startknoten aus.
 

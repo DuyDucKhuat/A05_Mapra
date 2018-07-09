@@ -34,13 +34,13 @@ void MazeVisualizer::draw() {
 
     for(int i = 0 ; i <this->m.rows; i++){ //aktualsiere Feld;
         for(int j = 0; j < this->m.cols; j++){
-            if(this->m.Knoten[i*this->m.numVertices()+j] == CellType::Wall) rect.setFillColor(sf::Color::Blue);
+            if(this->m.Knoten[i*this->m.cols+j] == CellType::Wall) rect.setFillColor(sf::Color::Blue);
 
-            else if(vertex_status[i*(this->m.rows)+j] == VertexStatus::UnknownVertex) rect.setFillColor(sf::Color::Green);
-            else if(vertex_status[i*(this->m.rows)+j] == VertexStatus::InQueue) rect.setFillColor(sf::Color::Yellow);
-            else if(vertex_status[i*(this->m.rows)+j] == VertexStatus::Done) rect.setFillColor(sf::Color::Cyan);
-            else if(vertex_status[i*(this->m.rows)+j] == VertexStatus::Active) rect.setFillColor(sf::Color::Red);
-            else if(vertex_status[i*(this->m.rows)+j] == VertexStatus::Destination) rect.setFillColor(sf::Color::Magenta);
+            else if(vertex_status[i*(this->m.cols)+j] == VertexStatus::UnknownVertex) rect.setFillColor(sf::Color::Green);
+            else if(vertex_status[i*(this->m.cols)+j] == VertexStatus::InQueue) rect.setFillColor(sf::Color::Yellow);
+            else if(vertex_status[i*(this->m.cols)+j] == VertexStatus::Done) rect.setFillColor(sf::Color::Cyan);
+            else if(vertex_status[i*(this->m.cols)+j] == VertexStatus::Active) rect.setFillColor(sf::Color::Red);
+            else if(vertex_status[i*(this->m.cols)+j] == VertexStatus::Destination) rect.setFillColor(sf::Color::Magenta);
             rect.setPosition(i*this->widthRec, j*this->heightRec);
             this->window->draw(rect);
         }
