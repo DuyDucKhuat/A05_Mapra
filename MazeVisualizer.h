@@ -15,8 +15,6 @@
 #define fori(x) for(int i = 0; i < x; i++)
 #define forj(x) for(int j = 0; j < x; j++)
 
-#define BLUE sf::Color::Blue
-#define BLACK sf::Color::Black
 
 
 

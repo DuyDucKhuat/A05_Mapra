@@ -1,13 +1,13 @@
 
 #include "text_visualizer.h"
 #include "unit.h"
-#include "CoordinateGraph.h"
 #include <algorithm>
 #include <iostream>
 #include <vector>
 #include <list>
 #include <sstream>
 #include "MazeVisualizer.h"
+#include "c_graph_visualizer.h"
 
 // Ein Graph, der Koordinaten von Knoten speichert.
 /*class CoordinateGraph : public DistanceGraph {
@@ -261,7 +261,7 @@ int main(int argc, char * argv[])
        
         std::list < VertexT > weg;
         sf::RenderWindow window(sf::VideoMode(800,600), "MyWindow");
-        MazeVisualizer V(&window, G);
+        c_graph_visualizer V(&window, G);
 
         if( A_star(G, V, 0 , 1, weg)) PruefeWeg(1,weg);
         
@@ -285,7 +285,7 @@ int main(int argc, char * argv[])
         
         std::list < VertexT > weg;
         sf::RenderWindow window(sf::VideoMode(800,600), "MyWindow");
-        MazeVisualizer V(&window, &G);
+        c_graph_visualizer V(&window, G);
         if( A_star(G, V, 0, 8, weg)) PruefeWeg(2,weg);
     }
     if ( bsp == 3){
@@ -306,7 +306,7 @@ int main(int argc, char * argv[])
         
         std::list < VertexT > weg;
         sf::RenderWindow window(sf::VideoMode(800,600), "MyWindow");
-        MazeVisualizer V(window, G);
+        c_graph_visualizer V(&window, G);
         if( A_star(G, V, 0, 8, weg)) PruefeWeg(3,weg);
     }
     
@@ -328,7 +328,7 @@ int main(int argc, char * argv[])
 
         std::list < VertexT > weg;
         sf::RenderWindow window(sf::VideoMode(800,600), "MyWindow");
-        MazeVisualizer V(window, G);
+        c_graph_visualizer V(&window, G);
         if( A_star(G, V, 3, 8, weg)) PruefeWeg(4,weg);
     
     }
@@ -349,7 +349,7 @@ int main(int argc, char * argv[])
     std::cout << Aufgabe.size() << std::endl;
         
     sf::RenderWindow window(sf::VideoMode(800,600), "MyWindow");
-    MazeVisualizer V(window, G3);
+    MazeVisualizer V(&window, G3);
     if( A_star(G3, V, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg3) ) PruefeWeg(5,weg3);
        
         
@@ -369,7 +369,7 @@ int main(int argc, char * argv[])
         displayMaze(G4);
         std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(6);
         sf::RenderWindow window(sf::VideoMode(800,600), "MyWindow");
-        MazeVisualizer V(window, G4);
+        MazeVisualizer V(&window, G4);
         if( A_star(G4, V, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg4))
             {
                 PruefeWeg(6,weg4);
@@ -391,7 +391,7 @@ int main(int argc, char * argv[])
         std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(7);
         std::cout << Aufgabe[bsp2].first << " "<< Aufgabe[bsp2].second << std::endl;
         sf::RenderWindow window(sf::VideoMode(800,600), "MyWindow");
-        MazeVisualizer V(window, G5);
+        MazeVisualizer V(&window, G5);
         if( A_star(G5, V, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg5))
         {
             PruefeWeg(7,weg5);
@@ -413,7 +413,7 @@ int main(int argc, char * argv[])
         std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(8);
         std::cout << Aufgabe[bsp2].first << " "<< Aufgabe[bsp2].second << std::endl;
         sf::RenderWindow window(sf::VideoMode(800,600), "MyWindow");
-        MazeVisualizer V(window, G5);
+        MazeVisualizer V(&window, G5);
         if( A_star(G5, V, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg5))
         {
             PruefeWeg(8,weg5);
@@ -435,7 +435,7 @@ int main(int argc, char * argv[])
         std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(9);
         std::cout << Aufgabe[bsp2].first << " "<< Aufgabe[bsp2].second << std::endl;
         sf::RenderWindow window(sf::VideoMode(800,600), "MyWindow");
-        MazeVisualizer V(window, G5);
+        MazeVisualizer V(&window, G5);
         if( A_star(G5, V,Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg5))
         {
             PruefeWeg(9,weg5);
@@ -454,7 +454,7 @@ int main(int argc, char * argv[])
         }
         //displayMaze(G);
         sf::RenderWindow window(sf::VideoMode(800,600), "MyWindow");
-        MazeVisualizer V(window, G);
+        MazeVisualizer V(&window, G);
         if( A_star(G, V, start, destination , weg)){
             if ( weg.empty()) std::cout << " leer" << std::endl;
             for ( auto w : weg ) std::cout << w << " ";
