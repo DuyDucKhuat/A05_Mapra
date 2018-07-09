@@ -15,9 +15,8 @@ void c_graph_visualizer::draw(){
     this->window->clear(sf::Color::White);
     //Circle
     sf::CircleShape shape(50);
-    shape.setFillColor(sf::Color(50, 50,30));
     shape.setOutlineThickness(0.5);
-    shape.setOutlineColor(sf::Color(250,150,100));
+    shape.setOutlineColor(sf::Color::Black);
     
     for ( int i  = 0 ; i < n ; i ++){
         if(this->vertex_status[i] == VertexStatus::UnknownVertex) shape.setFillColor(sf::Color::Green);
