@@ -249,7 +249,6 @@ int main(int argc, char * argv[])
     Istr2 >> bsp2;
     sf::RenderWindow window(sf::VideoMode(800,600), "MyWindow");
     sf::Event event;
-    while (window.isOpen()){
 
 
 
@@ -353,12 +352,12 @@ int main(int argc, char * argv[])
     displayMaze(G3);
     std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(5);
     std::cout << Aufgabe.size() << std::endl;
-        
+    
     MazeVisualizer V(&window, G3, &event);
     std::cout << Aufgabe[bsp2].first << " " << Aufgabe[bsp2].second << std::endl;
-
-    if( A_star(G3, V, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg3) ) PruefeWeg(5,weg3);
-       
+    while (window.isOpen()){
+        if( A_star(G3, V, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg3) ) PruefeWeg(5,weg3);
+    }
         
     }
     if ( bsp == 6){
@@ -470,7 +469,7 @@ int main(int argc, char * argv[])
             PruefeWeg(10,weg);
         }
     }
-    }
+    
     
     return 0;
 }
