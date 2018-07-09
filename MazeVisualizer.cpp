@@ -20,7 +20,7 @@ void MazeVisualizer::draw() {
     sf::Vector2f v(widthRec, heightRec);
     sf::RectangleShape rect(v);
     rect.setFillColor(sf::Color::Black);
-    rect.setOutlineThickness(1);
+    rect.setOutlineThickness(0.1);
     rect.setOutlineColor(sf::Color::White);
 
 

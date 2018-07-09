@@ -19,10 +19,12 @@ class c_graph_visualizer : public GraphVisualizer
 {
     public:
     sf::RenderWindow* window;
+
     CoordinateGraph G;
     std::vector<VertexStatus> vertex_status;
     std::vector<EdgeStatus> edge_status;
     int n;
+    
     
     c_graph_visualizer(sf::RenderWindow* w, CoordinateGraph& Graph) : window(w), G(Graph), n(Graph.numVertices()){
         vertex_status.resize( n, VertexStatus::UnknownVertex);
