@@ -2,7 +2,6 @@
 #include "text_visualizer.h"
 #include "unit.h"
 #include "CoordinateGraph.h"
-#include "maze.h"
 #include <algorithm>
 #include <iostream>
 #include <vector>
