@@ -33,7 +33,6 @@ class MazeVisualizer : public GraphVisualizer
     
     
     MazeVisualizer(sf::RenderWindow window1, maze m1 ) : window(window1),
-                                             window(window),
                                              m(m1)
         {
             this->widthRec = 800./(this->m.cols);
