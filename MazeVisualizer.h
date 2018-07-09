@@ -34,8 +34,8 @@ class MazeVisualizer : public GraphVisualizer
     MazeVisualizer(sf::RenderWindow* window1, maze& m1 , sf::Event* e) :m(m1), event(e)
         {
             this->window = window1;
-            this->widthRec = 2560./(this->m.cols);
-            this->heightRec = 1600./(this->m.rows);
+            this->widthRec = 800./(this->m.cols);
+            this->heightRec = 600./(this->m.rows);
             vertex_status.resize( this->m.numVertices(), VertexStatus::UnknownVertex);
         }
         ~MazeVisualizer() {}
