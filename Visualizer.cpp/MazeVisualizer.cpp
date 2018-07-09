@@ -8,17 +8,16 @@
 #include "MazeVisualizer.h"
 
 
-void MazeVisualizer::markVertex(VertexT vertex, VertexStatus status) override {this->vertex_status[vertex] = status;}
+void MazeVisualizer::markVertex(VertexT vertex, VertexStatus status){this->vertex_status[vertex] = status;}
 //##############################################################################################################
 
 void MazeVisualizer::markEdge(EdgeT e, EdgeStatus status) override {}
 //##############################################################################################################
 
-void MazeVisualizer::updateVertex (VertexT vertex,  double cost, double estimate, VertexT parent, VertexStatus status) override
-{}
+void MazeVisualizer::updateVertex (VertexT vertex,  double cost, double estimate, VertexT parent, VertexStatus status){}
 
 //##############################################################################################################
-void MazeVisualizer::draw() override {
+void MazeVisualizer::draw() {
     sf::Event event;
     while(this->window.pollEvent(event)){
         if(event.type== sf::Event::Closed)
