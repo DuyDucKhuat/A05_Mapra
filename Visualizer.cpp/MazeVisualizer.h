@@ -24,7 +24,7 @@ class MazeVisualizer : public GraphVisualizer
 {
     public:
         sf::RenderWindow window;
-        maze maze;
+        maze m;
         std::vector<VertexStatus> vertex_status;
         double widthRec;
         double heightRec;
@@ -32,13 +32,13 @@ class MazeVisualizer : public GraphVisualizer
     
     
     
-    MazeVisualizer(sf::RenderWindow window, maze maze ) : window(sf::VideoMode(800, 600), "My window"),
+    MazeVisualizer(sf::RenderWindow window, maze m1 ) : window(sf::VideoMode(800, 600), "My window"),
                                              window(window),
-                                             maze(maze)
+                                             m(m1)
         {
-            this->widthRec = 800./(this->maze.cols);
-            this->heightRec = 600./(this->maze.rows);
-            vertex_status.resize( this->maze.numVertices(), VertexStatus::UnknownVertex);
+            this->widthRec = 800./(this->m.cols);
+            this->heightRec = 600./(this->m.rows);
+            vertex_status.resize( this->m.numVertices(), VertexStatus::UnknownVertex);
         }
         ~MazeVisualizer() {}
         void markVertex(VertexT vertex, VertexStatus status) override;
