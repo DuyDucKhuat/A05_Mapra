@@ -29,13 +29,13 @@ class c_graph_visualizer : public GraphVisualizer
         this->window = w;
         this->G = Graph;
         this->n = Graph.numVertices();
-        vertex_status.resize( Graph.numVertices(), VertexStatus::UnknownVertex);
-        edge_status.resize( Graph.numVertices()*Graph.numVertices(), EdgeStatus::UnknownEdge);
+        vertex_status.resize( n, VertexStatus::UnknownVertex);
+        edge_status.resize( n* n, EdgeStatus::UnknownEdge);
     }
     ~c_graph_visualizer(){}
-    void markVertex(VertexT vertex, VertexStatus status) override{this->vertex_status[vertex] = status;}
-    void markEdge(EdgeT e, EdgeStatus status) override{this->edge_status[e.first*n+e.second] = status;}
-    void updateVertex(VertexT vertex,  double cost, double estimate, VertexT parent, VertexStatus status) override;
+    void markVertex(VertexT vertex, VertexStatus status) override {this->vertex_status[vertex] = status;}
+    void markEdge(EdgeT e, EdgeStatus status) override {this->edge_status[e.first*n+e.second] = status;}
+    void updateVertex(VertexT vertex,  double cost, double estimate, VertexT parent, VertexStatus status) override{}
     void draw() override;
 };
 #endif /* c_graph_visualizer_h */
