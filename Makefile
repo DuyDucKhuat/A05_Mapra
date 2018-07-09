@@ -18,6 +18,6 @@ c_graph_visualizer.o: c_graph_visualizer.cpp unit.h
 clean:
 	rm -f main CoordinateGraph.o maze.o
 run: main
-	export LD_LIBRARY_PATH=./Visualizer.cpp/test_b/lib/SFML-2.5.0/lib &&./main
+	export LD_LIBRARY_PATH=./Visualizer.cpp/test_b/lib/SFML-2.5.0/lib &&./main 5 0
 gdb: main
 	gdb -ex "set enviroment LD_LIBRARY_PATH=./Visualizer.cpp/test_b/lib/SFML-2.5.0/lib" main
