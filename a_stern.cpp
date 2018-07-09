@@ -68,7 +68,7 @@ void Dijkstra(const DistanceGraph& g, VertexT start, std::vector<CostT>& D) {
 
 bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT ziel, std::list<VertexT>& weg) {
     // ...
-    while( V.window->isOpen()){
+    
     typedef DistanceGraph::LocalEdgeT LocalEdgeT;
     typedef DistanceGraph::NeighborT NeighborT;
     size_t n = G.numVertices();
@@ -128,8 +128,8 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
             weg.push_back(ziel);
             while (w != start){
                 weg.push_back(Vorgaenger[w]);
-                //V.markEdge( EdgeT (Vorgaenger[w] , w),EdgeStatus::Optimal);//########NEU
-                //V.draw();
+                V.markEdge( EdgeT (Vorgaenger[w] , w),EdgeStatus::Optimal);//########NEU
+                V.draw();
                 w = Vorgaenger[w];
             }
             weg.reverse();
@@ -172,7 +172,7 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
         std::cout << k << std::endl;
     }
     return false; // Kein Weg gefunden.
-    }
+
 }
 //############################################################################################################
 //                           COORDINATEGRAPH
