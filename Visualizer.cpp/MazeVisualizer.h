@@ -23,27 +23,24 @@ class MazeVisualizer : public GraphVisualizer
 {
     public:
         sf::RenderWindow window;
-        size_t rows;
-        size_t cols;
         Maze maze;
-        std::vector<VertexStatus> status;
+        std::vector<VertexStatus> vertex_status;
         double widthRec;
         double heightRec;
+
     
     
-    MazeVisualizer(size_t r, size_t c, sf::RenderWindow window, Maze& maze ) : window(sf::VideoMode(800, 600), "My window"),
-                                             rows(r),
-                                             cols(c),
+    
+    MazeVisualizer(sf::RenderWindow window, Maze& maze ) : window(sf::VideoMode(800, 600), "My window"),
                                              window(window),
                                              maze(maze)
-    
         {
-            this->widthRec = 800./c;
-            this->heightRec = 600./r;
-            status.resize(maze.numVertices(), VertexStatus::UnknownVertex);
-    
+            this->widthRec = 800./(maze->cols);
+            this->heightRec = 600./(maze->rows);
+            vertex_status.resize(maze.numVertices(), VertexStatus::UnknownVertex);
+        }
         ~MazeVisualizer() {}
-        void markVertex(VertexT vertex, VertexStatus status) override;
+        void markVertex(VertexT vertex, VertexStatus status) override;e
         void markEdge(EdgeT e, EdgeStatus status) override;
         void updateVertex(VertexT vertex,  double cost, double estimate, VertexT parent, VertexStatus status)override;
         void draw() override;

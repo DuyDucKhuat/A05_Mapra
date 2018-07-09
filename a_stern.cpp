@@ -67,7 +67,7 @@ void Dijkstra(const DistanceGraph& g, VertexT start, std::vector<CostT>& D) {
 }
 
 
-bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<VertexT>& weg) {
+bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT ziel, std::list<VertexT>& weg) {
     // ...
     typedef DistanceGraph::LocalEdgeT LocalEdgeT;
     typedef DistanceGraph::NeighborT NeighborT;
@@ -78,83 +78,89 @@ bool A_star(const DistanceGraph& G, VertexT start, VertexT ziel, std::list<Verte
     class compare { // f =  g + h;
     public:
         bool operator () (std::pair<size_t , CostT> a, std::pair<size_t , CostT> b) const {
-            //for ( auto v : Weglaenge) std::cout << v << std::endl;
             return  Weglaenge.at(a.first)+ a.second > Weglaenge.at(b.first) + b.second;
         }
     };
 
     std::vector < bool > bekannt (n,false);
     std::vector < VertexT > Vorgaenger(n, -1);
-    std::vector < std::pair < VertexT, CostT > > queue ; //
+    std::vector < std::pair < VertexT, CostT > > queue ;
+    std::make_heap( queue.begin(), queue.end(), compare() );
 
-        std::make_heap( queue.begin(), queue.end(), compare() );
-
-        bekannt.at(start) = true;
-        Weglaenge.at(start) = 0.;
-        VertexT current = start;
-
+    bekannt[start] = true;
+    Weglaenge[start] = 0.;
+    VertexT current = start;
+    EdgeT currentEdge(start,0); //########NEU
     if ( G.getNeighbors(current).empty()) return false;
-    for ( auto v : G.getNeighbors(current)) {
+    for ( auto v : G.getNeighbors(current)) { //erster Schritt: HINZUFÜGEN IN QUEUE
         Weglaenge[v.first] = v.second;
         v.second = G.estimatedCost(v.first, ziel); // ab hier ist second nur der Heuristikwert.
         queue.push_back(v);
         std::push_heap(queue.begin(), queue.end(), compare());
-        bekannt.at(v.first) = true;
-        Vorgaenger.at(v.first) = start;
-        }
-        while( true){
-            std::pop_heap(queue.begin(),queue.end(),compare());
+        //aktualisiere
+        bekannt[v.first] = true;
+        V.markVertex(,v.first, VertexStatus::InQueue);   //########NEU
+        Vorgaenger[v.first] = start;
+        V.markEdge(EdgeT (start,v.first),EdgeStatus::Active);      //########NEU
+    }
+    while( true){
+        std::pop_heap(queue.begin(),queue.end(),compare());
+        current = queue.back().first;
+        currentEdge.second = current;               //########NEU
+        V.markVertex( current ,VertexStatus::Visited);           //########NEU
+        V.markEdge( EdgeT (currentEdge.first,currentEdge.second),EdgeStatus::Visited); //########NEU
+            
 
-            current = queue.back().first;
-            //std::pop_heap(queue.begin(),queue.end(),compare());
-            queue.pop_back();
-            const NeighborT N = G.getNeighbors(current);
+        //std::pop_heap(queue.begin(),queue.end(),compare());
+        queue.pop_back();
+        const NeighborT N = G.getNeighbors(current);
 
-            // sind wir schon am Ziel?
-            if ( current == ziel)
-            {
-
-                size_t w  = ziel;
-                weg.push_back(ziel);
-                while (w != start){
-                    weg.push_back(Vorgaenger[w]);
-                    w = Vorgaenger.at(w);
-                    
-                }
-                weg.reverse();
-                return true;
+        // sind wir schon am Ziel?
+        if ( current == ziel)
+        {
+            V.markVertex(current, VertexStatus::Destination);
+            size_t w  = ziel; // backtrace für WEG
+            weg.push_back(ziel);
+            while (w != start){
+                weg.push_back(Vorgaenger[w]);
+                V.markEdge( EdgeT (Vorgaenger[w] , w),EdgeStatus::Optimal);//########NEU
+                w = Vorgaenger[w];
             }
+            weg.reverse();
+            return true;
+        }
                 // evtl. neu
             // sind die neu?
-            for ( auto v : N ){
-                if ( !bekannt.at(v.first) ){
-
-                    Weglaenge.at(v.first) = Weglaenge.at(current) + v.second;
-
-                    v.second = G.estimatedCost(v.first, ziel);
-                    
-                    queue.push_back(v);
-
-                    std::push_heap(queue.begin(), queue.end(), compare());
-
-                    bekannt.at(v.first) = true;
-
-                    Vorgaenger.at(v.first) = current;
+        for ( auto v : N ){
+            if ( !bekannt[v.first] ){
+                Weglaenge[v.first] = Weglaenge[current] + v.second;
+                v.second = G.estimatedCost(v.first, ziel);
+                queue.push_back(v);
+                std::push_heap(queue.begin(), queue.end(), compare());
+                //aktualisiere Listen
+                bekannt[v.first] = true;
+                V.markVertex(v.first, VertexStatus::InQueue);
+                Vorgaenger[v.first] = current;
+                V.markEdge( EdgeT (currentEdge.second, v.first),EdgeStatus::Active);    //########NEU
                 //okay, und wenn bekannt:
                 //ist der neue Weg besser?
-                }else if ( Weglaenge.at(current) + v.second < Weglaenge.at(v.first) ){
-                    Weglaenge.at(v.first) = Weglaenge.at(current) + v.second;
-                    Vorgaenger.at(v.first) = current;
-                    v.second = G.estimatedCost(v.first, ziel);
-                    queue.push_back(v);
-                    std::push_heap(queue.begin(), queue.end(), compare());
-                }
+            }else if ( Weglaenge[current] + v.second < Weglaenge[v.first] ){
+                Weglaenge[v.first] = Weglaenge[current] + v.second;
+                Vorgaenger[v.first] = current;
+                v.second = G.estimatedCost(v.first, ziel);
+                queue.push_back(v);
+                std::push_heap(queue.begin(), queue.end(), compare());
+                
+                
+            }else{ // der Knoten ist bekannt, der Weg ist nicht besser, also  LÖSCHE die Möglichkeit.
+                N.erase(std::remove(N.begin(), N.end(), v ), N.end()); //########NEU
             }
+        }
+        if(N.empty()) {V.markVertex(current, VertexStatus::Done);}//########NEU keine Möglichkeiten für diesen Knoten
+        currentEdge.first = currentEdge.second; //aktualisiere Anfang.
 
-            if( queue.empty()){
-                return false;
-            }
-            }
+        if( queue.empty()) return false;
+    }
     return false; // Kein Weg gefunden.
     
 }
