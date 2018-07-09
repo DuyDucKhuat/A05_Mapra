@@ -130,31 +130,32 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
         }
                 // evtl. neu
             // sind die neu?
-        for ( auto v : N ){
-            if ( !bekannt[v.first] ){
-                Weglaenge[v.first] = Weglaenge[current] + v.second;
-                v.second = G.estimatedCost(v.first, ziel);
-                queue.push_back(v);
+        for ( int v = 0; v < N.size(); v++){
+            if ( !bekannt[N[v].first] ){
+                Weglaenge[N[v].first] = Weglaenge[current] + N[v].second;
+                N[v].second = G.estimatedCost(N[v].first, ziel);
+                queue.push_back(N[v]);
                 std::push_heap(queue.begin(), queue.end(), compare());
                 //aktualisiere Listen
-                bekannt[v.first] = true;
-                V.markVertex(v.first, VertexStatus::InQueue);
-                Vorgaenger[v.first] = current;
-                V.markEdge( EdgeT (currentEdge.second, v.first),EdgeStatus::Active);    //########NEU
+                bekannt[N[v].first] = true;
+                V.markVertex(N[v].first, VertexStatus::InQueue);
+                Vorgaenger[N[v].first] = current;
+                V.markEdge( EdgeT (currentEdge.second, N[v].first),EdgeStatus::Active);    //########NEU
                 //okay, und wenn bekannt:
                 //ist der neue Weg besser?
-            }else if ( Weglaenge[current] + v.second < Weglaenge[v.first] ){
-                Weglaenge[v.first] = Weglaenge[current] + v.second;
-                Vorgaenger[v.first] = current;
-                v.second = G.estimatedCost(v.first, ziel);
-                queue.push_back(v);
+            }else if ( Weglaenge[current] + N[v].second < Weglaenge[N[v].first] ){
+                Weglaenge[N[v].first] = Weglaenge[current] + N[v].second;
+                Vorgaenger[N[v].first] = current;
+                N[v].second = G.estimatedCost(N[v].first, ziel);
+                queue.push_back(N[v]);
                 std::push_heap(queue.begin(), queue.end(), compare());
                 
                 
             }else{ // der Knoten ist bekannt, der Weg ist nicht besser, also  LÖSCHE die Möglichkeit.
-                N.erase(std::remove(N.begin(), N.end(), v ), N.end()); //########NEU
+                N.erase(N.begin()+v); //########NEU
             }
         }
+        
         if(N.empty()) {V.markVertex(current, VertexStatus::Done);}//########NEU keine Möglichkeiten für diesen Knoten
         currentEdge.first = currentEdge.second; //aktualisiere Anfang.
 
