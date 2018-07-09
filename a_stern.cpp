@@ -68,6 +68,7 @@ void Dijkstra(const DistanceGraph& g, VertexT start, std::vector<CostT>& D) {
 
 bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT ziel, std::list<VertexT>& weg) {
     // ...
+    while( V->window->isOpen()){
     typedef DistanceGraph::LocalEdgeT LocalEdgeT;
     typedef DistanceGraph::NeighborT NeighborT;
     size_t n = G.numVertices();
@@ -171,7 +172,7 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
         std::cout << k << std::endl;
     }
     return false; // Kein Weg gefunden.
-    
+    }
 }
 //############################################################################################################
 //                           COORDINATEGRAPH
@@ -445,9 +446,9 @@ int main(int argc, char * argv[])
         std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(9);
         MazeVisualizer V(&window, G5, &event);
         std::cout <<"Anfang: "<< Aufgabe[bsp2].first << " Destination: " << Aufgabe[bsp2].second << std::endl;
-        while(window.isOpen()){
-            if( A_star(G5, V,Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg5)) PruefeWeg(9,weg5);
-        }
+        
+        if( A_star(G5, V,Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg5)) PruefeWeg(9,weg5);
+    
     }
     if ( bsp == 10){
         maze G(256,256);
