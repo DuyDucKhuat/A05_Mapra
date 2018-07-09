@@ -18,7 +18,7 @@ void MazeVisualizer::updateVertex (VertexT vertex,  double cost, double estimate
 
 //##############################################################################################################
 void MazeVisualizer::draw() {
-    while(this->window->isOpen()){
+    //while(this->window->isOpen()){
     sf::Event event;
     
     while(this->window->pollEvent(event)){
@@ -46,7 +46,7 @@ void MazeVisualizer::draw() {
         }
     }
     this->window->display();
-    }
+    //}
 }
 
 
