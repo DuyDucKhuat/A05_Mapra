@@ -36,11 +36,11 @@ int main()
         shape.setOrigin(shape.getRadius(), shape.getRadius());
         
         //sets the (absolute) position of the circle, (0,0) is the top-left corner.
-        shape.setPosition(200,0); // positioning the circle 200 units right from the top left corner
+        //shape.setPosition(200,0); // positioning the circle 200 units right from the top left corner
         
         //window.draw(shape); // draws the shape, a green circle with an orange outline
         
-        shape.move(0,300); // moves the position 300 units down from the previous position (-> circle is drawn at (200,300))
+        //shape.move(0,300); // moves the position 300 units down from the previous position (-> circle is drawn at (200,300))
         
         window.draw(shape); // draws the shape, another green circle with an orange outline
         
