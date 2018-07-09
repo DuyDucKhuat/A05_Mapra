@@ -104,6 +104,7 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
         Vorgaenger[v.first] = start;
         V.markEdge(EdgeT (start,v.first),EdgeStatus::Active);      //########NEU
     }
+    int k = 0;
     while( true){
 
         std::pop_heap(queue.begin(),queue.end(),compare());
@@ -168,6 +169,8 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
         V.draw();
         
         if( queue.empty()) return false;
+        k++;
+        std::cout << k << std::endl;
     }
     return false; // Kein Weg gefunden.
     
