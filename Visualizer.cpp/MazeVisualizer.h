@@ -32,9 +32,9 @@ class MazeVisualizer : public GraphVisualizer
     
     
     
-    MazeVisualizer(sf::RenderWindow* window1, maze m1 ) : window(window1),
-                                             m(m1)
+    MazeVisualizer(sf::RenderWindow window1, maze m1 ) :m(m1)
         {
+            this->window = window1;
             this->widthRec = 800./(this->m.cols);
             this->heightRec = 600./(this->m.rows);
             vertex_status.resize( this->m.numVertices(), VertexStatus::UnknownVertex);
