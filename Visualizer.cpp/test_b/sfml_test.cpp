@@ -1,5 +1,6 @@
 
 #include <SFML/Graphics.hpp>
+#include <iostream>
 
 int main()
 {
@@ -33,8 +34,8 @@ int main()
         
         // The coordinates, which can be used to set the position of a circle are by default the top left corner of the
         // smallest square containing the circle. Using setOrigin, we can move these coordinates to the center of the circle.
-        sf::Rect<float> size = shape.getGlobalBounds( );
-        shape.setOrigin(size.width / 2, size.height/2);
+        std::cout << shape.getRadius() << std::endl;
+        shape.setOrigin(shape.getRadius(), shape.getRadius());
         
         //sets the (absolute) position of the circle, (0,0) is the top-left corner.
         //shape.setPosition(200,0); // positioning the circle 200 units right from the top left corner
