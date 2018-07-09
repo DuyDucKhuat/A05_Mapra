@@ -26,7 +26,7 @@ void c_graph_visualizer::draw(){
         NeighborT N = G.getNeighbors(i);
         for (auto v :N){
             sf::Vertex line[] ={sf::Vertex(sf::Vector2f(shape.getPosition())),
-            sf::Vertex(sf::Vector2f(400 + G.Koordinaten[v.first].first, 300 + G.Koordinaten[v.first].second)) };
+            sf::Vertex(sf::Vector2f(400 + 5 * G.Koordinaten[v.first].first, 300 + 5 * G.Koordinaten[v.first].second)) };
             window->draw(line, 2 , sf::Lines);
         }
     }
