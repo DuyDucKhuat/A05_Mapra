@@ -46,8 +46,6 @@ class MazeVisualizer : public GraphVisualizer
         void draw() override;
     
             
-        //Hilfsoperator
-        sf::Vector2f& operator () (size_t i, size_t j){return status[i*rows+j];}
 
 
 };
