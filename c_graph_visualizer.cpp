@@ -23,9 +23,11 @@ void c_graph_visualizer::draw(){
         else if(this->vertex_status[i] == VertexStatus::Destination) shape.setFillColor(sf::Color::Magenta);
         shape.setPosition(400+ G.Koordinaten[i].first, 300 + G.Koordinaten[i].second);
         this->window->draw(shape);
+        NeighborT N = G.getNeighbors(i);
+        for (auto v :N){
+            sf::Vertex line[] ={sf::Vertex(sf::Vector2f(shape.getPosition())),
+                                sf::Vertex(sf::Vector2f(400 + G.Koordinaten[v.first].first, 300 + G.Koordinaten[v.first].second)) }
+            window.draw(line, 2 , sf::Lines);
+        }
     }
-    //for (int i = 0; i < n * n, i++){
-        
-    //}
-    
 }
