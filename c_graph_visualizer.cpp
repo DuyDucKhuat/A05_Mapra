@@ -7,8 +7,8 @@
 
 #include "c_graph_visualizer.h"
 
-void c_graph_visualizer::draw(sf::Color::White){
-    this->window->clear();
+void c_graph_visualizer::draw(){
+    this->window->clear(sf::Color::White);
     //Circle
     sf::CircleShape shape(20);
     shape.setFillColor(sf::Color(50, 50,30));
