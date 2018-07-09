@@ -14,7 +14,7 @@ void c_graph_visualizer::draw(){
     }
     this->window->clear(sf::Color::White);
     //Circle
-    sf::CircleShape shape(20);
+    sf::CircleShape shape(50);
     shape.setFillColor(sf::Color(50, 50,30));
     shape.setOutlineThickness(0.5);
     shape.setOutlineColor(sf::Color(250,150,100));
