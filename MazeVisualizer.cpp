@@ -32,8 +32,8 @@ void MazeVisualizer::draw() {
     rect.setOutlineColor(sf::Color::White);
 
 
-    for(int i = 0 ; i <this->m.rows; i++){ //aktualsiere Feld;
-        for(int j = 0; j < this->m.cols; j++){
+    for(int j = 0 ; j <this->m.cols; j++){ //aktualsiere Feld;
+        for(int i = 0; i < this->m.rows; i++){
             if(this->m.Knoten[i*this->m.cols+j] == CellType::Wall) rect.setFillColor(sf::Color::Blue);
 
             else if(vertex_status[i*(this->m.cols)+j] == VertexStatus::UnknownVertex) rect.setFillColor(sf::Color::Green);
