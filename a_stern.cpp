@@ -66,9 +66,7 @@ void Dijkstra(const DistanceGraph& g, VertexT start, std::vector<CostT>& D) {
 }
 
 
-bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT ziel, std::list<VertexT>& weg, sf::RenderWindow* window ) {
-    // ...
-    while ( window->isOpen()){
+bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT ziel, std::list<VertexT>& weg) {
     typedef DistanceGraph::LocalEdgeT LocalEdgeT;
     typedef DistanceGraph::NeighborT NeighborT;
     size_t n = G.numVertices();
@@ -158,11 +156,8 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
                 N[v].second = G.estimatedCost(N[v].first, ziel);
                 queue.push_back(N[v]);
                 std::push_heap(queue.begin(), queue.end(), compare());
-                
-                
             }
         }
-        
         if(N.empty()) {V.markVertex(current, VertexStatus::Done);}//########NEU keine Möglichkeiten für diesen Knoten
         currentEdge.first = currentEdge.second; //aktualisiere Anfang.
         V.draw();
@@ -170,8 +165,6 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
         if( queue.empty()) return false;
     }
     return false; // Kein Weg gefunden.
-    }
-
 }
 //############################################################################################################
 //                           COORDINATEGRAPH
@@ -254,7 +247,7 @@ int main(int argc, char * argv[])
 
 
 
-   /* if ( bsp == 1){
+    if ( bsp == 1){
         
         
         std::ifstream fin;
@@ -428,7 +421,7 @@ int main(int argc, char * argv[])
         {
             PruefeWeg(8,weg5);
         }
-    }*/
+    }
     if ( bsp == 9){
         
         std::ifstream fin5;
@@ -446,10 +439,10 @@ int main(int argc, char * argv[])
         MazeVisualizer V(&window, G5, &event);
         std::cout <<"Anfang: "<< Aufgabe[bsp2].first << " Destination: " << Aufgabe[bsp2].second << std::endl;
         
-        if( A_star(G5, V,Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg5, &window)) PruefeWeg(9,weg5);
+        if( A_star(G5, V,Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg5)) PruefeWeg(9,weg5);
     
     }
-    /*if ( bsp == 10){
+    if ( bsp == 10){
         maze G(256,256);
         std::vector<CellType> Random = ErzeugeLabyrinth (256,256, 1);
         G.Knoten = Random;
@@ -467,7 +460,7 @@ int main(int argc, char * argv[])
             for ( auto w : weg ) std::cout << w << " ";
             PruefeWeg(10,weg);
         }
-    }*/
+    }
     
     
     return 0;
