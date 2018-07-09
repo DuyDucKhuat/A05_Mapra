@@ -21,11 +21,11 @@ void c_graph_visualizer::draw(){
         else if(this->vertex_status[i] == VertexStatus::Done) shape.setFillColor(sf::Color::Cyan);
         else if(this->vertex_status[i] == VertexStatus::Active) shape.setFillColor(sf::Color::Red);
         else if(this->vertex_status[i] == VertexStatus::Destination) shape.setFillColor(sf::Color::Magenta);
-        shahpe.setPosition(400+ G.Koordinaten[i].first, 300 + G.Koordinaten[i].second);
+        shape.setPosition(400+ G.Koordinaten[i].first, 300 + G.Koordinaten[i].second);
         this->window->draw(shape);
     }
-    for (int i = 0; i < n * n, i++){
+    //for (int i = 0; i < n * n, i++){
         
-    }
+    //}
     
 }
