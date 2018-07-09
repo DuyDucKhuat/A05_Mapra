@@ -9,7 +9,7 @@ CoordinateGraph.o : CoordinateGraph.cpp unit.h
 maze.o: maze.cpp unit.h
 	$(CXX)  $(FLG) -c $^
 
-MazeVisualizer.o: Visualizer.cpp/MazeVisualizer.cpp unit.h
+MazeVisualizer.o: MazeVisualizer.cpp unit.h
 	$(CXX) $(FLG) -c $^
 
 .PHONY: clean
