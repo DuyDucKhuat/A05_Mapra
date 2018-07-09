@@ -38,7 +38,7 @@ void MazeVisualizer::draw() {
             else if(vertex_status[i*(this->maze.rows)+j] == VertexStatus::Done) rect.setFillColor(sf::Color::Cyan);
             else if(vertex_status[i*(this->maze.rows)+j] == VertexStatus::Active) rect.setFillColor(sf::Color::Red);
             else if(vertex_status[i*(this->maze.rows)+j] == VertexStatus::Destination) rect.setFillColor(sf::Color::Magenta);
-            rect.setPosition(i*this->widhtRec, j*this->heightRec);
+            rect.setPosition(i*this->widthRec, j*this->heightRec);
             this->window.draw(rect);
         }
     }
