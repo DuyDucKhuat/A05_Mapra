@@ -441,9 +441,8 @@ int main(int argc, char * argv[])
         std::list < VertexT > weg5;
         displayMaze(G5);
         std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(9);
-        std::cout << Aufgabe[bsp2].first << " "<< Aufgabe[bsp2].second << std::endl;
         MazeVisualizer V(&window, G5, &event);
-        std::cout << Aufgabe[bsp2].first << " " << Aufgabe[bsp2].second << std::endl;
+        std::cout <<"Anfang: "<< Aufgabe[bsp2].first << " Destination: " << Aufgabe[bsp2].second << std::endl;
         if( A_star(G5, V,Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg5))
         {
             PruefeWeg(9,weg5);
