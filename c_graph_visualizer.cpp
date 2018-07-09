@@ -8,6 +8,10 @@
 #include "c_graph_visualizer.h"
 
 void c_graph_visualizer::draw(){
+    while (this->window->pollEvent(*(this->event))){
+        if(this->event->type == sf::Event::Closed)
+            this->window->close();
+    }
     this->window->clear(sf::Color::White);
     //Circle
     sf::CircleShape shape(20);

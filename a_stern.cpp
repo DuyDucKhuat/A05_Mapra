@@ -132,9 +132,9 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
                 V.draw();
                 w = Vorgaenger[w];
             }
-            while (true){
+            //while (true){
             V.draw();
-            }
+            //}
             weg.reverse();
             return true;
         }
@@ -269,7 +269,7 @@ int main(int argc, char * argv[])
         PruefeDijkstra( 1, 0, D);
        
         std::list < VertexT > weg;
-        c_graph_visualizer V(&window, G);
+        c_graph_visualizer V(&window, G, &event);
 
         if( A_star(G, V, 0 , 1, weg)) PruefeWeg(1,weg);
         
@@ -292,7 +292,7 @@ int main(int argc, char * argv[])
         PruefeDijkstra( 2, 0, D);
         
         std::list < VertexT > weg;
-        c_graph_visualizer V(&window, G);
+        c_graph_visualizer V(&window, G, &event);
         if( A_star(G, V, 0, 8, weg)) PruefeWeg(2,weg);
     }
     if ( bsp == 3){
@@ -312,7 +312,7 @@ int main(int argc, char * argv[])
         PruefeDijkstra( 3, 0, D);
         
         std::list < VertexT > weg;
-        c_graph_visualizer V(&window, G);
+        c_graph_visualizer V(&window, G, &event);
         if( A_star(G, V, 0, 8, weg)) PruefeWeg(3,weg);
     }
     
@@ -333,7 +333,7 @@ int main(int argc, char * argv[])
         PruefeDijkstra( 4, 0, D);
 
         std::list < VertexT > weg;
-        c_graph_visualizer V(&window, G);
+        c_graph_visualizer V(&window, G, &event);
         if( A_star(G, V, 3, 8, weg)) PruefeWeg(4,weg);
     
     }

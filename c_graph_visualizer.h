@@ -19,13 +19,14 @@ class c_graph_visualizer : public GraphVisualizer
 {
     public:
     sf::RenderWindow* window;
+    sf::Event* event;
     CoordinateGraph G;
     std::vector<VertexStatus> vertex_status;
     std::vector<EdgeStatus> edge_status;
     int n;
     
     
-    c_graph_visualizer(sf::RenderWindow* w, CoordinateGraph& Graph) {
+    c_graph_visualizer(sf::RenderWindow* w, CoordinateGraph& Graph, sf::Event* e) : event(e) {
         this->window = w;
         this->G = Graph;
         this->n = Graph.numVertices();
