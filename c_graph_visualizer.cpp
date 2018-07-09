@@ -14,7 +14,7 @@ void c_graph_visualizer::draw(){
     }
     this->window->clear(sf::Color::White);
     //Circle
-    sf::CircleShape shape(50);
+    sf::CircleShape shape(10);
     shape.setOutlineThickness(0.5);
     shape.setOutlineColor(sf::Color::Black);
     
@@ -24,7 +24,7 @@ void c_graph_visualizer::draw(){
         else if(this->vertex_status[i] == VertexStatus::Done) shape.setFillColor(sf::Color::Cyan);
         else if(this->vertex_status[i] == VertexStatus::Active) shape.setFillColor(sf::Color::Red);
         else if(this->vertex_status[i] == VertexStatus::Destination) shape.setFillColor(sf::Color::Magenta);
-        shape.setPosition(400+ G.Koordinaten[i].first, 300 + G.Koordinaten[i].second);
+        shape.setPosition(400+ 5*G.Koordinaten[i].first, 300 + 5*G.Koordinaten[i].second);
         this->window->draw(shape);
         NeighborT N = G.getNeighbors(i);
         for (auto v :N){
