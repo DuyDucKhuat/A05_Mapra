@@ -19,30 +19,30 @@ void MazeVisualizer::updateVertex (VertexT vertex,  double cost, double estimate
 //##############################################################################################################
 void MazeVisualizer::draw() {
     sf::Event event;
-    while(this->window.pollEvent(event)){
+    while(this->window->pollEvent(event)){
         if(event.type== sf::Event::Closed)
-            this->window.close();
+            this->window->close();
     }
-    this->window.clear();
+    this->window->clear();
     //Rechteck
     sf::Vector2f v(widthRec, heightRec);
     sf::RectangleShape rect(v);
     rect.setFillColor(sf::Color::Black);
     rect.setOutlineThickness(1);
     rect.setOutlineColor(sf::Color::White);
-    fori(this->m.rows){ //aktualsiere Feld;
-        forj(this->m.cols){
+    fori(this->m->rows){ //aktualsiere Feld;
+        forj(this->m->cols){
             if(m(i,j) == CellType::Wall) rect.setFillColor(sf::Color::Blue);
-            else if(vertex_status[i*(this->m.rows)+j] == VertexStatus::UnknownVertex) rect.setFillColor(sf::Color::Green);
-            else if(vertex_status[i*(this->m.rows)+j] == VertexStatus::InQueue) rect.setFillColor(sf::Color::Yellow);
-            else if(vertex_status[i*(this->m.rows)+j] == VertexStatus::Done) rect.setFillColor(sf::Color::Cyan);
-            else if(vertex_status[i*(this->m.rows)+j] == VertexStatus::Active) rect.setFillColor(sf::Color::Red);
-            else if(vertex_status[i*(this->m.rows)+j] == VertexStatus::Destination) rect.setFillColor(sf::Color::Magenta);
+            else if(vertex_status[i*(this->m->rows)+j] == VertexStatus::UnknownVertex) rect.setFillColor(sf::Color::Green);
+            else if(vertex_status[i*(this->m->rows)+j] == VertexStatus::InQueue) rect.setFillColor(sf::Color::Yellow);
+            else if(vertex_status[i*(this->m->rows)+j] == VertexStatus::Done) rect.setFillColor(sf::Color::Cyan);
+            else if(vertex_status[i*(this->m->rows)+j] == VertexStatus::Active) rect.setFillColor(sf::Color::Red);
+            else if(vertex_status[i*(this->m->rows)+j] == VertexStatus::Destination) rect.setFillColor(sf::Color::Magenta);
             rect.setPosition(i*this->widthRec, j*this->heightRec);
-            this->window.draw(rect);
+            this->window->draw(rect);
         }
     }
-    this->window.display();
+    this->window->display();
 }
 
 
