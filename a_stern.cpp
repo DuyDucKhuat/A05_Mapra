@@ -232,6 +232,7 @@ void displayMaze (maze& G)
 //############################################################################################################
 int main(int argc, char * argv[])
 {
+
     std::istringstream Istr(argv[1]);
     int bsp;
     Istr >> bsp;
@@ -259,8 +260,10 @@ int main(int argc, char * argv[])
         PruefeDijkstra( 1, 0, D);
        
         std::list < VertexT > weg;
+        sf::RenderWindow window(sf::VideoMode(800,600), "MyWindow");
+        MazeVisualizer V(window, G);
 
-        if( A_star(G,0 , 1, weg)) PruefeWeg(1,weg);
+        if( A_star(G, V, 0 , 1, weg)) PruefeWeg(1,weg);
         
         
     }
@@ -281,8 +284,9 @@ int main(int argc, char * argv[])
         PruefeDijkstra( 2, 0, D);
         
         std::list < VertexT > weg;
-
-        if( A_star(G, 0, 8, weg)) PruefeWeg(2,weg);
+        sf::RenderWindow window(sf::VideoMode(800,600), "MyWindow");
+        MazeVisualizer V(window, G);
+        if( A_star(G, V, 0, 8, weg)) PruefeWeg(2,weg);
     }
     if ( bsp == 3){
         
@@ -301,8 +305,9 @@ int main(int argc, char * argv[])
         PruefeDijkstra( 3, 0, D);
         
         std::list < VertexT > weg;
-
-        if( A_star(G, 0, 8, weg)) PruefeWeg(3,weg);
+        sf::RenderWindow window(sf::VideoMode(800,600), "MyWindow");
+        MazeVisualizer V(window, G);
+        if( A_star(G, V, 0, 8, weg)) PruefeWeg(3,weg);
     }
     
     if ( bsp == 4){
@@ -322,8 +327,9 @@ int main(int argc, char * argv[])
         PruefeDijkstra( 4, 0, D);
 
         std::list < VertexT > weg;
-
-        if( A_star(G, 3, 8, weg)) PruefeWeg(4,weg);
+        sf::RenderWindow window(sf::VideoMode(800,600), "MyWindow");
+        MazeVisualizer V(window, G);
+        if( A_star(G, V, 3, 8, weg)) PruefeWeg(4,weg);
     
     }
     if ( bsp == 5){
@@ -342,7 +348,9 @@ int main(int argc, char * argv[])
     std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(5);
     std::cout << Aufgabe.size() << std::endl;
         
-    if( A_star(G3, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg3) ) PruefeWeg(5,weg3);
+    sf::RenderWindow window(sf::VideoMode(800,600), "MyWindow");
+    MazeVisualizer V(window, G);
+    if( A_star(G3, V, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg3) ) PruefeWeg(5,weg3);
        
         
     }
@@ -360,7 +368,9 @@ int main(int argc, char * argv[])
         std::list < VertexT > weg4;
         displayMaze(G4);
         std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(6);
-        if( A_star(G4, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg4))
+        sf::RenderWindow window(sf::VideoMode(800,600), "MyWindow");
+        MazeVisualizer V(window, G);
+        if( A_star(G4, V, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg4))
             {
                 PruefeWeg(6,weg4);
             }
@@ -380,7 +390,9 @@ int main(int argc, char * argv[])
         displayMaze(G5);
         std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(7);
         std::cout << Aufgabe[bsp2].first << " "<< Aufgabe[bsp2].second << std::endl;
-        if( A_star(G5, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg5))
+        sf::RenderWindow window(sf::VideoMode(800,600), "MyWindow");
+        MazeVisualizer V(window, G);
+        if( A_star(G5, V, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg5))
         {
             PruefeWeg(7,weg5);
         }
@@ -400,7 +412,9 @@ int main(int argc, char * argv[])
         displayMaze(G5);
         std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(8);
         std::cout << Aufgabe[bsp2].first << " "<< Aufgabe[bsp2].second << std::endl;
-        if( A_star(G5, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg5))
+        sf::RenderWindow window(sf::VideoMode(800,600), "MyWindow");
+        MazeVisualizer V(window, G);
+        if( A_star(G5, V, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg5))
         {
             PruefeWeg(8,weg5);
         }
@@ -420,7 +434,9 @@ int main(int argc, char * argv[])
         displayMaze(G5);
         std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(9);
         std::cout << Aufgabe[bsp2].first << " "<< Aufgabe[bsp2].second << std::endl;
-        if( A_star(G5, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg5))
+        sf::RenderWindow window(sf::VideoMode(800,600), "MyWindow");
+        MazeVisualizer V(window, G);
+        if( A_star(G5, V,Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg5))
         {
             PruefeWeg(9,weg5);
         }
@@ -437,7 +453,9 @@ int main(int argc, char * argv[])
             if( G.Knoten[v] == CellType::Start) start = v;
         }
         //displayMaze(G);
-        if( A_star(G, start, destination , weg)){
+        sf::RenderWindow window(sf::VideoMode(800,600), "MyWindow");
+        MazeVisualizer V(window, G);
+        if( A_star(G, V, start, destination , weg)){
             if ( weg.empty()) std::cout << " leer" << std::endl;
             for ( auto w : weg ) std::cout << w << " ";
             PruefeWeg(10,weg);
