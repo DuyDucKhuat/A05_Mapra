@@ -32,12 +32,13 @@ void MazeVisualizer::draw() {
     rect.setFillColor(sf::Color::Black);
     rect.setOutlineThickness(1);
     rect.setOutlineColor(sf::Color::White);
-    std::cout << " rows: " << this->m.rows << std::endl;
-    std::cout << " cols: " << this->m.cols << std::endl;
+
 
     for(int i = 0 ; i <this->m.rows; i++){ //aktualsiere Feld;
         for(int j = 0; j < this->m.cols; j++){
-            if(this->m.Knoten[i*this->m.numVertices()+j] == CellType::Wall) rect.setFillColor(sf::Color::Blue);
+            if(this->m.Knoten[i*this->m.numVertices()+j] == CellType::Wall){ rect.setFillColor(sf::Color::Blue);
+                std::cout << " Wände: " << i << " " << j<<  std::endl;}
+
             else if(vertex_status[i*(this->m.rows)+j] == VertexStatus::UnknownVertex) rect.setFillColor(sf::Color::Green);
             else if(vertex_status[i*(this->m.rows)+j] == VertexStatus::InQueue) rect.setFillColor(sf::Color::Yellow);
             else if(vertex_status[i*(this->m.rows)+j] == VertexStatus::Done) rect.setFillColor(sf::Color::Cyan);
