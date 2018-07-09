@@ -24,12 +24,12 @@ void c_graph_visualizer::draw(){
         else if(this->vertex_status[i] == VertexStatus::Done) shape.setFillColor(sf::Color::Cyan);
         else if(this->vertex_status[i] == VertexStatus::Active) shape.setFillColor(sf::Color::Red);
         else if(this->vertex_status[i] == VertexStatus::Destination) shape.setFillColor(sf::Color::Magenta);
-        shape.setPosition(400+ 5*G.Koordinaten[i].first, 300 + 5*G.Koordinaten[i].second);
+        shape.setPosition(400+ 20*G.Koordinaten[i].first, 300 + 20*G.Koordinaten[i].second);
         this->window->draw(shape);
         NeighborT N = G.getNeighbors(i);
         for (auto v :N){
             sf::Vertex line[] ={sf::Vertex(sf::Vector2f(shape.getPosition()), sf::Color::Magenta),
-            sf::Vertex(sf::Vector2f(400 + 5 * G.Koordinaten[v.first].first, 300 + 5 * G.Koordinaten[v.first].second), sf::Color::Magenta) };
+            sf::Vertex(sf::Vector2f(400 + 20 * G.Koordinaten[v.first].first, 300 + 20 * G.Koordinaten[v.first].second), sf::Color::Magenta) };
             window->draw(line, 2 , sf::Lines);
         }
     }
