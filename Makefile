@@ -10,7 +10,7 @@ maze.o: maze.cpp unit.h
 	$(CXX)  $(FLG) -c $^
 
 MazeVisualizer.o: Visualizer.cpp/MazeVisualizer.cpp unit.h
-        $(CXX) $(FLG) -c $^
+	$(CXX) $(FLG) -c $^
 
 .PHONY: clean
 clean:
