@@ -165,7 +165,7 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
         if(N.empty()) {V.markVertex(current, VertexStatus::Done);}//########NEU keine Möglichkeiten für diesen Knoten
         currentEdge.first = currentEdge.second; //aktualisiere Anfang.
         V.draw();
-
+        
         if( queue.empty()) return false;
     }
     return false; // Kein Weg gefunden.
