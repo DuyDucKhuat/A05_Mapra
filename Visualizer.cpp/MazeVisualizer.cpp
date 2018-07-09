@@ -34,11 +34,11 @@ void MazeVisualizer::draw() override {
     fori(this->maze.rows){ //aktualsiere Feld;
         forj(this->maze.cols){
             if(maze(i,j) == CellType::Wall) rect.setFillColor(sf::Color::Blue);
-            else if(vertex_status[i*(this->maze->rows)+j] == VertexStatus::UnknownVertex) rect.setFillColor(sf::Color::Green);
-            else if(vertex_status[i*(this->maze->rows)+j] == VertexStatus::InQueue) rect.setFillColor(sf::Color::Yellow);
-            else if(vertex_status[i*(this->maze->rows)+j] == VertexStatus::Done) rect.setFillColor(sf::Color::Cyan);
-            else if(vertex_status[i*(this->maze->rows)+j] == VertexStatus::Active) rect.setFillColor(sf::Color::Red);
-            else if(vertex_status[i*(this->maze->rows)+j] == VertexStatus::Destination) rect.setFillColor(sf::Color::Magenta);
+            else if(vertex_status[i*(this->maze.rows)+j] == VertexStatus::UnknownVertex) rect.setFillColor(sf::Color::Green);
+            else if(vertex_status[i*(this->maze.rows)+j] == VertexStatus::InQueue) rect.setFillColor(sf::Color::Yellow);
+            else if(vertex_status[i*(this->maze.rows)+j] == VertexStatus::Done) rect.setFillColor(sf::Color::Cyan);
+            else if(vertex_status[i*(this->maze.rows)+j] == VertexStatus::Active) rect.setFillColor(sf::Color::Red);
+            else if(vertex_status[i*(this->maze.rows)+j] == VertexStatus::Destination) rect.setFillColor(sf::Color::Magenta);
             rect.setPosition(i*widhtRec, j*heightRec);
             this->window.draw(rect);
         }
