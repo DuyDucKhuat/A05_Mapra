@@ -261,7 +261,7 @@ int main(int argc, char * argv[])
        
         std::list < VertexT > weg;
         sf::RenderWindow window(sf::VideoMode(800,600), "MyWindow");
-        MazeVisualizer V(window, G);
+        MazeVisualizer::MazeVisualizer V(window, G);
 
         if( A_star(G, V, 0 , 1, weg)) PruefeWeg(1,weg);
         
