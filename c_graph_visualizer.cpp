@@ -7,7 +7,7 @@
 
 #include "c_graph_visualizer.h"
 
-
+void updateVertex(VertexT vertex,  double cost, double estimate, VertexT parent, VertexStatus status){}
 void c_graph_visualizer::draw(){
    /* this->window->clear();
     //Circle
