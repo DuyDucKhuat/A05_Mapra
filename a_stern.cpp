@@ -351,7 +351,6 @@ int main(int argc, char * argv[])
     std::list < VertexT > weg3;
     displayMaze(G3);
     std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(5);
-    std::cout << Aufgabe.size() << std::endl;
     
     MazeVisualizer V(&window, G3, &event);
     std::cout << Aufgabe[bsp2].first << " " << Aufgabe[bsp2].second << std::endl;
