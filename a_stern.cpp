@@ -408,14 +408,14 @@ int main(int argc, char * argv[])
         size_t hoehe5 = 0;
         fin5 >> breite5;
         fin5 >> hoehe5;
-        maze G5(breite5,hoehe5, &event);
+        maze G5(breite5,hoehe5);
         readMaze(fin5, breite5, hoehe5, G5);
         
         std::list < VertexT > weg5;
         displayMaze(G5);
         std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(8);
         std::cout << Aufgabe[bsp2].first << " "<< Aufgabe[bsp2].second << std::endl;
-        MazeVisualizer V(&window, G5);
+        MazeVisualizer V(&window, G5, %event);
         if( A_star(G5, V, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg5))
         {
             PruefeWeg(8,weg5);
