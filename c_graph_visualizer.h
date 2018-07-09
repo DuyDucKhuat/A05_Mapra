@@ -21,13 +21,16 @@ class c_graph_visualizer : public GraphVisualizer
     sf::RenderWindow* window;
     CoordinateGraph G;
     std::vector<VertexStatus> vertex_status;
+    std::vector<EdgeStatus> edege_status;
+    int n;
     
-    c_graph_visualizer(sf::RenderWindow* w, CoordinateGraph& Graph) : window(w), G(Graph){
-        vertex_status.resize( this->G.numVertices(), VertexStatus::UnknownVertex);
+    c_graph_visualizer(sf::RenderWindow* w, CoordinateGraph& Graph) : window(w), G(Graph), n(Graph.numVertices()){
+        vertex_status.resize( n, VertexStatus::UnknownVertex);
+        edge_status.resize( n*n, EdgeStatus::UnknownEdge);
     }
     ~c_graph_visualizer(){}
-    void markVertex(VertexT vertex, VertexStatus status) override;
-    void markEdge(EdgeT e, EdgeStatus status) override;
+    void markVertex(VertexT vertex, VertexStatus status) override{this->vertex_status[vertex] = status;}
+    void markEdge(EdgeT e, EdgeStatus status) override{this->edge_status[e.first*n+e.second] = status;}
     void updateVertex(VertexT vertex,  double cost, double estimate, VertexT parent, VertexStatus status)override;
     void draw() override;
 };
