@@ -85,6 +85,8 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
     std::vector < VertexT > Vorgaenger(n, -1);
     std::vector < std::pair < VertexT, CostT > > queue ;
     std::make_heap( queue.begin(), queue.end(), compare() );
+    std::cout << "hi" << std::endl;
+
     V.draw();
     bekannt[start] = true;
     Weglaenge[start] = 0.;
@@ -351,7 +353,6 @@ int main(int argc, char * argv[])
         
     sf::RenderWindow window(sf::VideoMode(800,600), "MyWindow");
     MazeVisualizer V(&window, G3);
-        std::cout << "hi" << std::endl;
     if( A_star(G3, V, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg3) ) PruefeWeg(5,weg3);
        
         
