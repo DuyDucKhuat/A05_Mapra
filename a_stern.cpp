@@ -353,7 +353,7 @@ int main(int argc, char * argv[])
     std::vector < std::pair < VertexT, VertexT> > Aufgabe = StartZielPaare(5);
     
     MazeVisualizer V(&window, G3, &event);
-    std::cout << Aufgabe[bsp2].first << " " << Aufgabe[bsp2].second << std::endl;
+        std::cout <<"Anfang: "<< Aufgabe[bsp2].first << " Destination: " << Aufgabe[bsp2].second << std::endl;
     while (window.isOpen()){
         if( A_star(G3, V, Aufgabe[bsp2].first, Aufgabe[bsp2].second, weg3) ) PruefeWeg(5,weg3);
     }
