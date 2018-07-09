@@ -127,8 +127,8 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
             weg.push_back(ziel);
             while (w != start){
                 weg.push_back(Vorgaenger[w]);
-                V.markEdge( EdgeT (Vorgaenger[w] , w),EdgeStatus::Optimal);//########NEU
-                V.draw();
+                //V.markEdge( EdgeT (Vorgaenger[w] , w),EdgeStatus::Optimal);//########NEU
+                //V.draw();
                 w = Vorgaenger[w];
             }
             weg.reverse();
