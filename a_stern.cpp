@@ -159,8 +159,6 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
                 std::push_heap(queue.begin(), queue.end(), compare());
                 
                 
-            }else{ // der Knoten ist bekannt, der Weg ist nicht besser, also  LÖSCHE die Möglichkeit.
-                N.erase(N.begin()+v); //########NEU
             }
         }
         
