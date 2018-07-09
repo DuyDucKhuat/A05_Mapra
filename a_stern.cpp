@@ -85,7 +85,6 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
     std::vector < VertexT > Vorgaenger(n, -1);
     std::vector < std::pair < VertexT, CostT > > queue ;
     std::make_heap( queue.begin(), queue.end(), compare() );
-    std::cout << "hi" << std::endl;
 
     V.draw();
     bekannt[start] = true;

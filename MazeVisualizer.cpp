@@ -30,6 +30,8 @@ void MazeVisualizer::draw() {
     rect.setFillColor(sf::Color::Black);
     rect.setOutlineThickness(1);
     rect.setOutlineColor(sf::Color::White);
+    std::cout << "hi" << std::endl;
+
     for(int i = 0 ; i <this->m.rows; i++){ //aktualsiere Feld;
         for(int j = 0; j < this->m.cols; j++){
             if(this->m.Knoten[i*this->m.numVertices()+j] == CellType::Wall) rect.setFillColor(sf::Color::Blue);
