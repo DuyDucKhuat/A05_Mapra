@@ -26,7 +26,7 @@ void c_graph_visualizer::draw(){
     shape.setOutlineColor(sf::Color::Black);
     shape.setOrigin(shape.getRadius(), shape.getRadius());
 
-    //erster Knoten
+   /* //erster Knoten
     if(this->vertex_status[Anfangsknoten] == VertexStatus::UnknownVertex) shape.setFillColor(sf::Color::Green);
     else if(this->vertex_status[Anfangsknoten] == VertexStatus::InQueue) shape.setFillColor(sf::Color::Yellow);
     else if(this->vertex_status[Anfangsknoten] == VertexStatus::Done) shape.setFillColor(sf::Color::Cyan);
@@ -40,14 +40,15 @@ void c_graph_visualizer::draw(){
         sf::Vertex line[] ={sf::Vertex(sf::Vector2f(shape.getPosition()), sf::Color::Black),
             sf::Vertex(sf::Vector2f(400 + Skalierung*(G.Koordinaten[v.first].first - x) , 300+ Skalierung*(G.Koordinaten[v.first].second - y)), sf::Color::Black) };
         window->draw(line, 2 , sf::Lines);
-    }
-    for ( int i  = 1 ; i < n ; i ++){
+    }*/
+    for ( int i  = 0 ; i < n ; i ++){
         if(this->vertex_status[i] == VertexStatus::UnknownVertex) shape.setFillColor(sf::Color::Green);
         else if(this->vertex_status[i] == VertexStatus::InQueue) shape.setFillColor(sf::Color::Yellow);
         else if(this->vertex_status[i] == VertexStatus::Done) shape.setFillColor(sf::Color::Cyan);
         else if(this->vertex_status[i] == VertexStatus::Active) shape.setFillColor(sf::Color::Red);
         else if(this->vertex_status[i] == VertexStatus::Destination) shape.setFillColor(sf::Color::Magenta);
-        
+       
+
         shape.setPosition( 400 + Skalierung*(G.Koordinaten[i].first - x) ,300 + Skalierung*(G.Koordinaten[i].second - y) );
         this->window->draw(shape);
         NeighborT N = G.getNeighbors(i);
