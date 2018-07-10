@@ -77,10 +77,13 @@ void c_graph_visualizer::draw(){
             Kantengewicht.setOutlineColor( sf::Color::Blue);
             Kantengewicht.setOutlineThickness(0.5);
 
-
-           // float MittelpunktX = sf::Vector2f(shape.getPosition()).x +  Skalierung*(G.Koordinaten[v.first].first - x);
-           // float MittelpunktY = sf::Vector2f(shape.getPosition()).y +  Skalierung*(G.Koordinaten[v.first].second-y); //für das Kantengewicht
+            //Drehwinkel
+            double X = P2.x - P.x;
+            double Y = P2.y - P.y;
+            double alpha = acos (Y / sqrt(X*X +Y*Y)) * 360;
+            alpha /= acos(-1)*2;
             triangle.setPosition(sf::Vector2f((P.x + P2.x)/2.,(P.y + P2.y)/2.));
+            triangle.setRotation(alpha);
             Kantengewicht.setPosition(sf::Vector2f((P.x + P2.x)/2., (P.y + P2.y)/2.));
             
             window->draw(Kantengewicht);
