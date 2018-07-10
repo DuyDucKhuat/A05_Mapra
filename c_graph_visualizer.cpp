@@ -13,21 +13,22 @@ void c_graph_visualizer::draw(){
             this->window->close();
     }
     this->window->clear(sf::Color::White);
-    double x = G.Koordinaten[0].first; //Mittelpunkt
-    double y = G.Koordinaten[0].second;
+    int Anfangsknoten = 20;
+    double x = G.Koordinaten[Anfangsknoten].first; //Mittelpunkt
+    double y = G.Koordinaten[Anfangsknoten].second;
     
     //Circle
-    sf::CircleShape shape(10);
+    sf::CircleShape shape(20);
     shape.setOutlineThickness(0.1);
     shape.setOutlineColor(sf::Color::Black);
     shape.setOrigin(shape.getRadius(), shape.getRadius());
 
     //erster Knoten
-    if(this->vertex_status[0] == VertexStatus::UnknownVertex) shape.setFillColor(sf::Color::Green);
-    else if(this->vertex_status[0] == VertexStatus::InQueue) shape.setFillColor(sf::Color::Yellow);
-    else if(this->vertex_status[0] == VertexStatus::Done) shape.setFillColor(sf::Color::Cyan);
-    else if(this->vertex_status[0] == VertexStatus::Active) shape.setFillColor(sf::Color::Red);
-    else if(this->vertex_status[0] == VertexStatus::Destination) shape.setFillColor(sf::Color::Magenta);
+    if(this->vertex_status[Anfangsknoten] == VertexStatus::UnknownVertex) shape.setFillColor(sf::Color::Green);
+    else if(this->vertex_status[Anfangsknoten] == VertexStatus::InQueue) shape.setFillColor(sf::Color::Yellow);
+    else if(this->vertex_status[Anfangsknoten] == VertexStatus::Done) shape.setFillColor(sf::Color::Cyan);
+    else if(this->vertex_status[Anfangsknoten] == VertexStatus::Active) shape.setFillColor(sf::Color::Red);
+    else if(this->vertex_status[Anfangsknoten] == VertexStatus::Destination) shape.setFillColor(sf::Color::Magenta);
     shape.setPosition(400,300);
     this->window->draw(shape);
 
