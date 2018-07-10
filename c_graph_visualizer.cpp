@@ -59,7 +59,7 @@ void c_graph_visualizer::draw(){
         NeighborT N = G.getNeighbors(i);
         for (auto v :N){
             sf::CircleShape triangle(10,3);
-            triangle.setFillColor(sf::Color::Black);
+            triangle.setFillColor(sf::Color(50,50,50));
             triangle.setOrigin(triangle.getRadius(),triangle.getRadius());
 
             sf::Vector2f P2(400 +  Skalierung*(G.Koordinaten[v.first].first - x),300 + Skalierung*(G.Koordinaten[v.first].second-y));
