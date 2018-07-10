@@ -58,6 +58,7 @@ void c_graph_visualizer::draw(){
 
         NeighborT N = G.getNeighbors(i);
         for (auto v :N){
+            sf::Vector2f P2(400 +  Skalierung*(G.Koordinaten[v.first].first - x),300 + Skalierung*(G.Koordinaten[v.first].second-y));
             std::ostringstream strs;
             std::ostringstream strs2;
             std::ostringstream strs3;
@@ -75,32 +76,32 @@ void c_graph_visualizer::draw(){
 
            // float MittelpunktX = sf::Vector2f(shape.getPosition()).x +  Skalierung*(G.Koordinaten[v.first].first - x);
            // float MittelpunktY = sf::Vector2f(shape.getPosition()).y +  Skalierung*(G.Koordinaten[v.first].second-y); //für das Kantengewicht
-            Kantengewicht.setPosition(P.x+ 10, P.y);
+            Kantengewicht.setPosition((P.x + P2.x)./2  , (P.y + P2.y)./2);
             window->draw(Kantengewicht);
             if( this->edge_status[i * n + v.first] ==EdgeStatus::UnknownEdge)
             {
-                sf::Vertex line[] ={sf::Vertex(sf::Vector2f(shape.getPosition()), sf::Color::Black),
-                sf::Vertex(sf::Vector2f(400 +  Skalierung*(G.Koordinaten[v.first].first - x),300 + Skalierung*(G.Koordinaten[v.first].second-y)), sf::Color::Black) };
+                sf::Vertex line[] ={sf::Vertex(P, sf::Color::Black),
+                sf::Vertex(P2, sf::Color::Black) };
 
 
                 window->draw(line, 2 , sf::Lines);
             }
             else if( this->edge_status[i * n + v.first] == EdgeStatus::Visited)
             {
-                sf::Vertex line[] ={sf::Vertex(sf::Vector2f(shape.getPosition()), sf::Color::Yellow),
-                sf::Vertex(sf::Vector2f(400 +  Skalierung*(G.Koordinaten[v.first].first - x),300 + Skalierung*(G.Koordinaten[v.first].second-y)), sf::Color::Yellow) };
+                sf::Vertex line[] ={sf::Vertex(P, sf::Color::Yellow),
+                sf::Vertex(P2, sf::Color::Yellow) };
                 window->draw(line, 2 , sf::Lines);
             }
             else if( this->edge_status[i * n + v.first] ==EdgeStatus::Active)
             {
-                sf::Vertex line[] ={sf::Vertex(sf::Vector2f(shape.getPosition()), sf::Color::Red),
-                sf::Vertex(sf::Vector2f(400 +  Skalierung*(G.Koordinaten[v.first].first - x),300 + Skalierung*(G.Koordinaten[v.first].second-y)), sf::Color::Red) };
+                sf::Vertex line[] ={sf::Vertex(P, sf::Color::Red),
+                sf::Vertex(P2, sf::Color::Red) };
                 window->draw(line, 2 , sf::Lines);
             }
             else if( this->edge_status[i * n + v.first] ==EdgeStatus::Optimal)
             {
-                sf::Vertex line[] ={sf::Vertex(sf::Vector2f(shape.getPosition()), sf::Color::Magenta),
-                sf::Vertex(sf::Vector2f(400 +  Skalierung*(G.Koordinaten[v.first].first - x),300 + Skalierung*(G.Koordinaten[v.first].second-y)), sf::Color::Magenta) };
+                sf::Vertex line[] ={sf::Vertex(P, sf::Color::Magenta),
+                sf::Vertex(P2, sf::Color::Magenta) };
                 window->draw(line, 2 , sf::Lines);
             }
             
