@@ -9,6 +9,8 @@
 
 void c_graph_visualizer::draw(){
     bool weiter = false;
+    sf::Text text;
+    text.setFont( this->font);
     while(!weiter){
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)) weiter = true;
 
@@ -29,6 +31,7 @@ void c_graph_visualizer::draw(){
     shape.setOrigin(shape.getRadius(), shape.getRadius());
 
     for ( int i  = 0 ; i < n ; i ++){
+        
         if(this->vertex_status[i] == VertexStatus::UnknownVertex) shape.setFillColor(sf::Color::Green);
         else if(this->vertex_status[i] == VertexStatus::InQueue) shape.setFillColor(sf::Color::Yellow);
         else if(this->vertex_status[i] == VertexStatus::Done) shape.setFillColor(sf::Color::Cyan);
@@ -39,11 +42,18 @@ void c_graph_visualizer::draw(){
         this->window->draw(shape);
         NeighborT N = G.getNeighbors(i);
         for (auto v :N){
-
+            text.setString( v.second);
+            text.setFillColor(sf::Color::Black);
+            float MittelpunktX =sf::Vector2f(shape.getPosition()).x +  0.5 * Skalierung*(G.Koordinaten[v.first].first - x);
+            float MittelpunktY =sf::Vector2f(shape.getPosition()).y + 0.5 * Skalierung*(G.Koordinaten[v.first].second-y)); //für das Kantengewicht
+            text.setPosition(MittelpunktX + 10, MittelpunktY);
+            window->draw(text);
             if( this->edge_status[i * n + v.first] ==EdgeStatus::UnknownEdge)
             {
                 sf::Vertex line[] ={sf::Vertex(sf::Vector2f(shape.getPosition()), sf::Color::Black),
                 sf::Vertex(sf::Vector2f(400 +  Skalierung*(G.Koordinaten[v.first].first - x),300 + Skalierung*(G.Koordinaten[v.first].second-y)), sf::Color::Black) };
+
+
                 window->draw(line, 2 , sf::Lines);
             }
             else if( this->edge_status[i * n + v.first] ==EdgeStatus::Visited)
@@ -64,6 +74,7 @@ void c_graph_visualizer::draw(){
                 sf::Vertex(sf::Vector2f(400 +  Skalierung*(G.Koordinaten[v.first].first - x),300 + Skalierung*(G.Koordinaten[v.first].second-y)), sf::Color::Magenta) };
                 window->draw(line, 2 , sf::Lines);
             }
+            
             
             
             
