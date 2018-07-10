@@ -36,6 +36,7 @@ void c_graph_visualizer::draw(){
         sf::Vertex line[] ={sf::Vertex(sf::Vector2f(shape.getPosition()), sf::Color::Black),
             sf::Vertex(sf::Vector2f(400 + 20*(G.Koordinaten[v.first].first - x) , 300+ 20*(G.Koordinaten[v.first].second - y), sf::Color::Black) };
         window->draw(line, 2 , sf::Lines);
+    }
     for ( int i  = 1 ; i < n ; i ++){
         if(this->vertex_status[i] == VertexStatus::UnknownVertex) shape.setFillColor(sf::Color::Green);
         else if(this->vertex_status[i] == VertexStatus::InQueue) shape.setFillColor(sf::Color::Yellow);
