@@ -15,7 +15,7 @@ void c_graph_visualizer::draw(){
     Knoten.setFont(this-> font);
     Knoten.setCharacterSize(25);
     Kantengewicht.setFont(this-> font);
-    Kantengewicht.setCharacterSize(20);
+    Kantengewicht.setCharacterSize(15);
     
     while(!weiter){
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)) weiter = true;
