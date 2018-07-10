@@ -20,6 +20,8 @@ int main()
             if (event.type == sf::Event::Closed)
                 window.close();
         }
+        window.clear(sf::Color::White);
+
         sf::Font font;
         font.loadFromFile("../../raleway/Raleway-Thin.ttf");
         sf::Text text;
@@ -27,7 +29,6 @@ int main()
         text.setString ( "hi");
         window.draw(text);
         // start the current frame: clear the window with black color
-        window.clear(sf::Color::Black);
         
         // defines a circle
         sf::CircleShape shape(100);
