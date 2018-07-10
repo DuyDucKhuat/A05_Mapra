@@ -36,7 +36,11 @@ int main()
         
         // defines a circle
         sf::CircleShape shape(100);
-        
+        sf::CircleShape triangle(50,3);
+        triangle.setOrigin(triangle.getRadius(),triangle.getRadius());
+        triangel.setPosition(400,300);
+        triangle.setOrigin(triangle.getRadius(),triangle.getRadius());
+
         // set the shape color to green
         shape.setFillColor(sf::Color(100, 250, 50));
         
@@ -45,7 +49,7 @@ int main()
         
         // The coordinates, which can be used to set the position of a circle are by default the top left corner of the
         // smallest square containing the circle. Using setOrigin, we can move these coordinates to the center of the circle.
-        shape.setPosition(400,300);
+        //shape.setPosition(400,300);
         shape.setOrigin(shape.getRadius(), shape.getRadius());
         
         //sets the (absolute) position of the circle, (0,0) is the top-left corner.
