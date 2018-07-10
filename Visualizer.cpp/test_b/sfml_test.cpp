@@ -20,7 +20,7 @@ int main()
             if (event.type == sf::Event::Closed)
                 window.close();
         }
-        window.clear(sf::Color::White);
+        window.clear(sf::Color::Black);
 
         sf::Font font;
         font.loadFromFile("../../raleway/Raleway-Thin.ttf");
