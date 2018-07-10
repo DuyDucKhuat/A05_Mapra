@@ -76,7 +76,7 @@ void c_graph_visualizer::draw(){
 
            // float MittelpunktX = sf::Vector2f(shape.getPosition()).x +  Skalierung*(G.Koordinaten[v.first].first - x);
            // float MittelpunktY = sf::Vector2f(shape.getPosition()).y +  Skalierung*(G.Koordinaten[v.first].second-y); //für das Kantengewicht
-            Kantengewicht.setPosition((sf::Vector2f(P.x + P2.x)./2  , (P.y + P2.y)./2));
+            Kantengewicht.setPosition((sf::Vector2f((P.x + P2.x)./2  , (P.y + P2.y)./2));
             window->draw(Kantengewicht);
             if( this->edge_status[i * n + v.first] ==EdgeStatus::UnknownEdge)
             {
