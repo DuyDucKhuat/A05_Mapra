@@ -8,7 +8,7 @@
 #include "c_graph_visualizer.h"
 
 void c_graph_visualizer::draw(){
-    bool weiter = false
+    bool weiter = false;
     while(!weiter){
     while (this->window->pollEvent(*(this->event))){
         if(this->event->type == sf::Event::Closed)
