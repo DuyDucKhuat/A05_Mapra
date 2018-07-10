@@ -135,7 +135,7 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
                 std::cout << 3 << std::endl;
                 w = Vorgaenger[w];
             }
-            for ( i = 0 ; i < 50 ; i++)  V.draw();
+            for (int i = 0 ; i < 50 ; i++)  V.draw();
            
             std::cout << 4 << std::endl;
             weg.reverse();
