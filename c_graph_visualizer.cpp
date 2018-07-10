@@ -67,7 +67,7 @@ void c_graph_visualizer::draw(){
             std::string str = strs.str();
             std::string str2 = strs2.str();
             std::string str3 = strs3.str();
-            Kantengewicht.setString("Gewicht: " str +  " von der Kante von: " + str2 + "zu " + str3);
+            Kantengewicht.setString("Gewicht: " + str +  " von der Kante von: " + str2 + "zu " + str3);
             Kantengewicht.setFillColor(sf::Color::Black);
             float MittelpunktX = sf::Vector2f(shape.getPosition()).x +  Skalierung*(G.Koordinaten[v.first].first - x);
             float MittelpunktY = sf::Vector2f(shape.getPosition()).y +  Skalierung*(G.Koordinaten[v.first].second-y); //für das Kantengewicht
