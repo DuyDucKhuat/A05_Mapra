@@ -60,7 +60,6 @@ void c_graph_visualizer::draw(){
         NeighborT N = G.getNeighbors(i);
         for (auto v :N){
             sf::CircleShape triangle(10,3);
-            triangle.setFillColor(sf::Color(200,50,50));
             triangle.setOrigin(triangle.getRadius(),triangle.getRadius());
 
             sf::Vector2f P2(400 +  Skalierung*(G.Koordinaten[v.first].first - x),300 + Skalierung*(G.Koordinaten[v.first].second-y));
@@ -69,7 +68,6 @@ void c_graph_visualizer::draw(){
             std::string str = strs.str();
             Kantengewicht.setString( str );
             Kantengewicht.setFillColor(sf::Color::Black);
-            Kantengewicht.setOutlineColor( sf::Color(200,30,100));
             Kantengewicht.setOutlineThickness(0.2);
 
             //Drehwinkel
@@ -81,12 +79,13 @@ void c_graph_visualizer::draw(){
             triangle.setRotation(alpha);
             Kantengewicht.setPosition(sf::Vector2f((P.x + P2.x)/2. + 5, (P.y + P2.y)/2.));
             
-            window->draw(Kantengewicht);
             if( this->edge_status[i * n + v.first] ==EdgeStatus::UnknownEdge)
             {
                 sf::Vertex line[] ={sf::Vertex(P, sf::Color::Black),
                 sf::Vertex(P2, sf::Color::Black) };
+                triangle.setFillColor(sf::Color::Black);
 
+                Kantengewicht.setOutlineColor( sf::Color::Black);
 
                 window->draw(line, 2 , sf::Lines);
             }
@@ -95,20 +94,31 @@ void c_graph_visualizer::draw(){
                 sf::Vertex line[] ={sf::Vertex(P, sf::Color::Yellow),
                 sf::Vertex(P2, sf::Color::Yellow) };
                 window->draw(line, 2 , sf::Lines);
+                triangle.setFillColor(sf::Color::Yellow);
+
+                Kantengewicht.setOutlineColor( sf::Color::Yellow);
+
             }
             else if( this->edge_status[i * n + v.first] ==EdgeStatus::Active)
             {
                 sf::Vertex line[] ={sf::Vertex(P, sf::Color::Red),
                 sf::Vertex(P2, sf::Color::Red) };
                 window->draw(line, 2 , sf::Lines);
+                triangle.setFillColor(sf::Color::Red);
+
+                Kantengewicht.setOutlineColor( sf::Color::Red);
+
             }
             else if( this->edge_status[i * n + v.first] ==EdgeStatus::Optimal)
             {
                 sf::Vertex line[] ={sf::Vertex(P, sf::Color::Magenta),
                 sf::Vertex(P2, sf::Color::Magenta) };
                 window->draw(line, 2 , sf::Lines);
+                triangle.setFillColor(sf::Color::Magenta);
+                Kantengewicht.setOutlineColor( sf::Color::Magenta);
+
             }
-            
+            window->draw(Kantengewicht);
             window->draw(triangle);
             
             
