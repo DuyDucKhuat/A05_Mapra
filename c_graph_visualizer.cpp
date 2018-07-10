@@ -14,6 +14,7 @@ void c_graph_visualizer::draw(){
     }
     this->window->clear(sf::Color::White);
     int Anfangsknoten = 22;
+    double Skalierung = 10;
     double x = G.Koordinaten[Anfangsknoten].first; //Mittelpunkt
     double y = G.Koordinaten[Anfangsknoten].second;
     
@@ -35,7 +36,7 @@ void c_graph_visualizer::draw(){
     NeighborT N = G.getNeighbors(0);
     for (auto v :N){
         sf::Vertex line[] ={sf::Vertex(sf::Vector2f(shape.getPosition()), sf::Color::Black),
-            sf::Vertex(sf::Vector2f(400 + 50*(G.Koordinaten[v.first].first - x) , 300+ 50*(G.Koordinaten[v.first].second - y)), sf::Color::Black) };
+            sf::Vertex(sf::Vector2f(400 + Skalierung*(G.Koordinaten[v.first].first - x) , 300+ Skalierung*(G.Koordinaten[v.first].second - y)), sf::Color::Black) };
         window->draw(line, 2 , sf::Lines);
     }
     for ( int i  = 1 ; i < n ; i ++){
@@ -45,12 +46,12 @@ void c_graph_visualizer::draw(){
         else if(this->vertex_status[i] == VertexStatus::Active) shape.setFillColor(sf::Color::Red);
         else if(this->vertex_status[i] == VertexStatus::Destination) shape.setFillColor(sf::Color::Magenta);
         
-        shape.setPosition( 400 + 50*(G.Koordinaten[i].first - x) ,300 + 50*(G.Koordinaten[i].second - y) );
+        shape.setPosition( 400 + Skalierung*(G.Koordinaten[i].first - x) ,300 + Skalierung*(G.Koordinaten[i].second - y) );
         this->window->draw(shape);
         NeighborT N = G.getNeighbors(i);
         for (auto v :N){
             sf::Vertex line[] ={sf::Vertex(sf::Vector2f(shape.getPosition()), sf::Color::Black),
-            sf::Vertex(sf::Vector2f(400 +  50*(G.Koordinaten[v.first].first - x),300 + 50*(G.Koordinaten[v.first].second-y)), sf::Color::Black) };
+            sf::Vertex(sf::Vector2f(400 +  Skalierung*(G.Koordinaten[v.first].first - x),300 + Skalierung*(G.Koordinaten[v.first].second-y)), sf::Color::Black) };
             window->draw(line, 2 , sf::Lines);
         }
     }
