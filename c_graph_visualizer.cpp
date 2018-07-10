@@ -15,7 +15,8 @@ void c_graph_visualizer::draw(){
     Knoten.setFont(this-> font);
     Knoten.setCharacterSize(25);
     Kantengewicht.setFont(this-> font);
-    Kantengewicht.setCharacterSize(15);
+    Kantengewicht.setCharacterSize(20);
+    
     while(!weiter){
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)) weiter = true;
 
@@ -74,8 +75,7 @@ void c_graph_visualizer::draw(){
             std::string str3 = strs3.str();
             Kantengewicht.setString( str +  " (" + str2 + ", " + str3 + ")");
             Kantengewicht.setFillColor(sf::Color::Black);
-            Kantengewicht.setOutlineColor( sf::Color(200,300,100));
-            Kantengewicht.setOutlineThickness(0.2);
+            //Kantengewicht.setOutlineColor( sf::Color(200,300,100));
 
             //Drehwinkel
             double X = P2.x - P.x;
