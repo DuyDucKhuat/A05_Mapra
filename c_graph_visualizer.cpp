@@ -10,10 +10,14 @@
 void c_graph_visualizer::draw(){
     bool weiter = false;
 
-    
+    std::ostringstream strs;
+    std::string str;
     sf::Text Kantengewicht;
+    sf::Text Knoten;
+    Knoten.setFont(this-> font);
+    Knoten.setCharacterSize(15);
     Kantengewicht.setFont(this-> font);
-    Kantengewicht.setCharacterSize(20);
+    Kantengewicht.setCharacterSize(15);
     while(!weiter){
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)) weiter = true;
 
@@ -35,6 +39,10 @@ void c_graph_visualizer::draw(){
 
     for ( int i  = 0 ; i < n ; i ++){
         
+        strs << i;
+        str = strs.str();
+        Knoten.setString( str );
+        
         if(this->vertex_status[i] == VertexStatus::UnknownVertex) shape.setFillColor(sf::Color::Green);
         else if(this->vertex_status[i] == VertexStatus::InQueue) shape.setFillColor(sf::Color::Yellow);
         else if(this->vertex_status[i] == VertexStatus::Done) shape.setFillColor(sf::Color::Cyan);
@@ -42,10 +50,11 @@ void c_graph_visualizer::draw(){
         else if(this->vertex_status[i] == VertexStatus::Destination) shape.setFillColor(sf::Color::Magenta);
        //Mittelpunkt ist Anfangsknoten.
         shape.setPosition( 400 + Skalierung*(G.Koordinaten[i].first - x) ,300 + Skalierung*(G.Koordinaten[i].second - y) );
+        Knoten.setPosition(400 + Skalierung*(G.Koordinaten[i].first - x) ,300 + Skalierung*(G.Koordinaten[i].second - y) );
+        this->window->draw(Knoten);
         this->window->draw(shape);
         NeighborT N = G.getNeighbors(i);
         for (auto v :N){
-            std::ostringstream strs;
             strs << v.second;
             std::string str = strs.str();
             Kantengewicht.setString( str );
