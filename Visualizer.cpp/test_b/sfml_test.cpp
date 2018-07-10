@@ -43,7 +43,7 @@ int main()
         //triangle.setOrigin(triangle.getRadius(),triangle.getRadius());
         double alpha = asin( 600 / 800);
         alpha = (alpha *360) / acos(-1);
-        triangle.setRotation(138.59);
+        triangle.setRotation(126.86);
 
         // set the shape color to green
         shape.setFillColor(sf::Color(100, 250, 50));
