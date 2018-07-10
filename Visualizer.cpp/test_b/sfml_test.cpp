@@ -43,6 +43,7 @@ int main()
         //triangle.setOrigin(triangle.getRadius(),triangle.getRadius());
         double alpha = asin( 600 / 800);
         alpha = (alpha *360) / acos(-1);
+        std::cout << alpha << std::endl;
         triangle.setRotation(alpha);
 
         // set the shape color to green
