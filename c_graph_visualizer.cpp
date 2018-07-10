@@ -10,8 +10,6 @@
 void c_graph_visualizer::draw(){
     bool weiter = false;
 
-    std::ostringstream strs;
-    std::string str;
     sf::Text Kantengewicht;
     sf::Text Knoten;
     Knoten.setFont(this-> font);
@@ -38,9 +36,9 @@ void c_graph_visualizer::draw(){
     shape.setOrigin(shape.getRadius(), shape.getRadius());
 
     for ( int i  = 0 ; i < n ; i ++){
-        
+        std::ostringstream strs;
         strs << i;
-        str = strs.str();
+        std::string str = strs.str();
         Knoten.setString( str );
         
         if(this->vertex_status[i] == VertexStatus::UnknownVertex) shape.setFillColor(sf::Color::Green);
@@ -55,6 +53,7 @@ void c_graph_visualizer::draw(){
         this->window->draw(shape);
         NeighborT N = G.getNeighbors(i);
         for (auto v :N){
+            std::ostringstream strs;
             strs << v.second;
             std::string str = strs.str();
             Kantengewicht.setString( str );
