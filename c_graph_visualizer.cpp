@@ -49,8 +49,9 @@ void c_graph_visualizer::draw(){
        //Mittelpunkt ist Anfangsknoten.
         shape.setPosition( 400 + Skalierung*(G.Koordinaten[i].first - x) ,300 + Skalierung*(G.Koordinaten[i].second - y) );
         Knoten.setPosition(400 + Skalierung*(G.Koordinaten[i].first - x) ,300 + Skalierung*(G.Koordinaten[i].second - y) );
-        this->window->draw(Knoten);
         this->window->draw(shape);
+        this->window->draw(Knoten);
+
         NeighborT N = G.getNeighbors(i);
         for (auto v :N){
             std::ostringstream strs;
