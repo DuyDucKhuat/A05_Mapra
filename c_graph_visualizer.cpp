@@ -70,8 +70,8 @@ void c_graph_visualizer::draw(){
             std::string str3 = strs3.str();
             Kantengewicht.setString("Gewicht: " + str +  " (" + str2 + ", " + str3 + ")");
             Kantengewicht.setFillColor(sf::Color::Black);
-            Knoten.setOutlineColor( sf::Color::Black);
-            Knoten.setOutlineThickness(1);
+            Kantengewicht.setOutlineColor( sf::Color::Blue);
+            Kantengewicht.setOutlineThickness(0.5);
 
 
            // float MittelpunktX = sf::Vector2f(shape.getPosition()).x +  Skalierung*(G.Koordinaten[v.first].first - x);
