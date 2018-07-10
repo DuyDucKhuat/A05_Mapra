@@ -36,7 +36,7 @@ class c_graph_visualizer : public GraphVisualizer
     }
     ~c_graph_visualizer(){}
     void markVertex(VertexT vertex, VertexStatus status) override {this->vertex_status[vertex] = status;}
-    void markEdge(EdgeT e, EdgeStatus status) override {this->edge_status[e.first*n+e.second] = status;}
+    void markEdge(EdgeT e, EdgeStatus status) override {this->edge_status[e.first*n + e.second] = status;}
     void updateVertex(VertexT vertex,  double cost, double estimate, VertexT parent, VertexStatus status) override{}
     void draw() override;
 };

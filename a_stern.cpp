@@ -78,7 +78,7 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
     class compare { // f =  g + h;
     public:
         bool operator () (std::pair<size_t , CostT> a, std::pair<size_t , CostT> b) const {
-            return  Weglaenge.at(a.first)+ a.second > Weglaenge.at(b.first) + b.second;
+            return  Weglaenge[a.first]+ a.second > Weglaenge[b.first] + b.second;
         }
     };
 
@@ -91,7 +91,7 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
     bekannt[start] = true;
     Weglaenge[start] = 0.;
     VertexT current = start;
-    EdgeT currentEdge(start,0); //########NEU
+    EdgeT currentEdge(start,0);
     if ( G.getNeighbors(current).empty()) return false;
     for ( auto v : G.getNeighbors(current)) { //erster Schritt: HINZUFÜGEN IN QUEUE
         Weglaenge[v.first] = v.second;
@@ -103,6 +103,7 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
         V.markVertex(v.first, VertexStatus::InQueue);              //########NEU
         Vorgaenger[v.first] = start;
         V.markEdge(EdgeT (start,v.first),EdgeStatus::Active);      //########NEU
+        V.draw();
     }
     while( true){
 
@@ -122,6 +123,7 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
         if ( current == ziel)
         {
             V.markVertex(current, VertexStatus::Destination);
+            V.draw();
             size_t w  = ziel; // backtrace für WEG
             weg.push_back(ziel);
             while (w != start){
@@ -132,9 +134,7 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
                 V.draw();
                 w = Vorgaenger[w];
             }
-            for (int i = 0; i < 1000; i++){
             V.draw();
-            }
             weg.reverse();
             return true;
         }
@@ -150,7 +150,7 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
                 bekannt[N[v].first] = true;
                 V.markVertex(N[v].first, VertexStatus::InQueue);
                 Vorgaenger[N[v].first] = current;
-                V.markEdge( EdgeT (currentEdge.second, N[v].first),EdgeStatus::Active);    //########NEU
+                V.markEdge( EdgeT (currentEdge.second, N[v].first),EdgeStatus::Active);
                 V.draw();
 
                 //okay, und wenn bekannt:
@@ -161,9 +161,12 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
                 N[v].second = G.estimatedCost(N[v].first, ziel);
                 queue.push_back(N[v]);
                 std::push_heap(queue.begin(), queue.end(), compare());
+                V.markVertex(N[v].first, VertexStatus::InQueue);
+                V.markEdge( EdgeT (currentEdge.second, N[v].first),EdgeStatus::Active);
+                V.draw();
             }
         }
-        if(N.empty()) {V.markVertex(current, VertexStatus::Done);}//########NEU keine Möglichkeiten für diesen Knoten
+        if(N.empty()) {V.markVertex(current, VertexStatus::Done);}//keine Möglichkeiten für diesen Knoten
         currentEdge.first = currentEdge.second; //aktualisiere Anfang.
         V.draw();
         
