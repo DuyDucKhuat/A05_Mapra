@@ -13,7 +13,7 @@ void c_graph_visualizer::draw(){
             this->window->close();
     }
     this->window->clear(sf::Color::White);
-    int Anfangsknoten = 22;
+    int Anfangsknoten = 0;
     double Skalierung = 5;
     double x = G.Koordinaten[Anfangsknoten].first; //Mittelpunkt
     double y = G.Koordinaten[Anfangsknoten].second;
