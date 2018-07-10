@@ -34,7 +34,7 @@ void c_graph_visualizer::draw(){
     NeighborT N = G.getNeighbors(0);
     for (auto v :N){
         sf::Vertex line[] ={sf::Vertex(sf::Vector2f(shape.getPosition()), sf::Color::Black),
-            sf::Vertex(sf::Vector2f(400 + 20*(G.Koordinaten[v.first].first - x) , 300+ 20*(G.Koordinaten[v.first].second - y), sf::Color::Black)) };
+            sf::Vertex(sf::Vector2f(400 + 20*(G.Koordinaten[v.first].first - x) , 300+ 20*(G.Koordinaten[v.first].second - y)), sf::Color::Black) };
         window->draw(line, 2 , sf::Lines);
     }
     for ( int i  = 1 ; i < n ; i ++){
