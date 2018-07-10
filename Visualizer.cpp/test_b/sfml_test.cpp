@@ -38,7 +38,7 @@ int main()
         sf::CircleShape shape(100);
         sf::CircleShape triangle(50,3);
         triangle.setOrigin(triangle.getRadius(),triangle.getRadius());
-        triangel.setPosition(400,300);
+        triangle.setPosition(400,300);
         triangle.setOrigin(triangle.getRadius(),triangle.getRadius());
 
         // set the shape color to green
