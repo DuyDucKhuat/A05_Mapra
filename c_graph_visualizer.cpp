@@ -69,7 +69,7 @@ void c_graph_visualizer::draw(){
             std::string str = strs.str();
             Kantengewicht.setString( str );
             Kantengewicht.setFillColor(sf::Color::Black);
-            Kantengewicht.setOutlineColor( sf::Color(200,300,100));
+            Kantengewicht.setOutlineColor( sf::Color(200,30,100));
             Kantengewicht.setOutlineThickness(0.2);
 
             //Drehwinkel
@@ -79,7 +79,7 @@ void c_graph_visualizer::draw(){
             alpha /= acos(-1)*2;
             triangle.setPosition(sf::Vector2f((P.x + P2.x)/2.,(P.y + P2.y)/2.));
             triangle.setRotation(alpha);
-            Kantengewicht.setPosition(sf::Vector2f((P.x + P2.x)/2., (P.y + P2.y)/2.));
+            Kantengewicht.setPosition(sf::Vector2f((P.x + P2.x)/2. + 5, (P.y + P2.y)/2.));
             
             window->draw(Kantengewicht);
             if( this->edge_status[i * n + v.first] ==EdgeStatus::UnknownEdge)
