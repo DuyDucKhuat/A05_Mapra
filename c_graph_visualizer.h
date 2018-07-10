@@ -13,7 +13,8 @@
 #include <iostream>
 #include "CoordinateGraph.h"
 #include <math.h>
-#include <sstring>
+#include <sstream>
+#include <string>
 
 #define fori(x) for(int i = 0; i < x; i++)
 #define forj(x) for(int j = 0; j < x; j++)
