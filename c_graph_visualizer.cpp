@@ -9,10 +9,10 @@
 
 void c_graph_visualizer::draw(){
     bool weiter = false;
-    sf::Font font;
-    font.loadFromFile("raleaway/Raleway-Thin.ttf");
+
+    
     sf::Text text;
-    text.setFont( font);
+    text.setFont(this-> font);
     while(!weiter){
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)) weiter = true;
 

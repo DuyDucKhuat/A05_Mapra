@@ -24,7 +24,7 @@ class c_graph_visualizer : public GraphVisualizer
     public:
     sf::RenderWindow* window;
     sf::Event* event;
-   // sf::Font font;
+    sf::Font font;
     CoordinateGraph G;
     std::vector<VertexStatus> vertex_status;
     std::vector<EdgeStatus> edge_status;
@@ -36,7 +36,7 @@ class c_graph_visualizer : public GraphVisualizer
         this->window = w;
         this->G = Graph;
         this->n = Graph.numVertices();
-        //this->font.loadFromFile("raleaway/Raleway-Thin.ttf");
+        this->font.loadFromFile("raleway/Raleway-Thin.ttf");
 
         vertex_status.resize( n, VertexStatus::UnknownVertex);
         edge_status.resize( n* n, EdgeStatus::UnknownEdge);
