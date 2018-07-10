@@ -52,7 +52,7 @@ void c_graph_visualizer::draw(){
             text.setFillColor(sf::Color::Black);
             float MittelpunktX = sf::Vector2f(shape.getPosition()).x +  0.5 * Skalierung*(G.Koordinaten[v.first].first - x);
             float MittelpunktY = sf::Vector2f(shape.getPosition()).y + 0.5 * Skalierung*(G.Koordinaten[v.first].second-y); //für das Kantengewicht
-            text.setPosition(MittelpunktX + 10, MittelpunktY);
+            text.setPosition(MittelpunktX, MittelpunktY);
             window->draw(text);
             if( this->edge_status[i * n + v.first] ==EdgeStatus::UnknownEdge)
             {
