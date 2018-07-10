@@ -42,7 +42,10 @@ void c_graph_visualizer::draw(){
         this->window->draw(shape);
         NeighborT N = G.getNeighbors(i);
         for (auto v :N){
-            text.setString( v.second);
+            std::ostringstream strs;
+            strs << v.second;
+            std::string str = strs.str();
+            text.setString( str );
             text.setFillColor(sf::Color::Black);
             float MittelpunktX =sf::Vector2f(shape.getPosition()).x +  0.5 * Skalierung*(G.Koordinaten[v.first].first - x);
             float MittelpunktY =sf::Vector2f(shape.getPosition()).y + 0.5 * Skalierung*(G.Koordinaten[v.first].second-y)); //für das Kantengewicht
