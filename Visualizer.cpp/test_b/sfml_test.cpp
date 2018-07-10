@@ -1,6 +1,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <math.h>
 
 int main()
 {
@@ -40,7 +41,7 @@ int main()
         triangle.setOrigin(triangle.getRadius(),triangle.getRadius());
         triangle.setPosition(400,300);
         triangle.setOrigin(triangle.getRadius(),triangle.getRadius());
-        triangle.setRotation(45);
+        triangle.setRotation(37);
 
         // set the shape color to green
         shape.setFillColor(sf::Color(100, 250, 50));
