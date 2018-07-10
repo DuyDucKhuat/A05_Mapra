@@ -8,7 +8,7 @@
 #include "c_graph_visualizer.h"
 
 void c_graph_visualizer::draw(){
-    while(this->whindow->isOpen()){
+    while(this->window->isOpen()){
     while (this->window->pollEvent(*(this->event))){
         if(this->event->type == sf::Event::Closed)
             this->window->close();
