@@ -24,7 +24,7 @@ void c_graph_visualizer::draw(){
             this->window->close();
     }
     this->window->clear(sf::Color::White);
-    int Anfangsknoten = 6;  //Bsp .3 : Anfangsknoten 0, Bsp.4 Anfangsknoten z.b. 22
+    int Anfangsknoten = 7;  //Bsp .3 : Anfangsknoten 0, Bsp.4 Anfangsknoten z.b. 22
     double Skalierung = 140; //Bsp .3 : Skalierung 10, Bsp.4 Skalierung 50
     double x = G.Koordinaten[Anfangsknoten].first; //Mittelpunkt
     double y = G.Koordinaten[Anfangsknoten].second;
@@ -40,6 +40,7 @@ void c_graph_visualizer::draw(){
         strs << i;
         std::string str = strs.str();
         Knoten.setString( str );
+        Knoten.setFillColor( sf::Color::Black);
         
         if(this->vertex_status[i] == VertexStatus::UnknownVertex) shape.setFillColor(sf::Color::Green);
         else if(this->vertex_status[i] == VertexStatus::InQueue) shape.setFillColor(sf::Color::Yellow);
