@@ -47,7 +47,7 @@ void c_graph_visualizer::draw(){
         else if(this->vertex_status[i] == VertexStatus::Active) shape.setFillColor(sf::Color::Red);
         else if(this->vertex_status[i] == VertexStatus::Destination) shape.setFillColor(sf::Color::Magenta);
        //Mittelpunkt ist Anfangsknoten.
-        sf::Vector2f P( 400 + Skalierung*(G.Koordinaten[i].first - x) ,300 + Skalierung*(G.Koordinaten[i].second - y);
+        sf::Vector2f P( 400 + Skalierung*(G.Koordinaten[i].first - x) ,300 + Skalierung*(G.Koordinaten[i].second - y));
         shape.setPosition(P);
         Knoten.setPosition(P);
         this->window->draw(shape);
