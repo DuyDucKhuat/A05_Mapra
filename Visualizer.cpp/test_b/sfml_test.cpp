@@ -10,8 +10,9 @@ int main()
     // run the program as long as the window is open
     while (window.isOpen())
     {
+
         
-        // check all the window's events that were triggered since the last iteration of the loop
+            // check all the window's events that were triggered since the last iteration of the loop
         sf::Event event;
         while (window.pollEvent(event)) // event loop
         {
@@ -19,7 +20,12 @@ int main()
             if (event.type == sf::Event::Closed)
                 window.close();
         }
-        
+        sf::Font font;
+        font.loadFromFile("../../raleway/Raleway-Thin.ttf");
+        sf::Text text;
+        text.setFont(font);
+        text.setString ( "hi");
+        window.draw(text);
         // start the current frame: clear the window with black color
         window.clear(sf::Color::Black);
         
