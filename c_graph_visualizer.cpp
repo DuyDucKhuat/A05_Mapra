@@ -8,7 +8,8 @@
 #include "c_graph_visualizer.h"
 
 void c_graph_visualizer::draw(){
-    while(this->window->isOpen()){
+    bool weiter = false
+    while(!weiter){
     while (this->window->pollEvent(*(this->event))){
         if(this->event->type == sf::Event::Closed)
             this->window->close();
@@ -57,5 +58,6 @@ void c_graph_visualizer::draw(){
         }
     }
     window->display();
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)) weiter = true;
     }
 }
