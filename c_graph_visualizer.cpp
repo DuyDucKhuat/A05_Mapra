@@ -13,12 +13,12 @@ void c_graph_visualizer::draw(){
             this->window->close();
     }
     this->window->clear(sf::Color::White);
-    int Anfangsknoten = 20;
+    int Anfangsknoten = 22;
     double x = G.Koordinaten[Anfangsknoten].first; //Mittelpunkt
     double y = G.Koordinaten[Anfangsknoten].second;
     
     //Circle
-    sf::CircleShape shape(20);
+    sf::CircleShape shape(15);
     shape.setOutlineThickness(0.1);
     shape.setOutlineColor(sf::Color::Black);
     shape.setOrigin(shape.getRadius(), shape.getRadius());
