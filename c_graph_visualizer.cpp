@@ -60,7 +60,8 @@ void c_graph_visualizer::draw(){
         for (auto v :N){
             sf::CircleShape triangle(50,3);
             triangle.setFillColor(sf::Color::Black);
-            
+            triangle.setOrigin(triangle.getRadius(),triangle.getRadius());
+
             sf::Vector2f P2(400 +  Skalierung*(G.Koordinaten[v.first].first - x),300 + Skalierung*(G.Koordinaten[v.first].second-y));
             std::ostringstream strs;
             std::ostringstream strs2;
@@ -79,7 +80,7 @@ void c_graph_visualizer::draw(){
 
            // float MittelpunktX = sf::Vector2f(shape.getPosition()).x +  Skalierung*(G.Koordinaten[v.first].first - x);
            // float MittelpunktY = sf::Vector2f(shape.getPosition()).y +  Skalierung*(G.Koordinaten[v.first].second-y); //für das Kantengewicht
-          
+            triangle.setPosition(sf::Vector2f((Skalierung-10)*(P.x + P2.x)/Skalierung, (Skalierung-10)*(P.y + P2.y)/Skalierung);
             Kantengewicht.setPosition(sf::Vector2f((P.x + P2.x)/2., (P.y + P2.y)/2.));
             window->draw(Kantengewicht);
             if( this->edge_status[i * n + v.first] ==EdgeStatus::UnknownEdge)
