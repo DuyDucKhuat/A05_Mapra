@@ -24,8 +24,8 @@ void c_graph_visualizer::draw(){
             this->window->close();
     }
     this->window->clear(sf::Color::White);
-    int Anfangsknoten = 22;  //Bsp .3 : Anfangsknoten 0, Bsp.4 Anfangsknoten z.b. 22
-    double Skalierung = 150; //Bsp .3 : Skalierung 10, Bsp.4 Skalierung 50
+    int Anfangsknoten = 3;  //Bsp .3 : Anfangsknoten 0, Bsp.4 Anfangsknoten z.b. 22
+    double Skalierung = 140; //Bsp .3 : Skalierung 10, Bsp.4 Skalierung 50
     double x = G.Koordinaten[Anfangsknoten].first; //Mittelpunkt
     double y = G.Koordinaten[Anfangsknoten].second;
     
