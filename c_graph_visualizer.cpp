@@ -47,19 +47,19 @@ void c_graph_visualizer::draw(){
             else if( this->edge_status[i * n + v.first] ==EdgeStatus::Visited)
             {
                 sf::Vertex line[] ={sf::Vertex(sf::Vector2f(shape.getPosition()), sf::Color::Yellow),
-                sf::Vertex(sf::Vector2f(400 +  Skalierung*(G.Koordinaten[v.first].first - x),300 + Skalierung*(G.Koordinaten[v.first].second-y)), sf::Color::Black) };
+                sf::Vertex(sf::Vector2f(400 +  Skalierung*(G.Koordinaten[v.first].first - x),300 + Skalierung*(G.Koordinaten[v.first].second-y)), sf::Color::Yellowk) };
                 window->draw(line, 2 , sf::Lines);
             }
             else if( this->edge_status[i * n + v.first] ==EdgeStatus::Active)
             {
                 sf::Vertex line[] ={sf::Vertex(sf::Vector2f(shape.getPosition()), sf::Color::Red),
-                sf::Vertex(sf::Vector2f(400 +  Skalierung*(G.Koordinaten[v.first].first - x),300 + Skalierung*(G.Koordinaten[v.first].second-y)), sf::Color::Black) };
+                sf::Vertex(sf::Vector2f(400 +  Skalierung*(G.Koordinaten[v.first].first - x),300 + Skalierung*(G.Koordinaten[v.first].second-y)), sf::Color::Red) };
                 window->draw(line, 2 , sf::Lines);
             }
             else if( this->edge_status[i * n + v.first] ==EdgeStatus::Optimal)
             {
                 sf::Vertex line[] ={sf::Vertex(sf::Vector2f(shape.getPosition()), sf::Color::Magenta),
-                sf::Vertex(sf::Vector2f(400 +  Skalierung*(G.Koordinaten[v.first].first - x),300 + Skalierung*(G.Koordinaten[v.first].second-y)), sf::Color::Black) };
+                sf::Vertex(sf::Vector2f(400 +  Skalierung*(G.Koordinaten[v.first].first - x),300 + Skalierung*(G.Koordinaten[v.first].second-y)), sf::Color::Magenta) };
                 window->draw(line, 2 , sf::Lines);
             }
             
