@@ -38,9 +38,9 @@ int main()
         // defines a circle
         sf::CircleShape shape(100);
         sf::CircleShape triangle(50,3);
-        triangle.setOrigin(triangle.getRadius(),triangle.getRadius());
+        //triangle.setOrigin(triangle.getRadius(),triangle.getRadius());
         triangle.setPosition(400,300);
-        triangle.setOrigin(triangle.getRadius(),triangle.getRadius());
+        //triangle.setOrigin(triangle.getRadius(),triangle.getRadius());
         triangle.setRotation(23);
 
         // set the shape color to green
