@@ -65,17 +65,12 @@ void c_graph_visualizer::draw(){
 
             sf::Vector2f P2(400 +  Skalierung*(G.Koordinaten[v.first].first - x),300 + Skalierung*(G.Koordinaten[v.first].second-y));
             std::ostringstream strs;
-            std::ostringstream strs2;
-            std::ostringstream strs3;
             strs << v.second;
-            strs2 << i;
-            strs3 << v.first;
             std::string str = strs.str();
-            std::string str2 = strs2.str();
-            std::string str3 = strs3.str();
-            Kantengewicht.setString( str +  " (" + str2 + ", " + str3 + ")");
+            Kantengewicht.setString( str );
             Kantengewicht.setFillColor(sf::Color::Black);
-            //Kantengewicht.setOutlineColor( sf::Color(200,300,100));
+            Kantengewicht.setOutlineColor( sf::Color(200,300,100));
+            Kantengewicht.setOutlineThickness(0.2);
 
             //Drehwinkel
             double X = P2.x - P.x;
