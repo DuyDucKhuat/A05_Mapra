@@ -67,7 +67,7 @@ int main()
             sf::Vertex(sf::Vector2f(shape.getPosition())),
             sf::Vertex(sf::Vector2f(800,600))
         };
-        
+        window.draw(triangle);
         window.draw(line, 2, sf::Lines); //draws the line
         
         // Before working on the visualizer for your A*-algorithm, try to draw your own stuff here!
