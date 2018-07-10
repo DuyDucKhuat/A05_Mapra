@@ -103,6 +103,7 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
         Vorgaenger[v.first] = start;
         V.markEdge(EdgeT (start,v.first),EdgeStatus::Active);      //########NEU
         V.draw();
+        std::cout << 1 << std::endl;
     }
     while( true){
 
@@ -112,6 +113,7 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
         V.markVertex( current ,VertexStatus::Active);               //########NEU
         V.markEdge( EdgeT (currentEdge.first,currentEdge.second),EdgeStatus::Visited); //########NEU
         V.draw();
+        std::cout << 2 << std::endl;
 
 
         //std::pop_heap(queue.begin(),queue.end(),compare());
@@ -122,7 +124,6 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
         if ( current == ziel)
         {
             V.markVertex(current, VertexStatus::Destination);
-            V.draw();
             size_t w  = ziel; // backtrace für WEG
             weg.push_back(ziel);
             while (w != start){
@@ -131,9 +132,11 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
                 V.markVertex(Vorgaenger[w], VertexStatus::Destination);
                 V.markEdge( EdgeT (Vorgaenger[w] , w),EdgeStatus::Optimal);//########NEU
                 V.draw();
+                std::cout << 3 << std::endl;
                 w = Vorgaenger[w];
             }
             V.draw();
+            std::cout << 4 << std::endl;
             weg.reverse();
             return true;
         }
@@ -151,6 +154,7 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
                 Vorgaenger[N[v].first] = current;
                 V.markEdge( EdgeT (currentEdge.second, N[v].first),EdgeStatus::Active);
                 V.draw();
+                std::cout << 5 << std::endl;
 
                 //okay, und wenn bekannt:
                 //ist der neue Weg besser?
@@ -163,11 +167,13 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
                 V.markVertex(N[v].first, VertexStatus::InQueue);
                 V.markEdge( EdgeT (currentEdge.second, N[v].first),EdgeStatus::Active);
                 V.draw();
+                std::cout << 6 << std::endl;
             }
         }
         if(N.empty()) {V.markVertex(current, VertexStatus::Done);}//keine Möglichkeiten für diesen Knoten
         currentEdge.first = currentEdge.second; //aktualisiere Anfang.
         V.draw();
+        std::cout << 7 << std::endl;
         
         if( queue.empty()) return false;
     }
