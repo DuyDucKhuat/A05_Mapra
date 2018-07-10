@@ -13,7 +13,7 @@ void c_graph_visualizer::draw(){
     sf::Text Kantengewicht;
     sf::Text Knoten;
     Knoten.setFont(this-> font);
-    Knoten.setCharacterSize(15);
+    Knoten.setCharacterSize(25);
     Kantengewicht.setFont(this-> font);
     Kantengewicht.setCharacterSize(15);
     while(!weiter){
@@ -42,7 +42,7 @@ void c_graph_visualizer::draw(){
         Knoten.setString( str );
         Knoten.setFillColor( sf::Color::Black);
         Knoten.setOutlineColor( sf::Color::Black);
-        Knoten.setOutlineThickness(5);
+        Knoten.setOutlineThickness(1);
         
         if(this->vertex_status[i] == VertexStatus::UnknownVertex) shape.setFillColor(sf::Color::Green);
         else if(this->vertex_status[i] == VertexStatus::InQueue) shape.setFillColor(sf::Color::Yellow);
