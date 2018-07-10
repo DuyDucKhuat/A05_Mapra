@@ -68,7 +68,7 @@ void c_graph_visualizer::draw(){
             std::string str = strs.str();
             std::string str2 = strs2.str();
             std::string str3 = strs3.str();
-            Kantengewicht.setString("Gewicht: " + str +  " (" + str2 + ", " + str3 + ")");
+            Kantengewicht.setString( str +  " (" + str2 + ", " + str3 + ")");
             Kantengewicht.setFillColor(sf::Color::Black);
             Kantengewicht.setOutlineColor( sf::Color::Blue);
             Kantengewicht.setOutlineThickness(0.5);
