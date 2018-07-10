@@ -24,6 +24,10 @@ int main()
 
         sf::Font font;
         font.loadFromFile("../../raleway/Raleway-Thin.ttf");
+        if ( !font.loadFromFile ( "../../raleway/Raleway-Thin.ttf" )) {
+            std::cout << " Error loading file" << std::endl;
+            system ("pause");
+        }
         sf::Text text;
         text.setFont(font);
         text.setString ( "hi");
