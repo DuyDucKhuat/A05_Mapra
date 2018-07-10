@@ -11,9 +11,9 @@ void c_graph_visualizer::draw(){
     bool weiter = false;
 
     
-    sf::Text text;
-    text.setFont(this-> font);
-    text.setCharacterSize(20);
+    sf::Text Kantengewicht;
+    Kantengewicht.setFont(this-> font);
+    Kantengewicht.setCharacterSize(20);
     while(!weiter){
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)) weiter = true;
 
@@ -48,11 +48,11 @@ void c_graph_visualizer::draw(){
             std::ostringstream strs;
             strs << v.second;
             std::string str = strs.str();
-            text.setString( str );
-            text.setFillColor(sf::Color::Black);
+            Kantengewicht.setString( str );
+            Kantengewicht.setFillColor(sf::Color::Black);
             float MittelpunktX = sf::Vector2f(shape.getPosition()).x +  0.5 * Skalierung*(G.Koordinaten[v.first].first - x);
             float MittelpunktY = sf::Vector2f(shape.getPosition()).y + 0.5 * Skalierung*(G.Koordinaten[v.first].second-y); //für das Kantengewicht
-            text.setPosition(MittelpunktX, MittelpunktY);
+            Kantengewicht.setPosition(MittelpunktX, MittelpunktY);
             window->draw(text);
             if( this->edge_status[i * n + v.first] ==EdgeStatus::UnknownEdge)
             {
