@@ -23,7 +23,7 @@ void c_graph_visualizer::draw(){
     }
     this->window->clear(sf::Color::White);
     int Anfangsknoten = 22;  //Bsp .3 : Anfangsknoten 0, Bsp.4 Anfangsknoten z.b. 22
-    double Skalierung = 80; //Bsp .3 : Skalierung 10, Bsp.4 Skalierung 50
+    double Skalierung = 150; //Bsp .3 : Skalierung 10, Bsp.4 Skalierung 50
     double x = G.Koordinaten[Anfangsknoten].first; //Mittelpunkt
     double y = G.Koordinaten[Anfangsknoten].second;
     
@@ -62,7 +62,7 @@ void c_graph_visualizer::draw(){
 
                 window->draw(line, 2 , sf::Lines);
             }
-            else if( this->edge_status[i * n + v.first] ==EdgeStatus::Visited)
+            else if( this->edge_status[i * n + v.first] == EdgeStatus::Visited)
             {
                 sf::Vertex line[] ={sf::Vertex(sf::Vector2f(shape.getPosition()), sf::Color::Yellow),
                 sf::Vertex(sf::Vector2f(400 +  Skalierung*(G.Koordinaten[v.first].first - x),300 + Skalierung*(G.Koordinaten[v.first].second-y)), sf::Color::Yellow) };
