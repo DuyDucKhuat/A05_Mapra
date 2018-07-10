@@ -73,9 +73,9 @@ void c_graph_visualizer::draw(){
             Knoten.setOutlineThickness(0.5);
 
 
-            float MittelpunktX = sf::Vector2f(shape.getPosition()).x +  Skalierung*(G.Koordinaten[v.first].first - x);
-            float MittelpunktY = sf::Vector2f(shape.getPosition()).y +  Skalierung*(G.Koordinaten[v.first].second-y); //für das Kantengewicht
-            Kantengewicht.setPosition(MittelpunktX, MittelpunktY);
+           // float MittelpunktX = sf::Vector2f(shape.getPosition()).x +  Skalierung*(G.Koordinaten[v.first].first - x);
+           // float MittelpunktY = sf::Vector2f(shape.getPosition()).y +  Skalierung*(G.Koordinaten[v.first].second-y); //für das Kantengewicht
+            Kantengewicht.setPosition(P);
             window->draw(Kantengewicht);
             if( this->edge_status[i * n + v.first] ==EdgeStatus::UnknownEdge)
             {
