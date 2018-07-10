@@ -10,6 +10,8 @@
 void c_graph_visualizer::draw(){
     bool weiter = false;
     while(!weiter){
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)) weiter = true;
+
     while (this->window->pollEvent(*(this->event))){
         if(this->event->type == sf::Event::Closed)
             this->window->close();
@@ -68,6 +70,5 @@ void c_graph_visualizer::draw(){
         }
     }
     window->display();
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)) weiter = true;
     }
 }
