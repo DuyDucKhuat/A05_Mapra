@@ -41,7 +41,7 @@ int main()
         triangle.setOrigin(triangle.getRadius(),triangle.getRadius());
         triangle.setPosition(400,300);
         //triangle.setOrigin(triangle.getRadius(),triangle.getRadius());
-        double alpha = acos( 600 / 800);
+        double alpha = asin( 600 / 800);
         alpha = (alpha *360) / acos(-1);
         triangle.setRotation(alpha);
 
