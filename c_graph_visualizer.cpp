@@ -58,7 +58,7 @@ void c_graph_visualizer::draw(){
 
         NeighborT N = G.getNeighbors(i);
         for (auto v :N){
-            sf::CircleShape triangle(20,3);
+            sf::CircleShape triangle(10,3);
             triangle.setFillColor(sf::Color::Black);
             triangle.setOrigin(triangle.getRadius(),triangle.getRadius());
 
