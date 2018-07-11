@@ -13,9 +13,9 @@ void c_graph_visualizer::draw(){
     sf::Text Kantengewicht;
     sf::Text Knoten;
     Knoten.setFont(this-> font);
-    Knoten.setCharacterSize(25);
+    Knoten.setCharacterSize(10); // 25 1-3, 10 für 4 ###################################
     Kantengewicht.setFont(this-> font);
-    Kantengewicht.setCharacterSize(15);
+    Kantengewicht.setCharacterSize(5); // 15 1-3, 5 für 4
     
     while(!weiter){
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)) weiter = true;
@@ -31,7 +31,7 @@ void c_graph_visualizer::draw(){
     double y = G.Koordinaten[Anfangsknoten].second;
     
     //Circle
-    sf::CircleShape shape(15);
+    sf::CircleShape shape(10); // 15 für 1-3 , 10 für
     shape.setOutlineThickness(0.1);
     shape.setOutlineColor(sf::Color::Black);
     shape.setOrigin(shape.getRadius(), shape.getRadius());
@@ -43,7 +43,7 @@ void c_graph_visualizer::draw(){
         Knoten.setString( str );
         Knoten.setFillColor( sf::Color::Black);
         Knoten.setOutlineColor( sf::Color::Black);
-        Knoten.setOutlineThickness(1);
+        Knoten.setOutlineThickness(0.2); //1 , 1-3  0.2 4
         
         if(this->vertex_status[i] == VertexStatus::UnknownVertex) shape.setFillColor(sf::Color::Green);
         else if(this->vertex_status[i] == VertexStatus::InQueue) shape.setFillColor(sf::Color::Yellow);
@@ -59,7 +59,7 @@ void c_graph_visualizer::draw(){
 
         NeighborT N = G.getNeighbors(i);
         for (auto v :N){
-            sf::CircleShape triangle(10,3);
+            sf::CircleShape triangle(2,3); //10 für 1-3 ##############################################
             triangle.setOrigin(triangle.getRadius(),triangle.getRadius());
 
             sf::Vector2f P2(400 +  Skalierung*(G.Koordinaten[v.first].first - x),300 + Skalierung*(G.Koordinaten[v.first].second-y));
