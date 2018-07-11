@@ -67,7 +67,7 @@ void c_graph_visualizer::draw(){
             strs << v.second;
             std::string str = strs.str();
             Kantengewicht.setString( str );
-            Kantengewicht.setFillColor(sf::Color::Black);
+            Kantengewicht.setFillColor(sf::Color(10,200,100));
             Kantengewicht.setOutlineThickness(0.2);
 
             //Drehwinkel
