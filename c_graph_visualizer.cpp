@@ -13,8 +13,10 @@ void c_graph_visualizer::draw(){
     int breite = this->window->getSize().y;
     sf::Text Kantengewicht;
     sf::Text Knoten;
+    sf::Text Heuristik;
     Knoten.setFont(this-> font);
     Kantengewicht.setFont(this-> font);
+    Heuristik.setFont( this-> font);
     
     while(!weiter){
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)) weiter = true;
@@ -26,13 +28,14 @@ void c_graph_visualizer::draw(){
         this->window->clear(sf::Color::White); // BSP 2: Anfangsknoten 4, Skalierung 190
         
     // ######################################## ANPASSUNGEN
-    int Anfangsknoten = 9;  //Bsp .3 : 9, Bsp.4 : 7 
+    /*int Anfangsknoten = 9;  //Bsp .3 : 9, Bsp.4 : 7
     double Skalierung = 18; //Bsp .3 : 8, Bsp.4 97  | Breite Hoehe 1000, 1000
     double SkalierungText = 0.85 ; // Bsp.3 :  0.85 Bsp.4 : 0.17 ,
-    double SkalierungDreieck = 0.5; // Bsp.3: 0.5
+    double SkalierungDreieck = 0.5; // Bsp.3: 0.5 */
 
     Knoten.setCharacterSize(Skalierung * SkalierungText); // 25 1-3, 10 für 4 ###################################
     Kantengewicht.setCharacterSize(Skalierung * SkalierungText); // 15 1-3, 5 für 4
+    Heuristik.setCharacterSize(Skalierung * SkalierungText);
 
     //###############################################
     double x = G.Koordinaten[Anfangsknoten].first; //Mittelpunkt
@@ -52,6 +55,8 @@ void c_graph_visualizer::draw(){
         Knoten.setFillColor( sf::Color::Black);
         Knoten.setOutlineColor( sf::Color(50,150,100));
         Knoten.setOutlineThickness( Skalierung  * 0.01 ); //1 , 1-3  0.2 4
+ 
+    
         
         if(this->vertex_status[i] == VertexStatus::UnknownVertex) shape.setFillColor(sf::Color::Green);
         else if(this->vertex_status[i] == VertexStatus::InQueue) shape.setFillColor(sf::Color::Yellow);

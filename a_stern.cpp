@@ -277,7 +277,7 @@ int main(int argc, char * argv[]) //int argc, char * argv[]
         PruefeDijkstra( 1, 0, D);
        
         std::list < VertexT > weg;
-        c_graph_visualizer V(&window, G, &event);
+        c_graph_visualizer V(&window, G, &event,1);
         int Start, Ziel;
 
         std::cout << "Gebe eine Start- und einen Zielknoten einein. (0- " <<  G.numVertices() -1 <<  ") " << std::endl;
@@ -303,7 +303,7 @@ int main(int argc, char * argv[]) //int argc, char * argv[]
         Dijkstra(G,0, D);
         PruefeDijkstra( 2, 0, D);
         int Start, Ziel;
-        c_graph_visualizer V(&window, G, &event);
+        c_graph_visualizer V(&window, G, &event,2);
         V.draw();
 
         std::cout << "Gebe eine Start- und einen Zielknoten einein. (0- " <<  G.numVertices() -1 <<  ") " << std::endl;
@@ -327,7 +327,7 @@ int main(int argc, char * argv[]) //int argc, char * argv[]
         Dijkstra(G,0, D);
         PruefeDijkstra( 3, 0, D);
         int Start, Ziel;
-        c_graph_visualizer V(&window, G, &event);
+        c_graph_visualizer V(&window, G, &event,3);
         V.draw();
 
 
@@ -353,7 +353,7 @@ int main(int argc, char * argv[]) //int argc, char * argv[]
         Dijkstra(G,0, D);
         PruefeDijkstra( 4, 0, D);
         int Start, Ziel;
-        c_graph_visualizer V(&window, G, &event);
+        c_graph_visualizer V(&window, G, &event,4);
         V.draw();
         std::cout << "Gebe eine Start- und einen Zielknoten einein. (0- " <<  G.numVertices()-1 <<  ") " << std::endl;
         std::cin >> Start >> Ziel;

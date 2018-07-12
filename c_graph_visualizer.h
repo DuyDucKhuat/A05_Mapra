@@ -31,10 +31,14 @@ class c_graph_visualizer : public GraphVisualizer
     //std::vector<CostT> Kosten;
     //std::vector<CostT> Heuristik;
     int n;
+    double Skalierung;
+    double SklarierungText;
+    double SkalierungDreieck;
+    int Mittelpunkt;
     
     
     
-    c_graph_visualizer(sf::RenderWindow* w, CoordinateGraph& Graph, sf::Event* e) : event(e) {
+    c_graph_visualizer(sf::RenderWindow* w, CoordinateGraph& Graph, sf::Event* e, int Bsp) : event(e) {
         this->window = w;
         this->G = Graph;
         this->n = Graph.numVertices();
@@ -44,6 +48,30 @@ class c_graph_visualizer : public GraphVisualizer
         edge_status.resize( n * n, EdgeStatus::UnknownEdge);
         //Kosten.resize(n, 0);
         //Heuristik.resize(n, 0);
+        switch (Bsp){
+            case 1:
+                this->Skalierung = 50;
+                this->Mittelpunkt = 3 ;
+                this->SklarierungText = 0.2;
+                this->SkalierungDreieck = 0.1;
+                
+            case 2:
+                this->Skalierung = 50;
+                this->Mittelpunkt = 3;
+                this->SklarierungText = 0.2;
+                this->SkalierungDreieck = 0.1;
+            case 3:
+                this->Skalierung = 18;
+                this->Mittelpunkt = 9;
+                this->SklarierungText = 0.85;
+                this->SkalierungDreieck = 0.5;
+            case 4:
+                this->Skalierung = 97;
+                this->Mittelpunkt = 7;
+                this->SklarierungText = 0.17;
+                this->SkalierungDreieck = 0.17;
+                
+        }
     }
     ~c_graph_visualizer(){}
     void markVertex(VertexT vertex, VertexStatus status) override {this->vertex_status[vertex] = status;}
