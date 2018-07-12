@@ -65,7 +65,7 @@ void Dijkstra(const DistanceGraph& g, VertexT start, std::vector<CostT>& D) {
     
 }
 
-double KostenBerechnen ( DistanceGraph& G, VertexT start, VertexT Ende, std::vector < VertexT >& Vorgaenger){
+double KostenBerechnen (VertexT start, DistanceGraph& G, VertexT Ende, std::vector < VertexT >& Vorgaenger){
     double res;
     size_t W = start;
     while( W != Ende){
@@ -100,14 +100,14 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
     std::make_heap( queue.begin(), queue.end(), compare() );
 
     bekannt[start] = true;
-    Weglaenge[start] = 0.;
+    //Weglaenge[start] = 0.;
     VertexT current = start;
     EdgeT currentEdge(start,0);
     if ( G.getNeighbors(current).empty()) return false;
     for ( auto v : G.getNeighbors(current)) { //erster Schritt: HINZUFÜGEN IN QUEUE
         //Weglaenge[v.first] = v.second;
         
-        v.second = KostenBerechnen (G, v.first, start, Vorgaenger) + G.estimatedCost(v.first, ziel); // ab hier ist second nur der Heuristikwert.
+        v.second = KostenBerechnen (v.first, G, start, Vorgaenger) + G.estimatedCost(v.first, ziel); // ab hier ist second nur der Heuristikwert.
         queue.push_back(v);
         std::push_heap(queue.begin(), queue.end(), compare());
         //aktualisiere
@@ -154,7 +154,7 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
         for ( int v = 0; v < N.size(); v++){
             if ( !bekannt[N[v].first] ){
                 //Weglaenge[N[v].first] = Weglaenge[current] + N[v].second;
-                N[v].second = KostenBerechnen (G, N[v].first, start, Vorgaenger) + G.estimatedCost(N[v].first, ziel);
+                N[v].second = KostenBerechnen ( N[v].first, G, start, Vorgaenger) + G.estimatedCost(N[v].first, ziel);
                 queue.push_back(N[v]);
                 std::push_heap(queue.begin(), queue.end(), compare());
                 //aktualisiere Listen
@@ -171,7 +171,7 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
             }else if ( Weglaenge[current] + N[v].second < Weglaenge[N[v].first] ){
                 //Weglaenge[N[v].first] = Weglaenge[current] + N[v].second;
                 Vorgaenger[N[v].first] = current;
-                N[v].second = KostenBerechnen (G, N[v].first, start, Vorgaenger) + G.estimatedCost(N[v].first, ziel);
+                N[v].second = KostenBerechnen ( N[v].first, G, start, Vorgaenger) + G.estimatedCost(N[v].first, ziel);
                 queue.push_back(N[v]);
                 std::push_heap(queue.begin(), queue.end(), compare());
                 V.markVertex(N[v].first, VertexStatus::InQueue);
