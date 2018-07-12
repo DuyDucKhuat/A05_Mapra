@@ -29,6 +29,7 @@ void c_graph_visualizer::draw(){
     int Anfangsknoten = 9;  //Bsp .3 : Anfangsknoten 0, Bsp.4 Anfangsknoten 7
     double Skalierung = 18; //Bsp .3 : Skalierung 10, Bsp.4 Skalierung 97 Breite Hoehe 1000, 1000
     double SkalierungText = 0.85 ; // Bsp.3 Bsp. 4 0.17 ,
+    double SkalierungDreieck = 0.5;
 
     Knoten.setCharacterSize(Skalierung * SkalierungText); // 25 1-3, 10 für 4 ###################################
     Kantengewicht.setCharacterSize(Skalierung * SkalierungText); // 15 1-3, 5 für 4
@@ -66,7 +67,7 @@ void c_graph_visualizer::draw(){
 
         NeighborT N = G.getNeighbors(i);
         for (auto v :N){
-            sf::CircleShape triangle(2,3); //10 für 1-3 ##############################################
+            sf::CircleShape triangle(Skalierung* SkalierungDreieck,3); //10 für 1-3 ##############################################
             triangle.setOrigin(triangle.getRadius(),triangle.getRadius());
 
             sf::Vector2f P2(hoehe/2. +  Skalierung*(G.Koordinaten[v.first].first - x), breite/2. + Skalierung*(G.Koordinaten[v.first].second-y));
