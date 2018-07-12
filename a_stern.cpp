@@ -279,7 +279,7 @@ int main(int argc, char * argv[]) //int argc, char * argv[]
         std::list < VertexT > weg;
         c_graph_visualizer V(&window, G, &event);
         int Start, Ziel;
-        stringstream s;
+        std::stringstream s;
         s << G.numVertices);
         std::cout << "Gebe eine Start- und einen Zielknoten einein. (0- " + s + ") " << std::endl;
         std::cin >> Start >> Ziel;
@@ -304,7 +304,7 @@ int main(int argc, char * argv[]) //int argc, char * argv[]
         Dijkstra(G,0, D);
         PruefeDijkstra( 2, 0, D);
         int Start, Ziel;
-        stringstream s;
+        std::stringstream s;
         s << G.numVertices);
         std::cout << "Gebe eine Start- und einen Zielknoten einein. (0- " + s + ") " << std::endl;
         std::cin >> Start >> Ziel;
@@ -328,7 +328,7 @@ int main(int argc, char * argv[]) //int argc, char * argv[]
         Dijkstra(G,0, D);
         PruefeDijkstra( 3, 0, D);
         int Start, Ziel;
-        stringstream s;
+        std::stringstream s;
         s << G.numVertices);
         std::cout << "Gebe eine Start- und einen Zielknoten einein. (0- " + s + ") " << std::endl;
         std::cin >> Start >> Ziel;
@@ -353,7 +353,7 @@ int main(int argc, char * argv[]) //int argc, char * argv[]
         Dijkstra(G,0, D);
         PruefeDijkstra( 4, 0, D);
         int Start, Ziel;
-        stringstream s;
+        std::stringstream s;
         s << G.numVertices();
         std::cout << "Gebe eine Start- und einen Zielknoten einein. (0- " + s + ") " << std::endl;
         std::cin >> Start >> Ziel;
