@@ -32,7 +32,7 @@ class c_graph_visualizer : public GraphVisualizer
     //std::vector<CostT> Heuristik;
     int n;
     double Skalierung;
-    double SklarierungText;
+    double SkalierungText;
     double SkalierungDreieck;
     int Mittelpunkt;
     
@@ -52,23 +52,23 @@ class c_graph_visualizer : public GraphVisualizer
             case 1:
                 this->Skalierung = 50;
                 this->Mittelpunkt = 3 ;
-                this->SklarierungText = 0.2;
+                this->SkalierungText = 0.2;
                 this->SkalierungDreieck = 0.1;
                 
             case 2:
                 this->Skalierung = 50;
                 this->Mittelpunkt = 3;
-                this->SklarierungText = 0.2;
+                this->SkalierungText = 0.2;
                 this->SkalierungDreieck = 0.1;
             case 3:
                 this->Skalierung = 18;
                 this->Mittelpunkt = 9;
-                this->SklarierungText = 0.85;
+                this->SkalierungText = 0.85;
                 this->SkalierungDreieck = 0.5;
             case 4:
                 this->Skalierung = 97;
                 this->Mittelpunkt = 7;
-                this->SklarierungText = 0.17;
+                this->SkalierungText = 0.17;
                 this->SkalierungDreieck = 0.17;
                 
         }
