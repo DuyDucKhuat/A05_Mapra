@@ -113,9 +113,6 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
         V.markVertex( current ,VertexStatus::Active);
         V.markEdge( EdgeT (currentEdge.first,currentEdge.second),EdgeStatus::Visited);
         V.draw();
-
-
-        //std::pop_heap(queue.begin(),queue.end(),compare());
         queue.pop_back();
         NeighborT N = G.getNeighbors(current);
 
