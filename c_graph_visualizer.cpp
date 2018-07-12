@@ -121,8 +121,8 @@ void c_graph_visualizer::draw(){
             {
                 sf::Vertex line[] ={sf::Vertex(P, sf::Color::Magenta),
                 sf::Vertex(P2, sf::Color::Magenta) };
-                line.setOutlineThickness(10);
-                line.setOutlineColor(sf::Color::Magenta);
+                line.setOutlineWidth(10);
+                //line.setOutlineColor(sf::Color::Magenta);
                 window->draw(line, 2 , sf::Lines);
                 triangle.setFillColor(sf::Color::Magenta);
                 Kantengewicht.setOutlineColor( sf::Color::Magenta);
