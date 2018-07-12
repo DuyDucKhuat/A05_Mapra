@@ -101,8 +101,8 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
         bekannt[v.first] = true;
         Vorgaenger[v.first] = start;
         V.markVertex(v.first, VertexStatus::InQueue);
-        double cost = Weglaenge[v.first];
-        V.updateVertex(v.first, cost, v.second , 0, VertexStatus::InQueue);
+        //double cost = Weglaenge[v.first];
+        //V.updateVertex(v.first, cost, v.second , 0, VertexStatus::InQueue);
         V.markEdge(EdgeT (start,v.first),EdgeStatus::Active);
         V.draw();
     }
@@ -148,9 +148,8 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
                 bekannt[N[v].first] = true;
                 Vorgaenger[N[v].first] = current;
                 V.markVertex(N[v].first, VertexStatus::InQueue);
-                double cost = Weglaenge[N[v].first];
-
-                V.updateVertex(N[v].first, cost, N[v].second, 0,   VertexStatus::InQueue);
+                //double cost = Weglaenge[N[v].first];
+                //V.updateVertex(N[v].first, cost, N[v].second, 0,   VertexStatus::InQueue);
                 V.markEdge( EdgeT (currentEdge.second, N[v].first),EdgeStatus::Active);
                 V.draw();
 
@@ -163,9 +162,8 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
                 queue.push_back(N[v]);
                 std::push_heap(queue.begin(), queue.end(), compare());
                 V.markVertex(N[v].first, VertexStatus::InQueue);
-                double cost = Weglaenge[N[v].first];
-
-                V.updateVertex(N[v].first, cost, N[v].second, 0,  VertexStatus::InQueue);
+                //double cost = Weglaenge[N[v].first];
+                //V.updateVertex(N[v].first, cost, N[v].second, 0,  VertexStatus::InQueue);
                 V.markEdge( EdgeT (currentEdge.second, N[v].first),EdgeStatus::Active);
                 V.draw();
             }
