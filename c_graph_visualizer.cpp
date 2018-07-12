@@ -67,7 +67,7 @@ void c_graph_visualizer::draw(){
 
         NeighborT N = G.getNeighbors(i);
         for (auto v :N){
-            sf::CircleShape triangle(Skalierung* SkalierungDreieck,3); //10 für 1-3 ##############################################
+            sf::CircleShape triangle(Skalierung* SkalierungDreieck,3); //10 für 1-3
             triangle.setOrigin(triangle.getRadius(),triangle.getRadius());
 
             sf::Vector2f P2(hoehe/2. +  Skalierung*(G.Koordinaten[v.first].first - x), breite/2. + Skalierung*(G.Koordinaten[v.first].second-y));
@@ -89,9 +89,8 @@ void c_graph_visualizer::draw(){
             
             if( this->edge_status[i * n + v.first] ==EdgeStatus::UnknownEdge)
             {
-                sf::Shape::Line line(P.x, P.y, P2.x, P2.y 1 , sf::Color::Black);
+                sf::Shape line = sf::Shape::Line(P.x, P.y, P2.x, P2.y 1 , sf::Color::Black);
                 triangle.setFillColor(sf::Color::Black);
-
                 Kantengewicht.setOutlineColor( sf::Color::Black);
 
                 window->draw(line);
