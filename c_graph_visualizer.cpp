@@ -89,11 +89,12 @@ void c_graph_visualizer::draw(){
             
             if( this->edge_status[i * n + v.first] ==EdgeStatus::UnknownEdge)
             {
-                sf::Shape line = sf::Shape::Line(P.x, P.y, P2.x, P2.y 1 , sf::Color::Black);
+                sf::Vertex line[] ={sf::Vertex(P, sf::Color::Black),
+                    sf::Vertex(P2, sf::Color::Black) };
                 triangle.setFillColor(sf::Color::Black);
                 Kantengewicht.setOutlineColor( sf::Color::Black);
 
-                window->draw(line);
+                window->draw(line, 2, sf::Lines);
             }
             else if( this->edge_status[i * n + v.first] == EdgeStatus::Visited)
             {
