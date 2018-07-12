@@ -26,10 +26,10 @@ void c_graph_visualizer::draw(){
         this->window->clear(sf::Color::White); // BSP 2: Anfangsknoten 4, Skalierung 190
         
     // ######################################## ANPASSUNGEN
-    int Anfangsknoten = 9;  //Bsp .3 : Anfangsknoten 0, Bsp.4 Anfangsknoten 7
-    double Skalierung = 18; //Bsp .3 : Skalierung 10, Bsp.4 Skalierung 97 Breite Hoehe 1000, 1000
-    double SkalierungText = 0.85 ; // Bsp.3 Bsp. 4 0.17 ,
-    double SkalierungDreieck = 0.5;
+    int Anfangsknoten = 9;  //Bsp .3 : 9, Bsp.4 : 7
+    double Skalierung = 18; //Bsp .3 : 8, Bsp.4 97  | Breite Hoehe 1000, 1000
+    double SkalierungText = 0.85 ; // Bsp.3 :  0.85 Bsp.4 : 0.17 ,
+    double SkalierungDreieck = 0.5; // Bsp.3: 0.5
 
     Knoten.setCharacterSize(Skalierung * SkalierungText); // 25 1-3, 10 für 4 ###################################
     Kantengewicht.setCharacterSize(Skalierung * SkalierungText); // 15 1-3, 5 für 4
@@ -121,6 +121,8 @@ void c_graph_visualizer::draw(){
             {
                 sf::Vertex line[] ={sf::Vertex(P, sf::Color::Magenta),
                 sf::Vertex(P2, sf::Color::Magenta) };
+                line.setOutlineThickness(10);
+                line.setOutlineColor(sf::Color::Magenta);
                 window->draw(line, 2 , sf::Lines);
                 triangle.setFillColor(sf::Color::Magenta);
                 Kantengewicht.setOutlineColor( sf::Color::Magenta);
