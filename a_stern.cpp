@@ -280,7 +280,7 @@ int main(int argc, char * argv[]) //int argc, char * argv[]
         c_graph_visualizer V(&window, G, &event);
         int Start, Ziel;
 
-        std::cout << "Gebe eine Start- und einen Zielknoten einein. (0- " <<  G.numVertices() <<  ") " << std::endl;
+        std::cout << "Gebe eine Start- und einen Zielknoten einein. (0- " <<  G.numVertices() -1 <<  ") " << std::endl;
         std::cin >> Start >> Ziel;
 
         if( A_star(G, V, Start , Ziel, weg)) PruefeWeg(1,weg);
@@ -306,7 +306,7 @@ int main(int argc, char * argv[]) //int argc, char * argv[]
         c_graph_visualizer V(&window, G, &event);
         V.draw();
 
-        std::cout << "Gebe eine Start- und einen Zielknoten einein. (0- " <<  G.numVertices() <<  ") " << std::endl;
+        std::cout << "Gebe eine Start- und einen Zielknoten einein. (0- " <<  G.numVertices() -1 <<  ") " << std::endl;
         std::cin >> Start >> Ziel;
         std::list < VertexT > weg;
         if( A_star(G, V, Start, Ziel, weg)) PruefeWeg(2,weg);
@@ -331,7 +331,7 @@ int main(int argc, char * argv[]) //int argc, char * argv[]
         V.draw();
 
 
-        std::cout << "Gebe eine Start- und einen Zielknoten einein. (0- " <<  G.numVertices() <<  ") " << std::endl;
+        std::cout << "Gebe eine Start- und einen Zielknoten einein. (0- " <<  G.numVertices()-1 <<  ") " << std::endl;
         std::cin >> Start >> Ziel;
         std::list < VertexT > weg;
         if( A_star(G, V, Start, Ziel, weg)) PruefeWeg(3,weg);
@@ -355,7 +355,7 @@ int main(int argc, char * argv[]) //int argc, char * argv[]
         int Start, Ziel;
         c_graph_visualizer V(&window, G, &event);
         V.draw();
-        std::cout << "Gebe eine Start- und einen Zielknoten einein. (0- " <<  G.numVertices() <<  ") " << std::endl;
+        std::cout << "Gebe eine Start- und einen Zielknoten einein. (0- " <<  G.numVertices()-1 <<  ") " << std::endl;
         std::cin >> Start >> Ziel;
         std::list < VertexT > weg;
         if( A_star(G, V, Start, Ziel, weg)) PruefeWeg(4,weg);
