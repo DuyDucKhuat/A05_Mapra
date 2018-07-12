@@ -26,7 +26,7 @@ void c_graph_visualizer::draw(){
         this->window->clear(sf::Color::White); // BSP 2: Anfangsknoten 4, Skalierung 190
         
     // ######################################## ANPASSUNGEN
-    int Anfangsknoten = 9;  //Bsp .3 : 9, Bsp.4 : 7
+    int Anfangsknoten = 9;  //Bsp .3 : 9, Bsp.4 : 7 
     double Skalierung = 18; //Bsp .3 : 8, Bsp.4 97  | Breite Hoehe 1000, 1000
     double SkalierungText = 0.85 ; // Bsp.3 :  0.85 Bsp.4 : 0.17 ,
     double SkalierungDreieck = 0.5; // Bsp.3: 0.5

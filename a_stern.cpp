@@ -243,15 +243,18 @@ void displayMaze (maze& G)
 //############################################################################################################
 //                          MAIN
 //############################################################################################################
-int main(int argc, char * argv[])
+int main() //int argc, char * argv[]
 {
-
-    std::istringstream Istr(argv[1]);
+    std::cout << "Gebe eine Beispielnummer ein. (1-9)" << std::endl;
     int bsp;
-    Istr >> bsp;
-    std::istringstream Istr2(argv[2]);
-    int bsp2;
-    Istr2 >> bsp2;
+    std::cin >> bsp;
+
+    //std::istringstream Istr(argv[1]);
+    //int bsp;
+    //Istr >> bsp;
+    //std::istringstream Istr2(argv[2]);
+    //int bsp2;
+    //Istr2 >> bsp2;
     sf::RenderWindow window(sf::VideoMode(1000,1000), "MyWindow");
     sf::Event event;
 
@@ -269,14 +272,18 @@ int main(int argc, char * argv[])
         fin >> edges;
         aktualsiereAdjazenz(fin, edges, G);
         std::vector<CostT> D(n,infty);
-        DisplayAdjazenz(G);
         Dijkstra(G,0, D);
         PruefeDijkstra( 1, 0, D);
        
         std::list < VertexT > weg;
         c_graph_visualizer V(&window, G, &event);
+        int Start, Ziel;
+        stringstream s;
+        s << G.numVertices);
+        std::cout << "Gebe eine Start- und einen Zielknoten einein. (0- " + s + ") " << std::endl;
+        std::cin >> Start >> Ziel;
 
-        if( A_star(G, V, 0 , 1, weg)) PruefeWeg(1,weg);
+        if( A_star(G, V, Start , Ziel, weg)) PruefeWeg(1,weg);
         
         
     }
@@ -295,10 +302,14 @@ int main(int argc, char * argv[])
         DisplayAdjazenz(G);
         Dijkstra(G,0, D);
         PruefeDijkstra( 2, 0, D);
-        
+        int Start, Ziel;
+        stringstream s;
+        s << G.numVertices);
+        std::cout << "Gebe eine Start- und einen Zielknoten einein. (0- " + s + ") " << std::endl;
+        std::cin >> Start >> Ziel;
         std::list < VertexT > weg;
         c_graph_visualizer V(&window, G, &event);
-        if( A_star(G, V, 0, 8, weg)) PruefeWeg(2,weg);
+        if( A_star(G, V, Start, Ziel, weg)) PruefeWeg(2,weg);
     }
     if ( bsp == 3){
         
@@ -315,10 +326,14 @@ int main(int argc, char * argv[])
         DisplayAdjazenz(G);
         Dijkstra(G,0, D);
         PruefeDijkstra( 3, 0, D);
-        
+        int Start, Ziel;
+        stringstream s;
+        s << G.numVertices);
+        std::cout << "Gebe eine Start- und einen Zielknoten einein. (0- " + s + ") " << std::endl;
+        std::cin >> Start >> Ziel;
         std::list < VertexT > weg;
         c_graph_visualizer V(&window, G, &event);
-        if( A_star(G, V, 5, 3, weg)) PruefeWeg(3,weg);
+        if( A_star(G, V, Start, Ziel, weg)) PruefeWeg(3,weg);
     }
     
     if ( bsp == 4){
@@ -336,10 +351,14 @@ int main(int argc, char * argv[])
         DisplayAdjazenz(G);
         Dijkstra(G,0, D);
         PruefeDijkstra( 4, 0, D);
-
+        int Start, Ziel;
+        stringstream s;
+        s << G.numVertices);
+        std::cout << "Gebe eine Start- und einen Zielknoten einein. (0- " + s + ") " << std::endl;
+        std::cin >> Start >> Ziel;
         std::list < VertexT > weg;
         c_graph_visualizer V(&window, G, &event);
-        if( A_star(G, V, 3, 8, weg)) PruefeWeg(4,weg);
+        if( A_star(G, V, Start, Ziel, weg)) PruefeWeg(4,weg);
     
     }
     if ( bsp == 5){
