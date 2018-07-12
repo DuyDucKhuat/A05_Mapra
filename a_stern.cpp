@@ -65,6 +65,18 @@ void Dijkstra(const DistanceGraph& g, VertexT start, std::vector<CostT>& D) {
     
 }
 
+double KostenBerechnen ( DistanceGraph& G, VertexT start, VertexT Ende, std::vector < VertexT >& Vorgaenger,  ){
+    double res;
+    size_t W = start;
+    while( W != Ende){
+        if ( G.cost(Vorgaenger[W],W) != infty )
+            res += G.cost(Vorgaenger[W],W);
+        else
+            std::cout << "Falsche Kante!" << std::endl;
+        W = Vorgaenger[W];
+    }
+    return res;
+}
 
 bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT ziel, std::list<VertexT>& weg) {
     typedef DistanceGraph::LocalEdgeT LocalEdgeT;
