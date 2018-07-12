@@ -279,9 +279,8 @@ int main(int argc, char * argv[]) //int argc, char * argv[]
         std::list < VertexT > weg;
         c_graph_visualizer V(&window, G, &event);
         int Start, Ziel;
-        std::stringstream s;
-        s << G.numVertices);
-        std::cout << "Gebe eine Start- und einen Zielknoten einein. (0- " + s + ") " << std::endl;
+
+        std::cout << "Gebe eine Start- und einen Zielknoten einein. (0- " <<  G.numVertices() <<  ") " << std::endl;
         std::cin >> Start >> Ziel;
 
         if( A_star(G, V, Start , Ziel, weg)) PruefeWeg(1,weg);
@@ -304,9 +303,8 @@ int main(int argc, char * argv[]) //int argc, char * argv[]
         Dijkstra(G,0, D);
         PruefeDijkstra( 2, 0, D);
         int Start, Ziel;
-        std::stringstream s;
-        s << G.numVertices);
-        std::cout << "Gebe eine Start- und einen Zielknoten einein. (0- " + s + ") " << std::endl;
+
+        std::cout << "Gebe eine Start- und einen Zielknoten einein. (0- " <<  G.numVertices() <<  ") " << std::endl;
         std::cin >> Start >> Ziel;
         std::list < VertexT > weg;
         c_graph_visualizer V(&window, G, &event);
@@ -328,9 +326,8 @@ int main(int argc, char * argv[]) //int argc, char * argv[]
         Dijkstra(G,0, D);
         PruefeDijkstra( 3, 0, D);
         int Start, Ziel;
-        std::stringstream s;
-        s << G.numVertices);
-        std::cout << "Gebe eine Start- und einen Zielknoten einein. (0- " + s + ") " << std::endl;
+
+        std::cout << "Gebe eine Start- und einen Zielknoten einein. (0- " <<  G.numVertices() <<  ") " << std::endl;
         std::cin >> Start >> Ziel;
         std::list < VertexT > weg;
         c_graph_visualizer V(&window, G, &event);
@@ -353,9 +350,8 @@ int main(int argc, char * argv[]) //int argc, char * argv[]
         Dijkstra(G,0, D);
         PruefeDijkstra( 4, 0, D);
         int Start, Ziel;
-        std::stringstream s;
-        s << G.numVertices();
-        std::cout << "Gebe eine Start- und einen Zielknoten einein. (0- " + s + ") " << std::endl;
+     
+        std::cout << "Gebe eine Start- und einen Zielknoten einein. (0- " <<  G.numVertices() <<  ") " << std::endl;
         std::cin >> Start >> Ziel;
         std::list < VertexT > weg;
         c_graph_visualizer V(&window, G, &event);
