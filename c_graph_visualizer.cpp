@@ -8,7 +8,7 @@
 #include "c_graph_visualizer.h"
 
 void c_graph_visualizer::draw(){
-    /*bool weiter = false;
+    bool weiter = false;
     int hoehe = this->window->getSize().x;// TODOOOOO
     int breite = this->window->getSize().y;
     sf::Text Kantengewicht;
@@ -132,5 +132,5 @@ void c_graph_visualizer::draw(){
         }
     }
     window->display();
-    }*/
+    }
 }
