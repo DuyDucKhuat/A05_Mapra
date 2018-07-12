@@ -150,6 +150,8 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
                 // evtl. neu
             // sind die neu?
         for ( int v = 0; v < N.size(); v++){
+            Vorgaenger[N[v].first] = current;
+
             double kosten;
             size_t w = N[v].first;
             while( w != start){
