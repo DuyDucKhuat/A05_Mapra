@@ -7,6 +7,7 @@ int main()
 {
     // create the window
     sf::RenderWindow window(sf::VideoMode(800, 600), "My window");
+    std::cout << window.getSize().x << std::endl;
     
     // run the program as long as the window is open
     while (window.isOpen())

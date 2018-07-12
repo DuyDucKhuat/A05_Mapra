@@ -9,7 +9,8 @@
 
 void c_graph_visualizer::draw(){
     bool weiter = false;
-
+    //int hoehe = // TODOOOOO
+    //int breite =
     sf::Text Kantengewicht;
     sf::Text Knoten;
     Knoten.setFont(this-> font);
