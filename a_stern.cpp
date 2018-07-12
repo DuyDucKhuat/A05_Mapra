@@ -99,7 +99,7 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
         std::push_heap(queue.begin(), queue.end(), compare());
         //aktualisiere
         bekannt[v.first] = true;
-        V.markVertex(v.first, VertexStatus::InQueue);              //########NEU
+        V.updateVertex(v.first, Weglaenge[v.first], v.second , VertexStatus::InQueue);              //########NEU
         Vorgaenger[v.first] = start;
         V.markEdge(EdgeT (start,v.first),EdgeStatus::Active);      //########NEU
         V.draw();
@@ -109,9 +109,9 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
 
         std::pop_heap(queue.begin(),queue.end(),compare());
         current = queue.back().first;
-        currentEdge.second = current;                               //########NEU
-        V.markVertex( current ,VertexStatus::Active);               //########NEU
-        V.markEdge( EdgeT (currentEdge.first,currentEdge.second),EdgeStatus::Visited); //########NEU
+        currentEdge.second = current;
+        V.markVertex( current ,VertexStatus::Active);
+        V.markEdge( EdgeT (currentEdge.first,currentEdge.second),EdgeStatus::Visited);
         V.draw();
         std::cout << 2 << std::endl;
 
@@ -151,7 +151,7 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
                 std::push_heap(queue.begin(), queue.end(), compare());
                 //aktualisiere Listen
                 bekannt[N[v].first] = true;
-                V.markVertex(N[v].first, VertexStatus::InQueue);
+                V.updateVertex(N[v].first, Weglaenge[N[v].first], N[v].second,  VertexStatus::InQueue);
                 Vorgaenger[N[v].first] = current;
                 V.markEdge( EdgeT (currentEdge.second, N[v].first),EdgeStatus::Active);
                 V.draw();
@@ -165,7 +165,7 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
                 N[v].second = G.estimatedCost(N[v].first, ziel);
                 queue.push_back(N[v]);
                 std::push_heap(queue.begin(), queue.end(), compare());
-                V.markVertex(N[v].first, VertexStatus::InQueue);
+                V.updateVertex(N[v].first, Weglaenge[N[v].first], N[v].second, VertexStatus::InQueue);
                 V.markEdge( EdgeT (currentEdge.second, N[v].first),EdgeStatus::Active);
                 V.draw();
                 std::cout << 6 << std::endl;
