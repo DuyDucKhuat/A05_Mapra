@@ -28,7 +28,7 @@ void c_graph_visualizer::draw(){
     // ######################################## ANPASSUNGEN
     int Anfangsknoten = 9;  //Bsp .3 : Anfangsknoten 0, Bsp.4 Anfangsknoten 7
     double Skalierung = 18; //Bsp .3 : Skalierung 10, Bsp.4 Skalierung 97 Breite Hoehe 1000, 1000
-    double SkalierungText = 0.7 ; // Bsp.3 Bsp. 4 0.17 ,
+    double SkalierungText = 0.85 ; // Bsp.3 Bsp. 4 0.17 ,
 
     Knoten.setCharacterSize(Skalierung * SkalierungText); // 25 1-3, 10 für 4 ###################################
     Kantengewicht.setCharacterSize(Skalierung * SkalierungText); // 15 1-3, 5 für 4
