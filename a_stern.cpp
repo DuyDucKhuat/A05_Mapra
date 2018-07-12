@@ -66,7 +66,6 @@ void Dijkstra(const DistanceGraph& g, VertexT start, std::vector<CostT>& D) {
 }
 
 
-
 bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT ziel, std::list<VertexT>& weg) {
     typedef DistanceGraph::LocalEdgeT LocalEdgeT;
     typedef DistanceGraph::NeighborT NeighborT;
@@ -79,7 +78,7 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
     class compare { // f =  g + h;
     public:
         bool operator () (std::pair<size_t , CostT> a, std::pair<size_t , CostT> b) const {
-            return  Weglaenge[a.first] + a.second > Weglaenge[b.first] + b.second;
+            return  Weglaenge[a.first]+ a.second > Weglaenge[b.first] + b.second;
         }
     };
 
@@ -107,7 +106,6 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
         V.markEdge(EdgeT (start,v.first),EdgeStatus::Active);
         V.draw();
     }
-    
     while( true){
 
         std::pop_heap(queue.begin(),queue.end(),compare());
@@ -140,36 +138,33 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
         }
                 // evtl. neu
             // sind die neu?
-        for ( auto v : N){
-
-            if ( !bekannt[v.first] ){
-                Weglaenge[v.first] = Weglaenge[current] + v.second;
-
-                v.second = G.estimatedCost(v.first, ziel);
-                queue.push_back(v);
+        for ( int v = 0; v < N.size(); v++){
+            if ( !bekannt[N[v].first] ){
+                Weglaenge[N[v].first] = Weglaenge[current] + N[v].second;
+                N[v].second = G.estimatedCost(N[v].first, ziel);
+                queue.push_back(N[v]);
                 std::push_heap(queue.begin(), queue.end(), compare());
                 //aktualisiere Listen
-                bekannt[v.first] = true;
-                Vorgaenger[v.first] = current;
-                V.markVertex(v.first, VertexStatus::InQueue);
-                //double cost = Weglaenge[v.first];
-                //V.updateVertex(v.first, cost, v.second, 0,   VertexStatus::InQueue);
-                V.markEdge( EdgeT (currentEdge.second, v.first),EdgeStatus::Active);
+                bekannt[N[v].first] = true;
+                Vorgaenger[N[v].first] = current;
+                V.markVertex(N[v].first, VertexStatus::InQueue);
+                //double cost = Weglaenge[N[v].first];
+                //V.updateVertex(N[v].first, cost, N[v].second, 0,   VertexStatus::InQueue);
+                V.markEdge( EdgeT (currentEdge.second, N[v].first),EdgeStatus::Active);
                 V.draw();
 
                 //okay, und wenn bekannt:
                 //ist der neue Weg besser?
-            }
-            else if ( Weglaenge[current] + v.second < Weglaenge[v.first] ){
-                Weglaenge[v.first] = Weglaenge[current] + v.second;
-
-                v.second = G.estimatedCost(v.first, ziel);
-                queue.push_back(v);
+            }else if ( Weglaenge[current] + N[v].second < Weglaenge[N[v].first] ){
+                Weglaenge[N[v].first] = Weglaenge[current] + N[v].second;
+                Vorgaenger[N[v].first] = current;
+                N[v].second = G.estimatedCost(N[v].first, ziel);
+                queue.push_back(N[v]);
                 std::push_heap(queue.begin(), queue.end(), compare());
-                V.markVertex(v.first, VertexStatus::InQueue);
-                //double cost = Weglaenge[v.first];
-                //V.updateVertex(v.first, cost, v.second, 0,  VertexStatus::InQueue);
-                V.markEdge( EdgeT (currentEdge.second, v.first),EdgeStatus::Active);
+                V.markVertex(N[v].first, VertexStatus::InQueue);
+                //double cost = Weglaenge[N[v].first];
+                //V.updateVertex(N[v].first, cost, N[v].second, 0,  VertexStatus::InQueue);
+                V.markEdge( EdgeT (currentEdge.second, N[v].first),EdgeStatus::Active);
                 V.draw();
             }
         }
