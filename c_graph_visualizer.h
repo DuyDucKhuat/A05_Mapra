@@ -69,7 +69,7 @@ class c_graph_visualizer : public GraphVisualizer
                 this->Skalierung = 97;
                 this->Mittelpunkt = 7;
                 this->SkalierungText = 0.17;
-                this->SkalierungDreieck = 0.02;
+                this->SkalierungDreieck = 0.001;
                 
         }
     }
