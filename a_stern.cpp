@@ -65,7 +65,7 @@ void Dijkstra(const DistanceGraph& g, VertexT start, std::vector<CostT>& D) {
     
 }
 
-double KostenBerechnen (VertexT start, DistanceGraph& G, VertexT Ende, std::vector < VertexT >& Vorgaenger){
+double KostenBerechnen (VertexT start, DistanceGraph G, VertexT Ende, std::vector < VertexT >& Vorgaenger){
     double res;
     size_t W = start;
     while( W != Ende){
