@@ -7,6 +7,7 @@
 #include <list>
 #include <sstream>
 #include "MazeVisualizer.h"
+#include <string>
 #include "c_graph_visualizer.h"
 
 // Ein Graph, der Koordinaten von Knoten speichert.
@@ -243,15 +244,15 @@ void displayMaze (maze& G)
 //############################################################################################################
 //                          MAIN
 //############################################################################################################
-int main() //int argc, char * argv[]
+int main(int argc, char * argv[]) //int argc, char * argv[]
 {
     std::cout << "Gebe eine Beispielnummer ein. (1-9)" << std::endl;
     int bsp;
     std::cin >> bsp;
 
-    //std::istringstream Istr(argv[1]);
-    //int bsp;
-    //Istr >> bsp;
+    std::istringstream Istr(argv[1]);
+    int bsp2;
+    Istr >> bsp2;
     //std::istringstream Istr2(argv[2]);
     //int bsp2;
     //Istr2 >> bsp2;
@@ -353,7 +354,7 @@ int main() //int argc, char * argv[]
         PruefeDijkstra( 4, 0, D);
         int Start, Ziel;
         stringstream s;
-        s << G.numVertices);
+        s << G.numVertices();
         std::cout << "Gebe eine Start- und einen Zielknoten einein. (0- " + s + ") " << std::endl;
         std::cin >> Start >> Ziel;
         std::list < VertexT > weg;
