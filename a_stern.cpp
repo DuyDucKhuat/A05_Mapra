@@ -74,12 +74,12 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
     
     
 
-    //static std::vector<CostT> Weglaenge(n, infty); // Vom Startknoten aus.
+    static std::vector<CostT> Weglaenge(n, infty); // Vom Startknoten aus.
 
     class compare { // f =  g + h;
     public:
         bool operator () (std::pair<size_t , CostT> a, std::pair<size_t , CostT> b) const {
-            return  a.second > b.second;
+            return  Weglaenge[a.first] + a.second > Weglaenge[b.first] + b.second;
         }
     };
 
@@ -89,22 +89,13 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
     std::make_heap( queue.begin(), queue.end(), compare() );
 
     bekannt[start] = true;
-    //Weglaenge[start] = 0.;
+    Weglaenge[start] = 0.;
     VertexT current = start;
     EdgeT currentEdge(start,0);
     if ( G.getNeighbors(current).empty()) return false;
     for ( auto v : G.getNeighbors(current)) { //erster Schritt: HINZUFÜGEN IN QUEUE
-        //Weglaenge[v.first] = v.second;
-        double kosten;
-        size_t w = v.first;
-        while( w != start){
-            if ( G.cost(Vorgaenger[w],w) != infty )
-                kosten += G.cost(Vorgaenger[w],w);
-            else
-                std::cout << "Falsche Kante!" << std::endl;
-            w = Vorgaenger[w];
-        }
-        v.second = kosten + G.estimatedCost(v.first, ziel); // ab hier ist second nur der Heuristikwert.
+        Weglaenge[v.first] = v.second;
+        v.second = G.estimatedCost(v.first, ziel); // ab hier ist second nur der Heuristikwert.
         queue.push_back(v);
         std::push_heap(queue.begin(), queue.end(), compare());
         //aktualisiere
@@ -149,49 +140,38 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
         }
                 // evtl. neu
             // sind die neu?
-        for ( int v = 0; v < N.size(); v++){
-            Vorgaenger[N[v].first] = current;
+        for ( auto v : N){
 
-            double kosten;
-            size_t w = N[v].first;
-            while( w != start){
-                if ( G.cost(Vorgaenger[w],w) != infty )
-                    kosten += G.cost(Vorgaenger[w],w);
-                else
-                    std::cout << "Falsche Kante!" << std::endl;
-                w = Vorgaenger[w];
-            }
-            
-            if ( !bekannt[N[v].first] ){
-                //Weglaenge[N[v].first] = Weglaenge[current] + N[v].second;
+            if ( !bekannt[v.first] ){
+                Weglaenge[v.first] = Weglaenge[current] + v.second;
 
-                N[v].second = kosten + G.estimatedCost(N[v].first, ziel);
-                queue.push_back(N[v]);
+                v.second = G.estimatedCost(v.first, ziel);
+                queue.push_back(v);
                 std::push_heap(queue.begin(), queue.end(), compare());
                 //aktualisiere Listen
-                bekannt[N[v].first] = true;
-                Vorgaenger[N[v].first] = current;
-                V.markVertex(N[v].first, VertexStatus::InQueue);
-                //double cost = Weglaenge[N[v].first];
-                //V.updateVertex(N[v].first, cost, N[v].second, 0,   VertexStatus::InQueue);
+                bekannt[v.first] = true;
+                Vorgaenger[v.first] = current;
+                V.markVertex(v.first, VertexStatus::InQueue);
+                //double cost = Weglaenge[v.first];
+                //V.updateVertex(v.first, cost, v.second, 0,   VertexStatus::InQueue);
                 V.markEdge( EdgeT (currentEdge.second, N[v].first),EdgeStatus::Active);
                 V.draw();
 
                 //okay, und wenn bekannt:
                 //ist der neue Weg besser?
             }
-            /*else if ( kosten + N[v].second < Weglaenge[N[v].first] ){
-                //Weglaenge[N[v].first] = Weglaenge[current] + N[v].second;
+            else if ( Weglaenge[current] + N[v].second < Weglaenge[N[v].first] ){
+                Weglaenge[v.first] = Weglaenge[current] + v.second;
 
-                N[v].second = kosten + G.estimatedCost(N[v].first, ziel);
-                queue.push_back(N[v]);
+                v.second = G.estimatedCost(v.first, ziel);
+                queue.push_back(v);
                 std::push_heap(queue.begin(), queue.end(), compare());
-                V.markVertex(N[v].first, VertexStatus::InQueue);
-                //double cost = Weglaenge[N[v].first];
-                //V.updateVertex(N[v].first, cost, N[v].second, 0,  VertexStatus::InQueue);
-                V.markEdge( EdgeT (currentEdge.second, N[v].first),EdgeStatus::Active);
+                V.markVertex(v.first, VertexStatus::InQueue);
+                //double cost = Weglaenge[v.first];
+                //V.updateVertex(v.first, cost, v.second, 0,  VertexStatus::InQueue);
+                V.markEdge( EdgeT (currentEdge.second, v.first),EdgeStatus::Active);
                 V.draw();
-            }*/
+            }
         }
         if(N.empty()) {V.markVertex(current, VertexStatus::Done);}//keine Möglichkeiten für diesen Knoten
         currentEdge.first = currentEdge.second; //aktualisiere Anfang.
