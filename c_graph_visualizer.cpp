@@ -38,8 +38,8 @@ void c_graph_visualizer::draw(){
     Heuristik.setCharacterSize(Skalierung * SkalierungText);
 
     //###############################################
-    double x = G.Koordinaten[Anfangsknoten].first; //Mittelpunkt
-    double y = G.Koordinaten[Anfangsknoten].second;
+    double x = G.Koordinaten[Mittelpunkt].first; //Mittelpunkt
+    double y = G.Koordinaten[Mittelpunkt].second;
     
     //Circle
     sf::CircleShape shape(10); // 15 für 1-3 , 10 für
