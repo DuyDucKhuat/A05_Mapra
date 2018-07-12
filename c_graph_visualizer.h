@@ -41,7 +41,7 @@ class c_graph_visualizer : public GraphVisualizer
         this->font.loadFromFile("raleway/Raleway-Thin.ttf");
 
         vertex_status.resize( n, VertexStatus::UnknownVertex);
-        edge_status.resize( n* n, EdgeStatus::UnknownEdge);
+        edge_status.resize( n * n, EdgeStatus::UnknownEdge);
         Kosten.resize(n, 0);
         Heuristik.resize(n, 0);
     }
