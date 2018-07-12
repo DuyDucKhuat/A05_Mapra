@@ -161,6 +161,7 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
                     std::cout << "Falsche Kante!" << std::endl;
                 w = Vorgaenger[w];
             }
+            
             if ( !bekannt[N[v].first] ){
                 //Weglaenge[N[v].first] = Weglaenge[current] + N[v].second;
 
@@ -178,7 +179,8 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
 
                 //okay, und wenn bekannt:
                 //ist der neue Weg besser?
-            }else if ( kosten + N[v].second < Weglaenge[N[v].first] ){
+            }
+            /*else if ( kosten + N[v].second < Weglaenge[N[v].first] ){
                 //Weglaenge[N[v].first] = Weglaenge[current] + N[v].second;
 
                 N[v].second = kosten + G.estimatedCost(N[v].first, ziel);
@@ -189,7 +191,7 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
                 //V.updateVertex(N[v].first, cost, N[v].second, 0,  VertexStatus::InQueue);
                 V.markEdge( EdgeT (currentEdge.second, N[v].first),EdgeStatus::Active);
                 V.draw();
-            }
+            }*/
         }
         if(N.empty()) {V.markVertex(current, VertexStatus::Done);}//keine Möglichkeiten für diesen Knoten
         currentEdge.first = currentEdge.second; //aktualisiere Anfang.
