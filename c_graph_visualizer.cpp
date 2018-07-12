@@ -26,8 +26,8 @@ void c_graph_visualizer::draw(){
         this->window->clear(sf::Color::White); // BSP 2: Anfangsknoten 4, Skalierung 190
         
     // ######################################## ANPASSUNGEN
-    int Anfangsknoten = 17;  //Bsp .3 : Anfangsknoten 0, Bsp.4 Anfangsknoten z.b. 22
-    double Skalierung = 98; //Bsp .3 : Skalierung 10, Bsp.4 Skalierung 50
+    int Anfangsknoten = 7;  //Bsp .3 : Anfangsknoten 0, Bsp.4 Anfangsknoten z.b. 22
+    double Skalierung = 97; //Bsp .3 : Skalierung 10, Bsp.4 Skalierung 50
     Knoten.setCharacterSize(Skalierung * 0.15); // 25 1-3, 10 für 4 ###################################
     Kantengewicht.setCharacterSize(Skalierung * 0.17); // 15 1-3, 5 für 4
 
