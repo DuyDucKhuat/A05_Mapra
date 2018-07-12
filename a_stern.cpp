@@ -73,7 +73,7 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
     
     
 
-    static std::vector<CostT> Weglaenge(n, infty); // Vom Startknoten aus.
+    std::vector<CostT> Weglaenge(n, infty); // Vom Startknoten aus.
 
     class compare { // f =  g + h;
     public:
