@@ -100,7 +100,7 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
         //aktualisiere
         bekannt[v.first] = true;
         Vorgaenger[v.first] = start;
-        V.markEdge(v.first, VertexStatus::InQueue);
+        V.markVertex(v.first, VertexStatus::InQueue);
         //V.updateVertex(v.first, Weglaenge[v.first], v.second , 0, VertexStatus::InQueue);
         V.markEdge(EdgeT (start,v.first),EdgeStatus::Active);
         V.draw();
