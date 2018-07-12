@@ -14,9 +14,7 @@ void c_graph_visualizer::draw(){
     sf::Text Kantengewicht;
     sf::Text Knoten;
     Knoten.setFont(this-> font);
-    Knoten.setCharacterSize(10); // 25 1-3, 10 für 4 ###################################
     Kantengewicht.setFont(this-> font);
-    Kantengewicht.setCharacterSize(10); // 15 1-3, 5 für 4
     
     while(!weiter){
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)) weiter = true;
@@ -26,8 +24,14 @@ void c_graph_visualizer::draw(){
             this->window->close();
     }
         this->window->clear(sf::Color::White); // BSP 2: Anfangsknoten 4, Skalierung 190
+        
+    // ######################################## ANPASSUNGEN
     int Anfangsknoten = 7;  //Bsp .3 : Anfangsknoten 0, Bsp.4 Anfangsknoten z.b. 22
-    double Skalierung = 65; //Bsp .3 : Skalierung 10, Bsp.4 Skalierung 50
+    double Skalierung = 80; //Bsp .3 : Skalierung 10, Bsp.4 Skalierung 50
+    Knoten.setCharacterSize(Skalierung * 0.3); // 25 1-3, 10 für 4 ###################################
+    Kantengewicht.setCharacterSize(Skalierung * 0.3); // 15 1-3, 5 für 4
+
+    //###############################################
     double x = G.Koordinaten[Anfangsknoten].first; //Mittelpunkt
     double y = G.Koordinaten[Anfangsknoten].second;
     
@@ -44,7 +48,7 @@ void c_graph_visualizer::draw(){
         Knoten.setString( str );
         Knoten.setFillColor( sf::Color::Black);
         Knoten.setOutlineColor( sf::Color::Black);
-        Knoten.setOutlineThickness(0.2); //1 , 1-3  0.2 4
+        Knoten.setOutlineThickness( Skalierung  * 0.01 ); //1 , 1-3  0.2 4
         
         if(this->vertex_status[i] == VertexStatus::UnknownVertex) shape.setFillColor(sf::Color::Green);
         else if(this->vertex_status[i] == VertexStatus::InQueue) shape.setFillColor(sf::Color::Yellow);
@@ -69,7 +73,7 @@ void c_graph_visualizer::draw(){
             std::string str = strs.str();
             Kantengewicht.setString( str );
             Kantengewicht.setFillColor(sf::Color(10,200,100));
-            Kantengewicht.setOutlineThickness(0.2);
+            Kantengewicht.setOutlineThickness(Skalierung * 0.01);
 
             //Drehwinkel
             double X = P2.x - P.x;
