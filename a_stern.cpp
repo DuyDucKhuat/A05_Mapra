@@ -154,13 +154,13 @@ bool A_star(const DistanceGraph& G,GraphVisualizer& V, VertexT start, VertexT zi
                 V.markVertex(v.first, VertexStatus::InQueue);
                 //double cost = Weglaenge[v.first];
                 //V.updateVertex(v.first, cost, v.second, 0,   VertexStatus::InQueue);
-                V.markEdge( EdgeT (currentEdge.second, N[v].first),EdgeStatus::Active);
+                V.markEdge( EdgeT (currentEdge.second, v.first),EdgeStatus::Active);
                 V.draw();
 
                 //okay, und wenn bekannt:
                 //ist der neue Weg besser?
             }
-            else if ( Weglaenge[current] + N[v].second < Weglaenge[N[v].first] ){
+            else if ( Weglaenge[current] + v.second < Weglaenge[v.first] ){
                 Weglaenge[v.first] = Weglaenge[current] + v.second;
 
                 v.second = G.estimatedCost(v.first, ziel);
