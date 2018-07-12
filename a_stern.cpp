@@ -322,7 +322,7 @@ int main(int argc, char * argv[])
         
         std::list < VertexT > weg;
         c_graph_visualizer V(&window, G, &event);
-        if( A_star(G, V, 0, 8, weg)) PruefeWeg(3,weg);
+        if( A_star(G, V, 5, 3, weg)) PruefeWeg(3,weg);
     }
     
     if ( bsp == 4){
