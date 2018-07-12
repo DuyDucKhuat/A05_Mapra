@@ -42,8 +42,8 @@ class c_graph_visualizer : public GraphVisualizer
 
         vertex_status.resize( n, VertexStatus::UnknownVertex);
         edge_status.resize( n* n, EdgeStatus::UnknownEdge);
-        Kosten(n, 0);
-        Heuristil(n, 0);
+        Kosten.resize(n, 0);
+        Heuristik.resize(n, 0);
     }
     ~c_graph_visualizer(){}
     void markVertex(VertexT vertex, VertexStatus status) override {this->vertex_status[vertex] = status;}
