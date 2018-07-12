@@ -89,7 +89,7 @@ void c_graph_visualizer::draw(){
             
             if( this->edge_status[i * n + v.first] ==EdgeStatus::UnknownEdge)
             {
-                sf::Shape::Line line(P.x, P.y, P2.x, P2.y 1 , sf::Color::Black),
+                sf::Shape::Line line(P.x, P.y, P2.x, P2.y 1 , sf::Color::Black);
                 triangle.setFillColor(sf::Color::Black);
 
                 Kantengewicht.setOutlineColor( sf::Color::Black);
