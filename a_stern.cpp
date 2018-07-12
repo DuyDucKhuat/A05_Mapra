@@ -256,7 +256,7 @@ int main(int argc, char * argv[])
     std::istringstream Istr2(argv[2]);
     int bsp2;
     Istr2 >> bsp2;
-    sf::RenderWindow window(sf::VideoMode(800,600), "MyWindow");
+    sf::RenderWindow window(sf::VideoMode(1000,1000), "MyWindow");
     sf::Event event;
 
 
