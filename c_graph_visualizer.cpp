@@ -9,8 +9,8 @@
 
 void c_graph_visualizer::draw(){
     bool weiter = false;
-    //int hoehe = // TODOOOOO
-    //int breite =
+    int hoehe = this->window->getSize().x;// TODOOOOO
+    int breite = this->window->getSize().y;
     sf::Text Kantengewicht;
     sf::Text Knoten;
     Knoten.setFont(this-> font);
@@ -52,7 +52,7 @@ void c_graph_visualizer::draw(){
         else if(this->vertex_status[i] == VertexStatus::Active) shape.setFillColor(sf::Color::Red);
         else if(this->vertex_status[i] == VertexStatus::Destination) shape.setFillColor(sf::Color::Magenta);
        //Mittelpunkt ist Anfangsknoten.
-        sf::Vector2f P( 400 + Skalierung*(G.Koordinaten[i].first - x) ,300 + Skalierung*(G.Koordinaten[i].second - y));
+        sf::Vector2f P( hoehe/2. + Skalierung*(G.Koordinaten[i].first - x) ,breite/2. + Skalierung*(G.Koordinaten[i].second - y));
         shape.setPosition(P);
         Knoten.setPosition(P);
         this->window->draw(shape);
@@ -63,7 +63,7 @@ void c_graph_visualizer::draw(){
             sf::CircleShape triangle(2,3); //10 für 1-3 ##############################################
             triangle.setOrigin(triangle.getRadius(),triangle.getRadius());
 
-            sf::Vector2f P2(400 +  Skalierung*(G.Koordinaten[v.first].first - x),300 + Skalierung*(G.Koordinaten[v.first].second-y));
+            sf::Vector2f P2(hoehe/2. +  Skalierung*(G.Koordinaten[v.first].first - x), breite/2. + Skalierung*(G.Koordinaten[v.first].second-y));
             std::ostringstream strs;
             strs << v.second;
             std::string str = strs.str();
