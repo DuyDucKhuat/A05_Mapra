@@ -54,7 +54,7 @@ void c_graph_visualizer::draw(){
         Knoten.setString( str );
         Knoten.setFillColor( sf::Color::Black);
         Knoten.setOutlineColor( sf::Color(50,150,100));
-        //Knoten.setOutlineThickness( this->Skalierung  * 0.01 ); //1 , 1-3  0.2 4
+        Knoten.setOutlineThickness( 0.2 ); //1 , 1-3  0.2 4
         if(this->vertex_status[i] == VertexStatus::UnknownVertex) shape.setFillColor(sf::Color::Green);
         else if(this->vertex_status[i] == VertexStatus::InQueue) shape.setFillColor(sf::Color::Yellow);
         else if(this->vertex_status[i] == VertexStatus::Done) shape.setFillColor(sf::Color::Cyan);
@@ -78,7 +78,7 @@ void c_graph_visualizer::draw(){
             std::string str = strs.str();
             Kantengewicht.setString( str );
             Kantengewicht.setFillColor(sf::Color(10,200,100));
-            //Kantengewicht.setOutlineThickness(this->Skalierung * this->SkalierungText * ); //this->Skalierung * this->SkalierungText
+            Kantengewicht.setOutlineThickness( 0.1); //this->Skalierung * this->SkalierungText
 
             //Drehwinkel
             double X = P2.x - P.x;
