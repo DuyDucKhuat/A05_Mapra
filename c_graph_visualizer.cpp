@@ -13,10 +13,10 @@ void c_graph_visualizer::draw(){
     int breite = this->window->getSize().y;
     sf::Text Kantengewicht;
     sf::Text Knoten;
-    sf::Text Heuristik;
+    //sf::Text Heuristik;
     Knoten.setFont(this-> font);
     Kantengewicht.setFont(this-> font);
-    Heuristik.setFont( this-> font);
+    //Heuristik.setFont( this-> font);
     
     while(!weiter){
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)) weiter = true;
@@ -33,9 +33,9 @@ void c_graph_visualizer::draw(){
     double SkalierungText = 0.85 ; // Bsp.3 :  0.85 Bsp.4 : 0.17 ,
     double SkalierungDreieck = 0.5; // Bsp.3: 0.5 */
 
-    Knoten.setCharacterSize(this->Skalierung * this->SkalierungText); // 25 1-3, 10 für 4 ###################################
-    Kantengewicht.setCharacterSize(this->Skalierung * this->SkalierungText); // 15 1-3, 5 für 4
-    Heuristik.setCharacterSize(this->Skalierung * this->SkalierungText);
+    Knoten.setCharacterSize(15); // 25 1-3, 10 für 4 ###################################
+    Kantengewicht.setCharacterSize(15); // this->Skalierung * this->SkalierungText
+    //Heuristik.setCharacterSize(this->Skalierung * this->SkalierungText);
 
     //###############################################
     double x = G.Koordinaten[Mittelpunkt].first; //Mittelpunkt
@@ -69,7 +69,7 @@ void c_graph_visualizer::draw(){
 
         NeighborT N = G.getNeighbors(i);
         for (auto v :N){
-            sf::CircleShape triangle(5,3); //10 für 1-3 this->Skalierung * this-> SkalierungDreieck
+            sf::CircleShape triangle(7,3); //10 für 1-3 this->Skalierung * this-> SkalierungDreieck
             triangle.setOrigin(triangle.getRadius(),triangle.getRadius());
 
             sf::Vector2f P2(hoehe/2. +  this->Skalierung*(G.Koordinaten[v.first].first - x), breite/2. + this->Skalierung*(G.Koordinaten[v.first].second-y));
