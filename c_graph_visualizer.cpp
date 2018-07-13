@@ -72,13 +72,13 @@ void c_graph_visualizer::draw(){
             sf::CircleShape triangle(this->Skalierung * this-> SkalierungDreieck,3); //10 für 1-3
             triangle.setOrigin(triangle.getRadius(),triangle.getRadius());
 
-            sf::Vector2f P2(hoehe/2. +  Skalierung*(G.Koordinaten[v.first].first - x), breite/2. + Skalierung*(G.Koordinaten[v.first].second-y));
+            sf::Vector2f P2(hoehe/2. +  this->Skalierung*(G.Koordinaten[v.first].first - x), breite/2. + this->Skalierung*(G.Koordinaten[v.first].second-y));
             std::ostringstream strs;
             strs << v.second;
             std::string str = strs.str();
             Kantengewicht.setString( str );
             Kantengewicht.setFillColor(sf::Color(10,200,100));
-            Kantengewicht.setOutlineThickness(Skalierung * 0.01);
+            Kantengewicht.setOutlineThickness(this->Skalierung * this->SkalierungText);
 
             //Drehwinkel
             double X = P2.x - P.x;
