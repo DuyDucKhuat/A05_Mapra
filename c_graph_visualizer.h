@@ -50,10 +50,10 @@ class c_graph_visualizer : public GraphVisualizer
         //Heuristik.resize(n, 0);
         switch (Bsp){
             case 1:
-                this->Skalierung = 5000;
+                this->Skalierung = 20000;
                 this->Mittelpunkt = 3 ;
-                this->SkalierungText = 0.002;
-                this->SkalierungDreieck = 0.001;
+                this->SkalierungText = 0.0002;
+                this->SkalierungDreieck = 0.0001;
                 break;
                 
             case 2:
