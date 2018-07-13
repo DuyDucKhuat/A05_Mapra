@@ -33,9 +33,9 @@ void c_graph_visualizer::draw(){
     double SkalierungText = 0.85 ; // Bsp.3 :  0.85 Bsp.4 : 0.17 ,
     double SkalierungDreieck = 0.5; // Bsp.3: 0.5 */
 
-    Knoten.setCharacterSize(Skalierung * SkalierungText); // 25 1-3, 10 für 4 ###################################
-    Kantengewicht.setCharacterSize(Skalierung * SkalierungText); // 15 1-3, 5 für 4
-    Heuristik.setCharacterSize(Skalierung * SkalierungText);
+    Knoten.setCharacterSize(this->Skalierung * this->SkalierungText); // 25 1-3, 10 für 4 ###################################
+    Kantengewicht.setCharacterSize(this->Skalierung * this->SkalierungText); // 15 1-3, 5 für 4
+    Heuristik.setCharacterSize(this->Skalierung * this->SkalierungText);
 
     //###############################################
     double x = G.Koordinaten[Mittelpunkt].first; //Mittelpunkt
@@ -54,17 +54,14 @@ void c_graph_visualizer::draw(){
         Knoten.setString( str );
         Knoten.setFillColor( sf::Color::Black);
         Knoten.setOutlineColor( sf::Color(50,150,100));
-        Knoten.setOutlineThickness( Skalierung  * 0.01 ); //1 , 1-3  0.2 4
- 
-    
-        
+        Knoten.setOutlineThickness( this->Skalierung  * 0.01 ); //1 , 1-3  0.2 4
         if(this->vertex_status[i] == VertexStatus::UnknownVertex) shape.setFillColor(sf::Color::Green);
         else if(this->vertex_status[i] == VertexStatus::InQueue) shape.setFillColor(sf::Color::Yellow);
         else if(this->vertex_status[i] == VertexStatus::Done) shape.setFillColor(sf::Color::Cyan);
         else if(this->vertex_status[i] == VertexStatus::Active) shape.setFillColor(sf::Color::Red);
         else if(this->vertex_status[i] == VertexStatus::Destination) shape.setFillColor(sf::Color::Magenta);
        //Mittelpunkt ist Anfangsknoten.
-        sf::Vector2f P( hoehe/2. + Skalierung*(G.Koordinaten[i].first - x) ,breite/2. + Skalierung*(G.Koordinaten[i].second - y));
+        sf::Vector2f P( hoehe/2. + this->Skalierung*(G.Koordinaten[i].first - x) ,breite/2. + this->Skalierung*(G.Koordinaten[i].second - y));
         shape.setPosition(P);
         Knoten.setPosition(P);
         this->window->draw(shape);
