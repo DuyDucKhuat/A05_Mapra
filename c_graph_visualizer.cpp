@@ -84,7 +84,7 @@ void c_graph_visualizer::draw(){
             double X = P2.x - P.x;
             double Y = P2.y - P.y;
             double alpha = acos (X / sqrt(X*X +Y*Y)) * 360;
-            alpha /= acos(-1)*2;
+            alpha /= (acos(-1)*2);
             triangle.setPosition(sf::Vector2f((P.x + P2.x)/2.,(P.y + P2.y)/2.));
             triangle.setRotation(alpha);
             Kantengewicht.setPosition(sf::Vector2f((P.x + P2.x)/2. + 5, (P.y + P2.y)/2.));
