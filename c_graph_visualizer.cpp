@@ -53,7 +53,7 @@ void c_graph_visualizer::draw(){
         std::string str = strs.str();
         Knoten.setString( str );
         Knoten.setFillColor( sf::Color::Black);
-        Knoten.setOutlineColor( sf::Color(50,150,100));
+        Knoten.setOutlineColor( sf::Color(50,150,50));
         Knoten.setOutlineThickness( 0.2 ); //1 , 1-3  0.2 4
         if(this->vertex_status[i] == VertexStatus::UnknownVertex) shape.setFillColor(sf::Color::Green);
         else if(this->vertex_status[i] == VertexStatus::InQueue) shape.setFillColor(sf::Color::Yellow);
@@ -69,7 +69,7 @@ void c_graph_visualizer::draw(){
 
         NeighborT N = G.getNeighbors(i);
         for (auto v :N){
-            sf::CircleShape triangle(7,3); //10 für 1-3 this->Skalierung * this-> SkalierungDreieck
+            sf::CircleShape triangle(9,3); //10 für 1-3 this->Skalierung * this-> SkalierungDreieck
             triangle.setOrigin(triangle.getRadius(),triangle.getRadius());
 
             sf::Vector2f P2(hoehe/2. +  this->Skalierung*(G.Koordinaten[v.first].first - x), breite/2. + this->Skalierung*(G.Koordinaten[v.first].second-y));
