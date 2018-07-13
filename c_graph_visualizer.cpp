@@ -78,7 +78,7 @@ void c_graph_visualizer::draw(){
             std::string str = strs.str();
             Kantengewicht.setString( str );
             Kantengewicht.setFillColor(sf::Color(10,200,100));
-            Kantengewicht.setOutlineThickness(this->Skalierung * this->SkalierungText);
+            Kantengewicht.setOutlineThickness(0.1); //this->Skalierung * this->SkalierungText
 
             //Drehwinkel
             double X = P2.x - P.x;
