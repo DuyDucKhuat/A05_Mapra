@@ -53,7 +53,7 @@ void c_graph_visualizer::draw(){
         std::string str = strs.str();
         Knoten.setString( str );
         Knoten.setFillColor( sf::Color::Black);
-        Knoten.setOutlineColor( sf::Color(10,10,50));
+        Knoten.setOutlineColor( sf::Color::Black);
         Knoten.setOutlineThickness( 0.2 ); //1 , 1-3  0.2 4
         if(this->vertex_status[i] == VertexStatus::UnknownVertex) shape.setFillColor(sf::Color::Green);
         else if(this->vertex_status[i] == VertexStatus::InQueue) shape.setFillColor(sf::Color::Yellow);
