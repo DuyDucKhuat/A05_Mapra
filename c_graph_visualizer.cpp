@@ -69,7 +69,7 @@ void c_graph_visualizer::draw(){
 
         NeighborT N = G.getNeighbors(i);
         for (auto v :N){
-            sf::CircleShape triangle(this->Skalierung * this-> SkalierungDreieck,3); //10 für 1-3
+            sf::CircleShape triangle(5,3); //10 für 1-3 this->Skalierung * this-> SkalierungDreieck
             triangle.setOrigin(triangle.getRadius(),triangle.getRadius());
 
             sf::Vector2f P2(hoehe/2. +  this->Skalierung*(G.Koordinaten[v.first].first - x), breite/2. + this->Skalierung*(G.Koordinaten[v.first].second-y));
