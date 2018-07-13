@@ -54,7 +54,7 @@ void c_graph_visualizer::draw(){
         Knoten.setString( str );
         Knoten.setFillColor( sf::Color::Black);
         Knoten.setOutlineColor( sf::Color(50,150,100));
-        Knoten.setOutlineThickness( this->Skalierung  * 0.01 ); //1 , 1-3  0.2 4
+        //Knoten.setOutlineThickness( this->Skalierung  * 0.01 ); //1 , 1-3  0.2 4
         if(this->vertex_status[i] == VertexStatus::UnknownVertex) shape.setFillColor(sf::Color::Green);
         else if(this->vertex_status[i] == VertexStatus::InQueue) shape.setFillColor(sf::Color::Yellow);
         else if(this->vertex_status[i] == VertexStatus::Done) shape.setFillColor(sf::Color::Cyan);
